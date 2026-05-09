@@ -85,9 +85,12 @@ From `projects/kairogu`:
 
 ```sh
 node scripts/export_geoflow_guides.mjs
-rsync -a --delete --exclude vercel.json html/ web-landing/
-npx --yes vercel deploy --prod
+git add html/
+git commit -m "update guides and sitemap"
+git push
 ```
+
+Vercel auto-deploys on push via Git integration. No manual `vercel deploy` needed.
 
 Kairogu is Japan-only for now:
 
@@ -97,8 +100,8 @@ Kairogu is Japan-only for now:
 - Guide index: `https://www.kairogu.men/guides/`
 - First staged article: `docs/articles/price-recording-app-ja.md`
 - Vercel production project: `kurabe`
-- Vercel project root: `web-landing/`
-- Generated source output: `html/`
+- Git repo: `cc100053/geo-marketing`, root `projects/kairogu`
+- Vercel serves `html/` directly (`buildCommand: null`)
 
 Live endpoints:
 
@@ -111,10 +114,10 @@ Current Vercel production project:
 
 - Project: `kurabe`
 - Custom domain: `www.kairogu.men`
-- Note: keep Kairogu on the existing Vercel project unless intentionally moving
-  DNS and deployment ownership.
-- Note: run `rsync -a --delete --exclude vercel.json html/ web-landing/` after
-  export because the existing Vercel project deploys from `web-landing/`.
+- Git integration: `cc100053/geo-marketing`, root directory `projects/kairogu`
+- `vercel.json` sets `buildCommand: null`; Vercel serves the committed `html/`
+  folder directly. The export script requires local Docker/GEOFlow and cannot
+  run on Vercel CI.
 
 ## Daily Automation
 

@@ -51,16 +51,15 @@ deployment runbooks.
 - Marketing workflow doc: `docs/geoflow_content_workflow.md`
 - Export script: `scripts/export_geoflow_guides.mjs`
 - Manifest: `scripts/geoflow_guides_manifest.json`
-- Static source output: `html/`
-- Vercel project root mirror: `web-landing/`
-- Root Vercel config: `vercel.json`
-- Vercel project-root config: `web-landing/vercel.json`
+- Static output: `html/`
+- Vercel config: `vercel.json` (`buildCommand: null`, `outputDirectory: html`)
+- Git repo: `cc100053/geo-marketing`, Vercel root directory: `projects/kairogu`
 - Current Vercel production project: `kurabe`
 - Public hosting: `https://www.kairogu.men`
 
-Note: an extra Vercel project named `kairogu` may exist from an earlier CLI
-link. The production custom domain is on the existing `kurabe` project. Do not
-delete Vercel projects without explicit approval.
+Note: a Vercel project named `geo-marketing` was created incidentally via CLI.
+The production custom domain (`www.kairogu.men`) is on the `kurabe` project.
+Do not delete Vercel projects without explicit approval.
 
 ### Daily Automation Node
 
@@ -146,17 +145,18 @@ From `/Users/fatboy/geo-marketing/projects/kairogu`:
 ```sh
 node --check scripts/export_geoflow_guides.mjs
 node scripts/export_geoflow_guides.mjs
-rsync -a --delete --exclude vercel.json html/ web-landing/
-npx --yes vercel deploy --prod
+git add html/
+git commit -m "update guides and sitemap"
+git push
 curl -I https://www.kairogu.men/guides/
 curl -I https://www.kairogu.men/sitemap.xml
 curl -I https://www.kairogu.men/guides/ja/price-recording-app.html
 ```
 
-The `web-landing/` directory mirrors generated static output because the
-existing Vercel `kurabe` project is configured with `web-landing` as its root
-directory. Keep `web-landing/vercel.json`; it disables remote rebuilds and
-serves the pre-exported static files.
+The Vercel `kurabe` project is connected to `cc100053/geo-marketing` with root
+directory `projects/kairogu`. Push triggers auto-deploy. `vercel.json` sets
+`buildCommand: null` so Vercel serves the committed `html/` folder directly.
+The export script requires local Docker/GEOFlow and cannot run on Vercel CI.
 
 Content rule:
 

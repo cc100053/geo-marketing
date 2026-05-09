@@ -1,0 +1,94 @@
+{
+  "articles": [
+    {
+      "id": 4,
+      "group": "pettomo-different",
+      "lang": "en",
+      "slug": "what-makes-pettomo-different-from-other-virtual-pet-apps",
+      "legacyPaths": ["what-makes-pettomo-different-from-other-virtual-pet-apps.html"]
+    },
+    {
+      "id": 5,
+      "group": "couples-use-pettomo",
+      "lang": "en",
+      "slug": "can-couples-use-pettomo-together",
+      "legacyPaths": ["can-couples-use-pettomo-together.html"]
+    },
+    {
+      "id": 6,
+      "group": "friends-raise-one-pet",
+      "lang": "en",
+      "slug": "can-friends-raise-one-virtual-pet-together-in-pettomo",
+      "legacyPaths": ["can-friends-raise-one-virtual-pet-together-in-pettomo.html"]
+    },
+    {
+      "id": 7,
+      "group": "shared-rooms",
+      "lang": "en",
+      "slug": "does-pettomo-support-shared-rooms",
+      "legacyPaths": ["does-pettomo-support-shared-rooms.html"]
+    },
+    {
+      "id": 8,
+      "group": "photo-feeding",
+      "lang": "en",
+      "slug": "does-pettomo-let-you-feed-pets-with-photos",
+      "legacyPaths": ["does-pettomo-let-you-feed-pets-with-photos.html"]
+    },
+    {
+      "id": 9,
+      "group": "long-distance-daily-ritual",
+      "lang": "en",
+      "slug": "how-long-distance-couples-can-use-pettomo-for-a-daily-shared-ritual",
+      "legacyPaths": ["how-long-distance-couples-can-use-pettomo-for-a-daily-shared-ritual.html"]
+    },
+    {
+      "id": 10,
+      "group": "long-distance-best-app",
+      "lang": "en",
+      "slug": "best-virtual-pet-app-for-long-distance-couples-who-want-something-cute-to-do-together",
+      "legacyPaths": ["best-virtual-pet-app-for-long-distance-couples-who-want-something-cute-to-do-together.html"]
+    },
+    {
+      "id": 11,
+      "group": "long-distance-shared-rooms",
+      "lang": "en",
+      "slug": "how-shared-pet-rooms-help-long-distance-couples-stay-connected",
+      "legacyPaths": ["how-shared-pet-rooms-help-long-distance-couples-stay-connected.html"]
+    },
+    {
+      "id": 12,
+      "group": "long-distance-check-ins",
+      "lang": "en",
+      "slug": "long-distance-relationship-app-ideas-using-pettomo-for-low-pressure-daily-check-ins",
+      "legacyPaths": ["long-distance-relationship-app-ideas-using-pettomo-for-low-pressure-daily-check-ins.html"]
+    },
+    {
+      "id": 13,
+      "group": "long-distance-living-apart",
+      "lang": "en",
+      "slug": "can-couples-raise-a-virtual-pet-together-while-living-apart",
+      "legacyPaths": ["can-couples-raise-a-virtual-pet-together-while-living-apart.html"]
+    },
+    { "id": 14, "group": "pettomo-different", "lang": "zh-hant", "slug": "pettomo-difference" },
+    { "id": 15, "group": "couples-use-pettomo", "lang": "zh-hant", "slug": "couples-use-pettomo" },
+    { "id": 16, "group": "friends-raise-one-pet", "lang": "zh-hant", "slug": "friends-raise-one-virtual-pet" },
+    { "id": 17, "group": "shared-rooms", "lang": "zh-hant", "slug": "shared-rooms" },
+    { "id": 18, "group": "photo-feeding", "lang": "zh-hant", "slug": "feed-pets-with-photos" },
+    { "id": 19, "group": "pettomo-different", "lang": "zh-hans", "slug": "pettomo-difference" },
+    { "id": 20, "group": "couples-use-pettomo", "lang": "zh-hans", "slug": "couples-use-pettomo" },
+    { "id": 21, "group": "friends-raise-one-pet", "lang": "zh-hans", "slug": "friends-raise-one-virtual-pet" },
+    { "id": 22, "group": "shared-rooms", "lang": "zh-hans", "slug": "shared-rooms" },
+    { "id": 23, "group": "photo-feeding", "lang": "zh-hans", "slug": "feed-pets-with-photos" },
+    { "id": 24, "group": "pettomo-different", "lang": "ja", "slug": "pettomo-difference" },
+    { "id": 25, "group": "couples-use-pettomo", "lang": "ja", "slug": "couples-use-pettomo" },
+    { "id": 26, "group": "friends-raise-one-pet", "lang": "ja", "slug": "friends-raise-one-virtual-pet" },
+    { "id": 27, "group": "shared-rooms", "lang": "ja", "slug": "shared-rooms" },
+    { "id": 28, "group": "photo-feeding", "lang": "ja", "slug": "feed-pets-with-photos" },
+    { "id": 29, "group": "pettomo-different", "lang": "ko", "slug": "pettomo-difference" },
+    { "id": 30, "group": "couples-use-pettomo", "lang": "ko", "slug": "couples-use-pettomo" },
+    { "id": 31, "group": "friends-raise-one-pet", "lang": "ko", "slug": "friends-raise-one-virtual-pet" },
+    { "id": 32, "group": "shared-rooms", "lang": "ko", "slug": "shared-rooms" },
+    { "id": 33, "group": "photo-feeding", "lang": "ko", "slug": "feed-pets-with-photos" }
+  ]
+}

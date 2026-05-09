@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PetTomo Invite</title>
+  <meta name="robots" content="noindex">
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #fff7ea;
+      color: #211812;
+    }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at top, rgba(255, 214, 0, 0.24), transparent 34rem),
+        linear-gradient(180deg, #ffffff 0%, #fff7ea 100%);
+    }
+    main {
+      width: min(88vw, 26rem);
+      padding: 1.5rem;
+      border: 3px solid #111;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.14);
+      text-align: center;
+    }
+    img {
+      width: 5rem;
+      height: 5rem;
+      border-radius: 20px;
+      border: 2px solid #111;
+    }
+    h1 {
+      margin: 1rem 0 0.5rem;
+      font-size: 1.5rem;
+      line-height: 1.15;
+    }
+    p {
+      margin: 0.5rem 0;
+      line-height: 1.5;
+      font-weight: 650;
+      color: rgba(33, 24, 18, 0.78);
+    }
+    .code {
+      display: inline-block;
+      margin: 0.75rem 0 1rem;
+      padding: 0.55rem 0.9rem;
+      border: 2px solid #111;
+      border-radius: 12px;
+      background: #fff;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+    }
+    a {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 2.9rem;
+      padding: 0 1rem;
+      border: 2px solid #111;
+      border-radius: 14px;
+      background: #ffd600;
+      color: #111;
+      box-shadow: 0 4px 0 rgba(0, 0, 0, 0.18);
+      font-weight: 900;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <img src="/assets/PetTomo_appicon.png" alt="PetTomo">
+    <h1>Join me in PetTomo</h1>
+    <p>Opening your shared pet room...</p>
+    <div class="code" id="invite-code">------</div>
+    <p>If PetTomo does not open, install it from the App Store and tap this invite again.</p>
+    <a id="store-link" href="https://apps.apple.com/app/id6757725650">Open App Store</a>
+  </main>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const rawCode = (
+      params.get('invite_code') ||
+      params.get('code') ||
+      ''
+    ).trim().toUpperCase();
+    const code = /^[A-Z0-9]{6}$/.test(rawCode) ? rawCode : '';
+    const storeUrl = 'https://apps.apple.com/app/id6757725650';
+    const customUrl = code
+      ? `com.cc100053.pet://invite?invite_code=${encodeURIComponent(code)}`
+      : 'com.cc100053.pet://invite';
+
+    document.getElementById('invite-code').textContent = code || '------';
+    document.getElementById('store-link').href = storeUrl;
+
+    if (code) {
+      const startedAt = Date.now();
+      window.location.href = customUrl;
+      window.setTimeout(() => {
+        if (Date.now() - startedAt < 2600 && !document.hidden) {
+          window.location.href = storeUrl;
+        }
+      }, 1800);
+    }
+  </script>
+</body>
+</html>

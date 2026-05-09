@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>価格記録アプリで何ができる？スーパーの値段を残すメリット | カイログ ガイド</title>
+  <meta name="description" content="価格記録アプリは、スーパーやドラッグストアで見つけた商品の値段を残し、過去の価格や容量と比べやすくするための買い物サポートです。カイログでできることと注意点を紹介します。">
+  <meta name="keywords" content="価格記録 アプリ">
+  <link rel="canonical" href="https://www.kairogu.men/guides/ja/price-recording-app.html">
+  <link rel="icon" type="image/png" href="/icon.png">
+  <meta property="og:title" content="価格記録アプリで何ができる？スーパーの値段を残すメリット | カイログ ガイド">
+  <meta property="og:description" content="価格記録アプリは、スーパーやドラッグストアで見つけた商品の値段を残し、過去の価格や容量と比べやすくするための買い物サポートです。カイログでできることと注意点を紹介します。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.kairogu.men/guides/ja/price-recording-app.html">
+  <meta property="og:image" content="https://www.kairogu.men/icon.png">
+  <style>
+    :root {
+      --primary: #1A8D7A;
+      --accent: #F4A261;
+      --bg: #FAF9F7;
+      --panel: #FFFFFF;
+      --text: #242424;
+      --muted: #667085;
+      --line: #E5E1DA;
+      --soft: #EEF8F5;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", "Segoe UI", sans-serif;
+      line-height: 1.8;
+    }
+
+    a { color: inherit; }
+
+    .site-header,
+    .site-footer {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--primary);
+      font-size: 1.18rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .site-nav a,
+    .site-footer a,
+    .eyebrow a {
+      text-decoration: none;
+    }
+
+    .site-nav a:hover,
+    .site-footer a:hover,
+    .eyebrow a:hover {
+      color: var(--primary);
+    }
+
+    .guides-shell,
+    .article-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 72px;
+    }
+
+    .guides-hero {
+      min-height: 300px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 150px;
+      gap: 40px;
+      align-items: center;
+      padding: 52px 0 40px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .guides-hero img {
+      width: 132px;
+      height: 132px;
+      border-radius: 28px;
+      box-shadow: 0 16px 34px rgba(36, 36, 36, 0.12);
+    }
+
+    .eyebrow,
+    .guide-label {
+      margin: 0 0 12px;
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 840px;
+      margin: 0;
+      font-size: clamp(2.1rem, 6vw, 4rem);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    .guides-hero p:not(.eyebrow),
+    .article-summary {
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      padding-top: 34px;
+    }
+
+    .guide-card {
+      min-height: 220px;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(36, 36, 36, 0.06);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .guide-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(36, 36, 36, 0.1);
+    }
+
+    .guide-card h2 {
+      margin: 0;
+      font-size: 1.24rem;
+      line-height: 1.35;
+    }
+
+    .guide-card p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .article {
+      max-width: 860px;
+      margin: 26px auto 0;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .article-meta {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .article-content {
+      margin-top: 34px;
+      font-size: 1.04rem;
+    }
+
+    .article-content h2,
+    .article-content h3 {
+      margin: 34px 0 12px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    .article-content h2 { font-size: 1.58rem; }
+    .article-content h3 { font-size: 1.22rem; }
+
+    .article-content p,
+    .article-content li {
+      color: #3F3A36;
+    }
+
+    .article-content ul,
+    .article-content ol {
+      padding-left: 1.35rem;
+    }
+
+    .article-nav {
+      max-width: 860px;
+      margin: 24px auto 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .article-nav a {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--primary);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    @media (max-width: 720px) {
+      .site-header,
+      .site-footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .guides-hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .guides-hero img {
+        width: 104px;
+        height: 104px;
+      }
+    }
+  </style>
+</head>
+<body class="article-page">
+  <header class="site-header">
+    <a class="brand" href="/">
+      <img src="/icon.png" alt="カイログ">
+      <span>カイログ</span>
+    </a>
+    <nav class="site-nav" aria-label="Site navigation">
+      <a href="/guides/">ガイド</a>
+      <a href="/privacy.html">プライバシー</a>
+      <a href="/terms.html">利用規約</a>
+    </nav>
+  </header>
+  
+      <main class="article-shell">
+        <p class="eyebrow"><a href="/guides/">カイログ ガイド</a></p>
+        <article class="article">
+          <h1>価格記録アプリで何ができる？スーパーの値段を残すメリット</h1>
+          <p class="article-summary">価格記録アプリは、スーパーやドラッグストアで見つけた商品の値段を残し、過去の価格や容量と比べやすくするための買い物サポートです。カイログでできることと注意点を紹介します。</p>
+          <div class="article-meta">更新日 2026/05/09</div>
+          <div class="article-content">
+            <p>スーパーやドラッグストアで「これは安いかも」と思っても、前に買った値段を正確に覚えておくのは簡単ではありません。価格記録アプリは、商品ごとの値段、容量、店舗、日付を残して、次の買い物で見返しやすくするための道具です。</p>
+<p>カイログは、日本の毎日の買い物向けに作られた価格管理アプリです。価格タグを撮影して商品名や価格を記録し、買い物リストや過去の価格履歴と一緒に使えます。</p>
+<h2>要点</h2>
+<ul>
+<li>価格記録アプリは、商品ごとの値段を「記憶」ではなく「記録」で見返すために使います。</li>
+<li>容量や100gあたり価格も残せると、サイズ違いの商品を比べやすくなります。</li>
+<li>カイログでは、価格タグ撮影、買い物リスト、価格履歴、近くの価格情報をまとめて管理できます。</li>
+<li>近くの価格情報やAI読み取りは利用状況や撮影状態に左右されるため、最終確認は自分で行うことが大切です。</li>
+</ul>
+<h2>なぜ価格を記録すると便利なのか</h2>
+<p>食品や日用品の価格は、店舗、時期、容量、セール内容によって変わります。同じ商品でも、先週の特売、別店舗の通常価格、容量違いの商品では、単純な表示価格だけでは比べにくいことがあります。</p>
+<p>価格を記録しておくと、次のような場面で判断しやすくなります。</p>
+<ul>
+<li>よく買う商品の過去価格を見返したいとき</li>
+<li>特売や見切り品が本当に安いか確認したいとき</li>
+<li>大容量商品と通常サイズを比べたいとき</li>
+<li>買い物リストの商品を、前回いくらで買ったか確認したいとき</li>
+<li>スーパーとドラッグストアの日用品価格を比べたいとき</li>
+</ul>
+<p>節約は、毎回いちばん安いものを探すことだけではありません。よく買う商品の価格感を持っておくことで、「今日は買う」「今回は見送る」といった判断がしやすくなります。</p>
+<h2>比較するときに見るポイント</h2>
+<p>価格を残すときは、金額だけでなく、比較に必要な情報も一緒に記録しておくと便利です。</p>
+<h3>商品名</h3>
+<p>同じような商品名でも、メーカー、容量、味、個数が違う場合があります。あとで見返すことを考えると、自分が分かる程度に商品名を残しておくのがおすすめです。</p>
+<h3>価格と税込・税抜</h3>
+<p>店頭表示は税込と税抜が混ざることがあります。比較するときは、税込価格なのか税抜価格なのかを意識すると、記録のズレを減らせます。</p>
+<h3>容量や重量</h3>
+<p>肉、魚、野菜、米、洗剤、トイレットペーパーなどは、容量違いで価格の印象が変わります。100gあたり価格や容量ベースで見られると、表示価格だけでは分かりにくい差に気づきやすくなります。</p>
+<h3>店舗と日付</h3>
+<p>価格は店舗や時期によって変わります。どこで、いつ見た価格なのかを残しておくと、次の買い物で参考にしやすくなります。</p>
+<h2>カイログでできること</h2>
+<p>カイログでは、価格タグを撮影して、商品名、価格、割引、容量、カテゴリなどを記録できます。手入力だけに頼らず、買い物中のメモを素早く残しやすいのが特徴です。</p>
+<p>主な使い方は次の通りです。</p>
+<ol>
+<li>店頭で価格タグを撮影する</li>
+<li>AI読み取り結果を確認する</li>
+<li>必要に応じて商品名、価格、容量、カテゴリを修正する</li>
+<li>店舗名や位置情報と一緒に保存する</li>
+<li>次回の買い物で価格履歴や買い物リストから見返す</li>
+</ol>
+<p>また、カイログには買い物リストもあります。買う予定の商品と価格メモを同じアプリで扱えるため、「買うもの」と「前はいくらだったか」を分けて管理しなくて済みます。</p>
+<p>カイログ Pro では、近くの価格情報や比較機能をさらに活用できます。ただし、近くの価格情報はユーザーの利用状況や記録内容によって変わるため、すべての店舗や商品価格が必ず表示されるわけではありません。</p>
+<h2>注意したいこと</h2>
+<p>価格記録アプリは、買い物判断を助けるための道具です。最安値を保証するものではありません。</p>
+<p>AIによる価格タグ読み取りも、写真の明るさ、角度、文字の見え方、割引表示の複雑さによって結果が変わることがあります。保存前には、読み取られた商品名、価格、容量、割引内容を確認してください。</p>
+<p>また、地域の価格情報は投稿や記録が増えるほど参考にしやすくなります。最初は自分のよく買う商品から記録を始めるのが現実的です。</p>
+<h2>よくある質問</h2>
+<h3>価格記録アプリとレシート管理アプリは何が違いますか？</h3>
+<p>レシート管理アプリは購入後の支出管理に向いています。価格記録アプリは、店頭で見つけた価格や過去の価格を残し、買う前や買い物中に比較しやすくする目的で使います。</p>
+<h3>カイログはバーコードを読み取るアプリですか？</h3>
+<p>カイログは価格タグの撮影とAI読み取りを中心にした価格管理アプリです。商品名、価格、割引、容量、カテゴリなどを記録し、あとから見返して比較しやすくします。</p>
+<h3>無料でも使えますか？</h3>
+<p>基本的な価格記録や買い物リストは利用できます。近くの価格情報や便利な比較機能をさらに活用したい場合は、カイログ Pro の利用を検討できます。</p>
+<h2>まとめ</h2>
+<p>価格記録アプリは、日々の買い物を記憶だけに頼らず、あとから見返せる形にするためのツールです。特売、見切り品、容量違いの商品を比べるとき、過去の価格が残っていると判断しやすくなります。</p>
+<p>カイログなら、価格タグの撮影、価格履歴、買い物リストをまとめて管理できます。よく買う商品から少しずつ記録して、自分の買い物に合った価格感を作っていきましょう。</p>
+          </div>
+        </article>
+        <nav class="article-nav" aria-label="Guide navigation">
+          <a href="/guides/">すべてのガイド</a>
+          <a href="/guides/ja/">日本語ガイド</a>
+          <a href="/">カイログ ホーム</a>
+        </nav>
+      </main>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"価格記録アプリで何ができる？スーパーの値段を残すメリット","description":"価格記録アプリは、スーパーやドラッグストアで見つけた商品の値段を残し、過去の価格や容量と比べやすくするための買い物サポートです。カイログでできることと注意点を紹介します。","inLanguage":"ja","author":{"@type":"Organization","name":"カイログ編集部"},"publisher":{"@type":"Organization","name":"カイログ","logo":{"@type":"ImageObject","url":"https://www.kairogu.men/icon.png"}},"mainEntityOfPage":"https://www.kairogu.men/guides/ja/price-recording-app.html","dateModified":"2026-05-09T00:36:05.153Z"}</script>
+    
+  <footer class="site-footer">
+    <span>&copy; 2026 CHIANG CHI NAM</span>
+    <a href="mailto:hangyodev@gmail.com">お問い合わせ</a>
+  </footer>
+</body>
+</html>

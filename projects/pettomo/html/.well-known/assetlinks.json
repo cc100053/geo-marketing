@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.cc100053.pet",
+      "sha256_cert_fingerprints": [
+        "18:9E:50:59:15:F6:06:C2:70:92:EC:92:FB:D7:26:EA:CA:73:97:90:DE:0D:51:EF:87:1A:58:60:07:BD:3B:7C"
+      ]
+    }
+  }
+]

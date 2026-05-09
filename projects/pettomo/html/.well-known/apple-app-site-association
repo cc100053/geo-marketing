@@ -1,0 +1,18 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": [
+          "QRLFBRL2J2.com.cc100053.pet"
+        ],
+        "components": [
+          {
+            "/": "/invite",
+            "comment": "PetTomo room invite links"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetTomo - Turn Every Moment into Love | Shared Pet Care</title>
+    <link rel="icon" type="image/png" href="assets/PetTomo_appicon.png">
+    
+    <script>
+        function scrollToDownload(e) {
+            e.preventDefault();
+            const element = document.getElementById('download');
+            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #5FBF9E;
+            --secondary: #FFB36B;
+            --bg: #FFFBF3;
+            --text-dark: #2F2A23;
+            --text-muted: #7A6F66;
+            --white: #FFFFFF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        nav { padding: 20px 0; display: flex; justify-content: space-between; align-items: center; }
+
+        .logo {
+            display: flex; align-items: center; gap: 12px;
+            font-weight: 700; font-size: 1.5rem; color: var(--primary); text-decoration: none;
+        }
+
+        .logo img { width: 44px; height: 44px; border-radius: 10px; }
+
+        header { padding: 80px 0; display: flex; flex-direction: column; align-items: center; text-align: center; }
+
+        .hero-content h1 { font-size: 3rem; margin-bottom: 24px; line-height: 1.2; }
+
+        .hero-content p { font-size: 1.2rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 40px; }
+
+        .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+        .btn {
+            padding: 14px 32px; border-radius: 50px; text-decoration: none;
+            font-weight: 500; transition: all 0.3s ease; font-size: 1.1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary); color: var(--white);
+            box-shadow: 0 4px 15px rgba(95, 191, 158, 0.3);
+        }
+
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(95, 191, 158, 0.4); }
+
+        .hero-mockup { margin-top: 60px; position: relative; width: 100%; max-width: 800px; }
+
+        .hero-mockup .main-img {
+            width: 100%;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .pet-float {
+            position: absolute;
+            width: 120px;
+            height: auto;
+            bottom: -40px;
+            right: 20px;
+            z-index: 2;
+            animation: bounce 3s infinite ease-in-out;
+        }
+
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+
+        .features { padding: 100px 0; }
+
+        .section-title { text-align: center; margin-bottom: 60px; }
+
+        .section-title h2 { font-size: 2.5rem; margin-bottom: 16px; }
+
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+
+        .feature-card {
+            background: var(--white); padding: 40px; border-radius: 24px;
+            border: 1px solid #E6E0D6; text-align: center; transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover { transform: translateY(-5px); }
+
+        .feature-icon { font-size: 3rem; margin-bottom: 24px; }
+
+        .feature-card h3 { font-size: 1.5rem; margin-bottom: 16px; }
+
+        .pets { background-color: #F4FAF8; padding: 100px 0; border-radius: 60px; margin: 40px 20px; }
+
+        .pet-list { display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; margin-top: 40px; }
+
+        .pet-item { text-align: center; width: 180px; }
+
+        .pet-item img { width: 100px; margin-bottom: 20px; }
+
+        .pet-item h4 { font-size: 1.2rem; color: var(--primary); }
+
+        .lang-switcher { margin-top: 40px; font-size: 0.9rem; }
+
+        .lang-switcher a { color: var(--text-muted); text-decoration: none; margin: 0 8px; }
+
+        .lang-switcher a.active { color: var(--primary); font-weight: 700; }
+
+        footer { padding: 60px 0; text-align: center; border-top: 1px solid #E6E0D6; }
+
+        .footer-links { display: flex; justify-content: center; gap: 30px; margin: 30px 0; flex-wrap: wrap; }
+
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
+
+        .footer-links a:hover { color: var(--primary); }
+
+        .copyright { color: #AAA; font-size: 0.85rem; }
+
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.2rem; }
+            .section-title h2 { font-size: 2rem; }
+            .pet-float { width: 80px; right: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <nav>
+            <a href="index_en.html" class="logo">
+                <img src="assets/PetTomo_appicon.png" alt="PetTomo Logo">
+                PetTomo
+            </a>
+            <div class="cta-buttons">
+                <a href="#download" onclick="scrollToDownload(event)" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.9rem;">Download Now</a>
+            </div>
+        </nav>
+
+        <header>
+            <div class="hero-content">
+                <h1>Turn Every Moment<br>into Love.</h1>
+                <p>Invite your partner or bestie to raise an adorable virtual companion together. Share your daily life through photos and care for your pet in real-time.</p>
+                <div class="cta-buttons" id="download">
+                    <a href="https://apps.apple.com/app/id6757725650" class="btn btn-primary">Download on App Store</a>
+                    <a href="#" class="btn" style="background: #2F2A23; color: white;">Google Play (Coming Soon)</a>
+                </div>
+            </div>
+
+            <div class="hero-mockup">
+                <img src="assets/app_mockup.png" alt="PetTomo App Screenshot" class="main-img" onerror="this.src='https://placehold.co/800x600/FFFBF3/5FBF9E?text=PetTomo+Shared+Room'">
+                <img src="assets/ghost_stay.gif" alt="Ghost Pet" class="pet-float">
+            </div>
+
+            <div class="lang-switcher">
+                <a href="index.html?noredirect">繁體中文</a> |
+                <a href="index_en.html?noredirect" class="active">English</a> |
+                <a href="index_ja.html?noredirect">日本語</a> |
+                <a href="index_ko.html?noredirect">한국어</a>
+            </div>
+        </header>
+
+        <section class="features">
+            <div class="section-title">
+                <h2>Designed for Couples & Besties</h2>
+                <p>Stay connected no matter where you are.</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📸</div>
+                    <h3>Photos are Food</h3>
+                    <p>Snap your lunch, your view, or your smile. Every photo becomes energy for your pet to grow.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏠</div>
+                    <h3>Shared Virtual Home</h3>
+                    <p>Two people, one pet. Decorate your room together and sync every bit of care instantly.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Real-time Interaction</h3>
+                    <p>React to feeding photos with emojis instantly, making communication more fun and meaningful.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="pets">
+            <div class="section-title">
+                <h2>Meet Your New Companion</h2>
+                <p>Who will you invite into your home?</p>
+            </div>
+            <div class="pet-list">
+                <div class="pet-item">
+                    <img src="assets/ghost_stay.gif" alt="Ghost">
+                    <h4>Ghost</h4>
+                    <p style="font-size: 0.9rem; color: #777;">A shy floater who loves snacks.</p>
+                </div>
+                <div class="pet-item">
+                    <img src="assets/cat_stay.gif" alt="Cat">
+                    <h4>Cat</h4>
+                    <p style="font-size: 0.9rem; color: #777;">A curious pouncer with a warm purr.</p>
+                </div>
+                <div class="pet-item">
+                    <img src="assets/fish_stay.gif" alt="Fish">
+                    <h4>Fish</h4>
+                    <p style="font-size: 0.9rem; color: #777;">A bubbly swimmer who loves to glide.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="logo" style="justify-content: center; margin-bottom: 20px;">
+                <img src="assets/PetTomo_appicon.png" alt="PetTomo Logo">
+                PetTomo
+            </div>
+            <div class="footer-links">
+                <a href="support.html">Support</a>
+                <a href="privacy_policy.html">Privacy Policy</a>
+                <a href="terms_of_use.html">Terms of Use</a>
+            </div>
+            <p class="copyright">&copy; 2026 PetTomo. All rights reserved.</p>
+        </footer>
+    </div>
+
+</body>
+</html>

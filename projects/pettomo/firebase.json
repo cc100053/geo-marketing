@@ -1,0 +1,64 @@
+{
+    "flutter": {
+        "platforms": {
+            "android": {
+                "default": {
+                    "projectId": "pet-app-702be",
+                    "appId": "1:69520994244:android:c686a4d86c55fa1ca33e91",
+                    "fileOutput": "android/app/google-services.json"
+                }
+            },
+            "ios": {
+                "default": {
+                    "projectId": "pet-app-702be",
+                    "appId": "1:69520994244:ios:d6fc14579fda1a1ca33e91",
+                    "uploadDebugSymbols": false,
+                    "fileOutput": "ios/Runner/GoogleService-Info.plist"
+                }
+            },
+            "dart": {
+                "lib/firebase_options.dart": {
+                    "projectId": "pet-app-702be",
+                    "configurations": {
+                        "android": "1:69520994244:android:c686a4d86c55fa1ca33e91",
+                        "ios": "1:69520994244:ios:d6fc14579fda1a1ca33e91"
+                    }
+                }
+            }
+        }
+    },
+    "hosting": {
+        "public": "html",
+        "ignore": [
+            "firebase.json",
+            "**/.DS_Store",
+            "**/node_modules/**"
+        ],
+        "rewrites": [
+            {
+                "source": "/invite",
+                "destination": "/invite.html"
+            }
+        ],
+        "headers": [
+            {
+                "source": "/.well-known/apple-app-site-association",
+                "headers": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ]
+            },
+            {
+                "source": "/.well-known/assetlinks.json",
+                "headers": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>サポート - PetTomo</title>
+    <link rel="icon" type="image/png" href="assets/PetTomo_appicon.png">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #5FBF9E;
+            --secondary: #FFB36B;
+            --bg: #FFFBF3;
+            --text-dark: #2F2A23;
+            --text-muted: #7A6F66;
+            --white: #FFFFFF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        nav { padding: 20px 0; display: flex; justify-content: space-between; align-items: center; }
+
+        .logo {
+            display: flex; align-items: center; gap: 12px;
+            font-weight: 700; font-size: 1.5rem; color: var(--primary); text-decoration: none;
+        }
+
+        .logo img { width: 44px; height: 44px; border-radius: 10px; }
+
+        .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+        .btn {
+            padding: 14px 32px; border-radius: 50px; text-decoration: none;
+            font-weight: 500; transition: all 0.3s ease; font-size: 1.1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary); color: var(--white);
+            box-shadow: 0 4px 15px rgba(95, 191, 158, 0.3);
+        }
+
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(95, 191, 158, 0.4); }
+
+        .content-container {
+            max-width: 800px;
+            margin: 40px auto 80px;
+            background: var(--white);
+            padding: 60px;
+            border-radius: 24px;
+            border: 1px solid #E6E0D6;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .content-container h1 {
+            font-size: 2.2rem;
+            margin-bottom: 24px;
+            text-align: center;
+            color: var(--primary);
+        }
+
+        .content-container h2 {
+            font-size: 1.5rem;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
+
+        .content-container p { margin-bottom: 16px; }
+
+        .lang-switcher {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .lang-switcher a {
+            text-decoration: none;
+            color: var(--text-muted);
+            padding: 6px 16px;
+            border-radius: 50px;
+            border: 1px solid #E6E0D6;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .lang-switcher a.active {
+            background-color: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        .contact-box {
+            background: var(--bg);
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid #E6E0D6;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .btn-support {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 24px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(95, 191, 158, 0.2);
+        }
+
+        .btn-support:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(95, 191, 158, 0.3);
+        }
+
+        footer { padding: 60px 0; text-align: center; border-top: 1px solid #E6E0D6; }
+
+        .footer-links { display: flex; justify-content: center; gap: 30px; margin: 30px 0; flex-wrap: wrap; }
+
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
+
+        .footer-links a:hover { color: var(--primary); }
+
+        .copyright { color: #AAA; font-size: 0.85rem; }
+
+        @media (max-width: 768px) {
+            .content-container { padding: 30px; margin: 20px auto 40px; }
+            .content-container h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <nav>
+            <a href="index_ja.html" class="logo">
+                <img src="assets/PetTomo_appicon.png" alt="PetTomo Logo">
+                PetTomo
+            </a>
+            <div class="cta-buttons">
+                <a href="index_ja.html#download" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.9rem;">今すぐダウンロード</a>
+            </div>
+        </nav>
+
+        <div class="content-container">
+            <div class="lang-switcher">
+                <a href="support.html?lang=en">English</a>
+                <a class="active" href="support_ja.html?lang=ja">日本語</a>
+                <a href="support_zh_TW.html?lang=zh-TW">繁體中文</a>
+                <a href="support_ko.html?lang=ko">한국어</a>
+            </div>
+
+            <h1>アプリサポート</h1>
+            <p style="text-align: center;">PetTomoについてお困りですか？サポートいたします！</p>
+
+            <div class="contact-box">
+                <h2>お問い合わせ</h2>
+                <p>問題、バグ報告、フィードバックがある場合は、サポートフォームにご記入ください：</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdQ4T-Ab_fW7r_0Fu8xdytYZJg5x8MZtP4AE3dBuvQeqi5HDg/viewform?usp=publish-editor" class="btn-support" target="_blank">
+                    サポートフォームを開く
+                </a>
+            </div>
+        </div>
+
+        <footer>
+            <div class="logo" style="justify-content: center; margin-bottom: 20px;">
+                <img src="assets/PetTomo_appicon.png" alt="PetTomo Logo">
+                PetTomo
+            </div>
+            <div class="footer-links">
+                <a href="support_ja.html">サポート</a>
+                <a href="privacy_policy_ja.html">プライバシーポリシー</a>
+                <a href="terms_of_use_ja.html">利用規約</a>
+            </div>
+            <p class="copyright">&copy; 2026 PetTomo. All rights reserved.</p>
+        </footer>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用條款 - PetTomo</title>
+    <link rel="icon" type="image/png" href="assets/PetTomo_appicon.png">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #5FBF9E;
+            --secondary: #FFB36B;
+            --bg: #FFFBF3;
+            --text-dark: #2F2A23;
+            --text-muted: #7A6F66;
+            --white: #FFFFFF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        nav { padding: 20px 0; display: flex; justify-content: space-between; align-items: center; }
+
+        .logo {
+            display: flex; align-items: center; gap: 12px;
+            font-weight: 700; font-size: 1.5rem; color: var(--primary); text-decoration: none;
+        }
+
+        .logo img { width: 44px; height: 44px; border-radius: 10px; }
+
+        .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+        .btn {
+            padding: 14px 32px; border-radius: 50px; text-decoration: none;
+            font-weight: 500; transition: all 0.3s ease; font-size: 1.1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary); color: var(--white);
+            box-shadow: 0 4px 15px rgba(95, 191, 158, 0.3);
+        }
+
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(95, 191, 158, 0.4); }
+
+        .content-container {
+            max-width: 800px;
+            margin: 40px auto 80px;
+            background: var(--white);
+            padding: 60px;
+            border-radius: 24px;
+            border: 1px solid #E6E0D6;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .content-container h1 {
+            font-size: 2.2rem;
+            margin-bottom: 24px;
+            text-align: center;
+            color: var(--primary);
+        }
+
+        .content-container h2 {
+            font-size: 1.5rem;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+            border-bottom: 2px solid var(--bg);
+            padding-bottom: 8px;
+        }
+
+        .content-container h3 {
+            font-size: 1.2rem;
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+
+        .content-container p { margin-bottom: 16px; }
+
+        .content-container ul { margin-bottom: 24px; margin-left: 20px; }
+
+        .content-container li { margin-bottom: 12px; }
+
+        .lang-switcher {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .lang-switcher a {
+            text-decoration: none;
+            color: var(--text-muted);
+            padding: 6px 16px;
+            border-radius: 50px;
+            border: 1px solid #E6E0D6;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .lang-switcher a.active {
+            background-color: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        .highlight {
+            background: #FFF4DA;
+            border: 1px solid #FFD89A;
+            border-radius: 16px;
+            padding: 24px;
+            margin: 24px 0;
+            color: var(--text-dark);
+        }
+
+        footer { padding: 60px 0; text-align: center; border-top: 1px solid #E6E0D6; }
+
+        .footer-links { display: flex; justify-content: center; gap: 30px; margin: 30px 0; flex-wrap: wrap; }
+
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
+
+        .footer-links a:hover { color: var(--primary); }
+
+        .copyright { color: #AAA; font-size: 0.85rem; }
+
+        @media (max-width: 768px) {
+            .content-container { padding: 30px; margin: 20px auto 40px; }
+            .content-container h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="assets/PetTomo_appicon.png" alt="PetTomo Logo">
+                PetTomo
+            </a>
+            <div class="cta-buttons">
+                <a href="index.html#download" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.9rem;">立即下載</a>
+            </div>
+        </nav>
+
+        <div class="content-container">
+            <div class="lang-switcher">
+                <a href="terms_of_use.html?lang=en">English</a>
+                <a href="terms_of_use_ja.html?lang=ja">日本語</a>
+                <a class="active" href="terms_of_use_zh_TW.html?lang=zh-TW">繁體中文</a>
+                <a href="terms_of_use_ko.html?lang=ko">한국어</a>
+            </div>
+
+            <h1>使用條款</h1>
+            <p style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 30px;">最後更新: 2026 年 2 月 20 日</p>
+
+            <p>本條款適用於你對 PetTomo（以下稱「本 App」）的使用。建立帳號或使用本 App，即表示你同意本條款。</p>
+
+            <h2>1. 帳號與責任</h2>
+            <p>你必須遵守適用法律，並妥善保管帳號。帳號下的行為由你負責。</p>
+
+            <h2>2. 使用者內容與社群安全</h2>
+            <div class="highlight">
+                <strong>零容忍政策:</strong> 對不當內容與濫用行為採取零容忍。包含騷擾、仇恨言論、性剝削、威脅、血腥暴力與非法內容。
+            </div>
+            <ul>
+                <li>不得發布違法、有害或辱罵性內容。</li>
+                <li>不得冒充他人或規避審核與管理措施。</li>
+                <li>使用者可透過檢舉與封鎖機制回報問題；我們可移除內容並限制或終止違規帳號。</li>
+            </ul>
+
+            <h2>3. 訂閱與付款</h2>
+            <p>部分功能透過自動續訂訂閱提供。確認購買後將向你的 Apple ID 帳號收費。除非在目前訂閱期間結束前至少 24 小時取消，否則會自動續訂。你可在 App Store 帳號設定中管理或取消訂閱。</p>
+
+            <h2>4. 隱私權</h2>
+            <p>你使用本 App 也受 <a href="privacy_policy_zh_TW.html">隱私權政策</a> 約束。</p>
+
+            <h2>5. 停用與終止</h2>
+            <p>若違反條款，或基於安全與法律理由，我們可暫停或終止你的使用權限。</p>
+
+            <h2>6. 聯絡方式</h2>
+            <p>如有問題，請聯絡: <strong>hangyodev@gmail.com</strong></p>
+        </div>
+
+        <footer>
+            <div class="logo" style="justify-content: center; margin-bottom: 20px;">
+                <img src="assets/PetTomo_appicon.png" alt="PetTomo Logo">
+                PetTomo
+            </div>
+            <div class="footer-links">
+                <a href="support.html">支援中心</a>
+                <a href="privacy_policy.html">隱私政策</a>
+                <a href="terms_of_use.html">使用條款</a>
+            </div>
+            <p class="copyright">&copy; 2026 PetTomo. All rights reserved.</p>
+        </footer>
+    </div>
+
+</body>
+</html>

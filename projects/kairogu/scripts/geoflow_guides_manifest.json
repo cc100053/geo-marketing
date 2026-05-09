@@ -1,0 +1,16 @@
+{
+  "articles": [
+    {
+      "group": "price-recording-app",
+      "lang": "ja",
+      "slug": "price-recording-app",
+      "sourcePath": "docs/articles/price-recording-app-ja.md"
+    },
+    {
+      "group": "price-tag-reading",
+      "lang": "ja",
+      "slug": "price-tag-reading",
+      "sourcePath": "docs/articles/price-tag-reading-ja.md"
+    }
+  ]
+}

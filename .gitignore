@@ -11,3 +11,4 @@ firebase-debug.log
 # Local CMS checkout includes .env, vendor, storage, and nested git state.
 # Keep it local; document setup instead of tracking it from this workspace root.
 shared/GEOFlow/
+.vercel

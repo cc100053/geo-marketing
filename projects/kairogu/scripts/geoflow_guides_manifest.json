@@ -11,6 +11,12 @@
       "lang": "ja",
       "slug": "price-tag-reading",
       "sourcePath": "docs/articles/price-tag-reading-ja.md"
+    },
+    {
+      "group": "receipt-vs-price-recording",
+      "lang": "ja",
+      "slug": "receipt-vs-price-recording",
+      "sourcePath": "docs/articles/receipt-vs-price-recording-ja.md"
     }
   ]
 }

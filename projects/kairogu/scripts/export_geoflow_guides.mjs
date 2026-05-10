@@ -255,13 +255,13 @@ function renderGuidesIndex(articles, language = null) {
   const visibleArticles = language ? articles.filter((article) => article.lang === language) : articles;
   const cards = visibleArticles
     .map(
-      (article) => `
-        <a class="guide-card" href="/guides/${article.outputPath}">
-          <span class="guide-label">日本語</span>
-          <h2>${escapeHtml(article.title)}</h2>
-          <p>${escapeHtml(article.description)}</p>
-        </a>
-      `,
+      (article) => [
+        `        <a class="guide-card" href="/guides/${article.outputPath}">`,
+        `          <span class="guide-label">日本語</span>`,
+        `          <h2>${escapeHtml(article.title)}</h2>`,
+        `          <p>${escapeHtml(article.description)}</p>`,
+        `        </a>`,
+      ].join('\n'),
     )
     .join('\n');
   const title = language ? 'カイログ 日本語ガイド' : 'カイログ ガイド';
@@ -285,7 +285,7 @@ function renderGuidesIndex(articles, language = null) {
           <img src="/icon.png" alt="カイログ app icon">
         </section>
         <section class="guide-grid" aria-label="カイログ guide articles">
-          ${cards}
+${cards}
         </section>
       </main>
     `,
@@ -585,7 +585,7 @@ function pageShell({ title, description, keywords, canonicalUrl, bodyClass, main
       <a href="/terms.html">利用規約</a>
     </nav>
   </header>
-  ${main}
+${String(main).trim()}
   <footer class="site-footer">
     <span>&copy; 2026 CHIANG CHI NAM</span>
     <a href="mailto:hangyodev@gmail.com">お問い合わせ</a>

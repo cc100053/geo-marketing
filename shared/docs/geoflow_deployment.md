@@ -78,10 +78,15 @@ content.
 ## Free Firebase Hosting Workflow
 
 Firebase Hosting's free Spark plan can serve static HTML, CSS, images, and
-JavaScript from this repo's `html/` directory. It cannot run GEOFlow's Laravel
-app, PostgreSQL, Redis, queue worker, or scheduler directly. For the free path,
-use GEOFlow locally as the CMS/drafting system, then export reviewed articles
-into static guide pages.
+JavaScript from the PetTomo publishing unit's `html/` directory:
+
+```text
+/Users/fatboy/geo-marketing/projects/pettomo/html/
+```
+
+It cannot run GEOFlow's Laravel app, PostgreSQL, Redis, queue worker, or
+scheduler directly. For the free path, use GEOFlow locally as the CMS/drafting
+system, then export reviewed articles into static guide pages.
 
 The current export script publishes only the reviewed PetTomo guide article ids
 by default. It intentionally excludes old local test articles that were created
@@ -129,11 +134,12 @@ Use a different production URL when needed:
 node scripts/export_geoflow_guides.mjs --base-url=https://example.com
 ```
 
-Publish to the existing Firebase Hosting site after reviewing the generated
-pages:
+Publish to the existing PetTomo Firebase Hosting site only from the PetTomo
+publishing unit after reviewing the generated pages:
 
 ```sh
-firebase deploy --only hosting
+cd /Users/fatboy/geo-marketing/projects/pettomo
+FIREBASE_CLI_DISABLE_UPDATE_CHECK=true firebase deploy --only hosting --project pet-app-702be --non-interactive
 ```
 
 [USER ACTION REQUIRED] Submit `https://pet-app-702be.web.app/sitemap.xml` in

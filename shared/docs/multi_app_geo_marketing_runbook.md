@@ -57,6 +57,16 @@ deployment runbooks.
 - Current Vercel production project: `kurabe`
 - Public hosting: `https://www.kairogu.men`
 
+Important naming distinction:
+
+- GitHub repository for marketing content: `cc100053/geo-marketing`
+- Vercel production project for the Kairogu site: `kurabe`
+- Custom domain on that Vercel project: `www.kairogu.men`
+
+Do not confuse the GitHub repo name with the Vercel project name. The correct
+production site is the Vercel project `kurabe`, even though its source repo is
+`geo-marketing`.
+
 Note: a Vercel project named `geo-marketing` was created incidentally via CLI.
 The production custom domain (`www.kairogu.men`) is on the `kurabe` project.
 Do not delete Vercel projects without explicit approval.
@@ -145,8 +155,9 @@ From `/Users/fatboy/geo-marketing/projects/kairogu`:
 ```sh
 node --check scripts/export_geoflow_guides.mjs
 node scripts/export_geoflow_guides.mjs
-git add html/
-git commit -m "update guides and sitemap"
+git diff --check
+git add docs/articles/ scripts/geoflow_guides_manifest.json html/
+git commit -m "update Kairogu guides"
 git push
 curl -I https://www.kairogu.men/guides/
 curl -I https://www.kairogu.men/sitemap.xml
@@ -157,6 +168,17 @@ The Vercel `kurabe` project is connected to `cc100053/geo-marketing` with root
 directory `projects/kairogu`. Push triggers auto-deploy. `vercel.json` sets
 `buildCommand: null` so Vercel serves the committed `html/` folder directly.
 The export script requires local Docker/GEOFlow and cannot run on Vercel CI.
+
+`projects/kairogu/html/` is the only deployable static-site source. Do not sync
+or deploy `projects/kairogu/web-landing/`; it is a deprecated migration artifact
+and must not contain its own Vercel config.
+
+Do not use `vercel deploy --prod` for routine Kairogu publishing. Because the
+Vercel project root directory is already `projects/kairogu`, direct CLI deploys
+from the wrong directory can either resolve to `projects/kairogu/projects/kairogu`
+or attach to the incidental `geo-marketing` Vercel project. The safe deployment
+path is commit + push to `cc100053/geo-marketing`, then verify the Git-triggered
+`kurabe` production deployment.
 
 Content rule:
 

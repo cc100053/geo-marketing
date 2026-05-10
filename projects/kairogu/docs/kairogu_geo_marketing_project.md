@@ -119,10 +119,22 @@ directory directly. The export script cannot run on Vercel because it requires a
 local Docker/GEOFlow instance. Always run the export locally and commit the
 updated `html/` before deploying.
 
-[USER ACTION REQUIRED] Confirm the existing Vercel project connection for
-`www.kairogu.men`. If using Vercel Git integration, set the project root to
-`projects/kairogu` and ensure the custom domain remains attached to that Vercel
-project.
+`html/` is the only deployable static-site source for カイログ. Do not copy or
+sync generated output into `web-landing/`, and do not deploy from that directory.
+It is retained only as a deprecated migration artifact, without its own Vercel
+config, to avoid a second deploy path drifting from production.
+
+The production deployment is intentionally Git-triggered:
+
+- GitHub repo: `cc100053/geo-marketing`
+- Vercel project: `kurabe`
+- Vercel root directory: `projects/kairogu`
+- Custom domain: `www.kairogu.men`
+
+Do not run `vercel deploy --prod` for routine publishing. The CLI can resolve
+the configured root directory twice or attach the repo root to the incidental
+Vercel project named `geo-marketing`. The safe path is local export, commit,
+push, then verify the `kurabe` production deployment.
 
 ## GEOFlow Usage
 
@@ -210,9 +222,10 @@ Export, commit, then deploy:
 
 ```sh
 node scripts/export_geoflow_guides.mjs
-git add html/
-git commit -m "update guides and sitemap"
-vercel deploy --prod
+git diff --check
+git add docs/articles/ scripts/geoflow_guides_manifest.json html/
+git commit -m "update Kairogu guides"
+git push
 ```
 
 Live checks after deployment:

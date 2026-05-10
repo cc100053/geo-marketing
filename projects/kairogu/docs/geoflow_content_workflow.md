@@ -118,13 +118,29 @@ Live hosting is Vercel. `vercel.json` sets `buildCommand: null` — Vercel serve
 the committed `html/` folder directly. The export script requires local
 Docker/GEOFlow and cannot run on Vercel CI.
 
-Before deploying, confirm the Vercel project is linked to `https://www.kairogu.men/`.
+`html/` is the only deployable static-site source for カイログ in this workspace.
+Do not sync generated output into `web-landing/` and do not deploy from
+`web-landing/`; that directory is retained only as a deprecated migration
+artifact and intentionally has no Vercel config.
+
+Deployment is Git-triggered, not direct CLI-triggered:
+
+- GitHub repo: `cc100053/geo-marketing`
+- Vercel production project: `kurabe`
+- Vercel root directory: `projects/kairogu`
+- Custom domain: `www.kairogu.men`
+
+Do not run `vercel deploy --prod` for routine publishing. From inside
+`projects/kairogu`, Vercel can append the configured root directory again and
+look for `projects/kairogu/projects/kairogu`. From the repo root, the CLI can
+attach to the incidental `geo-marketing` Vercel project. Commit and push instead.
 
 ```sh
 node scripts/export_geoflow_guides.mjs
-git add html/
-git commit -m "update guides and sitemap"
-vercel deploy --prod
+git diff --check
+git add docs/articles/ scripts/geoflow_guides_manifest.json html/
+git commit -m "update Kairogu guides"
+git push
 ```
 
 After deployment:

@@ -4,99 +4,812 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>カイログ (Kurabe) - サポート</title>
+    <title>カイログ - 価格記録と買い物ガイドの公式サイト</title>
+    <meta name="description" content="カイログは、価格タグを撮影して商品の価格、容量、店舗、割引を記録し、買い物中に見返しやすくする価格管理アプリです。公式ガイド、サポート、規約への入口をまとめています。">
+    <link rel="icon" type="image/png" href="icon.png">
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #FAF9F7;
-            color: #242424;
+        :root {
+            --bg: #f4f5f2;
+            --panel: #ffffff;
+            --ink: #101211;
+            --muted: #747b75;
+            --line: #e1e5dc;
+            --brand: #12836f;
+            --brand-dark: #0b443b;
+            --accent: #f2b84b;
+            --blue: #dce9ff;
+            --rose: #ffe4df;
+            --shadow: 0 24px 80px rgba(18, 28, 24, 0.12);
         }
 
-        .container {
-            max-width: 800px;
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif;
+            line-height: 1.5;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .site {
+            width: min(1380px, calc(100% - 32px));
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 24px 0 32px;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 0 4px 24px;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: 0;
+            text-decoration: none;
+        }
+
+        .brand img {
+            width: 34px;
+            height: 34px;
+            border-radius: 9px;
+            box-shadow: 0 10px 30px rgba(18, 131, 111, 0.22);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .pill,
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 42px;
+            padding: 0 18px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 800;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .pill {
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid rgba(16, 18, 17, 0.08);
+        }
+
+        .button {
+            background: var(--ink);
+            color: #fff;
+            border: 1px solid var(--ink);
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            min-height: 640px;
+            padding: 38px 34px 30px;
+            border-radius: 42px;
+            background: var(--panel);
+            box-shadow: var(--shadow);
+        }
+
+        .hero-top {
+            position: relative;
+            z-index: 2;
+            max-width: 760px;
+            margin: 0 auto;
             text-align: center;
         }
 
-        .logo {
-            width: 120px;
-            height: 120px;
-            border-radius: 24px;
-            margin: 0 auto 20px;
-            display: block;
-            object-fit: cover;
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            min-height: 28px;
+            padding: 0 13px;
+            border-radius: 999px;
+            background: #f1f3ef;
+            color: #343936;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin-top: 0;
         }
 
         h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
+            max-width: 720px;
+            margin: 24px auto 16px;
+            font-size: clamp(42px, 5.4vw, 66px);
+            line-height: 1;
+            letter-spacing: 0;
         }
 
-        p {
-            font-size: 16px;
-            color: #6B7280;
-            margin-bottom: 30px;
+        .tone {
+            color: #8d928e;
         }
 
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            margin-bottom: 20px;
-            text-align: left;
+        .lead {
+            max-width: 680px;
+            margin: 0 auto;
+            color: var(--muted);
+            font-size: 17px;
         }
 
-        .btn {
-            display: inline-block;
-            background-color: #1A8D7A;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 12px;
+        .hero-stage {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr minmax(250px, 320px) 1fr;
+            align-items: center;
+            gap: 32px;
+            max-width: 1080px;
+            margin: 22px auto 0;
+        }
+
+        .float-stack {
+            display: grid;
+            gap: 24px;
+        }
+
+        .float-card {
+            width: min(100%, 280px);
+            padding: 18px;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.92);
+            box-shadow: 0 16px 42px rgba(18, 28, 24, 0.08);
+        }
+
+        .float-card:nth-child(2) {
+            justify-self: end;
+        }
+
+        .label {
+            display: block;
+            color: var(--muted);
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .metric {
+            margin-top: 5px;
+            font-size: 22px;
+            font-weight: 900;
+        }
+
+        .metric small {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .phone {
+            min-height: 300px;
+            padding: 18px;
+            border: 5px solid var(--ink);
+            border-radius: 34px;
+            background: #fafaf8;
+            box-shadow: 0 20px 60px rgba(16, 18, 17, 0.16);
+        }
+
+        .phone-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .scan-card {
+            overflow: hidden;
+            padding: 0;
+            border-radius: 22px;
+            background: #fff;
+            border: 1px solid var(--line);
+        }
+
+        .app-shot {
+            width: 100%;
+            height: 245px;
+            display: block;
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        .price-list {
+            display: grid;
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .price-row {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 12px;
+            align-items: center;
+            padding: 9px 12px;
+            border-radius: 16px;
+            background: #fff;
+            border: 1px solid var(--line);
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .price-row span {
+            color: var(--muted);
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+
+        .section {
+            padding: 96px 20px;
+        }
+
+        .split {
+            display: grid;
+            grid-template-columns: minmax(260px, 0.78fr) minmax(0, 1.22fr);
+            gap: 54px;
+            align-items: center;
+        }
+
+        .section h2 {
+            margin: 14px 0 18px;
+            font-size: clamp(34px, 4.6vw, 64px);
+            line-height: 1;
+            letter-spacing: 0;
+        }
+
+        .section p {
+            max-width: 560px;
+            color: var(--muted);
+        }
+
+        .link-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .link-card {
+            min-height: 144px;
+            padding: 22px;
+            border-radius: 22px;
+            background: var(--panel);
+            border: 1px solid var(--line);
             text-decoration: none;
-            font-weight: bold;
-            margin-top: 20px;
+            transition: transform 180ms ease, box-shadow 180ms ease;
+        }
+
+        .link-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 44px rgba(18, 28, 24, 0.1);
+        }
+
+        .link-card strong {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .link-card span {
+            display: block;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .wide-feature {
+            min-height: 560px;
+            display: grid;
+            grid-template-columns: 0.88fr 1.12fr;
+            gap: 30px;
+            align-items: end;
+            padding: 44px;
+            border-radius: 42px;
+            background:
+                radial-gradient(circle at 78% 20%, rgba(242, 184, 75, 0.26), transparent 34%),
+                linear-gradient(135deg, #101211 0%, #173831 62%, #101211 100%);
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .wide-feature p {
+            color: rgba(255, 255, 255, 0.72);
+        }
+
+        .wide-feature h2 {
+            color: #fff;
+        }
+
+        .feature-cards {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .mini-card {
+            min-height: 148px;
+            padding: 18px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.94);
+            color: var(--ink);
+            overflow: hidden;
+        }
+
+        .mini-card img {
+            width: 100%;
+            height: 86px;
+            display: block;
+            margin: -2px 0 12px;
+            border-radius: 14px;
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        .mini-card strong {
+            display: block;
+        }
+
+        .mini-card span {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .visual-row {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 28px;
+            margin-top: 34px;
+        }
+
+        .visual-tile {
+            min-height: 310px;
+            padding: 24px;
+            border-radius: 28px;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+        .visual-tile img {
+            width: calc(100% + 48px);
+            height: 205px;
+            display: block;
+            margin: 24px -24px -24px;
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        .visual-tile.blue {
+            background: var(--blue);
+        }
+
+        .visual-tile.rose {
+            background: var(--rose);
+        }
+
+        .visual-tile.dark {
+            background: var(--ink);
+            color: #fff;
+        }
+
+        .bar-set {
+            display: flex;
+            align-items: end;
+            gap: 12px;
+            height: 150px;
+            margin-top: 54px;
+        }
+
+        .bar {
+            width: 100%;
+            border-radius: 999px 999px 6px 6px;
+            background: var(--brand);
+        }
+
+        .receipt {
+            display: grid;
+            gap: 12px;
+            margin-top: 40px;
+        }
+
+        .receipt div {
+            display: flex;
+            justify-content: space-between;
+            padding: 13px;
+            border-radius: 14px;
+            background: #fff;
+            color: var(--ink);
+            font-weight: 800;
         }
 
         .footer {
-            margin-top: 40px;
-            font-size: 14px;
-            color: #9CA3AF;
+            position: relative;
+            overflow: hidden;
+            min-height: 430px;
+            padding: 62px 44px 34px;
+            border-radius: 42px;
+            background: #121212;
+            color: #fff;
+        }
+
+        .marquee {
+            position: absolute;
+            top: 42px;
+            left: -70px;
+            color: rgba(255, 255, 255, 0.08);
+            font-size: clamp(72px, 12vw, 154px);
+            font-weight: 900;
+            white-space: nowrap;
+        }
+
+        .footer-grid {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1.4fr repeat(3, minmax(140px, 0.5fr));
+            gap: 44px;
+            align-items: start;
+            padding-top: 150px;
+            border-top: 1px solid rgba(255, 255, 255, 0.14);
+        }
+
+        .footer h2 {
+            max-width: 340px;
+            margin-bottom: 18px;
+            font-size: 30px;
+            line-height: 1.1;
+        }
+
+        .footer p,
+        .footer a {
+            color: rgba(255, 255, 255, 0.64);
         }
 
         .footer a {
-            color: #1A8D7A;
+            display: block;
+            margin-top: 9px;
             text-decoration: none;
-            margin: 0 10px;
+            font-size: 13px;
+        }
+
+        .footer strong {
+            display: block;
+            margin-bottom: 12px;
+            font-size: 13px;
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                min-height: auto;
+                padding: 34px 18px 24px;
+                border-radius: 28px;
+            }
+
+            .hero-stage,
+            .split,
+            .wide-feature,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stage {
+                gap: 18px;
+                margin-top: 28px;
+            }
+
+            .hero-stage .float-stack {
+                display: none;
+            }
+
+            .phone {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .link-grid,
+            .feature-cards,
+            .visual-row {
+                grid-template-columns: 1fr;
+            }
+
+            .wide-feature,
+            .footer {
+                border-radius: 28px;
+                padding: 34px 22px;
+            }
+
+            .footer-grid {
+                padding-top: 116px;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .site {
+                width: min(100% - 18px, 1380px);
+                padding-top: 14px;
+            }
+
+            .nav {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .nav-links {
+                justify-content: flex-start;
+            }
+
+            .float-stack {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 68px 8px;
+            }
+
+            h1 {
+                margin: 16px auto 12px;
+                font-size: clamp(34px, 11vw, 46px);
+                line-height: 1.03;
+            }
+
+            .lead {
+                font-size: 16px;
+            }
+
+            .hero-actions {
+                margin-top: 20px;
+            }
+
+            .phone {
+                min-height: 0;
+                padding: 14px;
+                border-width: 4px;
+                border-radius: 30px;
+            }
+
+            .phone-head {
+                margin-bottom: 10px;
+            }
+
+            .scan-card {
+                border-radius: 18px;
+            }
+
+            .price-row:nth-child(n+2) {
+                display: none;
+            }
+
+            .app-shot {
+                height: 180px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <img src="icon.png" alt="App Icon" class="logo">
-        <h1>カイログ (Kurabe)</h1>
-        <p>AIで価格タグを読み取り、買い物リストと近くの底値チェックをまとめて管理。</p>
+    <main class="site">
+        <nav class="nav" aria-label="サイトナビゲーション">
+            <a class="brand" href="/">
+                <img src="icon.png" alt="">
+                <span>カイログ</span>
+            </a>
+            <div class="nav-links">
+                <a class="pill" href="/guides/">ガイド</a>
+                <a class="pill" href="/privacy.html">プライバシー</a>
+                <a class="button" href="mailto:hangyodev@gmail.com">サポート</a>
+            </div>
+        </nav>
 
-        <div class="card">
-            <h2>お問い合わせ (Support)</h2>
-            <p>アプリの使い方、不具合の報告、ご要望などがございましたら、以下のメールアドレスまでご連絡ください。</p>
-            <p><strong>Email:</strong> hangyodev@gmail.com</p>
-            <a href="mailto:hangyodev@gmail.com" class="btn">メールを送る</a>
-        </div>
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-top">
+                <span class="eyebrow">Price Recording App</span>
+                <h1 id="hero-title"><span class="tone">買い物の値段を</span><br>記録で見える化。</h1>
+                <p class="lead">スーパーやドラッグストアの価格タグを撮影して、商品名、価格、容量、店舗、割引をあとから見返しやすく整理できます。</p>
+            </div>
 
-        <div class="footer">
-            <a href="privacy.html">プライバシーポリシー</a> |
-            <a href="terms.html">利用規約</a> |
-            <a href="account-deletion.html">アカウント削除</a>
-            <br><br>
-            &copy; 2026 CHIANG CHI NAM. All rights reserved.
-        </div>
-    </div>
+            <div class="hero-stage">
+                <div class="float-stack">
+                    <div class="float-card">
+                        <span class="label">記録対象</span>
+                        <div class="metric">価格タグ <small>商品名・容量・割引</small></div>
+                    </div>
+                    <div class="float-card">
+                        <span class="label">比較の軸</span>
+                        <div class="metric">100g単価 <small>過去価格と見比べ</small></div>
+                    </div>
+                </div>
+
+                <div class="phone" aria-label="カイログの価格記録画面イメージ">
+                    <div class="phone-head">
+                        <span>今日の価格メモ</span>
+                        <span>9:41</span>
+                    </div>
+                    <div class="scan-card">
+                        <img class="app-shot" src="assets/store-screenshot-2.png" alt="カイログの価格記録スクリーンショット">
+                    </div>
+                    <div class="price-list">
+                        <div class="price-row">
+                            <div>牛乳 1L<br><span>近所のスーパー</span></div>
+                            <div>218円</div>
+                        </div>
+                        <div class="price-row">
+                            <div>ヨーグルト 400g<br><span>容量で比較</span></div>
+                            <div>168円</div>
+                        </div>
+                        <div class="price-row">
+                            <div>洗剤 詰替<br><span>お気に入り店舗</span></div>
+                            <div>298円</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="float-stack">
+                    <div class="float-card">
+                        <span class="label">公開サイト</span>
+                        <div class="metric">Official Hub <small>サポートとSEO入口</small></div>
+                    </div>
+                    <div class="float-card">
+                        <span class="label">近くの価格</span>
+                        <div class="metric">3km / 20日 <small>利用状況に応じて表示</small></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-actions">
+                <a class="button" href="/guides/">公式ガイドを見る</a>
+                <a class="pill" href="/guides/ja/price-recording-app.html">価格記録の使い方</a>
+                <a class="pill" href="/sitemap.xml">Sitemap</a>
+            </div>
+        </section>
+
+        <section class="section split" aria-labelledby="directory-title">
+            <div>
+                <span class="eyebrow">Site Directory</span>
+                <h2 id="directory-title"><span class="tone">必要なページへ</span><br>すぐ移動。</h2>
+                <p>ガイド、規約、削除申請、サポートを公式サイトの入口からまとめて開けるようにしました。</p>
+            </div>
+            <div class="link-grid">
+                <a class="link-card" href="/guides/">
+                    <strong>カイログ公式ガイド</strong>
+                    <span>価格記録、底値チェック、買い物リスト活用の記事一覧。</span>
+                </a>
+                <a class="link-card" href="/guides/ja/">
+                    <strong>日本語ガイド</strong>
+                    <span>日本向けの記事だけをまとめたガイド入口。</span>
+                </a>
+                <a class="link-card" href="/privacy.html">
+                    <strong>プライバシーポリシー</strong>
+                    <span>データの取り扱いと利用目的を確認できます。</span>
+                </a>
+                <a class="link-card" href="/terms.html">
+                    <strong>利用規約</strong>
+                    <span>カイログを利用する前に確認する公式規約。</span>
+                </a>
+                <a class="link-card" href="/account-deletion.html">
+                    <strong>アカウント削除</strong>
+                    <span>アカウント削除依頼と注意点の案内。</span>
+                </a>
+                <a class="link-card" href="mailto:hangyodev@gmail.com">
+                    <strong>サポートへ連絡</strong>
+                    <span>不具合報告、要望、使い方の問い合わせはこちら。</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="wide-feature" aria-labelledby="feature-title">
+            <div>
+                <span class="eyebrow">Shopping Memory</span>
+                <h2 id="feature-title">記憶に頼らない、買い物の判断。</h2>
+                <p>店頭で見つけた価格を残しておくと、次の買い物で「前より安いか」「容量あたりではどうか」を見返しやすくなります。</p>
+            </div>
+            <div class="feature-cards">
+                <div class="mini-card">
+                    <img src="assets/store-screenshot-2.png" alt="">
+                    <span class="label">Guide</span>
+                    <strong>価格記録アプリでできること</strong>
+                    <span>price-recording-app</span>
+                </div>
+                <div class="mini-card">
+                    <img src="assets/store-screenshot-3.png" alt="">
+                    <span class="label">Guide</span>
+                    <strong>価格タグを撮影して記録</strong>
+                    <span>price-tag-reading</span>
+                </div>
+                <div class="mini-card">
+                    <img src="assets/store-screenshot-4.png" alt="">
+                    <span class="label">Guide</span>
+                    <strong>レシート管理との違い</strong>
+                    <span>receipt-vs-price-recording</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="system-title">
+            <div style="text-align:center;">
+                <span class="eyebrow">Official Access</span>
+                <h2 id="system-title"><span class="tone">公開済みページを</span><br>一覧で管理。</h2>
+            </div>
+            <div class="visual-row">
+                <a class="visual-tile blue" href="/guides/ja/price-recording-app.html">
+                    <span class="label">Article</span>
+                    <h3>価格記録アプリ</h3>
+                    <img src="assets/store-screenshot-1.png" alt="">
+                </a>
+                <a class="visual-tile rose" href="/guides/ja/price-tag-reading.html">
+                    <span class="label">Article</span>
+                    <h3>価格タグ読み取り</h3>
+                    <img src="assets/store-screenshot-3.png" alt="">
+                </a>
+                <a class="visual-tile dark" href="/guides/ja/receipt-vs-price-recording.html">
+                    <span class="label">Article</span>
+                    <h3>レシート管理との違い</h3>
+                    <img src="assets/store-screenshot-4.png" alt="">
+                </a>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="marquee">Kairogu · Price Records · Official</div>
+            <div class="footer-grid">
+                <div>
+                    <h2>日々の買い物を、記録でかしこく。</h2>
+                    <p>© 2026 hangyodev. All rights reserved.</p>
+                    <a class="button" style="display:inline-flex;margin-top:18px;color:#101211;background:#fff;border-color:#fff;" href="/guides/">ガイドを開く</a>
+                </div>
+                <div>
+                    <strong>Sitemap</strong>
+                    <a href="/">Home</a>
+                    <a href="/guides/">Guides</a>
+                    <a href="/sitemap.xml">XML Sitemap</a>
+                </div>
+                <div>
+                    <strong>Guides</strong>
+                    <a href="/guides/ja/price-recording-app.html">価格記録アプリ</a>
+                    <a href="/guides/ja/price-tag-reading.html">価格タグ読み取り</a>
+                    <a href="/guides/ja/receipt-vs-price-recording.html">レシート管理との違い</a>
+                </div>
+                <div>
+                    <strong>Support</strong>
+                    <a href="mailto:hangyodev@gmail.com">Email</a>
+                    <a href="/privacy.html">Privacy</a>
+                    <a href="/terms.html">Terms</a>
+                    <a href="/account-deletion.html">Account deletion</a>
+                </div>
+            </div>
+        </footer>
+    </main>
 </body>
 
 </html>

@@ -4,18 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PetTomo - 讓平凡的日常，變成對牠的偏愛 | 共享寵物養成</title>
+    <title>PetTomo - 共享虛擬寵物 App 官方網站</title>
+    <meta name="description" content="PetTomo 是用照片餵食、共享房間和日常互動來一起照顧虛擬寵物的 App。官方網站整理下載、指南、支援、條款和多語內容入口。">
     <link rel="icon" type="image/png" href="assets/PetTomo_appicon.png">
-
-    <!-- 自動語言偵測腳本 -->
     <script>
         (function () {
-            // 檢查是否已經手動切換過語言，避免死循環跳轉
             if (window.location.search.includes('noredirect')) return;
-
-            const userLang = navigator.language || navigator.userLanguage;
-            const lang = userLang.toLowerCase();
-
+            const lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
             if (lang.startsWith('ja')) {
                 window.location.href = 'index_ja.html';
             } else if (lang.startsWith('ko')) {
@@ -23,389 +18,203 @@
             } else if (lang.startsWith('en')) {
                 window.location.href = 'index_en.html';
             }
-            // 預設中文（繁體/簡體）直接保留在此頁
         })();
-
-        function scrollToDownload(e) {
-            e.preventDefault();
-            const element = document.getElementById('download');
-            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
     </script>
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/official-home.css">
     <style>
-        :root {
-            --primary: #5FBF9E;
-            --secondary: #FFB36B;
-            --bg: #FFFBF3;
-            --text-dark: #2F2A23;
-            --text-muted: #7A6F66;
-            --white: #FFFFFF;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Noto Sans TC', sans-serif;
-            background-color: var(--bg);
-            color: var(--text-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        nav {
-            padding: 20px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        .logo img {
-            width: 44px;
-            height: 44px;
-            border-radius: 10px;
-        }
-
-        header {
-            padding: 80px 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .hero-content h1 {
-            font-size: 3rem;
-            margin-bottom: 24px;
-            line-height: 1.2;
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto 40px;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 14px 32px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            font-size: 1.1rem;
-        }
-
-        .btn-primary {
-            background-color: var(--primary);
-            color: var(--white);
-            box-shadow: 0 4px 15px rgba(95, 191, 158, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(95, 191, 158, 0.4);
-        }
-
-        .hero-mockup {
-            margin-top: 60px;
-            position: relative;
-            width: 100%;
-            max-width: 800px;
-        }
-
-        .hero-mockup .main-img {
-            width: 100%;
-            border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .pet-float {
-            position: absolute;
-            width: 120px;
-            height: auto;
-            bottom: -40px;
-            right: 20px;
-            z-index: 2;
-            animation: bounce 3s infinite ease-in-out;
-        }
-
-        @keyframes bounce {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-15px);
-            }
-        }
-
-        .features {
-            padding: 100px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 16px;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .feature-card {
-            background: var(--white);
-            padding: 40px;
-            border-radius: 24px;
-            border: 1px solid #E6E0D6;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 24px;
-        }
-
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 16px;
-        }
-
-        .pets {
-            background-color: #F4FAF8;
-            padding: 100px 0;
-            border-radius: 60px;
-            margin: 40px 20px;
-        }
-
-        .pet-list {
-            display: flex;
-            justify-content: center;
-            gap: 60px;
-            flex-wrap: wrap;
-            margin-top: 40px;
-        }
-
-        .pet-item {
-            text-align: center;
-            width: 180px;
-        }
-
-        .pet-item img {
-            width: 100px;
-            margin-bottom: 20px;
-        }
-
-        .pet-item h4 {
-            font-size: 1.2rem;
-            color: var(--primary);
-        }
-
-        .lang-switcher {
-            margin-top: 40px;
-            font-size: 0.9rem;
-        }
-
-        .lang-switcher a {
-            color: var(--text-muted);
-            text-decoration: none;
-            margin: 0 8px;
-        }
-
-        .lang-switcher a.active {
-            color: var(--primary);
-            font-weight: 700;
-        }
-
-        footer {
-            padding: 60px 0;
-            text-align: center;
-            border-top: 1px solid #E6E0D6;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 30px 0;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary);
-        }
-
-        .copyright {
-            color: #AAA;
-            font-size: 0.85rem;
-        }
-
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.2rem;
-            }
-
-            .section-title h2 {
-                font-size: 2rem;
-            }
-
-            .pet-float {
-                width: 80px;
-                right: 10px;
-            }
-        }
+        body { --font: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif; }
     </style>
 </head>
 
 <body>
-
-    <div class="container">
-        <nav>
-            <a href="index.html" class="logo">
-                <img src="assets/PetTomo_appicon.png" alt="PetTomo Logo">
-                PetTomo
+    <main class="site">
+        <nav class="nav" aria-label="主要導覽">
+            <a class="brand" href="index.html?noredirect">
+                <img src="assets/PetTomo_appicon.png" alt="">
+                <span>PetTomo</span>
             </a>
-            <div class="cta-buttons">
-                <a href="#download" onclick="scrollToDownload(event)" class="btn btn-primary"
-                    style="padding: 8px 20px; font-size: 0.9rem;">立即下載</a>
+            <div class="nav-links">
+                <a class="pill" href="guides/">指南</a>
+                <a class="pill" href="support_zh_TW.html">支援</a>
+                <a class="button" href="https://apps.apple.com/app/id6757725650">下載 App</a>
             </div>
         </nav>
 
-        <header>
-            <div class="hero-content">
-                <h1>把平凡的日常，<br>變成對牠的偏愛。</h1>
-                <p>邀請你的另一半或好友，透過照片餵食，在共享房間裡共同守護一隻可愛的虛擬寵物。讓距離不再是障礙，每一天都充滿溫暖。</p>
-                <div class="cta-buttons" id="download">
-                    <a href="https://apps.apple.com/app/id6757725650" class="btn btn-primary">App Store 下載</a>
-                    <a href="#" class="btn" style="background: #2F2A23; color: white;">Google Play (開發中)</a>
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-copy">
+                <span class="eyebrow">Shared Virtual Pet App</span>
+                <h1 id="hero-title"><span class="muted-word">把日常照片</span><br>變成一起照顧。</h1>
+                <p class="lead">邀請另一半或好友進入共享房間，用每天拍下的照片餵食虛擬寵物，一起留下低壓力、可愛又持續的互動。</p>
+                <div class="actions">
+                    <a class="button" href="https://apps.apple.com/app/id6757725650">App Store 下載</a>
+                    <span class="store-disabled">Google Play 開發中</span>
+                    <a class="pill" href="guides/zh-hant/">繁中指南</a>
                 </div>
             </div>
 
-            <div class="hero-mockup">
-                <img src="assets/app_mockup.png" alt="PetTomo App Screenshot" class="main-img"
-                    onerror="this.src='https://placehold.co/800x600/FFFBF3/5FBF9E?text=PetTomo+Shared+Room'">
-                <img src="assets/ghost_stay.gif" alt="Ghost Pet" class="pet-float">
+            <div class="hero-stage">
+                <div class="float-stack">
+                    <div class="float-card">
+                        <div class="avatar-row">
+                            <img src="assets/ghost_stay.gif" alt="">
+                            <img src="assets/cat_stay.gif" alt="">
+                        </div>
+                        <span class="label">共享房間</span>
+                        <div class="metric">兩個人，一隻寵物<small>私密空間、同步照顧</small></div>
+                    </div>
+                    <div class="float-card">
+                        <span class="label">每日互動</span>
+                        <div class="metric">照片餵食<small>把生活片段變成照顧行動</small></div>
+                    </div>
+                </div>
+
+                <div class="phone" aria-label="PetTomo App 畫面">
+                    <div class="phone-top">
+                        <span>PetTomo Room</span>
+                        <span>9:41</span>
+                    </div>
+                    <img class="mockup" src="assets/store/pettomo-cn-1.png" alt="PetTomo 繁體中文 App Store 截圖">
+                    <img class="pet-float" src="assets/ghost_stay.gif" alt="">
+                    <div class="phone-card">
+                        <div><span>Photo feed</span><span>Done</span></div>
+                        <div><span>Shared room</span><span>Live</span></div>
+                        <div><span>Memory</span><span>Saved</span></div>
+                    </div>
+                </div>
+
+                <div class="float-stack">
+                    <div class="float-card">
+                        <span class="label">官方網站</span>
+                        <div class="metric">下載、支援、指南<small>所有入口集中在首頁</small></div>
+                    </div>
+                    <div class="float-card">
+                        <span class="label">GEO Guides</span>
+                        <div class="metric">5 種語言<small>en / zh-hant / zh-hans / ja / ko</small></div>
+                    </div>
+                </div>
             </div>
 
-            <div class="lang-switcher">
-                <a href="index.html?noredirect" class="active">繁體中文</a> |
-                <a href="index_en.html?noredirect">English</a> |
-                <a href="index_ja.html?noredirect">日本語</a> |
-                <a href="index_ko.html?noredirect">한국어</a>
+            <div class="language-switcher" aria-label="語言切換">
+                <a class="pill active" href="index.html?noredirect">繁體中文</a>
+                <a class="pill" href="index_en.html?noredirect">English</a>
+                <a class="pill" href="index_ja.html?noredirect">日本語</a>
+                <a class="pill" href="index_ko.html?noredirect">한국어</a>
             </div>
-        </header>
+        </section>
 
-        <section class="features">
-            <div class="section-title">
-                <h2>專為親密關係設計</h2>
-                <p>無論身在何處，都能感受到彼此的陪伴。</p>
+        <section class="section split" aria-labelledby="directory-title">
+            <div>
+                <span class="eyebrow">Official Directory</span>
+                <h2 id="directory-title"><span class="muted-word">公開頁面</span><br>一站直達。</h2>
+                <p>首頁不只介紹產品，也把已部署的指南、語言版本、支援和法律文件整理成清楚入口，方便自己管理，也方便用戶找到需要的頁面。</p>
             </div>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">📸</div>
-                    <h3>照片即是糧食</h3>
-                    <p>拍下你的午餐、路邊的風景，或者你的笑臉。每一張照片都是寵物成長的能量。</p>
+            <div class="link-grid">
+                <a class="link-card" href="guides/">
+                    <strong>全部指南</strong>
+                    <span>PetTomo 的共享寵物、遠距互動、照片餵食和房間功能文章。</span>
+                </a>
+                <a class="link-card" href="guides/zh-hant/">
+                    <strong>繁中指南</strong>
+                    <span>針對繁體中文搜尋與使用情境整理的文章入口。</span>
+                </a>
+                <a class="link-card" href="guides/en/">
+                    <strong>English Guides</strong>
+                    <span>English SEO/GEO pages for app discovery and support.</span>
+                </a>
+                <a class="link-card" href="guides/ja/">
+                    <strong>日本語ガイド</strong>
+                    <span>日本語用戶可以直接打開的 PetTomo 指南列表。</span>
+                </a>
+                <a class="link-card" href="support_zh_TW.html">
+                    <strong>支援中心</strong>
+                    <span>使用問題、回報或聯絡方式。</span>
+                </a>
+                <a class="link-card" href="sitemap.xml">
+                    <strong>Sitemap</strong>
+                    <span>搜尋引擎與發布檢查用的 XML sitemap。</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="media-band" aria-labelledby="features-title">
+            <div>
+                <span class="eyebrow">Private Connection</span>
+                <h2 id="features-title">不是公開社群，是兩個人的小日常。</h2>
+                <p>PetTomo 的重點是共享房間、共同照顧和照片記憶，讓互動變得輕鬆，不需要每天想話題也能自然保持連結。</p>
+            </div>
+            <div class="pet-gallery">
+                <div class="pet-card">
+                    <img src="assets/ghost_stay.gif" alt="Ghost pet">
+                    <div><strong>Ghost</strong><span>適合可愛、輕量的每日互動。</span></div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🏠</div>
-                    <h3>共享專屬房間</h3>
-                    <p>兩個人，一隻寵物。共同佈置房間，同步每一份心意與照顧。</p>
+                <div class="pet-card">
+                    <img src="assets/cat_stay.gif" alt="Cat pet">
+                    <div><strong>Cat</strong><span>共享房間裡一起照顧。</span></div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💬</div>
-                    <h3>即時情感互動</h3>
-                    <p>看到對方的餵食照片後即時回應表情符號，讓簡單的溝通變得更有趣。</p>
+                <div class="pet-card">
+                    <img src="assets/fish_stay.gif" alt="Fish pet">
+                    <div><strong>Fish</strong><span>把照片變成餵食記錄。</span></div>
                 </div>
             </div>
         </section>
 
-        <section class="pets">
-            <div class="section-title">
-                <h2>遇見你的新夥伴</h2>
-                <p>你想帶哪隻寵物回家？</p>
+        <section class="section" aria-labelledby="content-title">
+            <div style="text-align:center;">
+                <span class="eyebrow">Published Content</span>
+                <h2 id="content-title"><span class="muted-word">主題內容</span><br>更容易進入。</h2>
             </div>
-            <div class="pet-list">
-                <div class="pet-item">
-                    <img src="assets/ghost_stay.gif" alt="Ghost">
-                    <h4>小幽靈</h4>
-                    <p style="font-size: 0.9rem; color: #777;">害羞又愛零食的飄飄。</p>
-                </div>
-                <div class="pet-item">
-                    <img src="assets/cat_stay.gif" alt="Cat">
-                    <h4>小貓</h4>
-                    <p style="font-size: 0.9rem; color: #777;">好奇又愛撒嬌的小獵手。</p>
-                </div>
-                <div class="pet-item">
-                    <img src="assets/fish_stay.gif" alt="Fish">
-                    <h4>小魚</h4>
-                    <p style="font-size: 0.9rem; color: #777;">愛滑行的泡泡游泳家。</p>
-                </div>
+            <div class="visual-row">
+                <a class="visual-tile sky" href="guides/zh-hant/couples-use-pettomo.html">
+                    <span class="label">Guide</span>
+                    <h3>情侶可以一起使用 PetTomo 嗎？</h3>
+                    <img src="assets/cat_stay.gif" alt="">
+                </a>
+                <a class="visual-tile lilac" href="guides/zh-hant/shared-rooms.html">
+                    <span class="label">Guide</span>
+                    <h3>PetTomo 支援共享房間嗎？</h3>
+                    <img class="store-preview" src="assets/store/pettomo-cn-1.png" alt="">
+                </a>
+                <a class="visual-tile peach" href="guides/zh-hant/feed-pets-with-photos.html">
+                    <span class="label">Guide</span>
+                    <h3>可以用照片餵食寵物嗎？</h3>
+                    <img src="assets/fish_stay.gif" alt="">
+                </a>
             </div>
         </section>
 
-        <footer>
-            <div class="logo" style="justify-content: center; margin-bottom: 20px;">
-                <img src="assets/PetTomo_appicon.png" alt="PetTomo Logo">
-                PetTomo
+        <footer class="footer">
+            <div class="marquee">PetTomo · Shared Room · Official</div>
+            <div class="footer-grid">
+                <div>
+                    <h2>讓平凡日常，變成一起照顧的理由。</h2>
+                    <p>© 2026 hangyodev. All rights reserved.</p>
+                    <a class="button light" style="display:inline-flex;margin-top:18px;" href="https://apps.apple.com/app/id6757725650">下載 App</a>
+                </div>
+                <div>
+                    <strong>Sitemap</strong>
+                    <a href="index.html?noredirect">Home</a>
+                    <a href="guides/">Guides</a>
+                    <a href="sitemap.xml">XML Sitemap</a>
+                </div>
+                <div>
+                    <strong>Guides</strong>
+                    <a href="guides/en/">English</a>
+                    <a href="guides/zh-hant/">繁體中文</a>
+                    <a href="guides/zh-hans/">简体中文</a>
+                    <a href="guides/ja/">日本語</a>
+                    <a href="guides/ko/">한국어</a>
+                </div>
+                <div>
+                    <strong>Support</strong>
+                    <a href="support_zh_TW.html">支援中心</a>
+                    <a href="privacy_policy_zh_TW.html">隱私權政策</a>
+                    <a href="terms_of_use_zh_TW.html">使用條款</a>
+                    <a href="invite.html">Invite</a>
+                </div>
             </div>
-            <div class="footer-links">
-                <a href="support.html">支援中心</a>
-                <a href="privacy_policy.html">隱私政策</a>
-                <a href="terms_of_use.html">使用條款</a>
-            </div>
-            <p class="copyright">&copy; 2026 PetTomo. All rights reserved.</p>
         </footer>
-    </div>
-
+    </main>
 </body>
 
 </html>

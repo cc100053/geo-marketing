@@ -858,7 +858,7 @@ ${alternateHead}
   </header>
   ${main}
   <footer class="site-footer">
-    <span>© ${new Date().getFullYear()} PetTomo</span>
+    <span>© ${new Date().getFullYear()} hangyodev</span>
     <nav aria-label="Footer navigation">
       <a href="/guides/">Guides</a>
       <a href="/support.html">Support</a>

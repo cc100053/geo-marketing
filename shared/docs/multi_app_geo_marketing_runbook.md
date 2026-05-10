@@ -35,6 +35,8 @@ deployment runbooks.
 ### PetTomo Publishing Node
 
 - Project path: `/Users/fatboy/geo-marketing/projects/pettomo`
+- App source path: `/Users/fatboy/pet`
+- Real asset source path: `/Users/fatboy/pet/assets`
 - Export script: `scripts/export_geoflow_guides.mjs`
 - Manifest: `scripts/geoflow_guides_manifest.json`
 - Static output: `html/`
@@ -47,6 +49,7 @@ deployment runbooks.
 
 - Marketing project path: `/Users/fatboy/geo-marketing/projects/kairogu`
 - App source path: `/Users/fatboy/kurabe`
+- Real asset source path: `/Users/fatboy/kurabe/assets`
 - Kairogu app content flow: `/Users/fatboy/kurabe/docs/geoflow_kairogu_content_flow.md`
 - Marketing workflow doc: `docs/geoflow_content_workflow.md`
 - Export script: `scripts/export_geoflow_guides.mjs`
@@ -169,9 +172,9 @@ directory `projects/kairogu`. Push triggers auto-deploy. `vercel.json` sets
 `buildCommand: null` so Vercel serves the committed `html/` folder directly.
 The export script requires local Docker/GEOFlow and cannot run on Vercel CI.
 
-`projects/kairogu/html/` is the only deployable static-site source. Do not sync
-or deploy `projects/kairogu/web-landing/`; it is a deprecated migration artifact
-and must not contain its own Vercel config.
+`projects/kairogu/html/` is the only deployable static-site source. The old
+`projects/kairogu/web-landing/` migration copy has been removed; do not recreate
+or deploy a second static-site folder.
 
 Do not use `vercel deploy --prod` for routine Kairogu publishing. Because the
 Vercel project root directory is already `projects/kairogu`, direct CLI deploys

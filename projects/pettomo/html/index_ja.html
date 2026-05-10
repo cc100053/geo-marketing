@@ -1,239 +1,150 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PetTomo - 写真で育てる、二人の絆 | 共有ペット育成</title>
+    <title>PetTomo - 共有バーチャルペットアプリ公式サイト</title>
+    <meta name="description" content="PetTomo は、写真フィード、共有ルーム、軽い毎日のやりとりで一緒にバーチャルペットを育てるアプリです。公式サイトからダウンロード、ガイド、サポート、規約へアクセスできます。">
     <link rel="icon" type="image/png" href="assets/PetTomo_appicon.png">
-    
-    <script>
-        function scrollToDownload(e) {
-            e.preventDefault();
-            const element = document.getElementById('download');
-            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/official-home.css">
     <style>
-        :root {
-            --primary: #5FBF9E;
-            --secondary: #FFB36B;
-            --bg: #FFFBF3;
-            --text-dark: #2F2A23;
-            --text-muted: #7A6F66;
-            --white: #FFFFFF;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Noto Sans JP', sans-serif;
-            background-color: var(--bg);
-            color: var(--text-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-
-        nav { padding: 20px 0; display: flex; justify-content: space-between; align-items: center; }
-
-        .logo {
-            display: flex; align-items: center; gap: 12px;
-            font-weight: 700; font-size: 1.5rem; color: var(--primary); text-decoration: none;
-        }
-
-        .logo img { width: 44px; height: 44px; border-radius: 10px; }
-
-        header { padding: 80px 0; display: flex; flex-direction: column; align-items: center; text-align: center; }
-
-        .hero-content h1 { font-size: 3rem; margin-bottom: 24px; line-height: 1.3; }
-
-        .hero-content p { font-size: 1.1rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 40px; }
-
-        .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-
-        .btn {
-            padding: 14px 32px; border-radius: 50px; text-decoration: none;
-            font-weight: 500; transition: all 0.3s ease; font-size: 1.1rem;
-        }
-
-        .btn-primary {
-            background-color: var(--primary); color: var(--white);
-            box-shadow: 0 4px 15px rgba(95, 191, 158, 0.3);
-        }
-
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(95, 191, 158, 0.4); }
-
-        .hero-mockup { margin-top: 60px; position: relative; width: 100%; max-width: 800px; }
-
-        .hero-mockup .main-img {
-            width: 100%;
-            border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        .pet-float {
-            position: absolute;
-            width: 120px;
-            height: auto;
-            bottom: -40px;
-            right: 20px;
-            z-index: 2;
-            animation: bounce 3s infinite ease-in-out;
-        }
-
-        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
-
-        .features { padding: 100px 0; }
-
-        .section-title { text-align: center; margin-bottom: 60px; }
-
-        .section-title h2 { font-size: 2.2rem; margin-bottom: 16px; }
-
-        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-
-        .feature-card {
-            background: var(--white); padding: 40px; border-radius: 24px;
-            border: 1px solid #E6E0D6; text-align: center; transition: transform 0.3s ease;
-        }
-
-        .feature-card:hover { transform: translateY(-5px); }
-
-        .feature-icon { font-size: 3rem; margin-bottom: 24px; }
-
-        .feature-card h3 { font-size: 1.4rem; margin-bottom: 16px; }
-
-        .pets { background-color: #F4FAF8; padding: 100px 0; border-radius: 60px; margin: 40px 20px; }
-
-        .pet-list { display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; margin-top: 40px; }
-
-        .pet-item { text-align: center; width: 180px; }
-
-        .pet-item img { width: 100px; margin-bottom: 20px; }
-
-        .pet-item h4 { font-size: 1.2rem; color: var(--primary); }
-
-        .lang-switcher { margin-top: 40px; font-size: 0.9rem; }
-
-        .lang-switcher a { color: var(--text-muted); text-decoration: none; margin: 0 8px; }
-
-        .lang-switcher a.active { color: var(--primary); font-weight: 700; }
-
-        footer { padding: 60px 0; text-align: center; border-top: 1px solid #E6E0D6; }
-
-        .footer-links { display: flex; justify-content: center; gap: 30px; margin: 30px 0; flex-wrap: wrap; }
-
-        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; }
-
-        .footer-links a:hover { color: var(--primary); }
-
-        .copyright { color: #AAA; font-size: 0.85rem; }
-
-        @media (max-width: 768px) {
-            .hero-content h1 { font-size: 2rem; }
-            .section-title h2 { font-size: 1.8rem; }
-            .pet-float { width: 80px; right: 10px; }
-        }
+        body { --font: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif; }
     </style>
 </head>
-<body>
 
-    <div class="container">
-        <nav>
-            <a href="index_ja.html" class="logo">
-                <img src="assets/PetTomo_appicon.png" alt="PetTomo Logo">
-                ペットモ
+<body>
+    <main class="site">
+        <nav class="nav" aria-label="メインナビゲーション">
+            <a class="brand" href="index_ja.html?noredirect">
+                <img src="assets/PetTomo_appicon.png" alt="">
+                <span>PetTomo</span>
             </a>
-            <div class="cta-buttons">
-                <a href="#download" onclick="scrollToDownload(event)" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.9rem;">今すぐダウンロード</a>
+            <div class="nav-links">
+                <a class="pill" href="guides/">ガイド</a>
+                <a class="pill" href="support_ja.html">サポート</a>
+                <a class="button" href="https://apps.apple.com/app/id6757725650">アプリをダウンロード</a>
             </div>
         </nav>
 
-        <header>
-            <div class="hero-content">
-                <h1>日常の瞬間を、<br>大切な人との思い出に。</h1>
-                <p>恋人や友達を招待して、共有ルームで可愛いペットを一緒に育てましょう。毎日の写真をシェアして、リアルタイムで絆を深めることができます。</p>
-                <div class="cta-buttons" id="download">
-                    <a href="https://apps.apple.com/app/id6757725650" class="btn btn-primary">App Store でダウンロード</a>
-                    <a href="#" class="btn" style="background: #2F2A23; color: white;">Google Play (開発中)</a>
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-copy">
+                <span class="eyebrow">Shared Virtual Pet App</span>
+                <h1 id="hero-title"><span class="muted-word">日常の写真を</span><br>一緒のお世話に。</h1>
+                <p class="lead">恋人や友だちをプライベートな共有ルームに招待し、写真でペットにごはんをあげながら、負担の少ない毎日のつながりを作れます。</p>
+                <div class="actions">
+                    <a class="button" href="https://apps.apple.com/app/id6757725650">App Store でダウンロード</a>
+                    <span class="store-disabled">Google Play 開発中</span>
+                    <a class="pill" href="guides/ja/">日本語ガイド</a>
                 </div>
             </div>
 
-            <div class="hero-mockup">
-                <img src="assets/app_mockup.png" alt="PetTomo App Screenshot" class="main-img" onerror="this.src='https://placehold.co/800x600/FFFBF3/5FBF9E?text=PetTomo+Shared+Room'">
-                <img src="assets/ghost_stay.gif" alt="Ghost Pet" class="pet-float">
+            <div class="hero-stage">
+                <div class="float-stack">
+                    <div class="float-card">
+                        <div class="avatar-row">
+                            <img src="assets/ghost_stay.gif" alt="">
+                            <img src="assets/cat_stay.gif" alt="">
+                        </div>
+                        <span class="label">共有ルーム</span>
+                        <div class="metric">二人で一匹のペット<small>プライベート空間で一緒にお世話</small></div>
+                    </div>
+                    <div class="float-card">
+                        <span class="label">毎日のきっかけ</span>
+                        <div class="metric">写真フィード<small>生活の一コマがペットのごはんに</small></div>
+                    </div>
+                </div>
+
+                <div class="phone" aria-label="PetTomo アプリ画面">
+                    <div class="phone-top">
+                        <span>PetTomo Room</span>
+                        <span>9:41</span>
+                    </div>
+                    <img class="mockup" src="assets/store/pettomo-ja-1.png" alt="PetTomo 日本語 App Store スクリーンショット">
+                    <img class="pet-float" src="assets/ghost_stay.gif" alt="">
+                    <div class="phone-card">
+                        <div><span>Photo feed</span><span>Done</span></div>
+                        <div><span>Shared room</span><span>Live</span></div>
+                        <div><span>Memory</span><span>Saved</span></div>
+                    </div>
+                </div>
+
+                <div class="float-stack">
+                    <div class="float-card">
+                        <span class="label">公式サイト</span>
+                        <div class="metric">ダウンロード、サポート、ガイド<small>必要な入口をトップに集約</small></div>
+                    </div>
+                    <div class="float-card">
+                        <span class="label">GEO Guides</span>
+                        <div class="metric">5言語対応<small>en / zh-hant / zh-hans / ja / ko</small></div>
+                    </div>
+                </div>
             </div>
 
-            <div class="lang-switcher">
-                <a href="index.html?noredirect">繁體中文</a> |
-                <a href="index_en.html?noredirect">English</a> |
-                <a href="index_ja.html?noredirect" class="active">日本語</a> |
-                <a href="index_ko.html?noredirect">한국어</a>
-            </div>
-        </header>
-
-        <section class="features">
-            <div class="section-title">
-                <h2>大切な人とのために</h2>
-                <p>どこにいても、お互いの存在を感じられます。</p>
-            </div>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">📸</div>
-                    <h3>写真がごはんになる</h3>
-                    <p>ランチや風景、あなたの笑顔を撮って送りましょう。毎日の写真がペットの成長のエネルギーになります。</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🏠</div>
-                    <h3>二人だけの共有ルーム</h3>
-                    <p>二人で一匹のペット。一緒にお部屋をデコレーションして、リアルタイムでお世話を共有しましょう。</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💬</div>
-                    <h3>リアルタイムな交流</h3>
-                    <p>写真にリアクションを送ることで、日常の何気ないコミュニケーションがもっと楽しくなります。</p>
-                </div>
+            <div class="language-switcher" aria-label="言語切り替え">
+                <a class="pill" href="index.html?noredirect">繁體中文</a>
+                <a class="pill" href="index_en.html?noredirect">English</a>
+                <a class="pill active" href="index_ja.html?noredirect">日本語</a>
+                <a class="pill" href="index_ko.html?noredirect">한국어</a>
             </div>
         </section>
 
-        <section class="pets">
-            <div class="section-title">
-                <h2>新しい家族に会いましょう</h2>
-                <p>どの子をお家に招待しますか？</p>
+        <section class="section split" aria-labelledby="directory-title">
+            <div>
+                <span class="eyebrow">Official Directory</span>
+                <h2 id="directory-title"><span class="muted-word">公開ページへ</span><br>すぐアクセス。</h2>
+                <p>トップページを、製品紹介だけでなく、公開済みガイド、言語別インデックス、サポート、ポリシー、サイトマップへ移動できる公式ハブとして整理しました。</p>
             </div>
-            <div class="pet-list">
-                <div class="pet-item">
-                    <img src="assets/ghost_stay.gif" alt="Ghost">
-                    <h4>ゴースト</h4>
-                    <p style="font-size: 0.9rem; color: #777;">おやつが大好きな、恥ずかしがり屋のふわふわ。</p>
-                </div>
-                <div class="pet-item">
-                    <img src="assets/cat_stay.gif" alt="Cat">
-                    <h4>ネコ</h4>
-                    <p style="font-size: 0.9rem; color: #777;">好奇心旺盛でゴロゴロ上手。</p>
-                </div>
-                <div class="pet-item">
-                    <img src="assets/fish_stay.gif" alt="Fish">
-                    <h4>サカナ</h4>
-                    <p style="font-size: 0.9rem; color: #777;">ぷくぷく泳ぐ、きらきらスイマー。</p>
-                </div>
+            <div class="link-grid">
+                <a class="link-card" href="guides/"><strong>すべてのガイド</strong><span>共有ペット、遠距離、写真フィード、ルーム機能の記事一覧。</span></a>
+                <a class="link-card" href="guides/ja/"><strong>日本語ガイド</strong><span>日本語ユーザー向けの記事入口。</span></a>
+                <a class="link-card" href="guides/en/"><strong>English Guides</strong><span>英語の SEO/GEO ガイド一覧。</span></a>
+                <a class="link-card" href="guides/zh-hant/"><strong>繁體中文指南</strong><span>繁体字ユーザー向けのガイド入口。</span></a>
+                <a class="link-card" href="support_ja.html"><strong>サポート</strong><span>使い方、不具合報告、連絡先を確認できます。</span></a>
+                <a class="link-card" href="sitemap.xml"><strong>Sitemap</strong><span>公開確認と検索エンジン向けの XML sitemap。</span></a>
             </div>
         </section>
 
-        <footer>
-            <div class="logo" style="justify-content: center; margin-bottom: 20px;">
-                <img src="assets/PetTomo_appicon.png" alt="PetTomo Logo">
-                ペットモ
+        <section class="media-band" aria-labelledby="features-title">
+            <div>
+                <span class="eyebrow">Private Connection</span>
+                <h2 id="features-title">公開投稿ではなく、小さな共有習慣。</h2>
+                <p>PetTomo は共有ルーム、共同のお世話、写真の思い出を中心に、恋人や親しい友だちが自然につながるための軽い理由を作ります。</p>
             </div>
-            <div class="footer-links">
-                <a href="support_ja.html">サポート</a>
-                <a href="privacy_policy_ja.html">プライバシーポリシー</a>
-                <a href="terms_of_use_ja.html">利用規約</a>
+            <div class="pet-gallery">
+                <div class="pet-card"><img src="assets/ghost_stay.gif" alt="Ghost pet"><div><strong>Ghost</strong><span>軽い毎日のチェックインに。</span></div></div>
+                <div class="pet-card"><img src="assets/cat_stay.gif" alt="Cat pet"><div><strong>Cat</strong><span>共有ルームで一緒にお世話。</span></div></div>
+                <div class="pet-card"><img src="assets/fish_stay.gif" alt="Fish pet"><div><strong>Fish</strong><span>写真がごはんの記録に。</span></div></div>
             </div>
-            <p class="copyright">&copy; 2026 PetTomo. All rights reserved.</p>
+        </section>
+
+        <section class="section" aria-labelledby="content-title">
+            <div style="text-align:center;">
+                <span class="eyebrow">Published Content</span>
+                <h2 id="content-title"><span class="muted-word">主要ガイドへ</span><br>入りやすく。</h2>
+            </div>
+            <div class="visual-row">
+                <a class="visual-tile sky" href="guides/ja/couples-use-pettomo.html"><span class="label">Guide</span><h3>カップルでPetTomoを一緒に使える？</h3><img src="assets/cat_stay.gif" alt=""></a>
+                <a class="visual-tile lilac" href="guides/ja/shared-rooms.html"><span class="label">Guide</span><h3>PetTomoは共有ルームに対応している？</h3><img class="store-preview" src="assets/store/pettomo-ja-1.png" alt=""></a>
+                <a class="visual-tile peach" href="guides/ja/feed-pets-with-photos.html"><span class="label">Guide</span><h3>写真でペットにごはんをあげられる？</h3><img src="assets/fish_stay.gif" alt=""></a>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="marquee">PetTomo · Shared Room · Official</div>
+            <div class="footer-grid">
+                <div>
+                    <h2>何気ない日常を、一緒にお世話する理由に。</h2>
+                    <p>© 2026 hangyodev. All rights reserved.</p>
+                    <a class="button light" style="display:inline-flex;margin-top:18px;" href="https://apps.apple.com/app/id6757725650">アプリをダウンロード</a>
+                </div>
+                <div><strong>Sitemap</strong><a href="index_ja.html?noredirect">Home</a><a href="guides/">Guides</a><a href="sitemap.xml">XML Sitemap</a></div>
+                <div><strong>Guides</strong><a href="guides/en/">English</a><a href="guides/zh-hant/">繁體中文</a><a href="guides/zh-hans/">简体中文</a><a href="guides/ja/">日本語</a><a href="guides/ko/">한국어</a></div>
+                <div><strong>Support</strong><a href="support_ja.html">サポート</a><a href="privacy_policy_ja.html">プライバシーポリシー</a><a href="terms_of_use_ja.html">利用規約</a><a href="invite.html">Invite</a></div>
+            </div>
         </footer>
-    </div>
-
+    </main>
 </body>
+
 </html>

@@ -21,6 +21,23 @@ config, and GEOFlow publishing notes here.
 - Primary market: Japan
 - Content language: Japanese only
 
+## Marketing Assets
+
+Use real app assets from the Kairogu app repo when updating the official site:
+
+```text
+/Users/fatboy/kurabe/assets
+```
+
+Important source folders:
+
+- `/Users/fatboy/kurabe/assets/app store/`: App Store screenshots and store art.
+- `/Users/fatboy/kurabe/assets/images/`: app icons and launch icons.
+
+Copy optimized derivatives into `projects/kairogu/html/assets/` before
+referencing them from the deployed static site. Do not hotlink local filesystem
+paths from HTML.
+
 ## Core Positioning
 
 カイログは、スーパーやドラッグストアで見つけた価格を記録し、あとから
@@ -120,9 +137,9 @@ local Docker/GEOFlow instance. Always run the export locally and commit the
 updated `html/` before deploying.
 
 `html/` is the only deployable static-site source for カイログ. Do not copy or
-sync generated output into `web-landing/`, and do not deploy from that directory.
-It is retained only as a deprecated migration artifact, without its own Vercel
-config, to avoid a second deploy path drifting from production.
+sync generated output into a separate `web-landing/` directory. The old
+`web-landing/` migration copy has been removed to avoid a second deploy path
+drifting from production.
 
 The production deployment is intentionally Git-triggered:
 

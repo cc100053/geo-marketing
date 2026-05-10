@@ -29,6 +29,16 @@ Supported guide languages:
   ids to language, translation group, slug, and legacy aliases.
 - `html/guides/`: generated static output. Do not hand-edit generated guide
   pages.
+- Real app assets for official-site visuals come from `/Users/fatboy/pet/assets`.
+  Copy optimized derivatives into `html/assets/` before referencing them from
+  deployed HTML.
+
+Useful PetTomo asset source folders:
+
+- `/Users/fatboy/pet/assets/appstore/`: localized App Store screenshots.
+- `/Users/fatboy/pet/assets/app/`: app icon, launch logo, app UI artwork.
+- `/Users/fatboy/pet/assets/pet/`: pet GIFs and animation assets.
+- `/Users/fatboy/pet/assets/icon/`: UI icon SVGs.
 
 ## Per-Article Workflow
 

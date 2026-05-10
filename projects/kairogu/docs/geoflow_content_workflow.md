@@ -119,9 +119,8 @@ the committed `html/` folder directly. The export script requires local
 Docker/GEOFlow and cannot run on Vercel CI.
 
 `html/` is the only deployable static-site source for カイログ in this workspace.
-Do not sync generated output into `web-landing/` and do not deploy from
-`web-landing/`; that directory is retained only as a deprecated migration
-artifact and intentionally has no Vercel config.
+The old `web-landing/` migration copy has been removed. Do not recreate it, sync
+generated output into it, or deploy from a second static-site folder.
 
 Deployment is Git-triggered, not direct CLI-triggered:
 

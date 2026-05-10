@@ -587,7 +587,7 @@ function pageShell({ title, description, keywords, canonicalUrl, bodyClass, main
   </header>
 ${String(main).trim()}
   <footer class="site-footer">
-    <span>&copy; 2026 CHIANG CHI NAM</span>
+    <span>&copy; 2026 hangyodev</span>
     <a href="mailto:hangyodev@gmail.com">お問い合わせ</a>
   </footer>
 </body>

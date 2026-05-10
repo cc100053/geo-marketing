@@ -38,6 +38,9 @@ External app source:
 
 ```text
 /Users/fatboy/kurabe/       # Kairogu Flutter app repo and product facts
+/Users/fatboy/kurabe/assets # Kairogu real app icons and App Store screenshots
+/Users/fatboy/pet/          # PetTomo Flutter app repo and product facts
+/Users/fatboy/pet/assets    # PetTomo real app icons, pets, UI assets, screenshots
 ```
 
 ## Operating Model

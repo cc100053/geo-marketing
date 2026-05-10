@@ -79,8 +79,18 @@ FIREBASE_CLI_DISABLE_UPDATE_CHECK=true firebase deploy --only hosting --project 
 Live endpoints:
 
 - `https://pet-app-702be.web.app/`
+- `https://pet-app-702be.web.app/index_en.html`
+- `https://pet-app-702be.web.app/index_ja.html`
+- `https://pet-app-702be.web.app/index_ko.html`
 - `https://pet-app-702be.web.app/guides/`
+- `https://pet-app-702be.web.app/guides/en/`
+- `https://pet-app-702be.web.app/guides/zh-hant/`
+- `https://pet-app-702be.web.app/guides/zh-hans/`
+- `https://pet-app-702be.web.app/guides/ja/`
+- `https://pet-app-702be.web.app/guides/ko/`
 - `https://pet-app-702be.web.app/sitemap.xml`
+
+Last verified after Firebase Hosting deploy: 2026-05-10.
 
 ## Kairogu Commands
 
@@ -110,8 +120,13 @@ Live endpoints:
 
 - `https://www.kairogu.men/`
 - `https://www.kairogu.men/guides/`
+- `https://www.kairogu.men/guides/ja/`
 - `https://www.kairogu.men/sitemap.xml`
 - `https://www.kairogu.men/guides/ja/price-recording-app.html`
+- `https://www.kairogu.men/guides/ja/price-tag-reading.html`
+- `https://www.kairogu.men/guides/ja/receipt-vs-price-recording.html`
+
+Last verified after Vercel Git deploy: 2026-05-10.
 
 Current Vercel production project:
 

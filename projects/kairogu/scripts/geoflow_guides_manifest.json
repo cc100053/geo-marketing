@@ -17,6 +17,12 @@
       "lang": "ja",
       "slug": "receipt-vs-price-recording",
       "sourcePath": "docs/articles/receipt-vs-price-recording-ja.md"
+    },
+    {
+      "group": "category-price-history",
+      "lang": "ja",
+      "slug": "category-price-history",
+      "sourcePath": "docs/articles/category-price-history-ja.md"
     }
   ]
 }

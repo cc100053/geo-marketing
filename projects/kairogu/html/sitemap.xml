@@ -40,4 +40,8 @@
     <loc>https://www.kairogu.men/guides/ja/category-price-history.html</loc>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>https://www.kairogu.men/guides/ja/unit-price-comparison.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
 </urlset>

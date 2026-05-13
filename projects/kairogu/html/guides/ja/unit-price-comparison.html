@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>100gあたり価格で比べる理由。容量違いの商品をカイログで比較するコツ | カイログ ガイド</title>
+  <meta name="description" content="容量違いの商品は表示価格だけでは比べにくいことがあります。カイログの比較タブや価格記録を使い、100gあたり価格や単価を見ながら買い物で判断しやすくする考え方を紹介します。">
+  <meta name="keywords" content="100g 価格 計算 アプリ">
+  <link rel="canonical" href="https://www.kairogu.men/guides/ja/unit-price-comparison.html">
+  <link rel="icon" type="image/png" href="/icon.png">
+  <meta property="og:title" content="100gあたり価格で比べる理由。容量違いの商品をカイログで比較するコツ | カイログ ガイド">
+  <meta property="og:description" content="容量違いの商品は表示価格だけでは比べにくいことがあります。カイログの比較タブや価格記録を使い、100gあたり価格や単価を見ながら買い物で判断しやすくする考え方を紹介します。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.kairogu.men/guides/ja/unit-price-comparison.html">
+  <meta property="og:image" content="https://www.kairogu.men/icon.png">
+  <style>
+    :root {
+      --primary: #1A8D7A;
+      --accent: #F4A261;
+      --bg: #FAF9F7;
+      --panel: #FFFFFF;
+      --text: #242424;
+      --muted: #667085;
+      --line: #E5E1DA;
+      --soft: #EEF8F5;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", "Segoe UI", sans-serif;
+      line-height: 1.8;
+    }
+
+    a { color: inherit; }
+
+    .site-header,
+    .site-footer {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--primary);
+      font-size: 1.18rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .site-nav a,
+    .site-footer a,
+    .eyebrow a {
+      text-decoration: none;
+    }
+
+    .site-nav a:hover,
+    .site-footer a:hover,
+    .eyebrow a:hover {
+      color: var(--primary);
+    }
+
+    .guides-shell,
+    .article-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 72px;
+    }
+
+    .guides-hero {
+      min-height: 300px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 150px;
+      gap: 40px;
+      align-items: center;
+      padding: 52px 0 40px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .guides-hero img {
+      width: 132px;
+      height: 132px;
+      border-radius: 28px;
+      box-shadow: 0 16px 34px rgba(36, 36, 36, 0.12);
+    }
+
+    .eyebrow,
+    .guide-label {
+      margin: 0 0 12px;
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 840px;
+      margin: 0;
+      font-size: clamp(2.1rem, 6vw, 4rem);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    .guides-hero p:not(.eyebrow),
+    .article-summary {
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      padding-top: 34px;
+    }
+
+    .guide-card {
+      min-height: 220px;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(36, 36, 36, 0.06);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .guide-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(36, 36, 36, 0.1);
+    }
+
+    .guide-card h2 {
+      margin: 0;
+      font-size: 1.24rem;
+      line-height: 1.35;
+    }
+
+    .guide-card p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .article {
+      max-width: 860px;
+      margin: 26px auto 0;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .article-meta {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .article-content {
+      margin-top: 34px;
+      font-size: 1.04rem;
+    }
+
+    .article-content h2,
+    .article-content h3 {
+      margin: 34px 0 12px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    .article-content h2 { font-size: 1.58rem; }
+    .article-content h3 { font-size: 1.22rem; }
+
+    .article-content p,
+    .article-content li {
+      color: #3F3A36;
+    }
+
+    .article-content ul,
+    .article-content ol {
+      padding-left: 1.35rem;
+    }
+
+    .article-nav {
+      max-width: 860px;
+      margin: 24px auto 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .article-nav a {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--primary);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    @media (max-width: 720px) {
+      .site-header,
+      .site-footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .guides-hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .guides-hero img {
+        width: 104px;
+        height: 104px;
+      }
+    }
+  </style>
+</head>
+<body class="article-page">
+  <header class="site-header">
+    <a class="brand" href="/">
+      <img src="/icon.png" alt="カイログ">
+      <span>カイログ</span>
+    </a>
+    <nav class="site-nav" aria-label="Site navigation">
+      <a href="/guides/">ガイド</a>
+      <a href="/privacy.html">プライバシー</a>
+      <a href="/terms.html">利用規約</a>
+    </nav>
+  </header>
+<main class="article-shell">
+        <p class="eyebrow"><a href="/guides/">カイログ ガイド</a></p>
+        <article class="article">
+          <h1>100gあたり価格で比べる理由。容量違いの商品をカイログで比較するコツ</h1>
+          <p class="article-summary">容量違いの商品は表示価格だけでは比べにくいことがあります。カイログの比較タブや価格記録を使い、100gあたり価格や単価を見ながら買い物で判断しやすくする考え方を紹介します。</p>
+          <div class="article-meta">更新日 2026/05/13</div>
+          <div class="article-content">
+            <p>スーパーやドラッグストアでは、同じ種類の商品でも容量や個数が違うだけで表示価格の印象が変わります。大容量のほうが安く見えても、100gあたり、1個あたり、1回分あたりで見ると判断が変わることがあります。</p>
+<p>カイログは、価格タグを撮影して商品名、価格、容量、カテゴリなどを記録できる価格管理アプリです。さらに比較タブでは、2つの商品を入力して単価を比べられるため、容量違いの商品を店頭で確認したいときに使いやすくなります。</p>
+<h2>要点</h2>
+<ul>
+<li>100gあたり価格や単価を見ると、容量違いの商品を表示価格だけで判断しにくい場面を整理できます。</li>
+<li>カイログでは、価格タグ撮影で価格や容量を記録し、過去の価格履歴として見返せます。</li>
+<li>比較タブでは、2つの商品について価格と容量を入力し、単価の違いを確認できます。</li>
+<li>計算結果は買い物判断の参考です。品質、使い切れる量、割引条件、店舗や時期も合わせて見ることが大切です。</li>
+</ul>
+<h2>なぜ表示価格だけでは比べにくいのか</h2>
+<p>店頭では、同じカテゴリの商品でも容量がそろっていないことがよくあります。たとえば、肉はグラム数が違い、洗剤は本体と詰め替えで容量が違い、冷凍食品やお菓子は内容量が変わることがあります。</p>
+<p>表示価格だけを見ると、次のような迷いが起きやすくなります。</p>
+<ul>
+<li>298円の少量パックと498円の大容量パックのどちらが単価で安いか</li>
+<li>30%引きの商品が、通常価格の別商品より本当に安いか</li>
+<li>100gあたり表示がない商品をどう比べるか</li>
+<li>詰め替え用や大容量品を使い切れるか</li>
+<li>前に別店舗で見た価格と比べて高いのか安いのか</li>
+</ul>
+<p>単価は、この迷いを整理するためのひとつの見方です。常に単価だけで選ぶ必要はありませんが、価格と容量を分けて見ると判断しやすくなります。</p>
+<h2>カイログで単価を比べる流れ</h2>
+<p>カイログの比較タブでは、2つの商品について価格と容量を入力し、単価を確認できます。商品を保存しなくても、その場で比べたいときに使えるシンプルな比較です。</p>
+<p>基本的な流れは次の通りです。</p>
+<ol>
+<li>比べたい2つの商品を選ぶ</li>
+<li>それぞれの価格を確認する</li>
+<li>容量や重量を入力する</li>
+<li>単価の違いを見る</li>
+<li>必要に応じて、価格タグを撮影して記録にも残す</li>
+</ol>
+<p>保存したい商品は、価格タグ撮影で商品名、価格、割引、容量、カテゴリを記録しておくと、あとから価格履歴として見返せます。よく買う商品ほど、比較タブでの一時的な確認と、価格履歴としての記録を組み合わせると便利です。</p>
+<h2>比較するときに見るポイント</h2>
+<p>単価を比べるときは、価格と容量だけでなく、買い物の条件も一緒に考えると現実的です。</p>
+<h3>容量の単位をそろえる</h3>
+<p>100gあたりで比べるなら、両方の商品を同じ単位にそろえます。片方が500g、もう片方が1kgなら、同じグラム基準にしてから見ると分かりやすくなります。</p>
+<h3>割引後価格か通常価格かを確認する</h3>
+<p>見切り品や期間限定セールでは、表示価格と割引後価格を混同しやすいことがあります。比較するときは、実際に支払う価格を使うのか、通常価格を記録するのかを意識します。</p>
+<h3>使い切れる量かを見る</h3>
+<p>大容量品は単価が低く見えることがありますが、使い切れなければ買い物全体では無駄が出ることもあります。食品なら消費期限、日用品なら保管場所や使用ペースも判断材料になります。</p>
+<h3>過去の自分の記録と比べる</h3>
+<p>カイログに保存した価格履歴がある場合は、今日の価格だけでなく、以前の自分の記録も見返せます。店舗や時期によって価格は変わるため、古い記録は現在価格ではなく参考情報として扱うのが自然です。</p>
+<h2>カイログで管理しやすいこと</h2>
+<p>カイログでは、店頭の価格タグを撮影して、商品名、価格、割引、容量、カテゴリなどを記録できます。買い物リストと合わせて使えば、買う予定の商品と過去に見た価格を同じ流れで確認しやすくなります。</p>
+<p>比較タブは、2つの商品をその場で単価比較したいときに向いています。価格履歴は、よく買う商品の価格感をあとから見返したいときに向いています。両方を分けて使うと、店頭での一時的な比較と、次回以降のための記録を混同しにくくなります。</p>
+<p>カイログ Pro では、近くの価格情報や比較機能をさらに活用できます。ただし、近くの価格情報はユーザーの記録や利用状況に左右されます。すべての店舗や商品価格が必ず表示されるわけではないため、自分の記録と合わせて参考にしてください。</p>
+<h2>注意したいこと</h2>
+<p>100gあたり価格や単価は、買い物判断を助けるための目安です。必ず安く買えることを保証するものではありません。</p>
+<p>AIによる価格タグ読み取りも、写真の明るさ、角度、文字の見え方、割引表示の複雑さによって結果が変わることがあります。保存前には、商品名、価格、容量、割引内容を確認してください。</p>
+<p>また、単価が低い商品がいつも自分に合うとは限りません。味、品質、必要な量、保存しやすさ、使い切れるかどうかも合わせて考えると、買い物後の納得感につながります。</p>
+<h2>よくある質問</h2>
+<h3>100gあたり価格だけを見れば十分ですか？</h3>
+<p>十分とは限りません。容量違いを比べる目安にはなりますが、品質、消費期限、割引条件、使い切れる量も合わせて見るのがおすすめです。</p>
+<h3>カイログで2つの商品をその場で比較できますか？</h3>
+<p>はい。カイログの比較タブでは、2つの商品について価格と容量を入力し、単価の違いを確認できます。</p>
+<h3>価格タグを撮影した記録も比較に使えますか？</h3>
+<p>はい。価格タグを撮影して保存した記録は、あとから価格履歴として見返せます。よく買う商品は記録を残しておくと、次回の買い物で参考にしやすくなります。</p>
+<h2>まとめ</h2>
+<p>容量違いの商品を比べるときは、表示価格だけでなく100gあたり価格や単価を見ると判断しやすくなります。カイログでは、比較タブでその場の単価を確認し、価格タグ撮影でよく買う商品の価格履歴を残せます。</p>
+<p>単価はあくまで判断材料のひとつです。店舗、時期、割引条件、使い切れる量も合わせて見ながら、自分の買い物に合う形で記録を増やしていくのが現実的です。</p>
+          </div>
+        </article>
+        <nav class="article-nav" aria-label="Guide navigation">
+          <a href="/guides/">すべてのガイド</a>
+          <a href="/guides/ja/">日本語ガイド</a>
+          <a href="/">カイログ ホーム</a>
+        </nav>
+      </main>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"100gあたり価格で比べる理由。容量違いの商品をカイログで比較するコツ","description":"容量違いの商品は表示価格だけでは比べにくいことがあります。カイログの比較タブや価格記録を使い、100gあたり価格や単価を見ながら買い物で判断しやすくする考え方を紹介します。","inLanguage":"ja","author":{"@type":"Organization","name":"カイログ編集部"},"publisher":{"@type":"Organization","name":"カイログ","logo":{"@type":"ImageObject","url":"https://www.kairogu.men/icon.png"}},"mainEntityOfPage":"https://www.kairogu.men/guides/ja/unit-price-comparison.html","dateModified":"2026-05-13T02:06:36.404Z"}</script>
+  <footer class="site-footer">
+    <span>&copy; 2026 hangyodev</span>
+    <a href="mailto:hangyodev@gmail.com">お問い合わせ</a>
+  </footer>
+</body>
+</html>

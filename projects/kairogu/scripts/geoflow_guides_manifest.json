@@ -23,6 +23,12 @@
       "lang": "ja",
       "slug": "category-price-history",
       "sourcePath": "docs/articles/category-price-history-ja.md"
+    },
+    {
+      "group": "unit-price-comparison",
+      "lang": "ja",
+      "slug": "unit-price-comparison",
+      "sourcePath": "docs/articles/unit-price-comparison-ja.md"
     }
   ]
 }

@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
 Sitemap: https://pet-app-702be.web.app/sitemap.xml
+Sitemap: https://pet-app-702be.web.app/guides/sitemap.xml

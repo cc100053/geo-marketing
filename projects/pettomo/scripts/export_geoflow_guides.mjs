@@ -76,6 +76,7 @@ for (const language of languageGroups(orderedArticles).keys()) {
   await writeGuideFile(`${language}/index.html`, renderGuidesIndex(orderedArticles, language));
 }
 await writeFile(path.join(repoRoot, 'html', 'sitemap.xml'), renderSitemap(orderedArticles));
+await writeFile(path.join(outputDir, 'sitemap.xml'), renderGuidesSitemap(orderedArticles));
 await writeFile(path.join(repoRoot, 'html', 'robots.txt'), renderRobots());
 
 console.log(`Exported ${orderedArticles.length} GEOFlow guide pages to ${outputDir}`);
@@ -488,10 +489,42 @@ ${urls}
 `;
 }
 
+function renderGuidesSitemap(articles) {
+  const guidePages = [
+    ['guides/', 'weekly'],
+    ...Array.from(languageGroups(articles).keys()).map((language) => [`guides/${language}/`, 'weekly']),
+    ...articles.flatMap((article) => [
+      [`guides/${article.outputPath}`, 'weekly'],
+      ...article.legacyPaths.map((legacyPath) => [`guides/${legacyPath}`, 'weekly']),
+    ]),
+  ];
+
+  return renderUrlset(guidePages);
+}
+
 function renderRobots() {
   return `User-agent: *
 Allow: /
 Sitemap: ${baseUrl}/sitemap.xml
+Sitemap: ${baseUrl}/guides/sitemap.xml
+`;
+}
+
+function renderUrlset(pages) {
+  const urls = pages
+    .map(([location, changefreq]) => {
+      const loc = `${baseUrl}/${location}`.replace(/\/$/, location === '' ? '/' : '/');
+      return `  <url>
+    <loc>${escapeXml(loc)}</loc>
+    <changefreq>${changefreq}</changefreq>
+  </url>`;
+    })
+    .join('\n');
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls}
+</urlset>
 `;
 }
 

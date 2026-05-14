@@ -45,6 +45,7 @@ for (const article of articles) {
 await writeFile(path.join(outputDir, 'index.html'), renderGuidesIndex(articles));
 await writeGuideFile('ja/index.html', renderGuidesIndex(articles, 'ja'));
 await writeFile(path.join(projectRoot, 'html', 'sitemap.xml'), renderSitemap(articles));
+await writeFile(path.join(outputDir, 'sitemap.xml'), renderGuidesSitemap(articles));
 await writeFile(path.join(projectRoot, 'html', 'robots.txt'), renderRobots());
 
 console.log(`Exported ${articles.length} Kairogu guide page(s) to ${outputDir}`);
@@ -320,10 +321,39 @@ ${urls}
 `;
 }
 
+function renderGuidesSitemap(articles) {
+  const guidePages = [
+    ['guides/', 'weekly'],
+    ['guides/ja/', 'weekly'],
+    ...articles.map((article) => [`guides/${article.outputPath}`, 'weekly']),
+  ];
+
+  return renderUrlset(guidePages);
+}
+
 function renderRobots() {
   return `User-agent: *
 Allow: /
 Sitemap: ${baseUrl}/sitemap.xml
+Sitemap: ${baseUrl}/guides/sitemap.xml
+`;
+}
+
+function renderUrlset(pages) {
+  const urls = pages
+    .map(([location, changefreq]) => {
+      const loc = `${baseUrl}/${location}`;
+      return `  <url>
+    <loc>${escapeXml(loc)}</loc>
+    <changefreq>${changefreq}</changefreq>
+  </url>`;
+    })
+    .join('\n');
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls}
+</urlset>
 `;
 }
 

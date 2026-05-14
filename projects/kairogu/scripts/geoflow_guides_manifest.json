@@ -29,6 +29,12 @@
       "lang": "ja",
       "slug": "unit-price-comparison",
       "sourcePath": "docs/articles/unit-price-comparison-ja.md"
+    },
+    {
+      "group": "shop-map-revisit",
+      "lang": "ja",
+      "slug": "shop-map-revisit",
+      "sourcePath": "docs/articles/shop-map-revisit-ja.md"
     }
   ]
 }

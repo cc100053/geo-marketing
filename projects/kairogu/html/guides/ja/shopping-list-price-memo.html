@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>買い物リストと価格メモを一緒に使うメリット。カイログで買う前に見返す方法 | カイログ ガイド</title>
+  <meta name="description" content="カイログでは、買い物リストと価格記録を合わせて管理できます。買う予定の商品、過去の価格、容量や店舗の記録を見返しながら、買い物前と店頭で確認しやすくする使い方を紹介します。">
+  <meta name="keywords" content="買い物メモ アプリ">
+  <link rel="canonical" href="https://www.kairogu.men/guides/ja/shopping-list-price-memo.html">
+  <link rel="icon" type="image/png" href="/icon.png">
+  <meta property="og:title" content="買い物リストと価格メモを一緒に使うメリット。カイログで買う前に見返す方法 | カイログ ガイド">
+  <meta property="og:description" content="カイログでは、買い物リストと価格記録を合わせて管理できます。買う予定の商品、過去の価格、容量や店舗の記録を見返しながら、買い物前と店頭で確認しやすくする使い方を紹介します。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.kairogu.men/guides/ja/shopping-list-price-memo.html">
+  <meta property="og:image" content="https://www.kairogu.men/icon.png">
+  <style>
+    :root {
+      --primary: #1A8D7A;
+      --accent: #F4A261;
+      --bg: #FAF9F7;
+      --panel: #FFFFFF;
+      --text: #242424;
+      --muted: #667085;
+      --line: #E5E1DA;
+      --soft: #EEF8F5;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", "Segoe UI", sans-serif;
+      line-height: 1.8;
+    }
+
+    a { color: inherit; }
+
+    .site-header,
+    .site-footer {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--primary);
+      font-size: 1.18rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .site-nav a,
+    .site-footer a,
+    .eyebrow a {
+      text-decoration: none;
+    }
+
+    .site-nav a:hover,
+    .site-footer a:hover,
+    .eyebrow a:hover {
+      color: var(--primary);
+    }
+
+    .guides-shell,
+    .article-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 72px;
+    }
+
+    .guides-hero {
+      min-height: 300px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 150px;
+      gap: 40px;
+      align-items: center;
+      padding: 52px 0 40px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .guides-hero img {
+      width: 132px;
+      height: 132px;
+      border-radius: 28px;
+      box-shadow: 0 16px 34px rgba(36, 36, 36, 0.12);
+    }
+
+    .eyebrow,
+    .guide-label {
+      margin: 0 0 12px;
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 840px;
+      margin: 0;
+      font-size: clamp(2.1rem, 6vw, 4rem);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    .guides-hero p:not(.eyebrow),
+    .article-summary {
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      padding-top: 34px;
+    }
+
+    .guide-card {
+      min-height: 220px;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(36, 36, 36, 0.06);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .guide-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(36, 36, 36, 0.1);
+    }
+
+    .guide-card h2 {
+      margin: 0;
+      font-size: 1.24rem;
+      line-height: 1.35;
+    }
+
+    .guide-card p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .article {
+      max-width: 860px;
+      margin: 26px auto 0;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .article-meta {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .article-content {
+      margin-top: 34px;
+      font-size: 1.04rem;
+    }
+
+    .article-content h2,
+    .article-content h3 {
+      margin: 34px 0 12px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    .article-content h2 { font-size: 1.58rem; }
+    .article-content h3 { font-size: 1.22rem; }
+
+    .article-content p,
+    .article-content li {
+      color: #3F3A36;
+    }
+
+    .article-content ul,
+    .article-content ol {
+      padding-left: 1.35rem;
+    }
+
+    .article-nav {
+      max-width: 860px;
+      margin: 24px auto 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .article-nav a {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--primary);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    @media (max-width: 720px) {
+      .site-header,
+      .site-footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .guides-hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .guides-hero img {
+        width: 104px;
+        height: 104px;
+      }
+    }
+  </style>
+</head>
+<body class="article-page">
+  <header class="site-header">
+    <a class="brand" href="/">
+      <img src="/icon.png" alt="カイログ">
+      <span>カイログ</span>
+    </a>
+    <nav class="site-nav" aria-label="Site navigation">
+      <a href="/guides/">ガイド</a>
+      <a href="/privacy.html">プライバシー</a>
+      <a href="/terms.html">利用規約</a>
+    </nav>
+  </header>
+<main class="article-shell">
+        <p class="eyebrow"><a href="/guides/">カイログ ガイド</a></p>
+        <article class="article">
+          <h1>買い物リストと価格メモを一緒に使うメリット。カイログで買う前に見返す方法</h1>
+          <p class="article-summary">カイログでは、買い物リストと価格記録を合わせて管理できます。買う予定の商品、過去の価格、容量や店舗の記録を見返しながら、買い物前と店頭で確認しやすくする使い方を紹介します。</p>
+          <div class="article-meta">更新日 2026/05/15</div>
+          <div class="article-content">
+            <p>買い物リストは「買い忘れを防ぐ」ために便利ですが、商品名だけのリストでは「前はいくらだったか」「どの容量を買うべきか」までは思い出しにくいことがあります。スーパーやドラッグストアでよく買う商品ほど、買う予定と過去の価格メモを一緒に見られると判断しやすくなります。</p>
+<p>カイログは、価格タグを撮影して商品名、価格、割引、容量、カテゴリ、店舗などを記録できる価格管理アプリです。買い物リストはホームから開けるため、記録、比較、リストを買い物の流れに合わせて使い分けられます。</p>
+<h2>要点</h2>
+<ul>
+<li>買い物リストと価格メモを一緒に使うと、買う予定の商品と過去の価格を同じ流れで確認しやすくなります。</li>
+<li>カイログでは、価格タグを撮影して商品名、価格、容量、カテゴリ、店舗などを記録できます。</li>
+<li>買い物リストはホームから開けるため、記録、比較、リストを切り替えながら使えます。</li>
+<li>価格は日付、店舗、容量、割引条件で変わるため、過去の記録は現在価格の保証ではなく判断材料として扱います。</li>
+</ul>
+<h2>買い物リストだけでは足りない場面</h2>
+<p>買い物リストに「牛乳」「卵」「洗剤」と書いておくと、買うものは思い出せます。ただし、店頭で複数の商品や容量違いの商品を見たとき、次のような迷いが出やすくなります。</p>
+<ul>
+<li>前回買った価格を覚えていない</li>
+<li>いつもの容量と別サイズのどちらがよいか分からない</li>
+<li>特売や見切り品が本当に安いか判断しにくい</li>
+<li>どの店舗でよく買っていたか思い出せない</li>
+<li>リストの商品を買ったあと、価格を記録し忘れる</li>
+</ul>
+<p>買い物メモを「買うもの」だけで終わらせず、価格、容量、店舗、日付も残しておくと、次回の買い物で見返せる情報になります。</p>
+<h2>カイログでリストと価格記録を組み合わせる流れ</h2>
+<p>カイログでは、買い物リストをホームから開けます。買う予定の商品を確認しながら、必要に応じて過去の価格記録や比較機能を使えるようにしておくと、買い物中の確認がしやすくなります。</p>
+<p>基本的な使い方は次の流れです。</p>
+<ol>
+<li>買う予定の商品を買い物リストに入れる</li>
+<li>店頭で価格タグを見つけたら、カイログで撮影して記録する</li>
+<li>商品名、価格、容量、割引、カテゴリ、店舗を保存前に確認する</li>
+<li>過去の価格履歴や容量違いの比較を見返す</li>
+<li>次回の買い物前に、リストと価格記録を合わせて確認する</li>
+</ol>
+<p>この流れにすると、買い忘れ対策と価格メモが分かれにくくなります。特に毎週買う食品や、定期的に補充する日用品から始めると続けやすくなります。</p>
+<h2>記録しておくと見返しやすい項目</h2>
+<p>買い物リストと価格メモを一緒に使うなら、商品名と価格だけでなく、あとで比較に使う情報も残しておくのがおすすめです。</p>
+<h3>容量や個数</h3>
+<p>牛乳、肉、冷凍食品、洗剤、トイレットペーパーなどは、容量や個数で価格の意味が変わります。100gあたり、1個あたり、1回分あたりの感覚で見返したい商品は、容量も残しておくと比較しやすくなります。</p>
+<h3>店舗名</h3>
+<p>同じ商品でも店舗によって価格が違うことがあります。店舗名を残しておくと、次にどの店で確認するかを考える材料になります。カイログでは、保存した店舗名から地図アプリを開いて場所を確認することもできます。</p>
+<h3>日付と割引内容</h3>
+<p>価格は時期やセール条件で変わります。見切り品、値引き、期間限定セールなどは、価格だけを見ると通常価格と混同しやすいため、割引内容も確認しておくと安心です。</p>
+<h3>カテゴリ</h3>
+<p>カテゴリを残しておくと、食品、日用品、冷凍食品などのまとまりで見返しやすくなります。よく買うカテゴリから記録を増やすと、自分の買い物範囲での価格感を作りやすくなります。</p>
+<h2>カイログで管理しやすいこと</h2>
+<p>カイログでは、価格タグを撮影して商品名、価格、割引、容量、カテゴリ、店舗などを記録できます。保存した価格は履歴として見返せるため、買い物リストの商品を確認するときに、過去の価格も参考にできます。</p>
+<p>比較タブでは、2つの商品について内容量と価格を入力し、単価を確認できます。リストの商品を買う前に、容量違いの商品で迷ったときの補助として使えます。</p>
+<p>カイログ Pro では、近くの価格情報や比較機能をさらに活用できます。ただし、近くの価格情報はユーザーの記録や利用状況に依存します。すべての商品や店舗価格が表示される前提ではなく、自分の記録と合わせて参考にしてください。</p>
+<h2>注意したいこと</h2>
+<p>過去の価格記録は、記録した時点の情報です。次に同じ店舗へ行っても、価格、在庫、割引条件が同じとは限りません。</p>
+<p>また、価格タグ読み取りは入力を助ける機能であり、写真の明るさ、角度、表示内容によって結果が変わることがあります。保存前に商品名、価格、容量、割引、店舗名を確認しておくと、あとで見返す価格メモとして使いやすくなります。</p>
+<p>買い物リストも、記録を増やしすぎると見返しにくくなります。まずは牛乳、卵、米、洗剤など、繰り返し買う商品から始めると管理しやすくなります。</p>
+<h2>よくある質問</h2>
+<h3>カイログは買い物リストアプリとして使えますか？</h3>
+<p>はい。カイログでは買い物リストを使えます。価格記録や比較機能と合わせて、買う予定の商品と過去の価格を見返しやすくする使い方に向いています。</p>
+<h3>買い物リストと価格記録はどう使い分ければよいですか？</h3>
+<p>買い物リストは「これから買うもの」を整理するため、価格記録は「見つけた価格をあとで見返すため」に使います。よく買う商品は、リストに入れるだけでなく、店頭価格も記録しておくと次回の判断材料になります。</p>
+<h3>過去の価格があれば、次も同じ価格で買えますか？</h3>
+<p>保証はできません。価格は店舗、日付、在庫、セール条件で変わります。過去の記録は、今の価格を確認するときの参考情報として使ってください。</p>
+<h2>まとめ</h2>
+<p>買い物リストと価格メモを一緒に使うと、買うものを忘れにくくするだけでなく、過去の価格や容量を見返しながら買い物しやすくなります。カイログでは、ホームから買い物リストを開き、価格タグ撮影、価格履歴、比較機能を買い物の流れに合わせて使えます。</p>
+<p>まずは毎回買う食品や日用品から、商品名、価格、容量、店舗を少しずつ記録してみてください。記憶だけに頼らず、自分の価格メモを育てることで、次の買い物前に確認しやすい情報が残ります。</p>
+          </div>
+        </article>
+        <nav class="article-nav" aria-label="Guide navigation">
+          <a href="/guides/">すべてのガイド</a>
+          <a href="/guides/ja/">日本語ガイド</a>
+          <a href="/">カイログ ホーム</a>
+        </nav>
+      </main>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"買い物リストと価格メモを一緒に使うメリット。カイログで買う前に見返す方法","description":"カイログでは、買い物リストと価格記録を合わせて管理できます。買う予定の商品、過去の価格、容量や店舗の記録を見返しながら、買い物前と店頭で確認しやすくする使い方を紹介します。","inLanguage":"ja","author":{"@type":"Organization","name":"カイログ編集部"},"publisher":{"@type":"Organization","name":"カイログ","logo":{"@type":"ImageObject","url":"https://www.kairogu.men/icon.png"}},"mainEntityOfPage":"https://www.kairogu.men/guides/ja/shopping-list-price-memo.html","dateModified":"2026-05-15T00:03:43.005Z"}</script>
+  <footer class="site-footer">
+    <span>&copy; 2026 hangyodev</span>
+    <a href="mailto:hangyodev@gmail.com">お問い合わせ</a>
+  </footer>
+</body>
+</html>

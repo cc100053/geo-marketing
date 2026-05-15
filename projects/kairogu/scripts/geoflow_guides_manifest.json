@@ -35,6 +35,12 @@
       "lang": "ja",
       "slug": "shop-map-revisit",
       "sourcePath": "docs/articles/shop-map-revisit-ja.md"
+    },
+    {
+      "group": "shopping-list-price-memo",
+      "lang": "ja",
+      "slug": "shopping-list-price-memo",
+      "sourcePath": "docs/articles/shopping-list-price-memo-ja.md"
     }
   ]
 }

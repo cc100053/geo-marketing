@@ -142,6 +142,25 @@ git commit -m "update Kairogu guides"
 git push
 ```
 
+In Codex automation, `git push` may need escalated network access. If a
+sandboxed push fails with DNS or host-resolution errors such as
+`Could not resolve host: github.com`, rerun the same `git push` command with
+`sandbox_permissions: require_escalated` and use a `git push` prefix rule when
+available. The fix is to get the existing commit to GitHub so Vercel can deploy
+the `kurabe` project; do not use direct `vercel deploy --prod` as a workaround.
+
+After the escalated push:
+
+```sh
+git status --short --branch
+curl -I https://www.kairogu.men/guides/
+curl -I https://www.kairogu.men/sitemap.xml
+curl -I https://www.kairogu.men/guides/ja/<new-slug>.html
+```
+
+If the new article still returns 404 immediately after a successful push, wait
+for the Vercel Git deployment to finish and rerun the live checks.
+
 After deployment:
 
 ```sh

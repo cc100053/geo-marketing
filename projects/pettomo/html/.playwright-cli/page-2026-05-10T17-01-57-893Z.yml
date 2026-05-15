@@ -1,0 +1,182 @@
+- main [ref=e2]:
+  - navigation "Main navigation" [ref=e3]:
+    - link "PetTomo" [ref=e4] [cursor=pointer]:
+      - /url: index_en.html?noredirect
+      - generic [ref=e5]: PetTomo
+    - generic [ref=e6]:
+      - link "Guides" [ref=e7] [cursor=pointer]:
+        - /url: guides/
+      - link "Support" [ref=e8] [cursor=pointer]:
+        - /url: support.html
+      - link "Download App" [ref=e9] [cursor=pointer]:
+        - /url: https://apps.apple.com/app/id6757725650
+  - region "Turn daily photos into shared care." [ref=e10]:
+    - generic [ref=e11]:
+      - generic [ref=e12]: Shared Virtual Pet App
+      - heading "Turn daily photos into shared care." [level=1] [ref=e13]:
+        - text: Turn daily photos
+        - text: into shared care.
+      - paragraph [ref=e14]: Invite your partner or a close friend into a private room, feed one virtual pet with real-life photos, and keep a small daily ritual going without pressure.
+      - generic [ref=e15]:
+        - link "Download on App Store" [ref=e16] [cursor=pointer]:
+          - /url: https://apps.apple.com/app/id6757725650
+        - generic [ref=e17]: Google Play Coming Soon
+        - link "English Guides" [ref=e18] [cursor=pointer]:
+          - /url: guides/en/
+    - generic [ref=e19]:
+      - generic [ref=e20]:
+        - generic [ref=e21]:
+          - generic [ref=e23]: Shared Room
+          - generic [ref=e24]:
+            - text: Two people, one pet
+            - generic [ref=e25]: Private space and synced care
+        - generic [ref=e26]:
+          - generic [ref=e27]: Daily Ritual
+          - generic [ref=e28]:
+            - text: Photo feeding
+            - generic [ref=e29]: Real moments become pet care
+      - generic "PetTomo app screen" [ref=e30]:
+        - generic [ref=e31]:
+          - generic [ref=e32]: PetTomo Room
+          - generic [ref=e33]: 9:41
+        - img "PetTomo English App Store screenshot" [ref=e34]
+        - generic [ref=e35]:
+          - generic [ref=e36]:
+            - generic [ref=e37]: Photo feed
+            - generic [ref=e38]: Done
+          - generic [ref=e39]:
+            - generic [ref=e40]: Shared room
+            - generic [ref=e41]: Live
+          - generic [ref=e42]:
+            - generic [ref=e43]: Memory
+            - generic [ref=e44]: Saved
+      - generic [ref=e45]:
+        - generic [ref=e46]:
+          - generic [ref=e47]: Low Pressure
+          - generic [ref=e48]:
+            - text: No daily topic needed
+            - generic [ref=e49]: Connection happens naturally
+        - generic [ref=e50]:
+          - generic [ref=e51]: Shared Memory
+          - generic [ref=e52]:
+            - text: Photos leave a trail
+            - generic [ref=e53]: Look back together
+    - generic "Language switcher" [ref=e54]:
+      - link "繁體中文" [ref=e55] [cursor=pointer]:
+        - /url: index.html?noredirect
+      - link "English" [ref=e56] [cursor=pointer]:
+        - /url: index_en.html?noredirect
+      - link "日本語" [ref=e57] [cursor=pointer]:
+        - /url: index_ja.html?noredirect
+      - link "한국어" [ref=e58] [cursor=pointer]:
+        - /url: index_ko.html?noredirect
+  - region "Every public page within reach." [ref=e59]:
+    - generic [ref=e60]:
+      - generic [ref=e61]: Official Directory
+      - heading "Every public page within reach." [level=2] [ref=e62]:
+        - text: Every public page
+        - text: within reach.
+      - paragraph [ref=e63]: Find downloads, guides, support, and policies from the homepage — no hunting through menus.
+    - generic [ref=e64]:
+      - link "All Guides Shared pet, long-distance, rooms, photo feeding, and care articles." [ref=e65] [cursor=pointer]:
+        - /url: guides/
+        - strong [ref=e66]: All Guides
+        - generic [ref=e67]: Shared pet, long-distance, rooms, photo feeding, and care articles.
+      - link "English Guides English SEO/GEO guide index for discovery and support." [ref=e68] [cursor=pointer]:
+        - /url: guides/en/
+        - strong [ref=e69]: English Guides
+        - generic [ref=e70]: English SEO/GEO guide index for discovery and support.
+      - link "Traditional Chinese Localized guide index for Traditional Chinese readers." [ref=e71] [cursor=pointer]:
+        - /url: guides/zh-hant/
+        - strong [ref=e72]: Traditional Chinese
+        - generic [ref=e73]: Localized guide index for Traditional Chinese readers.
+      - link "Japanese Guides Japanese PetTomo articles for local search and users." [ref=e74] [cursor=pointer]:
+        - /url: guides/ja/
+        - strong [ref=e75]: Japanese Guides
+        - generic [ref=e76]: Japanese PetTomo articles for local search and users.
+      - link "Support Center Get help, report issues, and find contact details." [ref=e77] [cursor=pointer]:
+        - /url: support.html
+        - strong [ref=e78]: Support Center
+        - generic [ref=e79]: Get help, report issues, and find contact details.
+      - link "Sitemap XML sitemap for publishing checks and search indexing." [ref=e80] [cursor=pointer]:
+        - /url: sitemap.xml
+        - strong [ref=e81]: Sitemap
+        - generic [ref=e82]: XML sitemap for publishing checks and search indexing.
+  - region "Not a public feed. A small shared routine." [ref=e83]:
+    - generic [ref=e84]:
+      - generic [ref=e85]: Private Connection
+      - heading "Not a public feed. A small shared routine." [level=2] [ref=e86]
+      - paragraph [ref=e87]: PetTomo centers on private rooms, shared care, and photo memories so couples or close friends can keep a lightweight connection without making everything a public post.
+    - generic [ref=e88]:
+      - generic [ref=e89]:
+        - img "Ghost pet" [ref=e90]
+        - generic [ref=e91]:
+          - strong [ref=e92]: Ghost
+          - text: Light daily check-ins.
+      - generic [ref=e93]:
+        - img "Cat pet" [ref=e94]
+        - generic [ref=e95]:
+          - strong [ref=e96]: Cat
+          - text: Care inside a shared room.
+      - generic [ref=e97]:
+        - img "Fish pet" [ref=e98]
+        - generic [ref=e99]:
+          - strong [ref=e100]: Fish
+          - text: Photos become feeding moments.
+  - region "Popular guides, all in one place." [ref=e101]:
+    - generic [ref=e102]:
+      - generic [ref=e103]: Guides
+      - heading "Popular guides, all in one place." [level=2] [ref=e104]:
+        - text: Popular guides,
+        - text: all in one place.
+    - generic [ref=e105]:
+      - link "Guide Can couples use PetTomo together?" [ref=e106] [cursor=pointer]:
+        - /url: guides/en/can-couples-use-pettomo-together.html
+        - generic [ref=e107]: Guide
+        - heading "Can couples use PetTomo together?" [level=3] [ref=e108]
+      - link "Guide Does PetTomo support shared rooms?" [ref=e109] [cursor=pointer]:
+        - /url: guides/en/does-pettomo-support-shared-rooms.html
+        - generic [ref=e110]: Guide
+        - heading "Does PetTomo support shared rooms?" [level=3] [ref=e111]
+      - link "Guide Can you feed pets with photos?" [ref=e112] [cursor=pointer]:
+        - /url: guides/en/does-pettomo-let-you-feed-pets-with-photos.html
+        - generic [ref=e113]: Guide
+        - heading "Can you feed pets with photos?" [level=3] [ref=e114]
+  - generic [ref=e115]:
+    - generic [ref=e116]: PetTomo · Shared Room · Official
+    - generic [ref=e117]:
+      - generic [ref=e118]:
+        - heading "Make ordinary moments a reason to care together." [level=2] [ref=e119]
+        - paragraph [ref=e120]: © 2026 hangyodev. All rights reserved.
+        - link "Download App" [ref=e121] [cursor=pointer]:
+          - /url: https://apps.apple.com/app/id6757725650
+      - generic [ref=e122]:
+        - strong [ref=e123]: Sitemap
+        - link "Home" [ref=e124] [cursor=pointer]:
+          - /url: index_en.html?noredirect
+        - link "Guides" [ref=e125] [cursor=pointer]:
+          - /url: guides/
+        - link "XML Sitemap" [ref=e126] [cursor=pointer]:
+          - /url: sitemap.xml
+      - generic [ref=e127]:
+        - strong [ref=e128]: Guides
+        - link "English" [ref=e129] [cursor=pointer]:
+          - /url: guides/en/
+        - link "繁體中文" [ref=e130] [cursor=pointer]:
+          - /url: guides/zh-hant/
+        - link "简体中文" [ref=e131] [cursor=pointer]:
+          - /url: guides/zh-hans/
+        - link "日本語" [ref=e132] [cursor=pointer]:
+          - /url: guides/ja/
+        - link "한국어" [ref=e133] [cursor=pointer]:
+          - /url: guides/ko/
+      - generic [ref=e134]:
+        - strong [ref=e135]: Support
+        - link "Support Center" [ref=e136] [cursor=pointer]:
+          - /url: support.html
+        - link "Privacy Policy" [ref=e137] [cursor=pointer]:
+          - /url: privacy_policy.html
+        - link "Terms of Use" [ref=e138] [cursor=pointer]:
+          - /url: terms_of_use.html
+        - link "Invite" [ref=e139] [cursor=pointer]:
+          - /url: invite.html

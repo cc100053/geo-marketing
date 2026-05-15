@@ -236,7 +236,7 @@
             height: 245px;
             display: block;
             object-fit: cover;
-            object-position: top center;
+            object-position: center 22%;
         }
 
         .price-list {
@@ -386,14 +386,11 @@
             overflow: hidden;
         }
 
-        .mini-card img {
-            width: 100%;
-            height: 86px;
-            display: block;
-            margin: -2px 0 12px;
-            border-radius: 14px;
-            object-fit: cover;
-            object-position: top center;
+        .mini-card-accent {
+            width: calc(100% + 36px);
+            height: 6px;
+            margin: -18px -18px 16px;
+            border-radius: 14px 14px 0 0;
         }
 
         .mini-card strong {
@@ -428,7 +425,34 @@
             display: block;
             margin: 24px -24px -24px;
             object-fit: cover;
-            object-position: top center;
+        }
+
+        .visual-tile-compare {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 20px -24px -24px;
+            padding: 0 24px 24px;
+        }
+
+        .compare-col {
+            padding: 14px 12px;
+            border-radius: 14px;
+            background: rgba(255,255,255,0.10);
+            font-size: 12px;
+        }
+
+        .compare-col strong {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .compare-col span {
+            display: block;
+            color: rgba(255,255,255,0.62);
+            margin-top: 4px;
         }
 
         .visual-tile.blue {
@@ -697,12 +721,12 @@
 
                 <div class="float-stack">
                     <div class="float-card">
-                        <span class="label">公開サイト</span>
-                        <div class="metric">Official Hub <small>サポートとSEO入口</small></div>
+                        <span class="label">写真で記録</span>
+                        <div class="metric">カメラで撮るだけ <small>入力不要</small></div>
                     </div>
                     <div class="float-card">
-                        <span class="label">近くの価格</span>
-                        <div class="metric">3km / 20日 <small>利用状況に応じて表示</small></div>
+                        <span class="label">底値チェック</span>
+                        <div class="metric">過去価格を参照 <small>次の買い物で役立つ</small></div>
                     </div>
                 </div>
             </div>
@@ -763,46 +787,57 @@
             </div>
             <div class="feature-cards">
                 <div class="mini-card">
-                    <img src="assets/store-screenshot-2.png" alt="">
+                    <div class="mini-card-accent" style="background:var(--brand);"></div>
                     <span class="label">Guide</span>
                     <strong>価格記録アプリでできること</strong>
-                    <span>price-recording-app</span>
+                    <span>価格タグの撮影から記録・比較まで</span>
                 </div>
                 <div class="mini-card">
-                    <img src="assets/store-screenshot-3.png" alt="">
+                    <div class="mini-card-accent" style="background:var(--accent);"></div>
                     <span class="label">Guide</span>
                     <strong>価格タグを撮影して記録</strong>
-                    <span>price-tag-reading</span>
+                    <span>カメラで撮るだけ、入力ゼロで保存</span>
                 </div>
                 <div class="mini-card">
-                    <img src="assets/store-screenshot-4.png" alt="">
+                    <div class="mini-card-accent" style="background:#e2e5de;"></div>
                     <span class="label">Guide</span>
                     <strong>レシート管理との違い</strong>
-                    <span>receipt-vs-price-recording</span>
+                    <span>買う前に使う記録と、買った後の記録</span>
                 </div>
             </div>
         </section>
 
         <section class="section" aria-labelledby="system-title">
             <div style="text-align:center;">
-                <span class="eyebrow">Official Access</span>
-                <h2 id="system-title"><span class="tone">公開済みページを</span><br>一覧で管理。</h2>
+                <span class="eyebrow">Guides</span>
+                <h2 id="system-title"><span class="tone">人気ガイドを、</span><br>まとめて読む。</h2>
             </div>
             <div class="visual-row">
                 <a class="visual-tile blue" href="/guides/ja/price-recording-app.html">
                     <span class="label">Article</span>
                     <h3>価格記録アプリ</h3>
-                    <img src="assets/store-screenshot-1.png" alt="">
+                    <img src="assets/store-screenshot-2.png" alt="価格記録アプリの画面" style="object-position: center 22%;">
                 </a>
                 <a class="visual-tile rose" href="/guides/ja/price-tag-reading.html">
                     <span class="label">Article</span>
                     <h3>価格タグ読み取り</h3>
-                    <img src="assets/store-screenshot-3.png" alt="">
+                    <img src="assets/store-screenshot-3.png" alt="価格タグ撮影の画面" style="object-position: center 52%;">
                 </a>
                 <a class="visual-tile dark" href="/guides/ja/receipt-vs-price-recording.html">
                     <span class="label">Article</span>
                     <h3>レシート管理との違い</h3>
-                    <img src="assets/store-screenshot-4.png" alt="">
+                    <div class="visual-tile-compare">
+                        <div class="compare-col">
+                            <strong>🧾 レシート管理</strong>
+                            <span>買った後に記録</span>
+                            <span>支出の把握向き</span>
+                        </div>
+                        <div class="compare-col">
+                            <strong>🏷️ 価格タグ記録</strong>
+                            <span>買う前に記録</span>
+                            <span>底値判断に強い</span>
+                        </div>
+                    </div>
                 </a>
             </div>
         </section>

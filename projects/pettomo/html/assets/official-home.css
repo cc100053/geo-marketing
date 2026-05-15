@@ -262,7 +262,7 @@ h1 {
     display: block;
     border-radius: 24px;
     object-fit: cover;
-    object-position: center top;
+    object-position: center 35%;
     box-shadow: 0 16px 42px rgba(17, 17, 17, 0.12);
 }
 
@@ -450,7 +450,7 @@ h1 {
     height: 205px;
     margin: 24px -24px -24px;
     object-fit: cover;
-    object-position: center top;
+    object-position: center 35%;
 }
 
 .visual-tile.sky {

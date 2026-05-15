@@ -1,0 +1,182 @@
+- main [ref=e2]:
+  - navigation "主要導覽" [ref=e3]:
+    - link "PetTomo" [ref=e4] [cursor=pointer]:
+      - /url: index.html?noredirect
+      - generic [ref=e5]: PetTomo
+    - generic [ref=e6]:
+      - link "指南" [ref=e7] [cursor=pointer]:
+        - /url: guides/
+      - link "支援" [ref=e8] [cursor=pointer]:
+        - /url: support_zh_TW.html
+      - link "下載 App" [ref=e9] [cursor=pointer]:
+        - /url: https://apps.apple.com/app/id6757725650
+  - region "把日常照片 變成一起照顧。" [ref=e10]:
+    - generic [ref=e11]:
+      - generic [ref=e12]: Shared Virtual Pet App
+      - heading "把日常照片 變成一起照顧。" [level=1] [ref=e13]:
+        - text: 把日常照片
+        - text: 變成一起照顧。
+      - paragraph [ref=e14]: 邀請另一半或好友進入共享房間，用每天拍下的照片餵食虛擬寵物，一起留下低壓力、可愛又持續的互動。
+      - generic [ref=e15]:
+        - link "App Store 下載" [ref=e16] [cursor=pointer]:
+          - /url: https://apps.apple.com/app/id6757725650
+        - generic [ref=e17]: Google Play 開發中
+        - link "繁中指南" [ref=e18] [cursor=pointer]:
+          - /url: guides/zh-hant/
+    - generic [ref=e19]:
+      - generic [ref=e20]:
+        - generic [ref=e21]:
+          - generic [ref=e23]: 共享房間
+          - generic [ref=e24]:
+            - text: 兩個人，一隻寵物
+            - generic [ref=e25]: 私密空間、同步照顧
+        - generic [ref=e26]:
+          - generic [ref=e27]: 每日互動
+          - generic [ref=e28]:
+            - text: 照片餵食
+            - generic [ref=e29]: 把生活片段變成照顧行動
+      - generic "PetTomo App 畫面" [ref=e30]:
+        - generic [ref=e31]:
+          - generic [ref=e32]: PetTomo Room
+          - generic [ref=e33]: 9:41
+        - img "PetTomo 繁體中文 App Store 截圖" [ref=e34]
+        - generic [ref=e35]:
+          - generic [ref=e36]:
+            - generic [ref=e37]: Photo feed
+            - generic [ref=e38]: Done
+          - generic [ref=e39]:
+            - generic [ref=e40]: Shared room
+            - generic [ref=e41]: Live
+          - generic [ref=e42]:
+            - generic [ref=e43]: Memory
+            - generic [ref=e44]: Saved
+      - generic [ref=e45]:
+        - generic [ref=e46]:
+          - generic [ref=e47]: 低壓力互動
+          - generic [ref=e48]:
+            - text: 不用每天想話題
+            - generic [ref=e49]: 自然保持連結
+        - generic [ref=e50]:
+          - generic [ref=e51]: 共同回憶
+          - generic [ref=e52]:
+            - text: 照片留下足跡
+            - generic [ref=e53]: 兩人一起回看
+    - generic "語言切換" [ref=e54]:
+      - link "繁體中文" [ref=e55] [cursor=pointer]:
+        - /url: index.html?noredirect
+      - link "English" [ref=e56] [cursor=pointer]:
+        - /url: index_en.html?noredirect
+      - link "日本語" [ref=e57] [cursor=pointer]:
+        - /url: index_ja.html?noredirect
+      - link "한국어" [ref=e58] [cursor=pointer]:
+        - /url: index_ko.html?noredirect
+  - region "公開頁面 一站直達。" [ref=e59]:
+    - generic [ref=e60]:
+      - generic [ref=e61]: Official Directory
+      - heading "公開頁面 一站直達。" [level=2] [ref=e62]:
+        - text: 公開頁面
+        - text: 一站直達。
+      - paragraph [ref=e63]: 從功能說明、下載、各語言指南到支援和條款，所有常用頁面都整理在首頁，方便你直接找到。
+    - generic [ref=e64]:
+      - link "全部指南 PetTomo 的共享寵物、遠距互動、照片餵食和房間功能文章。" [ref=e65] [cursor=pointer]:
+        - /url: guides/
+        - strong [ref=e66]: 全部指南
+        - generic [ref=e67]: PetTomo 的共享寵物、遠距互動、照片餵食和房間功能文章。
+      - link "繁中指南 針對繁體中文搜尋與使用情境整理的文章入口。" [ref=e68] [cursor=pointer]:
+        - /url: guides/zh-hant/
+        - strong [ref=e69]: 繁中指南
+        - generic [ref=e70]: 針對繁體中文搜尋與使用情境整理的文章入口。
+      - link "English Guides English SEO/GEO pages for app discovery and support." [ref=e71] [cursor=pointer]:
+        - /url: guides/en/
+        - strong [ref=e72]: English Guides
+        - generic [ref=e73]: English SEO/GEO pages for app discovery and support.
+      - link "日本語ガイド 日本語用戶可以直接打開的 PetTomo 指南列表。" [ref=e74] [cursor=pointer]:
+        - /url: guides/ja/
+        - strong [ref=e75]: 日本語ガイド
+        - generic [ref=e76]: 日本語用戶可以直接打開的 PetTomo 指南列表。
+      - link "支援中心 使用問題、回報或聯絡方式。" [ref=e77] [cursor=pointer]:
+        - /url: support_zh_TW.html
+        - strong [ref=e78]: 支援中心
+        - generic [ref=e79]: 使用問題、回報或聯絡方式。
+      - link "Sitemap 搜尋引擎與發布檢查用的 XML sitemap。" [ref=e80] [cursor=pointer]:
+        - /url: sitemap.xml
+        - strong [ref=e81]: Sitemap
+        - generic [ref=e82]: 搜尋引擎與發布檢查用的 XML sitemap。
+  - region "不是公開社群，是兩個人的小日常。" [ref=e83]:
+    - generic [ref=e84]:
+      - generic [ref=e85]: Private Connection
+      - heading "不是公開社群，是兩個人的小日常。" [level=2] [ref=e86]
+      - paragraph [ref=e87]: PetTomo 的重點是共享房間、共同照顧和照片記憶，讓互動變得輕鬆，不需要每天想話題也能自然保持連結。
+    - generic [ref=e88]:
+      - generic [ref=e89]:
+        - img "Ghost pet" [ref=e90]
+        - generic [ref=e91]:
+          - strong [ref=e92]: Ghost
+          - text: 適合可愛、輕量的每日互動。
+      - generic [ref=e93]:
+        - img "Cat pet" [ref=e94]
+        - generic [ref=e95]:
+          - strong [ref=e96]: Cat
+          - text: 共享房間裡一起照顧。
+      - generic [ref=e97]:
+        - img "Fish pet" [ref=e98]
+        - generic [ref=e99]:
+          - strong [ref=e100]: Fish
+          - text: 把照片變成餵食記錄。
+  - region "熱門指南， 一次全收。" [ref=e101]:
+    - generic [ref=e102]:
+      - generic [ref=e103]: Guides
+      - heading "熱門指南， 一次全收。" [level=2] [ref=e104]:
+        - text: 熱門指南，
+        - text: 一次全收。
+    - generic [ref=e105]:
+      - link "Guide 情侶可以一起使用 PetTomo 嗎？" [ref=e106] [cursor=pointer]:
+        - /url: guides/zh-hant/couples-use-pettomo.html
+        - generic [ref=e107]: Guide
+        - heading "情侶可以一起使用 PetTomo 嗎？" [level=3] [ref=e108]
+      - link "Guide PetTomo 支援共享房間嗎？" [ref=e109] [cursor=pointer]:
+        - /url: guides/zh-hant/shared-rooms.html
+        - generic [ref=e110]: Guide
+        - heading "PetTomo 支援共享房間嗎？" [level=3] [ref=e111]
+      - link "Guide 可以用照片餵食寵物嗎？" [ref=e112] [cursor=pointer]:
+        - /url: guides/zh-hant/feed-pets-with-photos.html
+        - generic [ref=e113]: Guide
+        - heading "可以用照片餵食寵物嗎？" [level=3] [ref=e114]
+  - generic [ref=e115]:
+    - generic [ref=e116]: PetTomo · Shared Room · Official
+    - generic [ref=e117]:
+      - generic [ref=e118]:
+        - heading "讓平凡日常，變成一起照顧的理由。" [level=2] [ref=e119]
+        - paragraph [ref=e120]: © 2026 hangyodev. All rights reserved.
+        - link "下載 App" [ref=e121] [cursor=pointer]:
+          - /url: https://apps.apple.com/app/id6757725650
+      - generic [ref=e122]:
+        - strong [ref=e123]: Sitemap
+        - link "Home" [ref=e124] [cursor=pointer]:
+          - /url: index.html?noredirect
+        - link "Guides" [ref=e125] [cursor=pointer]:
+          - /url: guides/
+        - link "XML Sitemap" [ref=e126] [cursor=pointer]:
+          - /url: sitemap.xml
+      - generic [ref=e127]:
+        - strong [ref=e128]: Guides
+        - link "English" [ref=e129] [cursor=pointer]:
+          - /url: guides/en/
+        - link "繁體中文" [ref=e130] [cursor=pointer]:
+          - /url: guides/zh-hant/
+        - link "简体中文" [ref=e131] [cursor=pointer]:
+          - /url: guides/zh-hans/
+        - link "日本語" [ref=e132] [cursor=pointer]:
+          - /url: guides/ja/
+        - link "한국어" [ref=e133] [cursor=pointer]:
+          - /url: guides/ko/
+      - generic [ref=e134]:
+        - strong [ref=e135]: Support
+        - link "支援中心" [ref=e136] [cursor=pointer]:
+          - /url: support_zh_TW.html
+        - link "隱私權政策" [ref=e137] [cursor=pointer]:
+          - /url: privacy_policy_zh_TW.html
+        - link "使用條款" [ref=e138] [cursor=pointer]:
+          - /url: terms_of_use_zh_TW.html
+        - link "Invite" [ref=e139] [cursor=pointer]:
+          - /url: invite.html

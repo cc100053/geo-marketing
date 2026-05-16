@@ -245,6 +245,12 @@ git commit -m "update Kairogu guides"
 git push
 ```
 
+In Codex automation, run the Kairogu `git push` step directly with
+`sandbox_permissions: require_escalated` and a `git push` prefix rule. Do not
+first try a sandboxed push; GitHub DNS frequently fails there and only delays the
+documented Vercel Git deployment path. Do not use `vercel deploy --prod` as a
+workaround.
+
 Live checks after deployment:
 
 ```sh

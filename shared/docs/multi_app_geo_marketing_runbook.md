@@ -172,28 +172,26 @@ directory `projects/kairogu`. Push triggers auto-deploy. `vercel.json` sets
 `buildCommand: null` so Vercel serves the committed `html/` folder directly.
 The export script requires local Docker/GEOFlow and cannot run on Vercel CI.
 
-In Codex automation, `git push` may need escalated network access. The default
-sandbox can fail DNS resolution for GitHub, which prevents the Vercel Git
-deployment from starting even when the local commit is valid. If a sandboxed
-push fails with `Could not resolve host: github.com` or another host-resolution
-error, fix it by rerunning the same command with `sandbox_permissions:
-require_escalated` and a `git push` prefix rule. Do not switch to
-`vercel deploy --prod` as a workaround.
+In Codex automation, do not try the sandboxed `git push` first. The default
+sandbox frequently fails DNS resolution for GitHub, which prevents the Vercel
+Git deployment from starting even when the local commit is valid. Run the
+routine Kairogu `git push` directly with `sandbox_permissions:
+require_escalated` and a `git push` prefix rule. Do not switch to `vercel
+deploy --prod` as a workaround.
 
-Recovery checklist for this failure:
+Post-push checklist:
 
 ```sh
 git status --short --branch
-git push
 curl -I https://www.kairogu.men/guides/
 curl -I https://www.kairogu.men/sitemap.xml
 curl -I https://www.kairogu.men/guides/ja/<new-slug>.html
 ```
 
-If the branch was ahead before the retry and is no longer ahead afterward, the
-GitHub push succeeded and Vercel should start deploying the `kurabe` project.
-The new article may return 404 until that deployment finishes; wait briefly and
-rerun the live URL checks.
+If the branch was ahead before the escalated push and is no longer ahead
+afterward, the GitHub push succeeded and Vercel should start deploying the
+`kurabe` project. The new article may return 404 until that deployment
+finishes; wait briefly and rerun the live URL checks.
 
 `projects/kairogu/html/` is the only deployable static-site source. The old
 `projects/kairogu/web-landing/` migration copy has been removed; do not recreate

@@ -52,4 +52,8 @@
     <loc>https://www.kairogu.men/guides/ja/shopping-list-price-memo.html</loc>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>https://www.kairogu.men/guides/ja/ocr-price-recording-checkpoints.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
 </urlset>

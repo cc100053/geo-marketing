@@ -41,6 +41,12 @@
       "lang": "ja",
       "slug": "shopping-list-price-memo",
       "sourcePath": "docs/articles/shopping-list-price-memo-ja.md"
+    },
+    {
+      "group": "ocr-price-recording-checkpoints",
+      "lang": "ja",
+      "slug": "ocr-price-recording-checkpoints",
+      "sourcePath": "docs/articles/ocr-price-recording-checkpoints-ja.md"
     }
   ]
 }

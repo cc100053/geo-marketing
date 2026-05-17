@@ -47,6 +47,12 @@
       "lang": "ja",
       "slug": "ocr-price-recording-checkpoints",
       "sourcePath": "docs/articles/ocr-price-recording-checkpoints-ja.md"
+    },
+    {
+      "group": "first-price-record-guide",
+      "lang": "ja",
+      "slug": "first-price-record-guide",
+      "sourcePath": "docs/articles/first-price-record-guide-ja.md"
     }
   ]
 }

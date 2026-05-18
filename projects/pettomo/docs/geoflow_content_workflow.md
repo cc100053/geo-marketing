@@ -197,6 +197,34 @@ instead:
 node scripts/export_geoflow_guides.mjs --articles-json=path/to/articles.json
 ```
 
+For new guide records that are intentionally managed outside Docker/GEOFlow,
+the manifest can point at local Markdown files with front matter:
+
+```json
+{
+  "group": "shared-room-invites",
+  "lang": "en",
+  "slug": "shared-room-invites",
+  "sourcePath": "docs/articles/shared-room-invites-en.md"
+}
+```
+
+When the current environment cannot read the Docker socket, use the local
+Markdown entries plus the existing generated HTML as the index/sitemap source:
+
+```sh
+node scripts/export_geoflow_guides.mjs --rebuild-from-html
+```
+
+This keeps old Docker-backed article pages intact, renders any local Markdown
+entries, and refreshes guide indexes, sitemaps, and robots metadata. For
+priority PetTomo topics, still add one local Markdown entry per supported
+language so the page set remains:
+
+```text
+1 topic = 5 language pages = 1 hreflang group
+```
+
 When Docker is available, you can also write a snapshot while exporting:
 
 ```sh

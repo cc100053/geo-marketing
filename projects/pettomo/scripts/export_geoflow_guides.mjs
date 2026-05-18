@@ -28,13 +28,19 @@ const args = new Map(
 
 const baseUrl = (args.get('base-url') || defaultBaseUrl).replace(/\/+$/, '');
 const guideEntries = loadGuideEntries();
-const articleIds = guideEntries.map((entry) => entry.id);
-const entryById = new Map(guideEntries.map((entry) => [entry.id, entry]));
+const articleIds = guideEntries
+  .filter((entry) => Number.isFinite(entry.id) && !entry.sourcePath)
+  .map((entry) => entry.id);
+const entryById = new Map(
+  guideEntries
+    .filter((entry) => Number.isFinite(entry.id) && !entry.sourcePath)
+    .map((entry, index) => [entry.id, { ...entry, manifestKey: manifestKey(entry, index) }]),
+);
 const snapshotOutputPath = args.get('write-snapshot');
 const rebuildFromHtml = args.has('rebuild-from-html');
 
-if (articleIds.length === 0) {
-  fail('No valid article ids were provided.');
+if (guideEntries.length === 0) {
+  fail('No guide articles were provided.');
 }
 
 let articles = [];
@@ -42,27 +48,25 @@ if (rebuildFromHtml) {
   await mkdir(outputDir, { recursive: true });
   articles = await buildArticlesFromExistingHtml(guideEntries);
 } else {
-  const { articles: fetchedArticles, source } = fetchArticles(articleIds);
-  if (snapshotOutputPath && source === 'docker') {
-    await writeSnapshot(snapshotOutputPath, fetchedArticles);
-  }
-  articles = fetchedArticles.map((article) => normalizeArticle(article, entryById.get(article.id)));
+  articles = await loadArticles(guideEntries);
 }
-const byRequestedOrder = new Map(articles.map((article) => [article.id, article]));
+const byRequestedOrder = new Map(articles.map((article) => [article.manifestKey, article]));
 const orderedArticles = guideEntries
-  .map((entry) => byRequestedOrder.get(entry.id))
+  .map((entry, index) => byRequestedOrder.get(manifestKey(entry, index)))
   .filter(Boolean);
 
-if (orderedArticles.length !== articleIds.length) {
-  const foundIds = new Set(orderedArticles.map((article) => article.id));
-  const missing = articleIds.filter((id) => !foundIds.has(id));
-  fail(`Missing GEOFlow article ids: ${missing.join(', ')}`);
+if (orderedArticles.length !== guideEntries.length) {
+  const foundKeys = new Set(orderedArticles.map((article) => article.manifestKey));
+  const missing = guideEntries
+    .map((entry, index) => manifestKey(entry, index))
+    .filter((key) => !foundKeys.has(key));
+  fail(`Missing guide entries: ${missing.join(', ')}`);
 }
 
 await mkdir(outputDir, { recursive: true });
 
-if (!rebuildFromHtml) {
-  for (const article of orderedArticles) {
+for (const article of orderedArticles) {
+  if (!rebuildFromHtml || article.source === 'local') {
     const html = renderArticlePage(article);
     await writeGuideFile(article.outputPath, html);
     for (const legacyPath of article.legacyPaths) {
@@ -89,7 +93,7 @@ function loadGuideEntries() {
       const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
       return manifest.articles.map((entry) => ({
         ...entry,
-        id: Number(entry.id),
+        id: Number.isFinite(Number(entry.id)) ? Number(entry.id) : undefined,
         lang: entry.lang || 'en',
         group: entry.group || `article-${entry.id}`,
         legacyPaths: entry.legacyPaths || [],
@@ -106,6 +110,32 @@ function loadGuideEntries() {
     .map((value) => Number.parseInt(value.trim(), 10))
     .filter(Number.isFinite)
     .map((id) => ({ id, lang: 'en', group: `article-${id}`, legacyPaths: [] }));
+}
+
+async function loadArticles(entries) {
+  const geoflowEntries = entries
+    .map((entry, index) => ({ entry, index }))
+    .filter(({ entry }) => Number.isFinite(entry.id) && !entry.sourcePath);
+  const localEntries = entries
+    .map((entry, index) => ({ entry, index }))
+    .filter(({ entry }) => entry.sourcePath);
+
+  const geoflowArticles = geoflowEntries.length > 0 ? await fetchGeoflowEntryArticles(geoflowEntries) : [];
+  const localArticles = localEntries.map(({ entry, index }) => loadLocalArticle(entry, index));
+  return [...geoflowArticles, ...localArticles];
+}
+
+async function fetchGeoflowEntryArticles(entries) {
+  const ids = entries.map(({ entry }) => entry.id);
+  const { articles: fetchedArticles, source } = fetchArticles(ids);
+  if (snapshotOutputPath && source === 'docker') {
+    await writeSnapshot(snapshotOutputPath, fetchedArticles);
+  }
+
+  return fetchedArticles.map((article) => {
+    const entry = entryById.get(Number(article.id));
+    return normalizeArticle(article, entry);
+  });
 }
 
 async function writeGuideFile(relativePath, html) {
@@ -196,9 +226,72 @@ async function writeSnapshot(outputPath, articles) {
   }
 }
 
+function loadLocalArticle(entry, index) {
+  if (!entry.sourcePath) {
+    fail(`Manifest entry ${manifestKey(entry, index)} needs either id or sourcePath.`);
+  }
+  const sourcePath = path.resolve(repoRoot, entry.sourcePath);
+  let raw;
+  try {
+    raw = readFileSync(sourcePath, 'utf8');
+  } catch (error) {
+    fail(`Unable to read local article ${sourcePath}: ${error.message}`);
+  }
+
+  const parsed = parseFrontMatter(raw);
+  return normalizeArticle(
+    {
+      manifestKey: manifestKey(entry, index),
+      source: 'local',
+      title: entry.title || parsed.data.title,
+      description: entry.description || parsed.data.description,
+      keywords: entry.keyword || parsed.data.keyword || parsed.data.keywords,
+      content: parsed.body,
+      slug: entry.slug || parsed.data.slug,
+      group: entry.group || parsed.data.group,
+      lang: entry.lang || parsed.data.lang,
+      updated_at: new Date().toISOString(),
+    },
+    entry,
+  );
+}
+
+function parseFrontMatter(raw) {
+  const normalized = String(raw || '').replace(/\r\n/g, '\n');
+  if (!normalized.startsWith('---\n')) {
+    return { data: {}, body: normalized.trim() };
+  }
+  const closing = normalized.indexOf('\n---\n', 4);
+  if (closing === -1) {
+    return { data: {}, body: normalized.trim() };
+  }
+
+  const frontMatter = normalized.slice(4, closing);
+  const body = normalized.slice(closing + 5).trim();
+  const data = {};
+
+  for (const line of frontMatter.split('\n')) {
+    const separator = line.indexOf(':');
+    if (separator === -1) continue;
+    const key = line.slice(0, separator).trim();
+    const value = line
+      .slice(separator + 1)
+      .trim()
+      .replace(/^["']|["']$/g, '');
+    data[key] = value;
+  }
+
+  return { data, body };
+}
+
 async function buildArticlesFromExistingHtml(entries) {
   const articles = [];
-  for (const entry of entries) {
+  for (const [index, entry] of entries.entries()) {
+    if (entry.sourcePath) {
+      articles.push(loadLocalArticle(entry, index));
+      continue;
+    }
+
     const lang = entry.lang || 'en';
     const staticSlug = entry.slug || `guide-${entry.id}`;
     const outputPath = entry.path || `${lang}/${staticSlug}.html`;
@@ -221,6 +314,8 @@ async function buildArticlesFromExistingHtml(entries) {
 
     articles.push({
       id: Number(entry.id),
+      manifestKey: manifestKey(entry, index),
+      source: 'html',
       title: title || `PetTomo Guide ${entry.id}`,
       description: description || '',
       keywords:
@@ -263,8 +358,8 @@ function normalizeArticle(article, entry = {}) {
   const content = stripDuplicateTitleHeading(article.content || '', article.title || '');
   const plainText = markdownToPlainText(content || article.excerpt || '');
   const leadText = extractLeadText(content) || plainText;
-  const description = cleanMetaDescription(article.meta_description, leadText);
-  const staticSlug = entry.slug || slugify(article.title || article.slug || `guide-${article.id}`);
+  const description = cleanMetaDescription(article.meta_description || article.description, leadText);
+  const staticSlug = entry.slug || article.slug || slugify(article.title || `guide-${article.id || entry.group}`);
   const keywords = normalizeKeywords(article, plainText);
   const lang = entry.lang || 'en';
   const outputPath = entry.path || `${lang}/${staticSlug}.html`;
@@ -273,6 +368,8 @@ function normalizeArticle(article, entry = {}) {
     ...article,
     title: String(article.title || `PetTomo Guide ${article.id}`).trim(),
     content,
+    manifestKey: article.manifestKey || entry.manifestKey,
+    source: article.source || 'geoflow',
     staticSlug,
     lang,
     group: entry.group || `article-${article.id}`,
@@ -283,6 +380,18 @@ function normalizeArticle(article, entry = {}) {
     canonicalUrl: `${baseUrl}/guides/${outputPath}`,
     updatedAt: article.updated_at || article.published_at || article.created_at || new Date().toISOString(),
   };
+}
+
+function manifestKey(entry, index) {
+  if (Number.isFinite(entry.id) && !entry.sourcePath) {
+    return `id:${entry.id}`;
+  }
+  return [
+    'local',
+    entry.group || `entry-${index}`,
+    entry.lang || 'en',
+    entry.slug || entry.sourcePath || index,
+  ].join(':');
 }
 
 function stripDuplicateTitleHeading(markdown, title) {

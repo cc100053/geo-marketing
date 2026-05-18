@@ -53,6 +53,12 @@
       "lang": "ja",
       "slug": "first-price-record-guide",
       "sourcePath": "docs/articles/first-price-record-guide-ja.md"
+    },
+    {
+      "group": "clearance-sale-price-recording",
+      "lang": "ja",
+      "slug": "clearance-sale-price-recording",
+      "sourcePath": "docs/articles/clearance-sale-price-recording-ja.md"
     }
   ]
 }

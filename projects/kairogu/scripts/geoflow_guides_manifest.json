@@ -65,6 +65,12 @@
       "lang": "ja",
       "slug": "favorite-product-price-tracking",
       "sourcePath": "docs/articles/favorite-product-price-tracking-ja.md"
+    },
+    {
+      "group": "price-compare-tab",
+      "lang": "ja",
+      "slug": "price-compare-tab",
+      "sourcePath": "docs/articles/price-compare-tab-ja.md"
     }
   ]
 }

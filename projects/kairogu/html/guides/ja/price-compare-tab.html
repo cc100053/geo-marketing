@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>カイログの価格比較タブで賢く安い商品を見つける方法 | カイログ ガイド</title>
+  <meta name="description" content="カイログの価格比較タブを使って、2つの商品の単価を簡単に比較する方法を解説します。買い物で損をしたくない人必見です。">
+  <meta name="keywords" content="価格比較, カイログ, 単価比較, 価格記録アプリ">
+  <link rel="canonical" href="https://www.kairogu.men/guides/ja/price-compare-tab.html">
+  <link rel="icon" type="image/png" href="/icon.png">
+  <meta property="og:title" content="カイログの価格比較タブで賢く安い商品を見つける方法 | カイログ ガイド">
+  <meta property="og:description" content="カイログの価格比較タブを使って、2つの商品の単価を簡単に比較する方法を解説します。買い物で損をしたくない人必見です。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.kairogu.men/guides/ja/price-compare-tab.html">
+  <meta property="og:image" content="https://www.kairogu.men/icon.png">
+  <style>
+    :root {
+      --primary: #1A8D7A;
+      --accent: #F4A261;
+      --bg: #FAF9F7;
+      --panel: #FFFFFF;
+      --text: #242424;
+      --muted: #667085;
+      --line: #E5E1DA;
+      --soft: #EEF8F5;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", "Segoe UI", sans-serif;
+      line-height: 1.8;
+    }
+
+    a { color: inherit; }
+
+    .site-header,
+    .site-footer {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--primary);
+      font-size: 1.18rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .site-nav a,
+    .site-footer a,
+    .eyebrow a {
+      text-decoration: none;
+    }
+
+    .site-nav a:hover,
+    .site-footer a:hover,
+    .eyebrow a:hover {
+      color: var(--primary);
+    }
+
+    .guides-shell,
+    .article-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 72px;
+    }
+
+    .guides-hero {
+      min-height: 300px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 150px;
+      gap: 40px;
+      align-items: center;
+      padding: 52px 0 40px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .guides-hero img {
+      width: 132px;
+      height: 132px;
+      border-radius: 28px;
+      box-shadow: 0 16px 34px rgba(36, 36, 36, 0.12);
+    }
+
+    .eyebrow,
+    .guide-label {
+      margin: 0 0 12px;
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 840px;
+      margin: 0;
+      font-size: clamp(2.1rem, 6vw, 4rem);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    .guides-hero p:not(.eyebrow),
+    .article-summary {
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      padding-top: 34px;
+    }
+
+    .guide-card {
+      min-height: 220px;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(36, 36, 36, 0.06);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .guide-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(36, 36, 36, 0.1);
+    }
+
+    .guide-card h2 {
+      margin: 0;
+      font-size: 1.24rem;
+      line-height: 1.35;
+    }
+
+    .guide-card p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .article {
+      max-width: 860px;
+      margin: 26px auto 0;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .article-meta {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .article-content {
+      margin-top: 34px;
+      font-size: 1.04rem;
+    }
+
+    .article-content h2,
+    .article-content h3 {
+      margin: 34px 0 12px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    .article-content h2 { font-size: 1.58rem; }
+    .article-content h3 { font-size: 1.22rem; }
+
+    .article-content p,
+    .article-content li {
+      color: #3F3A36;
+    }
+
+    .article-content ul,
+    .article-content ol {
+      padding-left: 1.35rem;
+    }
+
+    .article-nav {
+      max-width: 860px;
+      margin: 24px auto 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .article-nav a {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--primary);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    @media (max-width: 720px) {
+      .site-header,
+      .site-footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .guides-hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .guides-hero img {
+        width: 104px;
+        height: 104px;
+      }
+    }
+  </style>
+</head>
+<body class="article-page">
+  <header class="site-header">
+    <a class="brand" href="/">
+      <img src="/icon.png" alt="カイログ">
+      <span>カイログ</span>
+    </a>
+    <nav class="site-nav" aria-label="Site navigation">
+      <a href="/guides/">ガイド</a>
+      <a href="/privacy.html">プライバシー</a>
+      <a href="/terms.html">利用規約</a>
+    </nav>
+  </header>
+<main class="article-shell">
+        <p class="eyebrow"><a href="/guides/">カイログ ガイド</a></p>
+        <article class="article">
+          <h1>カイログの価格比較タブで賢く安い商品を見つける方法</h1>
+          <p class="article-summary">カイログの価格比較タブを使って、2つの商品の単価を簡単に比較する方法を解説します。買い物で損をしたくない人必見です。</p>
+          <div class="article-meta">更新日 2026/05/19</div>
+          <div class="article-content">
+            <p>カイログには「価格比較」タブがあり、2つの商品の単価を素早く比較できます。</p>
+<h2>要点</h2>
+<ul>
+<li>2つの商品の単価を即座に比較できる</li>
+<li>割引や税込価格も考慮して計算</li>
+<li>記録した商品同士や、新しく入力した商品と比較可能</li>
+<li>Proユーザーでなくても基本機能は利用できる</li>
+</ul>
+<h2>価格比較タブとは？</h2>
+<p>カイログの価格比較タブは、**単価で商品を比較**するための機能です。</p>
+<p>通常、価格記録アプリでは「この商品はいくらだった」と記録するだけですが、価格比較タブを使うことで「AとB、どちらがお得か」を瞬時に判断できます。</p>
+<h2>使い方</h2>
+<ol>
+<li>下部のナビゲーションから「比較」タブを開く</li>
+<li>左側と右側にそれぞれ商品情報を入力（または既存の記録から選択）</li>
+<li>数量・価格・割引を入力すると、自動で単価が計算される</li>
+<li>単価が安い方がハイライト表示され、節約額も表示される</li>
+</ol>
+<h2>実際の活用シーン</h2>
+<ul>
+<li>同じカテゴリの違う商品（例：牛乳200ml vs 1000ml）を比較</li>
+<li>セール品と通常品のコスパをチェック</li>
+<li>まとめ買いの判断材料にする</li>
+</ul>
+<h2>注意点</h2>
+<ul>
+<li>比較結果はあくまで単価ベース</li>
+<li>実際の使用量や保存期間も考慮するとより正確</li>
+<li>コミュニティの最安値と組み合わせるとさらに効果的</li>
+</ul>
+<h2>よくある質問</h2>
+<p>**Q. 価格比較タブは無料で使えますか？** A. 基本的な比較機能は無料で利用可能です。Pro機能はコミュニティ最安値の詳細閲覧などに影響します。</p>
+<p>**Q. 比較できる商品の数は2つだけですか？** A. 現在は2商品間の比較に特化しています。複数の商品を同時に比較したい場合は、記録後にカテゴリ画面で確認する方法もあります。</p>
+<h2>まとめ</h2>
+<p>カイログの価格比較タブを使えば、**「どれを買うのがお得か」** を素早く判断できます。</p>
+<p>次に買い物に行く前に、気になっている商品を2つ比較してみてください。意外な発見があるはずです。</p>
+          </div>
+        </article>
+        <nav class="article-nav" aria-label="Guide navigation">
+          <a href="/guides/">すべてのガイド</a>
+          <a href="/guides/ja/">日本語ガイド</a>
+          <a href="/">カイログ ホーム</a>
+        </nav>
+      </main>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"カイログの価格比較タブで賢く安い商品を見つける方法","description":"カイログの価格比較タブを使って、2つの商品の単価を簡単に比較する方法を解説します。買い物で損をしたくない人必見です。","inLanguage":"ja","author":{"@type":"Organization","name":"カイログ編集部"},"publisher":{"@type":"Organization","name":"カイログ","logo":{"@type":"ImageObject","url":"https://www.kairogu.men/icon.png"}},"mainEntityOfPage":"https://www.kairogu.men/guides/ja/price-compare-tab.html","dateModified":"2026-05-19T03:03:06.031Z"}</script>
+  <footer class="site-footer">
+    <span>&copy; 2026 hangyodev</span>
+    <a href="mailto:hangyodev@gmail.com">お問い合わせ</a>
+  </footer>
+</body>
+</html>

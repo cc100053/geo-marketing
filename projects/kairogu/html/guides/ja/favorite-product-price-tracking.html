@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お気に入り商品の価格を追いやすくする方法。カイログでよく買う商品の値段を見返す | カイログ ガイド</title>
+  <meta name="description" content="よく買う商品の価格は、毎回覚えておくより記録して見返すほうが現実的です。カイログのお気に入り導線、価格履歴、価格タグ撮影を使って、買い物前後に確認しやすくする考え方を紹介します。">
+  <meta name="keywords" content="お気に入り 商品 価格 管理">
+  <link rel="canonical" href="https://www.kairogu.men/guides/ja/favorite-product-price-tracking.html">
+  <link rel="icon" type="image/png" href="/icon.png">
+  <meta property="og:title" content="お気に入り商品の価格を追いやすくする方法。カイログでよく買う商品の値段を見返す | カイログ ガイド">
+  <meta property="og:description" content="よく買う商品の価格は、毎回覚えておくより記録して見返すほうが現実的です。カイログのお気に入り導線、価格履歴、価格タグ撮影を使って、買い物前後に確認しやすくする考え方を紹介します。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.kairogu.men/guides/ja/favorite-product-price-tracking.html">
+  <meta property="og:image" content="https://www.kairogu.men/icon.png">
+  <style>
+    :root {
+      --primary: #1A8D7A;
+      --accent: #F4A261;
+      --bg: #FAF9F7;
+      --panel: #FFFFFF;
+      --text: #242424;
+      --muted: #667085;
+      --line: #E5E1DA;
+      --soft: #EEF8F5;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", "Segoe UI", sans-serif;
+      line-height: 1.8;
+    }
+
+    a { color: inherit; }
+
+    .site-header,
+    .site-footer {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--primary);
+      font-size: 1.18rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .site-nav a,
+    .site-footer a,
+    .eyebrow a {
+      text-decoration: none;
+    }
+
+    .site-nav a:hover,
+    .site-footer a:hover,
+    .eyebrow a:hover {
+      color: var(--primary);
+    }
+
+    .guides-shell,
+    .article-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 72px;
+    }
+
+    .guides-hero {
+      min-height: 300px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 150px;
+      gap: 40px;
+      align-items: center;
+      padding: 52px 0 40px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .guides-hero img {
+      width: 132px;
+      height: 132px;
+      border-radius: 28px;
+      box-shadow: 0 16px 34px rgba(36, 36, 36, 0.12);
+    }
+
+    .eyebrow,
+    .guide-label {
+      margin: 0 0 12px;
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 840px;
+      margin: 0;
+      font-size: clamp(2.1rem, 6vw, 4rem);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    .guides-hero p:not(.eyebrow),
+    .article-summary {
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      padding-top: 34px;
+    }
+
+    .guide-card {
+      min-height: 220px;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(36, 36, 36, 0.06);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .guide-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(36, 36, 36, 0.1);
+    }
+
+    .guide-card h2 {
+      margin: 0;
+      font-size: 1.24rem;
+      line-height: 1.35;
+    }
+
+    .guide-card p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .article {
+      max-width: 860px;
+      margin: 26px auto 0;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .article-meta {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .article-content {
+      margin-top: 34px;
+      font-size: 1.04rem;
+    }
+
+    .article-content h2,
+    .article-content h3 {
+      margin: 34px 0 12px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    .article-content h2 { font-size: 1.58rem; }
+    .article-content h3 { font-size: 1.22rem; }
+
+    .article-content p,
+    .article-content li {
+      color: #3F3A36;
+    }
+
+    .article-content ul,
+    .article-content ol {
+      padding-left: 1.35rem;
+    }
+
+    .article-nav {
+      max-width: 860px;
+      margin: 24px auto 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .article-nav a {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--primary);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    @media (max-width: 720px) {
+      .site-header,
+      .site-footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .guides-hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .guides-hero img {
+        width: 104px;
+        height: 104px;
+      }
+    }
+  </style>
+</head>
+<body class="article-page">
+  <header class="site-header">
+    <a class="brand" href="/">
+      <img src="/icon.png" alt="カイログ">
+      <span>カイログ</span>
+    </a>
+    <nav class="site-nav" aria-label="Site navigation">
+      <a href="/guides/">ガイド</a>
+      <a href="/privacy.html">プライバシー</a>
+      <a href="/terms.html">利用規約</a>
+    </nav>
+  </header>
+<main class="article-shell">
+        <p class="eyebrow"><a href="/guides/">カイログ ガイド</a></p>
+        <article class="article">
+          <h1>お気に入り商品の価格を追いやすくする方法。カイログでよく買う商品の値段を見返す</h1>
+          <p class="article-summary">よく買う商品の価格は、毎回覚えておくより記録して見返すほうが現実的です。カイログのお気に入り導線、価格履歴、価格タグ撮影を使って、買い物前後に確認しやすくする考え方を紹介します。</p>
+          <div class="article-meta">更新日 2026/05/19</div>
+          <div class="article-content">
+            <p>牛乳、卵、米、洗剤、トイレットペーパーのように何度も買う商品は、「前はいくらだったか」を覚えておきたい場面がよくあります。ただ、店舗や時期、容量、セール内容まで正確に記憶するのは簡単ではありません。</p>
+<p>カイログは、価格タグを撮影して商品名、価格、割引、容量、カテゴリなどを記録できる価格管理アプリです。1.2.1のアプリ内お知らせでは、ホームからお気に入り商品へ移動しやすくなり、同じ商品の記録を見比べやすくなったことが案内されています。</p>
+<h2>要点</h2>
+<ul>
+<li>よく買う商品は、お気に入りとして追いやすくしておくと買い物前後に見返しやすくなります。</li>
+<li>カイログでは、価格タグ撮影で商品名、価格、容量、カテゴリなどを記録できます。</li>
+<li>同じ商品の記録を見比べると、今日の価格を過去の自分の記録と比べやすくなります。</li>
+<li>価格は店舗、時期、容量、割引条件で変わるため、最安保証ではなく判断材料として使うのが現実的です。</li>
+</ul>
+<h2>なぜお気に入り商品の価格管理が役立つのか</h2>
+<p>毎日の買い物では、全部の商品を細かく記録しようとすると続きにくくなります。まずは、よく買う商品や価格差が気になりやすい商品だけに絞るほうが現実的です。</p>
+<p>たとえば、次のような商品は記録の効果を感じやすい候補です。</p>
+<ul>
+<li>牛乳、卵、米、パンなど、買う頻度が高い食品</li>
+<li>肉、魚、野菜のように容量や時期で価格差が出やすい商品</li>
+<li>洗剤、柔軟剤、シャンプー、トイレットペーパーなどの日用品</li>
+<li>冷凍食品やお菓子など、特売時に買うことが多い商品</li>
+<li>見切り品や割引品として見かけることが多い商品</li>
+</ul>
+<p>お気に入り商品の価格を残しておくと、「前回より高いか」「容量が違うだけか」「別店舗ではどうだったか」を考えやすくなります。</p>
+<h2>カイログで見返しやすくする流れ</h2>
+<p>カイログでは、店頭の価格タグを撮影して価格を記録できます。AI読み取り結果をそのまま信じ切るのではなく、保存前に商品名、価格、容量、割引内容を確認しておくと、あとから見返しやすい記録になります。</p>
+<p>基本的な流れは次の通りです。</p>
+<ol>
+<li>よく買う商品を店頭で見つける</li>
+<li>価格タグを撮影する</li>
+<li>商品名、価格、容量、カテゴリ、割引表示を確認する</li>
+<li>店舗名や日付と一緒に保存する</li>
+<li>次回の買い物前後に同じ商品の記録を見返す</li>
+</ol>
+<p>1.2.1のリリース情報では、ホームからお気に入り商品へ移動しやすくなったこと、同じ商品の記録を見比べやすくなったことが説明されています。よく見る商品ほど、ホームからすぐ確認できる状態にしておくと使いやすくなります。</p>
+<h2>比較するときに見るポイント</h2>
+<p>お気に入り商品の価格を見るときは、金額だけで判断しないほうが安全です。次の項目も合わせて見ると、記録を誤解しにくくなります。</p>
+<h3>容量や個数</h3>
+<p>同じ商品名でも、容量や個数が違うことがあります。米、肉、洗剤、トイレットペーパーなどは、表示価格だけでなく内容量も一緒に見ると比較しやすくなります。</p>
+<h3>店舗と日付</h3>
+<p>価格は店舗や時期によって変わります。過去の記録は現在価格そのものではなく、買い物判断の参考情報として扱うのが自然です。</p>
+<h3>割引後価格か通常価格か</h3>
+<p>特売や見切り品では、通常価格と割引後価格を混同しやすくなります。記録するときは、実際に比べたい価格がどちらなのかを意識しましょう。</p>
+<h3>買う予定があるか</h3>
+<p>安く見えても、今必要でなければ買わない判断もあります。買い物リストと価格メモを一緒に使うと、必要な商品を優先して確認しやすくなります。</p>
+<h2>カイログで管理しやすいこと</h2>
+<p>カイログは、価格タグ撮影、価格履歴、カテゴリ、買い物リストを組み合わせて使える価格管理アプリです。お気に入り商品を中心に記録していくと、全商品を管理しようとするより続けやすくなります。</p>
+<p>近くの価格情報や比較機能は、カイログ Pro でさらに活用できます。ただし、近くの価格情報はユーザーの記録や利用状況に左右されます。全店舗の価格が必ず分かるものではなく、自分の記録と合わせて参考にする機能として考えるのが適切です。</p>
+<h2>よくある質問</h2>
+<h3>すべての商品をお気に入りに入れるべきですか？</h3>
+<p>いいえ。最初は、よく買う商品、価格差が気になる商品、容量違いで迷いやすい商品に絞るほうが続けやすくなります。</p>
+<h3>過去の価格はそのまま今日の判断に使えますか？</h3>
+<p>過去の価格は参考になりますが、今日の価格を保証するものではありません。店舗、時期、容量、割引条件を合わせて確認してください。</p>
+<h3>AI読み取りだけで記録しても大丈夫ですか？</h3>
+<p>保存前の確認がおすすめです。写真の明るさ、角度、価格タグの表示形式によって読み取り結果が変わることがあるため、商品名、価格、容量、割引内容を確認してから保存すると安心です。</p>
+<h2>まとめ</h2>
+<p>お気に入り商品の価格管理は、毎日の買い物を全部細かく記録するより始めやすい方法です。カイログでは、価格タグ撮影で価格や容量を残し、同じ商品の記録をあとから見返せます。</p>
+<p>まずは、よく買う食品や日用品を数点だけ記録するところから始めると、次の買い物で「前はいくらだったか」を確認しやすくなります。</p>
+          </div>
+        </article>
+        <nav class="article-nav" aria-label="Guide navigation">
+          <a href="/guides/">すべてのガイド</a>
+          <a href="/guides/ja/">日本語ガイド</a>
+          <a href="/">カイログ ホーム</a>
+        </nav>
+      </main>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"お気に入り商品の価格を追いやすくする方法。カイログでよく買う商品の値段を見返す","description":"よく買う商品の価格は、毎回覚えておくより記録して見返すほうが現実的です。カイログのお気に入り導線、価格履歴、価格タグ撮影を使って、買い物前後に確認しやすくする考え方を紹介します。","inLanguage":"ja","author":{"@type":"Organization","name":"カイログ編集部"},"publisher":{"@type":"Organization","name":"カイログ","logo":{"@type":"ImageObject","url":"https://www.kairogu.men/icon.png"}},"mainEntityOfPage":"https://www.kairogu.men/guides/ja/favorite-product-price-tracking.html","dateModified":"2026-05-19T00:16:42.441Z"}</script>
+  <footer class="site-footer">
+    <span>&copy; 2026 hangyodev</span>
+    <a href="mailto:hangyodev@gmail.com">お問い合わせ</a>
+  </footer>
+</body>
+</html>

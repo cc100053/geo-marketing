@@ -59,6 +59,12 @@
       "lang": "ja",
       "slug": "clearance-sale-price-recording",
       "sourcePath": "docs/articles/clearance-sale-price-recording-ja.md"
+    },
+    {
+      "group": "favorite-product-price-tracking",
+      "lang": "ja",
+      "slug": "favorite-product-price-tracking",
+      "sourcePath": "docs/articles/favorite-product-price-tracking-ja.md"
     }
   ]
 }

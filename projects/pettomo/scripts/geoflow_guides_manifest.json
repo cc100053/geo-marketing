@@ -89,6 +89,36 @@
     { "id": 30, "group": "couples-use-pettomo", "lang": "ko", "slug": "couples-use-pettomo" },
     { "id": 31, "group": "friends-raise-one-pet", "lang": "ko", "slug": "friends-raise-one-virtual-pet" },
     { "id": 32, "group": "shared-rooms", "lang": "ko", "slug": "shared-rooms" },
-    { "id": 33, "group": "photo-feeding", "lang": "ko", "slug": "feed-pets-with-photos" }
+    { "id": 33, "group": "photo-feeding", "lang": "ko", "slug": "feed-pets-with-photos" },
+    {
+      "group": "pet-dress-up-shared-room",
+      "lang": "en",
+      "slug": "pet-dress-up-shared-room",
+      "sourcePath": "docs/articles/pet-dress-up-shared-room-en.md"
+    },
+    {
+      "group": "pet-dress-up-shared-room",
+      "lang": "zh-hant",
+      "slug": "shared-pet-dress-up",
+      "sourcePath": "docs/articles/pet-dress-up-shared-room-zh-hant.md"
+    },
+    {
+      "group": "pet-dress-up-shared-room",
+      "lang": "zh-hans",
+      "slug": "shared-pet-dress-up",
+      "sourcePath": "docs/articles/pet-dress-up-shared-room-zh-hans.md"
+    },
+    {
+      "group": "pet-dress-up-shared-room",
+      "lang": "ja",
+      "slug": "shared-pet-dress-up",
+      "sourcePath": "docs/articles/pet-dress-up-shared-room-ja.md"
+    },
+    {
+      "group": "pet-dress-up-shared-room",
+      "lang": "ko",
+      "slug": "shared-pet-dress-up",
+      "sourcePath": "docs/articles/pet-dress-up-shared-room-ko.md"
+    }
   ]
 }

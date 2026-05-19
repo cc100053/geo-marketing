@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>共有バーチャルペットの着せ替えはどう使う？PetTomoの装備と共有ルーム | PetTomo Guides</title>
+  <meta name="description" content="PetTomoでは、招待されたメンバーが同じペットを育て、部屋を飾り、麦わら帽子・王冠・サングラス・リボンなどの確認済み装備で共有ペットを着せ替えできます。">
+  <meta name="keywords" content="共有バーチャルペット 着せ替え, PetTomo, shared virtual pet app, virtual pet, shared pet room">
+  <link rel="canonical" href="https://pet-app-702be.web.app/guides/ja/shared-pet-dress-up.html">
+  <link rel="alternate" hreflang="en" href="https://pet-app-702be.web.app/guides/en/pet-dress-up-shared-room.html">
+  <link rel="alternate" hreflang="zh-hant" href="https://pet-app-702be.web.app/guides/zh-hant/shared-pet-dress-up.html">
+  <link rel="alternate" hreflang="zh-hans" href="https://pet-app-702be.web.app/guides/zh-hans/shared-pet-dress-up.html">
+  <link rel="alternate" hreflang="ja" href="https://pet-app-702be.web.app/guides/ja/shared-pet-dress-up.html">
+  <link rel="alternate" hreflang="ko" href="https://pet-app-702be.web.app/guides/ko/shared-pet-dress-up.html">
+  <link rel="alternate" hreflang="x-default" href="https://pet-app-702be.web.app/guides/">
+  <link rel="icon" type="image/png" href="/assets/PetTomo_appicon.png">
+  <meta property="og:title" content="共有バーチャルペットの着せ替えはどう使う？PetTomoの装備と共有ルーム | PetTomo Guides">
+  <meta property="og:description" content="PetTomoでは、招待されたメンバーが同じペットを育て、部屋を飾り、麦わら帽子・王冠・サングラス・リボンなどの確認済み装備で共有ペットを着せ替えできます。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://pet-app-702be.web.app/guides/ja/shared-pet-dress-up.html">
+  <meta property="og:image" content="https://pet-app-702be.web.app/assets/PetTomo_appicon.png">
+  <style>
+    :root {
+      --primary: #5FBF9E;
+      --secondary: #FFB36B;
+      --bg: #FFFBF3;
+      --panel: #FFFFFF;
+      --text: #2F2A23;
+      --muted: #756B61;
+      --line: #E7DED2;
+      --soft: #F4FAF8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; }
+
+    .site-header,
+    .site-footer {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--primary);
+      font-size: 1.25rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .site-nav a,
+    .site-footer a,
+    .eyebrow a {
+      text-decoration: none;
+    }
+
+    .site-nav a:hover,
+    .site-footer a:hover,
+    .eyebrow a:hover {
+      color: var(--primary);
+    }
+
+    .guides-shell,
+    .article-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 72px;
+    }
+
+    .guides-hero {
+      min-height: 320px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 160px;
+      gap: 40px;
+      align-items: center;
+      padding: 54px 0 40px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .guides-hero img {
+      width: 144px;
+      height: 144px;
+      border-radius: 32px;
+      box-shadow: 0 16px 34px rgba(47, 42, 35, 0.12);
+    }
+
+    .eyebrow,
+    .guide-label {
+      margin: 0 0 12px;
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 820px;
+      margin: 0;
+      font-size: clamp(2.25rem, 6vw, 4.25rem);
+      line-height: 1.06;
+      letter-spacing: 0;
+    }
+
+    .guides-hero p:not(.eyebrow),
+    .article-summary {
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      padding-top: 34px;
+    }
+
+    .guide-card {
+      min-height: 238px;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(47, 42, 35, 0.06);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .guide-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(47, 42, 35, 0.1);
+    }
+
+    .guide-card h2 {
+      margin: 0;
+      font-size: 1.26rem;
+      line-height: 1.25;
+    }
+
+    .guide-card p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .article {
+      max-width: 860px;
+      margin: 26px auto 0;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .article-meta {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .article-content {
+      margin-top: 34px;
+      font-size: 1.04rem;
+    }
+
+    .article-content h2,
+    .article-content h3 {
+      margin: 34px 0 12px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .article-content h2 { font-size: 1.72rem; }
+    .article-content h3 { font-size: 1.28rem; }
+
+    .article-content p,
+    .article-content ul,
+    .article-content ol,
+    .article-content table {
+      margin: 0 0 18px;
+    }
+
+    .article-content ul,
+    .article-content ol {
+      padding-left: 24px;
+    }
+
+    .article-content li + li {
+      margin-top: 7px;
+    }
+
+    .article-content table {
+      width: 100%;
+      border-collapse: collapse;
+      display: block;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    .article-content th,
+    .article-content td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .article-content th {
+      background: var(--soft);
+      font-weight: 800;
+    }
+
+    .article-content blockquote {
+      margin: 24px 0;
+      padding: 18px 20px;
+      border-left: 4px solid var(--secondary);
+      background: var(--panel);
+      border-radius: 0 8px 8px 0;
+      color: var(--muted);
+    }
+
+    .article-nav {
+      max-width: 860px;
+      margin: 24px auto 0;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .article-nav a {
+      padding: 10px 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--panel);
+      color: var(--text);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+      flex-wrap: wrap;
+    }
+
+    .site-footer nav {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 720px) {
+      .site-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .site-nav {
+        flex-wrap: wrap;
+      }
+
+      .guides-hero {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding-top: 28px;
+      }
+
+      .guides-hero img {
+        width: 104px;
+        height: 104px;
+        border-radius: 24px;
+      }
+
+      h1 {
+        font-size: 2.3rem;
+      }
+    }
+  </style>
+</head>
+<body class="article-page">
+  <header class="site-header">
+    <a class="brand" href="/">
+      <img src="/assets/PetTomo_appicon.png" alt="" aria-hidden="true">
+      <span>PetTomo</span>
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="/guides/">Guides</a>
+      <a href="/support.html">Support</a>
+      <a href="/">Home</a>
+    </nav>
+  </header>
+  
+      <main class="article-shell">
+        <p class="eyebrow"><a href="/guides/">PetTomo Guides</a></p>
+        <article class="article">
+          <h1>共有バーチャルペットの着せ替えはどう使う？PetTomoの装備と共有ルーム</h1>
+          <p class="article-summary">PetTomoでは、招待されたメンバーが同じペットを育て、部屋を飾り、麦わら帽子・王冠・サングラス・リボンなどの確認済み装備で共有ペットを着せ替えできます。</p>
+          <div class="article-meta">Updated May 19, 2026</div>
+          <div class="article-content">
+            <p>PetTomoのペット着せ替えは、公開プロフィールを飾るための機能ではなく、共有ルームの体験の一部です。招待されたメンバーが同じバーチャルペットを育て、同じ部屋を飾り、ペットの見た目を一緒に楽しめます。</p>
+<p>ローカルのリリース情報では、1.3.0でペット装備と麦わら帽子、1.4.0で王冠・サングラス・リボンの装備が確認できます。1.4.0では、装備プレビューや共有ルーム、在庫、ショップでの表示もより見やすくなったと説明されています。</p>
+<h2>要点</h2>
+<ul>
+<li>PetTomoは、カップル、友達、小さな招待制グループ向けの共有バーチャルペットアプリです。</li>
+<li>ペット装備は共有ルームの体験に紐づき、同じペットの見た目をメンバーで楽しめます。</li>
+<li>確認済みの装備例は、麦わら帽子、王冠、サングラス、リボンです。</li>
+<li>着せ替えは、部屋のデコレーション、写真での餌やり、チャット、思い出と一緒に使うと自然です。</li>
+<li>PetTomoは公開SNSではなく、招待されたメンバーのためのプライベートな共有ルームとして説明するのが正確です。</li>
+</ul>
+<h2>なぜ共有ペットに着せ替えが合うのか</h2>
+<p>一人用のバーチャルペットでは、着せ替えは自分だけのカスタマイズになりがちです。PetTomoでは少し意味が変わります。ペットの見た目は、ルームに参加している人たちが一緒に見る共有のサインになります。</p>
+<p>たとえば、片方が昼に写真でペットへごはんをあげ、もう片方が夜にルームを開いたとき、同じペットが新しい装備を身につけていることに気づけます。大げさなコミュニケーションではなくても、共有ルームに戻るきっかけになります。</p>
+<h2>PetTomoで確認できる装備</h2>
+<p>PetTomoの知識ベースでは、ペット装備はルーム単位の着せ替えとして説明されています。装備には、帽子、王冠、アクセサリーなどの考え方があり、ペットの動きに合わせて表示される前提です。</p>
+<p>現在、ユーザー向けリリース情報から確認できる事実は次の通りです。</p>
+<ul>
+<li>1.3.0でペット着せ替えが登場し、ショップに麦わら帽子が追加された。</li>
+<li>1.4.0でショップに王冠、サングラス、リボンが追加された。</li>
+<li>1.4.0で装備プレビューがペットごとにより自然に見えるよう調整された。</li>
+<li>共有ルーム、在庫、ショップで装備がより分かりやすく表示されるようになった。</li>
+</ul>
+<p>これらはリリース情報とストア向けメタデータに基づく確認済みの内容です。無制限の衣装、公開共有、関係改善の保証のような表現には広げないほうが正確です。</p>
+<h2>使い方の例</h2>
+<h3>カップルの小さな日課として</h3>
+<p>遠距離や忙しい日でも、同じペットを見に行く理由があると、軽いチェックインがしやすくなります。着せ替えは会話の代わりではありませんが、「今日はこの装備なんだ」と気づける小さな話題になります。</p>
+<h3>友達同士のプライベートなマスコットとして</h3>
+<p>友達同士で共有ルームを作る場合、ペットは部屋のマスコットのような存在になります。装備、家具、チャットが同じルーム内にまとまるので、公開投稿ではなく、参加メンバーだけの空間として楽しめます。</p>
+<h3>部屋の雰囲気に合わせて</h3>
+<p>麦わら帽子、王冠、サングラス、リボンのような装備は、部屋の家具や背景と合わせて使うと雰囲気を作りやすくなります。見た目を盛り込みすぎず、ペットと部屋が見やすい状態にするのがおすすめです。</p>
+<h2>よくある質問</h2>
+<h3>PetTomoの着せ替えは公開されますか？</h3>
+<p>PetTomoは招待制の共有ルームを中心にしたアプリです。ペットの着せ替えも、そのルームのメンバーで楽しむ体験として扱うのが正確です。</p>
+<h3>どの装備が確認されていますか？</h3>
+<p>ローカルのリリース情報では、麦わら帽子、王冠、サングラス、リボンが確認されています。記事では、確認できる装備名だけを明示するのが安全です。</p>
+<h3>同じペットの見た目をメンバーで共有できますか？</h3>
+<p>PetTomoのルームは共有状態を持ちます。知識ベースでは装備の所有や装着状態はルーム単位とされ、1.4.0のリリース情報でも共有ルームや在庫、ショップで装備表示が分かりやすくなったと説明されています。</p>
+<h2>まとめ</h2>
+<p>PetTomoの着せ替えは、共有ルームを「自分たちの場所」に近づけるための機能です。ペット、部屋、写真、チャット、思い出が同じルームに集まるからこそ、装備はカップルや友達が同じペットを一緒に育てている感覚を支えます。</p>
+          </div>
+        </article>
+        <nav class="article-nav" aria-label="Guide navigation">
+          <a href="/guides/">All guides</a>
+          <a href="/guides/ja/">This language</a>
+          <a href="/">PetTomo home</a>
+        </nav>
+      </main>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"共有バーチャルペットの着せ替えはどう使う？PetTomoの装備と共有ルーム","description":"PetTomoでは、招待されたメンバーが同じペットを育て、部屋を飾り、麦わら帽子・王冠・サングラス・リボンなどの確認済み装備で共有ペットを着せ替えできます。","author":{"@type":"Organization","name":"PetTomo"},"publisher":{"@type":"Organization","name":"PetTomo","logo":{"@type":"ImageObject","url":"https://pet-app-702be.web.app/assets/PetTomo_appicon.png"}},"mainEntityOfPage":"https://pet-app-702be.web.app/guides/ja/shared-pet-dress-up.html","dateModified":"2026-05-19T00:16:42.449Z"}</script>
+    
+  <footer class="site-footer">
+    <span>© 2026 hangyodev</span>
+    <nav aria-label="Footer navigation">
+      <a href="/guides/">Guides</a>
+      <a href="/support.html">Support</a>
+      <a href="/privacy_policy.html">Privacy Policy</a>
+      <a href="/terms_of_use.html">Terms of Use</a>
+    </nav>
+  </footer>
+</body>
+</html>

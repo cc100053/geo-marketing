@@ -522,13 +522,11 @@ function renderGuidesIndex(articles, language = null) {
   const visibleArticles = language ? articles.filter((article) => article.lang === language) : articles;
   const cards = visibleArticles
     .map(
-      (article) => `
-        <a class="guide-card" href="/guides/${article.outputPath}">
+      (article) => `<a class="guide-card" href="/guides/${article.outputPath}">
           <span class="guide-label">${escapeHtml(languageLabel(article.lang))}</span>
           <h2>${escapeHtml(article.title)}</h2>
           <p>${escapeHtml(article.description)}</p>
-        </a>
-      `,
+        </a>`,
     )
     .join('\n');
 

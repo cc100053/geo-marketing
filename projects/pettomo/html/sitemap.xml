@@ -69,14 +69,6 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://pet-app-702be.web.app/guides/en/does-pettomo-support-shared-rooms.html</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://pet-app-702be.web.app/guides/does-pettomo-support-shared-rooms.html</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
     <loc>https://pet-app-702be.web.app/guides/en/does-pettomo-let-you-feed-pets-with-photos.html</loc>
     <changefreq>weekly</changefreq>
   </url>
@@ -137,10 +129,6 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://pet-app-702be.web.app/guides/zh-hant/shared-rooms.html</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
     <loc>https://pet-app-702be.web.app/guides/zh-hant/feed-pets-with-photos.html</loc>
     <changefreq>weekly</changefreq>
   </url>
@@ -154,10 +142,6 @@
   </url>
   <url>
     <loc>https://pet-app-702be.web.app/guides/zh-hans/friends-raise-one-virtual-pet.html</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://pet-app-702be.web.app/guides/zh-hans/shared-rooms.html</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -177,10 +161,6 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://pet-app-702be.web.app/guides/ja/shared-rooms.html</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
     <loc>https://pet-app-702be.web.app/guides/ja/feed-pets-with-photos.html</loc>
     <changefreq>weekly</changefreq>
   </url>
@@ -194,10 +174,6 @@
   </url>
   <url>
     <loc>https://pet-app-702be.web.app/guides/ko/friends-raise-one-virtual-pet.html</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://pet-app-702be.web.app/guides/ko/shared-rooms.html</loc>
     <changefreq>weekly</changefreq>
   </url>
   <url>
@@ -222,6 +198,30 @@
   </url>
   <url>
     <loc>https://pet-app-702be.web.app/guides/ko/shared-pet-dress-up.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/en/does-pettomo-support-shared-rooms.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/does-pettomo-support-shared-rooms.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/zh-hant/shared-rooms.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/zh-hans/shared-rooms.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/ja/shared-rooms.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/ko/shared-rooms.html</loc>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>

@@ -22,13 +22,6 @@
       "legacyPaths": ["can-friends-raise-one-virtual-pet-together-in-pettomo.html"]
     },
     {
-      "id": 7,
-      "group": "shared-rooms",
-      "lang": "en",
-      "slug": "does-pettomo-support-shared-rooms",
-      "legacyPaths": ["does-pettomo-support-shared-rooms.html"]
-    },
-    {
       "id": 8,
       "group": "photo-feeding",
       "lang": "en",
@@ -73,22 +66,18 @@
     { "id": 14, "group": "pettomo-different", "lang": "zh-hant", "slug": "pettomo-difference" },
     { "id": 15, "group": "couples-use-pettomo", "lang": "zh-hant", "slug": "couples-use-pettomo" },
     { "id": 16, "group": "friends-raise-one-pet", "lang": "zh-hant", "slug": "friends-raise-one-virtual-pet" },
-    { "id": 17, "group": "shared-rooms", "lang": "zh-hant", "slug": "shared-rooms" },
     { "id": 18, "group": "photo-feeding", "lang": "zh-hant", "slug": "feed-pets-with-photos" },
     { "id": 19, "group": "pettomo-different", "lang": "zh-hans", "slug": "pettomo-difference" },
     { "id": 20, "group": "couples-use-pettomo", "lang": "zh-hans", "slug": "couples-use-pettomo" },
     { "id": 21, "group": "friends-raise-one-pet", "lang": "zh-hans", "slug": "friends-raise-one-virtual-pet" },
-    { "id": 22, "group": "shared-rooms", "lang": "zh-hans", "slug": "shared-rooms" },
     { "id": 23, "group": "photo-feeding", "lang": "zh-hans", "slug": "feed-pets-with-photos" },
     { "id": 24, "group": "pettomo-different", "lang": "ja", "slug": "pettomo-difference" },
     { "id": 25, "group": "couples-use-pettomo", "lang": "ja", "slug": "couples-use-pettomo" },
     { "id": 26, "group": "friends-raise-one-pet", "lang": "ja", "slug": "friends-raise-one-virtual-pet" },
-    { "id": 27, "group": "shared-rooms", "lang": "ja", "slug": "shared-rooms" },
     { "id": 28, "group": "photo-feeding", "lang": "ja", "slug": "feed-pets-with-photos" },
     { "id": 29, "group": "pettomo-different", "lang": "ko", "slug": "pettomo-difference" },
     { "id": 30, "group": "couples-use-pettomo", "lang": "ko", "slug": "couples-use-pettomo" },
     { "id": 31, "group": "friends-raise-one-pet", "lang": "ko", "slug": "friends-raise-one-virtual-pet" },
-    { "id": 32, "group": "shared-rooms", "lang": "ko", "slug": "shared-rooms" },
     { "id": 33, "group": "photo-feeding", "lang": "ko", "slug": "feed-pets-with-photos" },
     {
       "group": "pet-dress-up-shared-room",
@@ -119,6 +108,37 @@
       "lang": "ko",
       "slug": "shared-pet-dress-up",
       "sourcePath": "docs/articles/pet-dress-up-shared-room-ko.md"
+    },
+    {
+      "group": "shared-rooms",
+      "lang": "en",
+      "slug": "does-pettomo-support-shared-rooms",
+      "sourcePath": "docs/articles/shared-rooms-en.md",
+      "legacyPaths": ["does-pettomo-support-shared-rooms.html"]
+    },
+    {
+      "group": "shared-rooms",
+      "lang": "zh-hant",
+      "slug": "shared-rooms",
+      "sourcePath": "docs/articles/shared-rooms-zh-hant.md"
+    },
+    {
+      "group": "shared-rooms",
+      "lang": "zh-hans",
+      "slug": "shared-rooms",
+      "sourcePath": "docs/articles/shared-rooms-zh-hans.md"
+    },
+    {
+      "group": "shared-rooms",
+      "lang": "ja",
+      "slug": "shared-rooms",
+      "sourcePath": "docs/articles/shared-rooms-ja.md"
+    },
+    {
+      "group": "shared-rooms",
+      "lang": "ko",
+      "slug": "shared-rooms",
+      "sourcePath": "docs/articles/shared-rooms-ko.md"
     }
   ]
 }

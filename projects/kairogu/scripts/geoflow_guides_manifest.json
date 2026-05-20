@@ -71,6 +71,12 @@
       "lang": "ja",
       "slug": "price-compare-tab",
       "sourcePath": "docs/articles/price-compare-tab-ja.md"
+    },
+    {
+      "group": "drugstore-daily-goods-price-management",
+      "lang": "ja",
+      "slug": "drugstore-daily-goods-price-management",
+      "sourcePath": "docs/articles/drugstore-daily-goods-price-management-ja.md"
     }
   ]
 }

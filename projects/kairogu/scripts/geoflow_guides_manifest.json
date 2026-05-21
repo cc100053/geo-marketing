@@ -77,6 +77,12 @@
       "lang": "ja",
       "slug": "drugstore-daily-goods-price-management",
       "sourcePath": "docs/articles/drugstore-daily-goods-price-management-ja.md"
+    },
+    {
+      "group": "meat-100g-price-comparison",
+      "lang": "ja",
+      "slug": "meat-100g-price-comparison",
+      "sourcePath": "docs/articles/meat-100g-price-comparison-ja.md"
     }
   ]
 }

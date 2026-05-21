@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>肉の100g価格を比べる時に見るべきポイント。カイログで容量と価格を記録する | カイログ ガイド</title>
+  <meta name="description" content="肉の価格はパック容量や割引表示で比較しにくくなります。カイログで価格タグ、容量、割引、店舗、比較タブを使って100g価格を見比べる考え方を紹介します。">
+  <meta name="keywords" content="肉 100g 価格 比較">
+  <link rel="canonical" href="https://www.kairogu.men/guides/ja/meat-100g-price-comparison.html">
+  <link rel="icon" type="image/png" href="/icon.png">
+  <meta property="og:title" content="肉の100g価格を比べる時に見るべきポイント。カイログで容量と価格を記録する | カイログ ガイド">
+  <meta property="og:description" content="肉の価格はパック容量や割引表示で比較しにくくなります。カイログで価格タグ、容量、割引、店舗、比較タブを使って100g価格を見比べる考え方を紹介します。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.kairogu.men/guides/ja/meat-100g-price-comparison.html">
+  <meta property="og:image" content="https://www.kairogu.men/icon.png">
+  <style>
+    :root {
+      --primary: #1A8D7A;
+      --accent: #F4A261;
+      --bg: #FAF9F7;
+      --panel: #FFFFFF;
+      --text: #242424;
+      --muted: #667085;
+      --line: #E5E1DA;
+      --soft: #EEF8F5;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", "Segoe UI", sans-serif;
+      line-height: 1.8;
+    }
+
+    a { color: inherit; }
+
+    .site-header,
+    .site-footer {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--primary);
+      font-size: 1.18rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .site-nav a,
+    .site-footer a,
+    .eyebrow a {
+      text-decoration: none;
+    }
+
+    .site-nav a:hover,
+    .site-footer a:hover,
+    .eyebrow a:hover {
+      color: var(--primary);
+    }
+
+    .guides-shell,
+    .article-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 72px;
+    }
+
+    .guides-hero {
+      min-height: 300px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 150px;
+      gap: 40px;
+      align-items: center;
+      padding: 52px 0 40px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .guides-hero img {
+      width: 132px;
+      height: 132px;
+      border-radius: 28px;
+      box-shadow: 0 16px 34px rgba(36, 36, 36, 0.12);
+    }
+
+    .eyebrow,
+    .guide-label {
+      margin: 0 0 12px;
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 840px;
+      margin: 0;
+      font-size: clamp(2.1rem, 6vw, 4rem);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    .guides-hero p:not(.eyebrow),
+    .article-summary {
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      padding-top: 34px;
+    }
+
+    .guide-card {
+      min-height: 220px;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(36, 36, 36, 0.06);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .guide-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(36, 36, 36, 0.1);
+    }
+
+    .guide-card h2 {
+      margin: 0;
+      font-size: 1.24rem;
+      line-height: 1.35;
+    }
+
+    .guide-card p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .article {
+      max-width: 860px;
+      margin: 26px auto 0;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .article-meta {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .article-content {
+      margin-top: 34px;
+      font-size: 1.04rem;
+    }
+
+    .article-content h2,
+    .article-content h3 {
+      margin: 34px 0 12px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    .article-content h2 { font-size: 1.58rem; }
+    .article-content h3 { font-size: 1.22rem; }
+
+    .article-content p,
+    .article-content li {
+      color: #3F3A36;
+    }
+
+    .article-content ul,
+    .article-content ol {
+      padding-left: 1.35rem;
+    }
+
+    .article-nav {
+      max-width: 860px;
+      margin: 24px auto 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .article-nav a {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--primary);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    @media (max-width: 720px) {
+      .site-header,
+      .site-footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .guides-hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .guides-hero img {
+        width: 104px;
+        height: 104px;
+      }
+    }
+  </style>
+</head>
+<body class="article-page">
+  <header class="site-header">
+    <a class="brand" href="/">
+      <img src="/icon.png" alt="カイログ">
+      <span>カイログ</span>
+    </a>
+    <nav class="site-nav" aria-label="Site navigation">
+      <a href="/guides/">ガイド</a>
+      <a href="/privacy.html">プライバシー</a>
+      <a href="/terms.html">利用規約</a>
+    </nav>
+  </header>
+<main class="article-shell">
+        <p class="eyebrow"><a href="/guides/">カイログ ガイド</a></p>
+        <article class="article">
+          <h1>肉の100g価格を比べる時に見るべきポイント。カイログで容量と価格を記録する</h1>
+          <p class="article-summary">肉の価格はパック容量や割引表示で比較しにくくなります。カイログで価格タグ、容量、割引、店舗、比較タブを使って100g価格を見比べる考え方を紹介します。</p>
+          <div class="article-meta">更新日 2026/05/21</div>
+          <div class="article-content">
+            <p>スーパーで肉を買うときは、同じ鶏肉や豚肉でもパックの容量、部位、割引表示、税込・税抜の見せ方で価格感が変わります。表示価格だけを見ると安く見えても、100gあたりで比べると印象が変わることがあります。</p>
+<p>カイログは、価格タグを撮影して商品名、価格、割引、容量、カテゴリを記録できる日本向け価格管理アプリです。肉の価格を残しておくと、次回の買い物で自分の過去記録や比較タブを見ながら判断しやすくなります。</p>
+<h2>要点</h2>
+<ul>
+<li>肉はパックごとの容量が違うため、合計価格だけでは比較しにくい商品です。</li>
+<li>価格、容量、部位、店舗、日付を残すと、次回の買い物で見返しやすくなります。</li>
+<li>カイログの比較タブでは、2つの商品について内容量と価格を入力し、単価を見比べられます。</li>
+<li>AI読み取りや近くの価格情報は補助として使い、保存前に価格と容量を確認するのが現実的です。</li>
+</ul>
+<h2>100g価格を見る理由</h2>
+<p>肉の売り場では、同じ種類の商品でもパックごとの内容量が大きく違います。350gのパックと520gのパックでは合計価格が違うため、表示価格だけで「どちらが買いやすいか」を判断しにくくなります。</p>
+<p>100g価格を見ると、容量差をそろえて比べやすくなります。特売品、通常品、見切り品を比べるときも、割引後の価格と内容量を合わせて見ることで、記憶だけに頼らず判断材料を増やせます。</p>
+<h2>記録しておきたい項目</h2>
+<p>肉の価格を比較しやすくするには、次の項目を残しておくと便利です。</p>
+<ul>
+<li>商品名や部位</li>
+<li>価格</li>
+<li>内容量またはグラム数</li>
+<li>割引の有無</li>
+<li>店舗名</li>
+<li>記録した日付</li>
+<li>カテゴリ</li>
+</ul>
+<p>カイログでは価格タグ撮影で商品名、価格、割引、容量、カテゴリの読み取りを補助できます。値札の写真が暗い、表示が小さい、割引シールが重なっている場合は読み取り結果が変わることがあるため、保存前に確認してください。</p>
+<h2>カイログの比較タブを使う場面</h2>
+<p>カイログのバージョン1.4.0のリリース内容では、2つの商品について内容量と価格を入力し、単価を確認できる比較タブが追加されています。肉の買い物では、次のような場面で使いやすい機能です。</p>
+<ul>
+<li>鶏もも肉の通常パックと大容量パックを比べる</li>
+<li>豚こま肉の通常価格と割引後価格を比べる</li>
+<li>同じ部位を別店舗の記録と見比べる</li>
+<li>牛肉、豚肉、鶏肉などカテゴリごとの価格感を残す</li>
+</ul>
+<p>比較タブは、単価を見やすくするための道具です。実際に買うかどうかは、使い切れる量、冷凍保存できるか、献立、予算も合わせて考えると判断しやすくなります。</p>
+<h2>価格履歴として見返す</h2>
+<p>肉の価格は時期や店舗によって変わります。一度だけの記録ではなく、よく買う部位を少しずつ残していくと、自分にとっての普段価格を思い出しやすくなります。</p>
+<p>カイログでは過去の記録から同じ商品の価格を見返せます。商品詳細から分類ページへ移動して関連する自分の記録を確認できるため、肉カテゴリの価格感をまとめて見たいときにも使えます。</p>
+<h2>注意したいこと</h2>
+<p>カイログは、記録した価格を見返しやすくするアプリです。すべての店舗の価格がわかるわけではなく、必ず一番安い商品を見つけられるものでもありません。</p>
+<p>近くの価格情報は、利用状況や投稿内容によって表示され方が変わります。参考情報として見ながら、自分の記録、店頭の現在価格、内容量を合わせて確認してください。</p>
+<h2>よくある質問</h2>
+<h3>肉の価格は何から記録すればよいですか？</h3>
+<p>よく買う部位から始めるのがおすすめです。鶏もも肉、豚こま肉、ひき肉など、買う頻度が高い商品ほど後で見返す価値が出やすくなります。</p>
+<h3>100g価格だけ見れば十分ですか？</h3>
+<p>100g価格は比較しやすい指標ですが、使い切れる量、保存方法、部位の違いも重要です。単価と実際の使い方を合わせて判断してください。</p>
+<h3>AI読み取りだけで保存しても大丈夫ですか？</h3>
+<p>保存前に商品名、価格、容量、割引表示を確認してください。値札や割引シールの見え方によって、読み取り結果が変わることがあります。</p>
+<h2>まとめ</h2>
+<p>肉の価格比較では、合計価格だけでなく100gあたりの価格、容量、割引、店舗を一緒に見ることが大切です。カイログで価格タグと容量を記録しておくと、次の買い物で自分の過去記録を見返しやすくなります。</p>
+<p>カイログの比較タブを使えば、2つの商品について内容量と価格を入力し、単価を確認できます。まずはよく買う肉の部位から記録して、店頭で迷ったときに見返せる価格メモを作っていきましょう。</p>
+          </div>
+        </article>
+        <nav class="article-nav" aria-label="Guide navigation">
+          <a href="/guides/">すべてのガイド</a>
+          <a href="/guides/ja/">日本語ガイド</a>
+          <a href="/">カイログ ホーム</a>
+        </nav>
+      </main>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"肉の100g価格を比べる時に見るべきポイント。カイログで容量と価格を記録する","description":"肉の価格はパック容量や割引表示で比較しにくくなります。カイログで価格タグ、容量、割引、店舗、比較タブを使って100g価格を見比べる考え方を紹介します。","inLanguage":"ja","author":{"@type":"Organization","name":"カイログ編集部"},"publisher":{"@type":"Organization","name":"カイログ","logo":{"@type":"ImageObject","url":"https://www.kairogu.men/icon.png"}},"mainEntityOfPage":"https://www.kairogu.men/guides/ja/meat-100g-price-comparison.html","dateModified":"2026-05-21T00:27:05.500Z"}</script>
+  <footer class="site-footer">
+    <span>&copy; 2026 hangyodev</span>
+    <a href="mailto:hangyodev@gmail.com">お問い合わせ</a>
+  </footer>
+</body>
+</html>

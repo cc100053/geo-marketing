@@ -224,4 +224,24 @@
     <loc>https://pet-app-702be.web.app/guides/ko/shared-rooms.html</loc>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/en/private-room-chat.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/zh-hant/private-room-chat.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/zh-hans/private-room-chat.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/ja/private-room-chat.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/ko/private-room-chat.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
 </urlset>

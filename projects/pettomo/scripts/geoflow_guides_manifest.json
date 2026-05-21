@@ -139,6 +139,36 @@
       "lang": "ko",
       "slug": "shared-rooms",
       "sourcePath": "docs/articles/shared-rooms-ko.md"
+    },
+    {
+      "group": "private-room-chat",
+      "lang": "en",
+      "slug": "private-room-chat",
+      "sourcePath": "docs/articles/private-room-chat-en.md"
+    },
+    {
+      "group": "private-room-chat",
+      "lang": "zh-hant",
+      "slug": "private-room-chat",
+      "sourcePath": "docs/articles/private-room-chat-zh-hant.md"
+    },
+    {
+      "group": "private-room-chat",
+      "lang": "zh-hans",
+      "slug": "private-room-chat",
+      "sourcePath": "docs/articles/private-room-chat-zh-hans.md"
+    },
+    {
+      "group": "private-room-chat",
+      "lang": "ja",
+      "slug": "private-room-chat",
+      "sourcePath": "docs/articles/private-room-chat-ja.md"
+    },
+    {
+      "group": "private-room-chat",
+      "lang": "ko",
+      "slug": "private-room-chat",
+      "sourcePath": "docs/articles/private-room-chat-ko.md"
     }
   ]
 }

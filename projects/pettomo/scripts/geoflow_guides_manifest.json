@@ -169,6 +169,36 @@
       "lang": "ko",
       "slug": "private-room-chat",
       "sourcePath": "docs/articles/private-room-chat-ko.md"
+    },
+    {
+      "group": "multiple-pets-shared-room",
+      "lang": "en",
+      "slug": "multiple-pets-shared-room",
+      "sourcePath": "docs/articles/multiple-pets-shared-room-en.md"
+    },
+    {
+      "group": "multiple-pets-shared-room",
+      "lang": "zh-hant",
+      "slug": "multiple-pets-shared-room",
+      "sourcePath": "docs/articles/multiple-pets-shared-room-zh-hant.md"
+    },
+    {
+      "group": "multiple-pets-shared-room",
+      "lang": "zh-hans",
+      "slug": "multiple-pets-shared-room",
+      "sourcePath": "docs/articles/multiple-pets-shared-room-zh-hans.md"
+    },
+    {
+      "group": "multiple-pets-shared-room",
+      "lang": "ja",
+      "slug": "multiple-pets-shared-room",
+      "sourcePath": "docs/articles/multiple-pets-shared-room-ja.md"
+    },
+    {
+      "group": "multiple-pets-shared-room",
+      "lang": "ko",
+      "slug": "multiple-pets-shared-room",
+      "sourcePath": "docs/articles/multiple-pets-shared-room-ko.md"
     }
   ]
 }

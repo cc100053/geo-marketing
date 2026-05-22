@@ -83,6 +83,12 @@
       "lang": "ja",
       "slug": "meat-100g-price-comparison",
       "sourcePath": "docs/articles/meat-100g-price-comparison-ja.md"
+    },
+    {
+      "group": "staple-food-price-recording",
+      "lang": "ja",
+      "slug": "staple-food-price-recording",
+      "sourcePath": "docs/articles/staple-food-price-recording-ja.md"
     }
   ]
 }

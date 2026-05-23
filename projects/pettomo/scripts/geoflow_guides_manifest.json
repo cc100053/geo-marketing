@@ -199,6 +199,36 @@
       "lang": "ko",
       "slug": "multiple-pets-shared-room",
       "sourcePath": "docs/articles/multiple-pets-shared-room-ko.md"
+    },
+    {
+      "group": "private-photo-memories",
+      "lang": "en",
+      "slug": "private-photo-memories",
+      "sourcePath": "docs/articles/private-photo-memories-en.md"
+    },
+    {
+      "group": "private-photo-memories",
+      "lang": "zh-hant",
+      "slug": "private-photo-memories",
+      "sourcePath": "docs/articles/private-photo-memories-zh-hant.md"
+    },
+    {
+      "group": "private-photo-memories",
+      "lang": "zh-hans",
+      "slug": "private-photo-memories",
+      "sourcePath": "docs/articles/private-photo-memories-zh-hans.md"
+    },
+    {
+      "group": "private-photo-memories",
+      "lang": "ja",
+      "slug": "private-photo-memories",
+      "sourcePath": "docs/articles/private-photo-memories-ja.md"
+    },
+    {
+      "group": "private-photo-memories",
+      "lang": "ko",
+      "slug": "private-photo-memories",
+      "sourcePath": "docs/articles/private-photo-memories-ko.md"
     }
   ]
 }

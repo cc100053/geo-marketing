@@ -1008,7 +1008,7 @@ ${alternateHead}
   </footer>
 </body>
 </html>
-`;
+`.replace(/[ \t]+$/gm, '');
 }
 
 function renderMarkdown(markdown) {

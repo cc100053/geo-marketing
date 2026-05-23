@@ -89,6 +89,12 @@
       "lang": "ja",
       "slug": "staple-food-price-recording",
       "sourcePath": "docs/articles/staple-food-price-recording-ja.md"
+    },
+    {
+      "group": "long-price-history-review",
+      "lang": "ja",
+      "slug": "long-price-history-review",
+      "sourcePath": "docs/articles/long-price-history-review-ja.md"
     }
   ]
 }

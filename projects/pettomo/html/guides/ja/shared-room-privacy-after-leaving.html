@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetTomoの共有ルームで誰かが退出したらどうなる？ | PetTomo Guides</title>
+  <meta name="description" content="PetTomoの共有ルームは招待されたメンバー向けのプライベート空間です。メンバーが退出した時やアカウントを削除した時のペット、チャット、思い出、アクセス権を整理します。">
+  <meta name="keywords" content="PetTomo 共有ルーム プライバシー, PetTomo, shared virtual pet app, virtual pet, shared pet room">
+  <link rel="canonical" href="https://pet-app-702be.web.app/guides/ja/shared-room-privacy-after-leaving.html">
+  <link rel="alternate" hreflang="en" href="https://pet-app-702be.web.app/guides/en/shared-room-privacy-after-leaving.html">
+  <link rel="alternate" hreflang="zh-hant" href="https://pet-app-702be.web.app/guides/zh-hant/shared-room-privacy-after-leaving.html">
+  <link rel="alternate" hreflang="zh-hans" href="https://pet-app-702be.web.app/guides/zh-hans/shared-room-privacy-after-leaving.html">
+  <link rel="alternate" hreflang="ja" href="https://pet-app-702be.web.app/guides/ja/shared-room-privacy-after-leaving.html">
+  <link rel="alternate" hreflang="ko" href="https://pet-app-702be.web.app/guides/ko/shared-room-privacy-after-leaving.html">
+  <link rel="alternate" hreflang="x-default" href="https://pet-app-702be.web.app/guides/">
+  <link rel="icon" type="image/png" href="/assets/PetTomo_appicon.png">
+  <meta property="og:title" content="PetTomoの共有ルームで誰かが退出したらどうなる？ | PetTomo Guides">
+  <meta property="og:description" content="PetTomoの共有ルームは招待されたメンバー向けのプライベート空間です。メンバーが退出した時やアカウントを削除した時のペット、チャット、思い出、アクセス権を整理します。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://pet-app-702be.web.app/guides/ja/shared-room-privacy-after-leaving.html">
+  <meta property="og:image" content="https://pet-app-702be.web.app/assets/PetTomo_appicon.png">
+  <style>
+    :root {
+      --primary: #5FBF9E;
+      --secondary: #FFB36B;
+      --bg: #FFFBF3;
+      --panel: #FFFFFF;
+      --text: #2F2A23;
+      --muted: #756B61;
+      --line: #E7DED2;
+      --soft: #F4FAF8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; }
+
+    .site-header,
+    .site-footer {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--primary);
+      font-size: 1.25rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .site-nav a,
+    .site-footer a,
+    .eyebrow a {
+      text-decoration: none;
+    }
+
+    .site-nav a:hover,
+    .site-footer a:hover,
+    .eyebrow a:hover {
+      color: var(--primary);
+    }
+
+    .guides-shell,
+    .article-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 72px;
+    }
+
+    .guides-hero {
+      min-height: 320px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 160px;
+      gap: 40px;
+      align-items: center;
+      padding: 54px 0 40px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .guides-hero img {
+      width: 144px;
+      height: 144px;
+      border-radius: 32px;
+      box-shadow: 0 16px 34px rgba(47, 42, 35, 0.12);
+    }
+
+    .eyebrow,
+    .guide-label {
+      margin: 0 0 12px;
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 820px;
+      margin: 0;
+      font-size: clamp(2.25rem, 6vw, 4.25rem);
+      line-height: 1.06;
+      letter-spacing: 0;
+    }
+
+    .guides-hero p:not(.eyebrow),
+    .article-summary {
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      padding-top: 34px;
+    }
+
+    .guide-card {
+      min-height: 238px;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(47, 42, 35, 0.06);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .guide-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(47, 42, 35, 0.1);
+    }
+
+    .guide-card h2 {
+      margin: 0;
+      font-size: 1.26rem;
+      line-height: 1.25;
+    }
+
+    .guide-card p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .article {
+      max-width: 860px;
+      margin: 26px auto 0;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .article-meta {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .article-content {
+      margin-top: 34px;
+      font-size: 1.04rem;
+    }
+
+    .article-content h2,
+    .article-content h3 {
+      margin: 34px 0 12px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .article-content h2 { font-size: 1.72rem; }
+    .article-content h3 { font-size: 1.28rem; }
+
+    .article-content p,
+    .article-content ul,
+    .article-content ol,
+    .article-content table {
+      margin: 0 0 18px;
+    }
+
+    .article-content ul,
+    .article-content ol {
+      padding-left: 24px;
+    }
+
+    .article-content li + li {
+      margin-top: 7px;
+    }
+
+    .article-content table {
+      width: 100%;
+      border-collapse: collapse;
+      display: block;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    .article-content th,
+    .article-content td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .article-content th {
+      background: var(--soft);
+      font-weight: 800;
+    }
+
+    .article-content blockquote {
+      margin: 24px 0;
+      padding: 18px 20px;
+      border-left: 4px solid var(--secondary);
+      background: var(--panel);
+      border-radius: 0 8px 8px 0;
+      color: var(--muted);
+    }
+
+    .article-nav {
+      max-width: 860px;
+      margin: 24px auto 0;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .article-nav a {
+      padding: 10px 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--panel);
+      color: var(--text);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+      flex-wrap: wrap;
+    }
+
+    .site-footer nav {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 720px) {
+      .site-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .site-nav {
+        flex-wrap: wrap;
+      }
+
+      .guides-hero {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding-top: 28px;
+      }
+
+      .guides-hero img {
+        width: 104px;
+        height: 104px;
+        border-radius: 24px;
+      }
+
+      h1 {
+        font-size: 2.3rem;
+      }
+    }
+  </style>
+</head>
+<body class="article-page">
+  <header class="site-header">
+    <a class="brand" href="/">
+      <img src="/assets/PetTomo_appicon.png" alt="" aria-hidden="true">
+      <span>PetTomo</span>
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="/guides/">Guides</a>
+      <a href="/support.html">Support</a>
+      <a href="/">Home</a>
+    </nav>
+  </header>
+
+      <main class="article-shell">
+        <p class="eyebrow"><a href="/guides/">PetTomo Guides</a></p>
+        <article class="article">
+          <h1>PetTomoの共有ルームで誰かが退出したらどうなる？</h1>
+          <p class="article-summary">PetTomoの共有ルームは招待されたメンバー向けのプライベート空間です。メンバーが退出した時やアカウントを削除した時のペット、チャット、思い出、アクセス権を整理します。</p>
+          <div class="article-meta">Updated May 24, 2026</div>
+          <div class="article-content">
+            <p>PetTomoの共有ルームは、招待されたメンバーのためのプライベートな空間です。公開SNSの投稿場所ではありません。ルームには、共有ペット、メンバー、チャット、模様替え、写真の思い出、ルームの状態が含まれます。</p>
+<p>メンバーのひとりが退出しても、ルームとペットは他の有効なメンバーが引き続き使える場合があります。</p>
+<h2>要点</h2>
+<ul>
+<li>PetTomoのルームは招待リンクまたは招待コードで参加します。</li>
+<li>ルームのデータは、有効なルームメンバーに紐づきます。</li>
+<li>退出したメンバーは、そのルームのチャットとペットにアクセスできなくなります。</li>
+<li>ひとりが退出しただけで、共有ルームやペットが自動的に消えるわけではありません。</li>
+<li>アプリ内のアカウント削除文言では、共有ルームとペットは他のメンバーに引き継がれる旨が説明されています。</li>
+</ul>
+<h2>なぜ大切なのか</h2>
+<p>共同育成のバーチャルペットアプリでは、何が共有され、誰が見られるのかを理解しておくことが大切です。PetTomoでは、ペット、チャット、写真、思い出、模様替え、メンバーの行動が同じ共有ルームの中にあります。</p>
+<p>そのため、PetTomoは「公開する場所」ではなく「招待された人だけで使う共有ルーム」として説明するのが正確です。</p>
+<h2>共有ルームを退出した場合</h2>
+<p>PetTomoのナレッジベースでは、ユーザーが共有ルームを退出しても、ルームとペットは他の有効なメンバーが利用できる場合があると整理されています。アプリ内文言でも、退出するとそのルームのチャットとペットにアクセスできなくなることが説明されています。</p>
+<p>つまり、退出は主にアクセス権の変更です。退出した人はそのルームのメンバーではなくなり、残ったメンバーは共有ペットとの日課を続けられます。</p>
+<h2>アカウントを削除する場合</h2>
+<p>PetTomoの設定画面の文言では、アカウントと個人データを削除でき、共有ルームとペットは保持され、他のメンバーに引き継がれることが説明されています。小さなプライベートグループにとって、ひとりのアカウント操作で全員のルームが消えないことは重要です。</p>
+<p>ただし、記事では慎重に書くべきです。共有ルームとペットを残りのメンバーが継続できる設計として説明し、あらゆる例外状況の復旧を保証する表現は避けます。</p>
+<h2>よくある場面</h2>
+<h3>カップルで同じルームを使わなくなった</h3>
+<p>一方が退出すると、その人はルームへアクセスできなくなります。もう一方の有効なメンバーは、ルームとペットを引き続き使える場合があります。</p>
+<h3>友達グループのメンバーが変わった</h3>
+<p>友達の共有ルームで誰かが退出しても、ルームは公開されません。現在のメンバーのためのプライベート空間として続きます。</p>
+<h3>誰かがアカウントを削除した</h3>
+<p>アプリ内文言では、個人データを削除しても共有ルームとペットは他のメンバーに引き継がれることが説明されています。削除は取り消せない操作として理解してから進める必要があります。</p>
+<h2>FAQ</h2>
+<h3>誰かが退出すると、PetTomoのルームは公開されますか？</h3>
+<p>いいえ。PetTomoは招待されたメンバー向けのプライベート共有ルームを中心にしたアプリです。</p>
+<h3>退出すると、みんなの共有ペットも消えますか？</h3>
+<p>PetTomoのナレッジベースでは、ひとりが退出してもルームとペットは他の有効なメンバーが利用できる場合があると整理されています。</p>
+<h3>退出した人はチャットを見られますか？</h3>
+<p>アプリ内文言では、退出するとそのルームのチャットとペットにアクセスできなくなると説明されています。</p>
+<h2>まとめ</h2>
+<p>PetTomoの共有ルームは、招待されたメンバーのためのプライベート空間です。退出やアカウント削除は、退出する本人のアクセス権や個人データに関わる操作であり、共有ルームとペットは残った有効なメンバーが継続できる場合があります。</p>
+          </div>
+        </article>
+        <nav class="article-nav" aria-label="Guide navigation">
+          <a href="/guides/">All guides</a>
+          <a href="/guides/ja/">This language</a>
+          <a href="/">PetTomo home</a>
+        </nav>
+      </main>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"PetTomoの共有ルームで誰かが退出したらどうなる？","description":"PetTomoの共有ルームは招待されたメンバー向けのプライベート空間です。メンバーが退出した時やアカウントを削除した時のペット、チャット、思い出、アクセス権を整理します。","author":{"@type":"Organization","name":"PetTomo"},"publisher":{"@type":"Organization","name":"PetTomo","logo":{"@type":"ImageObject","url":"https://pet-app-702be.web.app/assets/PetTomo_appicon.png"}},"mainEntityOfPage":"https://pet-app-702be.web.app/guides/ja/shared-room-privacy-after-leaving.html","dateModified":"2026-05-24T01:18:17.113Z"}</script>
+
+  <footer class="site-footer">
+    <span>© 2026 hangyodev</span>
+    <nav aria-label="Footer navigation">
+      <a href="/guides/">Guides</a>
+      <a href="/support.html">Support</a>
+      <a href="/privacy_policy.html">Privacy Policy</a>
+      <a href="/terms_of_use.html">Terms of Use</a>
+    </nav>
+  </footer>
+</body>
+</html>

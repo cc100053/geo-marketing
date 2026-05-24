@@ -264,4 +264,24 @@
     <loc>https://pet-app-702be.web.app/guides/ko/private-photo-memories.html</loc>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/en/shared-room-privacy-after-leaving.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/zh-hant/shared-room-privacy-after-leaving.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/zh-hans/shared-room-privacy-after-leaving.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/ja/shared-room-privacy-after-leaving.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/ko/shared-room-privacy-after-leaving.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
 </urlset>

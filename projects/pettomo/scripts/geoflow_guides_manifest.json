@@ -229,6 +229,36 @@
       "lang": "ko",
       "slug": "private-photo-memories",
       "sourcePath": "docs/articles/private-photo-memories-ko.md"
+    },
+    {
+      "group": "shared-room-privacy-after-leaving",
+      "lang": "en",
+      "slug": "shared-room-privacy-after-leaving",
+      "sourcePath": "docs/articles/shared-room-privacy-after-leaving-en.md"
+    },
+    {
+      "group": "shared-room-privacy-after-leaving",
+      "lang": "zh-hant",
+      "slug": "shared-room-privacy-after-leaving",
+      "sourcePath": "docs/articles/shared-room-privacy-after-leaving-zh-hant.md"
+    },
+    {
+      "group": "shared-room-privacy-after-leaving",
+      "lang": "zh-hans",
+      "slug": "shared-room-privacy-after-leaving",
+      "sourcePath": "docs/articles/shared-room-privacy-after-leaving-zh-hans.md"
+    },
+    {
+      "group": "shared-room-privacy-after-leaving",
+      "lang": "ja",
+      "slug": "shared-room-privacy-after-leaving",
+      "sourcePath": "docs/articles/shared-room-privacy-after-leaving-ja.md"
+    },
+    {
+      "group": "shared-room-privacy-after-leaving",
+      "lang": "ko",
+      "slug": "shared-room-privacy-after-leaving",
+      "sourcePath": "docs/articles/shared-room-privacy-after-leaving-ko.md"
     }
   ]
 }

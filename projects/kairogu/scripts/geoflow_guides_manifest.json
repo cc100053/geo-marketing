@@ -95,6 +95,12 @@
       "lang": "ja",
       "slug": "long-price-history-review",
       "sourcePath": "docs/articles/long-price-history-review-ja.md"
+    },
+    {
+      "group": "nearby-price-info-checkpoints",
+      "lang": "ja",
+      "slug": "nearby-price-info-checkpoints",
+      "sourcePath": "docs/articles/nearby-price-info-checkpoints-ja.md"
     }
   ]
 }

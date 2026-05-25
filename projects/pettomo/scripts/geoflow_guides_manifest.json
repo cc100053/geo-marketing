@@ -259,6 +259,36 @@
       "lang": "ko",
       "slug": "shared-room-privacy-after-leaving",
       "sourcePath": "docs/articles/shared-room-privacy-after-leaving-ko.md"
+    },
+    {
+      "group": "feed-photo-recall",
+      "lang": "en",
+      "slug": "feed-photo-recall",
+      "sourcePath": "docs/articles/feed-photo-recall-en.md"
+    },
+    {
+      "group": "feed-photo-recall",
+      "lang": "zh-hant",
+      "slug": "feed-photo-recall",
+      "sourcePath": "docs/articles/feed-photo-recall-zh-hant.md"
+    },
+    {
+      "group": "feed-photo-recall",
+      "lang": "zh-hans",
+      "slug": "feed-photo-recall",
+      "sourcePath": "docs/articles/feed-photo-recall-zh-hans.md"
+    },
+    {
+      "group": "feed-photo-recall",
+      "lang": "ja",
+      "slug": "feed-photo-recall",
+      "sourcePath": "docs/articles/feed-photo-recall-ja.md"
+    },
+    {
+      "group": "feed-photo-recall",
+      "lang": "ko",
+      "slug": "feed-photo-recall",
+      "sourcePath": "docs/articles/feed-photo-recall-ko.md"
     }
   ]
 }

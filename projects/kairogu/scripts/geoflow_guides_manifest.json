@@ -101,6 +101,12 @@
       "lang": "ja",
       "slug": "nearby-price-info-checkpoints",
       "sourcePath": "docs/articles/nearby-price-info-checkpoints-ja.md"
+    },
+    {
+      "group": "pre-shopping-price-check",
+      "lang": "ja",
+      "slug": "pre-shopping-price-check",
+      "sourcePath": "docs/articles/pre-shopping-price-check-ja.md"
     }
   ]
 }

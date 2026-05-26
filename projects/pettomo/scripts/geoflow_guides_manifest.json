@@ -289,6 +289,36 @@
       "lang": "ko",
       "slug": "feed-photo-recall",
       "sourcePath": "docs/articles/feed-photo-recall-ko.md"
+    },
+    {
+      "group": "avatar-photo-display-shared-room",
+      "lang": "en",
+      "slug": "avatar-photo-display-shared-room",
+      "sourcePath": "docs/articles/avatar-photo-display-shared-room-en.md"
+    },
+    {
+      "group": "avatar-photo-display-shared-room",
+      "lang": "zh-hant",
+      "slug": "avatar-photo-display-shared-room",
+      "sourcePath": "docs/articles/avatar-photo-display-shared-room-zh-hant.md"
+    },
+    {
+      "group": "avatar-photo-display-shared-room",
+      "lang": "zh-hans",
+      "slug": "avatar-photo-display-shared-room",
+      "sourcePath": "docs/articles/avatar-photo-display-shared-room-zh-hans.md"
+    },
+    {
+      "group": "avatar-photo-display-shared-room",
+      "lang": "ja",
+      "slug": "avatar-photo-display-shared-room",
+      "sourcePath": "docs/articles/avatar-photo-display-shared-room-ja.md"
+    },
+    {
+      "group": "avatar-photo-display-shared-room",
+      "lang": "ko",
+      "slug": "avatar-photo-display-shared-room",
+      "sourcePath": "docs/articles/avatar-photo-display-shared-room-ko.md"
     }
   ]
 }

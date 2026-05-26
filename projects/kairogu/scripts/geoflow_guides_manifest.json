@@ -107,6 +107,12 @@
       "lang": "ja",
       "slug": "pre-shopping-price-check",
       "sourcePath": "docs/articles/pre-shopping-price-check-ja.md"
+    },
+    {
+      "group": "price-record-display-troubleshooting",
+      "lang": "ja",
+      "slug": "price-record-display-troubleshooting",
+      "sourcePath": "docs/articles/price-record-display-troubleshooting-ja.md"
     }
   ]
 }

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetTomoの共有ルームでアバターと写真表示が大切な理由 | PetTomo Guides</title>
+  <meta name="description" content="PetTomo 2.0.1では、アバターと写真の表示改善がローカル更新文言で案内されています。共有ルームで誰の行動か、どの写真かを見やすくする考え方を整理します。">
+  <meta name="keywords" content="PetTomo アバター 写真 表示, PetTomo, shared virtual pet app, virtual pet, shared pet room">
+  <link rel="canonical" href="https://pet-app-702be.web.app/guides/ja/avatar-photo-display-shared-room.html">
+  <link rel="alternate" hreflang="en" href="https://pet-app-702be.web.app/guides/en/avatar-photo-display-shared-room.html">
+  <link rel="alternate" hreflang="zh-hant" href="https://pet-app-702be.web.app/guides/zh-hant/avatar-photo-display-shared-room.html">
+  <link rel="alternate" hreflang="zh-hans" href="https://pet-app-702be.web.app/guides/zh-hans/avatar-photo-display-shared-room.html">
+  <link rel="alternate" hreflang="ja" href="https://pet-app-702be.web.app/guides/ja/avatar-photo-display-shared-room.html">
+  <link rel="alternate" hreflang="ko" href="https://pet-app-702be.web.app/guides/ko/avatar-photo-display-shared-room.html">
+  <link rel="alternate" hreflang="x-default" href="https://pet-app-702be.web.app/guides/">
+  <link rel="icon" type="image/png" href="/assets/PetTomo_appicon.png">
+  <meta property="og:title" content="PetTomoの共有ルームでアバターと写真表示が大切な理由 | PetTomo Guides">
+  <meta property="og:description" content="PetTomo 2.0.1では、アバターと写真の表示改善がローカル更新文言で案内されています。共有ルームで誰の行動か、どの写真かを見やすくする考え方を整理します。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://pet-app-702be.web.app/guides/ja/avatar-photo-display-shared-room.html">
+  <meta property="og:image" content="https://pet-app-702be.web.app/assets/PetTomo_appicon.png">
+  <style>
+    :root {
+      --primary: #5FBF9E;
+      --secondary: #FFB36B;
+      --bg: #FFFBF3;
+      --panel: #FFFFFF;
+      --text: #2F2A23;
+      --muted: #756B61;
+      --line: #E7DED2;
+      --soft: #F4FAF8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; }
+
+    .site-header,
+    .site-footer {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--primary);
+      font-size: 1.25rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .site-nav a,
+    .site-footer a,
+    .eyebrow a {
+      text-decoration: none;
+    }
+
+    .site-nav a:hover,
+    .site-footer a:hover,
+    .eyebrow a:hover {
+      color: var(--primary);
+    }
+
+    .guides-shell,
+    .article-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 72px;
+    }
+
+    .guides-hero {
+      min-height: 320px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 160px;
+      gap: 40px;
+      align-items: center;
+      padding: 54px 0 40px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .guides-hero img {
+      width: 144px;
+      height: 144px;
+      border-radius: 32px;
+      box-shadow: 0 16px 34px rgba(47, 42, 35, 0.12);
+    }
+
+    .eyebrow,
+    .guide-label {
+      margin: 0 0 12px;
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 820px;
+      margin: 0;
+      font-size: clamp(2.25rem, 6vw, 4.25rem);
+      line-height: 1.06;
+      letter-spacing: 0;
+    }
+
+    .guides-hero p:not(.eyebrow),
+    .article-summary {
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      padding-top: 34px;
+    }
+
+    .guide-card {
+      min-height: 238px;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(47, 42, 35, 0.06);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .guide-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(47, 42, 35, 0.1);
+    }
+
+    .guide-card h2 {
+      margin: 0;
+      font-size: 1.26rem;
+      line-height: 1.25;
+    }
+
+    .guide-card p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .article {
+      max-width: 860px;
+      margin: 26px auto 0;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .article-meta {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .article-content {
+      margin-top: 34px;
+      font-size: 1.04rem;
+    }
+
+    .article-content h2,
+    .article-content h3 {
+      margin: 34px 0 12px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .article-content h2 { font-size: 1.72rem; }
+    .article-content h3 { font-size: 1.28rem; }
+
+    .article-content p,
+    .article-content ul,
+    .article-content ol,
+    .article-content table {
+      margin: 0 0 18px;
+    }
+
+    .article-content ul,
+    .article-content ol {
+      padding-left: 24px;
+    }
+
+    .article-content li + li {
+      margin-top: 7px;
+    }
+
+    .article-content table {
+      width: 100%;
+      border-collapse: collapse;
+      display: block;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    .article-content th,
+    .article-content td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .article-content th {
+      background: var(--soft);
+      font-weight: 800;
+    }
+
+    .article-content blockquote {
+      margin: 24px 0;
+      padding: 18px 20px;
+      border-left: 4px solid var(--secondary);
+      background: var(--panel);
+      border-radius: 0 8px 8px 0;
+      color: var(--muted);
+    }
+
+    .article-nav {
+      max-width: 860px;
+      margin: 24px auto 0;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .article-nav a {
+      padding: 10px 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--panel);
+      color: var(--text);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+      flex-wrap: wrap;
+    }
+
+    .site-footer nav {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 720px) {
+      .site-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .site-nav {
+        flex-wrap: wrap;
+      }
+
+      .guides-hero {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding-top: 28px;
+      }
+
+      .guides-hero img {
+        width: 104px;
+        height: 104px;
+        border-radius: 24px;
+      }
+
+      h1 {
+        font-size: 2.3rem;
+      }
+    }
+  </style>
+</head>
+<body class="article-page">
+  <header class="site-header">
+    <a class="brand" href="/">
+      <img src="/assets/PetTomo_appicon.png" alt="" aria-hidden="true">
+      <span>PetTomo</span>
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="/guides/">Guides</a>
+      <a href="/support.html">Support</a>
+      <a href="/">Home</a>
+    </nav>
+  </header>
+
+      <main class="article-shell">
+        <p class="eyebrow"><a href="/guides/">PetTomo Guides</a></p>
+        <article class="article">
+          <h1>PetTomoの共有ルームでアバターと写真表示が大切な理由</h1>
+          <p class="article-summary">PetTomo 2.0.1では、アバターと写真の表示改善がローカル更新文言で案内されています。共有ルームで誰の行動か、どの写真かを見やすくする考え方を整理します。</p>
+          <div class="article-meta">Updated May 26, 2026</div>
+          <div class="article-content">
+            <p>PetTomoは、招待されたメンバーが同じバーチャルペットを育て、チャットし、部屋を飾り、日々の写真を思い出に変えていくプライベート共有ルームのアプリです。2.0.1のローカルApp Storeメタデータとアプリ内What&#39;s New文言では、送信したフィード写真の取り消しに加えて、アバターと写真の表示改善、安定性向上が案内されています。</p>
+<p>共有ルームでは、誰が行動したのか、どの写真が共有されたのか、どこに見えているのかが分かりやすいことが大切です。</p>
+<h2>要点</h2>
+<ul>
+<li>PetTomoのルームは招待制のプライベート空間であり、公開SNSではありません。</li>
+<li>アバターは、チャット、フィード、リアクションなどの行動を誰のものか分かりやすくします。</li>
+<li>フィード写真は、共有ルーム内の体験に紐づき、チャット、思い出、ギャラリーなどに関係することがあります。</li>
+<li>2.0.1のローカル更新文言では、アバターと写真の表示がよりスムーズになったことが確認できます。</li>
+<li>表示改善を、公開投稿機能、写真復元の保証、送信前確認の代替として説明しないことが大切です。</li>
+</ul>
+<h2>アバターが見やすいと共有ルームが分かりやすくなる</h2>
+<p>共有ルームでは、小さな行動が積み重なります。誰かが写真でごはんをあげる、チャットに反応する、部屋の雰囲気を変える、毎日の様子を見に来る。アバターが見やすいと、こうした行動を人と結びつけて理解しやすくなります。</p>
+<p>これは、カップル、親友、小さなグループがPetTomoを日々の軽い共有習慣として使うときに役立ちます。目的は公開されるプロフィールではなく、招待されたメンバーの中で読みやすい共有ルームを作ることです。</p>
+<h2>写真表示で気をつけたいこと</h2>
+<p>写真でごはんをあげることは、PetTomoらしい使い方のひとつです。写真はペットのお世話、ルーム内の会話、思い出のきっかけになります。</p>
+<p>一方で、写真は個人的な情報を含むことがあります。PetTomoの確認済みの事実では、共有ルーム、ルーム内チャット、フィード写真、思い出、最近の写真ギャラリーが説明されています。2.0.1の更新文言では、アバターと写真表示が改善されたことが案内されています。したがって、表示体験が改善されたとは言えますが、すべての過去写真が必ず復元される、すべての画面に必ず表示される、といった表現は避けます。</p>
+<h2>ルームメンバーが確認したいこと</h2>
+<h3>写真を送る前にルームを確認する</h3>
+<p>複数のルームに参加している場合は、意図したPetTomoルームを開いているか確認してから写真でごはんをあげます。</p>
+<h3>分かりやすいプロフィールにする</h3>
+<p>友達やパートナーが認識しやすいアバターにしておくと、チャット、リアクション、ペットのお世話の流れを見返しやすくなります。</p>
+<h3>写真は共有ルーム内の内容として扱う</h3>
+<p>PetTomoはプライベートですが、ルームは有効なメンバーと共有されています。そのルームで見えてもよい写真を選ぶことが大切です。</p>
+<h2>FAQ</h2>
+<h3>PetTomoのアバターは公開プロフィールですか？</h3>
+<p>いいえ。PetTomoは招待リンクや招待コードで参加するプライベート共有ルームを中心にしたアプリです。公開SNSのプロフィールとして説明しないようにします。</p>
+<h3>PetTomoの写真はフィードだけに使われますか？</h3>
+<p>写真でごはんをあげることが主な使い方のひとつです。フィード写真は、ルーム内のチャット、思い出、ギャラリー表示に関係することがあります。</p>
+<h3>PetTomo 2.0.1で写真表示は変わりましたか？</h3>
+<p>ローカルの2.0.1更新文言では、アバターと写真の表示がよりスムーズになり、安定性と使いやすさも向上したと案内されています。</p>
+<h2>まとめ</h2>
+<p>アバターと写真表示が見やすいと、PetTomoの共有ルームは誰の行動か、どの写真か、どんな思い出かを理解しやすくなります。安全に伝えるべきことは、PetTomoが招待されたメンバーのためのプライベートな共有ペットルームであり、アバター、フィード写真、チャット、思い出が軽い共同育成を支えるという点です。</p>
+          </div>
+        </article>
+        <nav class="article-nav" aria-label="Guide navigation">
+          <a href="/guides/">All guides</a>
+          <a href="/guides/ja/">This language</a>
+          <a href="/">PetTomo home</a>
+        </nav>
+      </main>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"PetTomoの共有ルームでアバターと写真表示が大切な理由","description":"PetTomo 2.0.1では、アバターと写真の表示改善がローカル更新文言で案内されています。共有ルームで誰の行動か、どの写真かを見やすくする考え方を整理します。","author":{"@type":"Organization","name":"PetTomo"},"publisher":{"@type":"Organization","name":"PetTomo","logo":{"@type":"ImageObject","url":"https://pet-app-702be.web.app/assets/PetTomo_appicon.png"}},"mainEntityOfPage":"https://pet-app-702be.web.app/guides/ja/avatar-photo-display-shared-room.html","dateModified":"2026-05-26T00:17:13.240Z"}</script>
+
+  <footer class="site-footer">
+    <span>© 2026 hangyodev</span>
+    <nav aria-label="Footer navigation">
+      <a href="/guides/">Guides</a>
+      <a href="/support.html">Support</a>
+      <a href="/privacy_policy.html">Privacy Policy</a>
+      <a href="/terms_of_use.html">Terms of Use</a>
+    </nav>
+  </footer>
+</body>
+</html>

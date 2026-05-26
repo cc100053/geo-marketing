@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>価格記録が見つからない・表示が遅い時に確認したいこと | カイログ ガイド</title>
+  <meta name="description" content="カイログで価格記録を探す時は、商品名、カテゴリ、店舗、日付、読み込み状態を順に確認すると原因を分けやすくなります。表示や読み込みが気になる時の見方を整理します。">
+  <meta name="keywords" content="価格記録 表示 遅い">
+  <link rel="canonical" href="https://www.kairogu.men/guides/ja/price-record-display-troubleshooting.html">
+  <link rel="icon" type="image/png" href="/icon.png">
+  <meta property="og:title" content="価格記録が見つからない・表示が遅い時に確認したいこと | カイログ ガイド">
+  <meta property="og:description" content="カイログで価格記録を探す時は、商品名、カテゴリ、店舗、日付、読み込み状態を順に確認すると原因を分けやすくなります。表示や読み込みが気になる時の見方を整理します。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.kairogu.men/guides/ja/price-record-display-troubleshooting.html">
+  <meta property="og:image" content="https://www.kairogu.men/icon.png">
+  <style>
+    :root {
+      --primary: #1A8D7A;
+      --accent: #F4A261;
+      --bg: #FAF9F7;
+      --panel: #FFFFFF;
+      --text: #242424;
+      --muted: #667085;
+      --line: #E5E1DA;
+      --soft: #EEF8F5;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", "Segoe UI", sans-serif;
+      line-height: 1.8;
+    }
+
+    a { color: inherit; }
+
+    .site-header,
+    .site-footer {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--primary);
+      font-size: 1.18rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .site-nav a,
+    .site-footer a,
+    .eyebrow a {
+      text-decoration: none;
+    }
+
+    .site-nav a:hover,
+    .site-footer a:hover,
+    .eyebrow a:hover {
+      color: var(--primary);
+    }
+
+    .guides-shell,
+    .article-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 72px;
+    }
+
+    .guides-hero {
+      min-height: 300px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 150px;
+      gap: 40px;
+      align-items: center;
+      padding: 52px 0 40px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .guides-hero img {
+      width: 132px;
+      height: 132px;
+      border-radius: 28px;
+      box-shadow: 0 16px 34px rgba(36, 36, 36, 0.12);
+    }
+
+    .eyebrow,
+    .guide-label {
+      margin: 0 0 12px;
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 840px;
+      margin: 0;
+      font-size: clamp(2.1rem, 6vw, 4rem);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    .guides-hero p:not(.eyebrow),
+    .article-summary {
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      padding-top: 34px;
+    }
+
+    .guide-card {
+      min-height: 220px;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(36, 36, 36, 0.06);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .guide-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(36, 36, 36, 0.1);
+    }
+
+    .guide-card h2 {
+      margin: 0;
+      font-size: 1.24rem;
+      line-height: 1.35;
+    }
+
+    .guide-card p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .article {
+      max-width: 860px;
+      margin: 26px auto 0;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .article-meta {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .article-content {
+      margin-top: 34px;
+      font-size: 1.04rem;
+    }
+
+    .article-content h2,
+    .article-content h3 {
+      margin: 34px 0 12px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    .article-content h2 { font-size: 1.58rem; }
+    .article-content h3 { font-size: 1.22rem; }
+
+    .article-content p,
+    .article-content li {
+      color: #3F3A36;
+    }
+
+    .article-content ul,
+    .article-content ol {
+      padding-left: 1.35rem;
+    }
+
+    .article-nav {
+      max-width: 860px;
+      margin: 24px auto 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .article-nav a {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--primary);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    @media (max-width: 720px) {
+      .site-header,
+      .site-footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .guides-hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .guides-hero img {
+        width: 104px;
+        height: 104px;
+      }
+    }
+  </style>
+</head>
+<body class="article-page">
+  <header class="site-header">
+    <a class="brand" href="/">
+      <img src="/icon.png" alt="カイログ">
+      <span>カイログ</span>
+    </a>
+    <nav class="site-nav" aria-label="Site navigation">
+      <a href="/guides/">ガイド</a>
+      <a href="/privacy.html">プライバシー</a>
+      <a href="/terms.html">利用規約</a>
+    </nav>
+  </header>
+<main class="article-shell">
+        <p class="eyebrow"><a href="/guides/">カイログ ガイド</a></p>
+        <article class="article">
+          <h1>価格記録が見つからない・表示が遅い時に確認したいこと</h1>
+          <p class="article-summary">カイログで価格記録を探す時は、商品名、カテゴリ、店舗、日付、読み込み状態を順に確認すると原因を分けやすくなります。表示や読み込みが気になる時の見方を整理します。</p>
+          <div class="article-meta">更新日 2026/05/26</div>
+          <div class="article-content">
+            <p>価格記録アプリを使っていると、買い物前や店頭で「前に記録したはずの商品が見つからない」「一覧の表示を少し待つ必要がある」と感じることがあります。原因はひとつとは限りません。商品名、カテゴリ、店舗、日付、読み込み状態を順に確認すると、探し方を整理しやすくなります。</p>
+<p>カイログは、価格タグを撮影して商品名、価格、割引、容量、カテゴリを記録できる日本向けの価格管理アプリです。1.5.1のローカル更新文言では、表示まわりの調整、読み込みの安定性改善、細かな不具合修正が案内されています。</p>
+<h2>要点</h2>
+<ul>
+<li>価格記録が見つからない時は、商品名だけでなくカテゴリや店舗も確認します。</li>
+<li>記録が増えた場合は、一覧をすべて一度に見ようとせず、必要な条件に絞ると探しやすくなります。</li>
+<li>1.5.1のローカル更新文言では、表示と読み込みの安定性改善が案内されています。</li>
+<li>近くの価格情報やコミュニティ価格は、利用状況や記録内容によって見え方が変わります。</li>
+<li>表示が遅い時も、現在価格や最安を断定せず、店頭表示と自分の記録を合わせて確認します。</li>
+</ul>
+<h2>まず確認したい探し方</h2>
+<p>価格記録が見つからない時は、同じ画面を何度も開くより、探す条件を分けるほうが現実的です。</p>
+<h3>商品名の表記を変える</h3>
+<p>同じ商品でも、正式名称、短い名前、容量付きの名前で記録されていることがあります。たとえば洗剤、詰め替え、900g、1Lなど、記録した時の表記を思い出して検索します。</p>
+<h3>カテゴリから探す</h3>
+<p>商品名があいまいな時は、カテゴリから探す方法があります。食品、飲料、日用品、肉、乳製品、洗剤など、自分が記録した分類に近い場所を見ます。</p>
+<h3>店舗と日付を見る</h3>
+<p>同じ商品でも店舗や時期で価格は変わります。前回どの店で見たか、いつ記録したかを合わせて確認すると、見つけたい記録に近づきやすくなります。</p>
+<h2>表示が遅い時の見方</h2>
+<p>記録が増えてくると、一覧やカテゴリを開いた時に読み込みを待つ場面があります。カイログの1.5.0更新文言では、ホームやカテゴリの記録一覧を必要な分から読み込む改善が案内され、1.5.1では表示まわりと読み込みの安定性改善が説明されています。</p>
+<p>この種の改善は、長い履歴を扱いやすくするためのものです。ただし、通信状態、端末の状態、記録量によって体感は変わります。少し待ってから、検索、カテゴリ、お気に入り、買い物リストなど別の入口で探すと見つけやすくなることがあります。</p>
+<h2>近くの価格情報を見る時の注意</h2>
+<p>ストア説明では、カイログで近くの店舗や地域の価格情報をチェックできることが案内されています。ただし、近くの価格情報は利用状況や記録内容に左右されます。</p>
+<p>表示が少ない時に「その地域に価格が存在しない」と断定する必要はありません。自分の記録、店頭表示、近くの価格情報を組み合わせて、買い物判断の参考にするのが安全です。</p>
+<h2>よくある質問</h2>
+<h3>前に保存した価格記録が見つからない時は何から確認すべきですか？</h3>
+<p>商品名の表記、カテゴリ、店舗、日付を順に確認します。商品名があいまいな時はカテゴリから探すと見つかりやすい場合があります。</p>
+<h3>表示が遅い時は記録が消えたということですか？</h3>
+<p>表示が遅いだけで記録が消えたとは限りません。通信状態や読み込みタイミングも関係するため、少し待ってから検索やカテゴリで探してみます。</p>
+<h3>近くの価格情報が少ない時はどう見ればよいですか？</h3>
+<p>利用状況や記録内容によって見え方が変わります。現在価格や全店舗の情報として断定せず、自分の価格履歴や店頭表示と合わせて参考にします。</p>
+<h2>まとめ</h2>
+<p>価格記録が見つからない、表示が遅いと感じる時は、商品名、カテゴリ、店舗、日付、読み込み状態を順に確認すると原因を分けやすくなります。カイログでは、価格タグ撮影、自分の価格履歴、カテゴリ、お気に入り、買い物リストを組み合わせて、記録を見返しやすくできます。</p>
+          </div>
+        </article>
+        <nav class="article-nav" aria-label="Guide navigation">
+          <a href="/guides/">すべてのガイド</a>
+          <a href="/guides/ja/">日本語ガイド</a>
+          <a href="/">カイログ ホーム</a>
+        </nav>
+      </main>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"価格記録が見つからない・表示が遅い時に確認したいこと","description":"カイログで価格記録を探す時は、商品名、カテゴリ、店舗、日付、読み込み状態を順に確認すると原因を分けやすくなります。表示や読み込みが気になる時の見方を整理します。","inLanguage":"ja","author":{"@type":"Organization","name":"カイログ編集部"},"publisher":{"@type":"Organization","name":"カイログ","logo":{"@type":"ImageObject","url":"https://www.kairogu.men/icon.png"}},"mainEntityOfPage":"https://www.kairogu.men/guides/ja/price-record-display-troubleshooting.html","dateModified":"2026-05-26T00:17:08.808Z"}</script>
+  <footer class="site-footer">
+    <span>&copy; 2026 hangyodev</span>
+    <a href="mailto:hangyodev@gmail.com">お問い合わせ</a>
+  </footer>
+</body>
+</html>

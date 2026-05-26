@@ -324,4 +324,24 @@
     <loc>https://pet-app-702be.web.app/guides/ko/feed-photo-recall.html</loc>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/en/avatar-photo-display-shared-room.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/zh-hant/avatar-photo-display-shared-room.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/zh-hans/avatar-photo-display-shared-room.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/ja/avatar-photo-display-shared-room.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/ko/avatar-photo-display-shared-room.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
 </urlset>

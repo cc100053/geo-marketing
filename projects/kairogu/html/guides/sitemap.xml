@@ -84,4 +84,8 @@
     <loc>https://www.kairogu.men/guides/ja/price-record-display-troubleshooting.html</loc>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>https://www.kairogu.men/guides/ja/edit-scanned-price-record.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
 </urlset>

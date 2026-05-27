@@ -319,6 +319,36 @@
       "lang": "ko",
       "slug": "avatar-photo-display-shared-room",
       "sourcePath": "docs/articles/avatar-photo-display-shared-room-ko.md"
+    },
+    {
+      "group": "invite-link-troubleshooting",
+      "lang": "en",
+      "slug": "invite-link-troubleshooting",
+      "sourcePath": "docs/articles/invite-link-troubleshooting-en.md"
+    },
+    {
+      "group": "invite-link-troubleshooting",
+      "lang": "zh-hant",
+      "slug": "invite-link-troubleshooting",
+      "sourcePath": "docs/articles/invite-link-troubleshooting-zh-hant.md"
+    },
+    {
+      "group": "invite-link-troubleshooting",
+      "lang": "zh-hans",
+      "slug": "invite-link-troubleshooting",
+      "sourcePath": "docs/articles/invite-link-troubleshooting-zh-hans.md"
+    },
+    {
+      "group": "invite-link-troubleshooting",
+      "lang": "ja",
+      "slug": "invite-link-troubleshooting",
+      "sourcePath": "docs/articles/invite-link-troubleshooting-ja.md"
+    },
+    {
+      "group": "invite-link-troubleshooting",
+      "lang": "ko",
+      "slug": "invite-link-troubleshooting",
+      "sourcePath": "docs/articles/invite-link-troubleshooting-ko.md"
     }
   ]
 }

@@ -113,6 +113,12 @@
       "lang": "ja",
       "slug": "price-record-display-troubleshooting",
       "sourcePath": "docs/articles/price-record-display-troubleshooting-ja.md"
+    },
+    {
+      "group": "edit-scanned-price-record",
+      "lang": "ja",
+      "slug": "edit-scanned-price-record",
+      "sourcePath": "docs/articles/edit-scanned-price-record-ja.md"
     }
   ]
 }

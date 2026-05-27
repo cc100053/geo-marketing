@@ -324,4 +324,24 @@
     <loc>https://pet-app-702be.web.app/guides/ko/avatar-photo-display-shared-room.html</loc>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/en/invite-link-troubleshooting.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/zh-hant/invite-link-troubleshooting.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/zh-hans/invite-link-troubleshooting.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/ja/invite-link-troubleshooting.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/ko/invite-link-troubleshooting.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
 </urlset>

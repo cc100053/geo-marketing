@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetTomoの招待リンクが開かない時に確認すること | PetTomo Guides</title>
+  <meta name="description" content="PetTomoの共有ルーム招待で、招待リンクが開かない時の確認ポイントを整理。招待コード、ログイン、再共有、プライベートルームの考え方を解説します。">
+  <meta name="keywords" content="PetTomo 招待リンク 開かない, PetTomo, shared virtual pet app, virtual pet, shared pet room">
+  <link rel="canonical" href="https://pet-app-702be.web.app/guides/ja/invite-link-troubleshooting.html">
+  <link rel="alternate" hreflang="en" href="https://pet-app-702be.web.app/guides/en/invite-link-troubleshooting.html">
+  <link rel="alternate" hreflang="zh-hant" href="https://pet-app-702be.web.app/guides/zh-hant/invite-link-troubleshooting.html">
+  <link rel="alternate" hreflang="zh-hans" href="https://pet-app-702be.web.app/guides/zh-hans/invite-link-troubleshooting.html">
+  <link rel="alternate" hreflang="ja" href="https://pet-app-702be.web.app/guides/ja/invite-link-troubleshooting.html">
+  <link rel="alternate" hreflang="ko" href="https://pet-app-702be.web.app/guides/ko/invite-link-troubleshooting.html">
+  <link rel="alternate" hreflang="x-default" href="https://pet-app-702be.web.app/guides/">
+  <link rel="icon" type="image/png" href="/assets/PetTomo_appicon.png">
+  <meta property="og:title" content="PetTomoの招待リンクが開かない時に確認すること | PetTomo Guides">
+  <meta property="og:description" content="PetTomoの共有ルーム招待で、招待リンクが開かない時の確認ポイントを整理。招待コード、ログイン、再共有、プライベートルームの考え方を解説します。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://pet-app-702be.web.app/guides/ja/invite-link-troubleshooting.html">
+  <meta property="og:image" content="https://pet-app-702be.web.app/assets/PetTomo_appicon.png">
+  <style>
+    :root {
+      --primary: #5FBF9E;
+      --secondary: #FFB36B;
+      --bg: #FFFBF3;
+      --panel: #FFFFFF;
+      --text: #2F2A23;
+      --muted: #756B61;
+      --line: #E7DED2;
+      --soft: #F4FAF8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; }
+
+    .site-header,
+    .site-footer {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--primary);
+      font-size: 1.25rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .site-nav a,
+    .site-footer a,
+    .eyebrow a {
+      text-decoration: none;
+    }
+
+    .site-nav a:hover,
+    .site-footer a:hover,
+    .eyebrow a:hover {
+      color: var(--primary);
+    }
+
+    .guides-shell,
+    .article-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 72px;
+    }
+
+    .guides-hero {
+      min-height: 320px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 160px;
+      gap: 40px;
+      align-items: center;
+      padding: 54px 0 40px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .guides-hero img {
+      width: 144px;
+      height: 144px;
+      border-radius: 32px;
+      box-shadow: 0 16px 34px rgba(47, 42, 35, 0.12);
+    }
+
+    .eyebrow,
+    .guide-label {
+      margin: 0 0 12px;
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 820px;
+      margin: 0;
+      font-size: clamp(2.25rem, 6vw, 4.25rem);
+      line-height: 1.06;
+      letter-spacing: 0;
+    }
+
+    .guides-hero p:not(.eyebrow),
+    .article-summary {
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      padding-top: 34px;
+    }
+
+    .guide-card {
+      min-height: 238px;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(47, 42, 35, 0.06);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .guide-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(47, 42, 35, 0.1);
+    }
+
+    .guide-card h2 {
+      margin: 0;
+      font-size: 1.26rem;
+      line-height: 1.25;
+    }
+
+    .guide-card p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .article {
+      max-width: 860px;
+      margin: 26px auto 0;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .article-meta {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .article-content {
+      margin-top: 34px;
+      font-size: 1.04rem;
+    }
+
+    .article-content h2,
+    .article-content h3 {
+      margin: 34px 0 12px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .article-content h2 { font-size: 1.72rem; }
+    .article-content h3 { font-size: 1.28rem; }
+
+    .article-content p,
+    .article-content ul,
+    .article-content ol,
+    .article-content table {
+      margin: 0 0 18px;
+    }
+
+    .article-content ul,
+    .article-content ol {
+      padding-left: 24px;
+    }
+
+    .article-content li + li {
+      margin-top: 7px;
+    }
+
+    .article-content table {
+      width: 100%;
+      border-collapse: collapse;
+      display: block;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    .article-content th,
+    .article-content td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .article-content th {
+      background: var(--soft);
+      font-weight: 800;
+    }
+
+    .article-content blockquote {
+      margin: 24px 0;
+      padding: 18px 20px;
+      border-left: 4px solid var(--secondary);
+      background: var(--panel);
+      border-radius: 0 8px 8px 0;
+      color: var(--muted);
+    }
+
+    .article-nav {
+      max-width: 860px;
+      margin: 24px auto 0;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .article-nav a {
+      padding: 10px 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--panel);
+      color: var(--text);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+      flex-wrap: wrap;
+    }
+
+    .site-footer nav {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 720px) {
+      .site-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .site-nav {
+        flex-wrap: wrap;
+      }
+
+      .guides-hero {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding-top: 28px;
+      }
+
+      .guides-hero img {
+        width: 104px;
+        height: 104px;
+        border-radius: 24px;
+      }
+
+      h1 {
+        font-size: 2.3rem;
+      }
+    }
+  </style>
+</head>
+<body class="article-page">
+  <header class="site-header">
+    <a class="brand" href="/">
+      <img src="/assets/PetTomo_appicon.png" alt="" aria-hidden="true">
+      <span>PetTomo</span>
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="/guides/">Guides</a>
+      <a href="/support.html">Support</a>
+      <a href="/">Home</a>
+    </nav>
+  </header>
+
+      <main class="article-shell">
+        <p class="eyebrow"><a href="/guides/">PetTomo Guides</a></p>
+        <article class="article">
+          <h1>PetTomoの招待リンクが開かない時に確認すること</h1>
+          <p class="article-summary">PetTomoの共有ルーム招待で、招待リンクが開かない時の確認ポイントを整理。招待コード、ログイン、再共有、プライベートルームの考え方を解説します。</p>
+          <div class="article-meta">Updated May 27, 2026</div>
+          <div class="article-content">
+            <p>PetTomoの共有ルームは、招待されたメンバーが同じバーチャルペットを育てるためのプライベートな空間です。ローカルの1.2.0アプリ内What&#39;s Newでは、招待リンク共有の安定性改善が案内されており、PetTomoの知識ベースでは、招待リンクが開かない場合の招待コード入力も重要な代替手段として整理されています。</p>
+<p>この記事では、PetTomoの招待リンクが開かない、または共有ルームに入れない時に確認したいことをまとめます。</p>
+<h2>要点</h2>
+<ul>
+<li>PetTomoの共有ルームには、招待リンクまたは招待コードで参加します。</li>
+<li>招待リンクは便利ですが、端末、ブラウザ、ログイン状態、アプリの起動状態に影響されることがあります。</li>
+<li>リンクがうまく開かない場合は、招待コードを手入力するのが現実的な代替手段です。</li>
+<li>コードのコピー間違いや再発行が疑われる場合は、ルームのメンバーに再共有してもらいます。</li>
+<li>PetTomoの招待はプライベート共有ルーム向けであり、公開SNSのプロフィールではありません。</li>
+</ul>
+<h2>まず招待元を確認する</h2>
+<p>端末側の問題を疑う前に、その招待が正しいPetTomoルームのメンバーから届いたものか確認します。共有ルームの招待は、すでにルームに参加している人が、相手をそのプライベートな空間へ招くために使います。</p>
+<p>複数のルームに参加している場合は、どのルームへの招待なのかも確認してください。PetTomoでは、チャット、ペットの状態、思い出、デコレーションがルームごとに分かれています。</p>
+<h2>ログインと初期設定を確認する</h2>
+<p>PetTomoの招待フローでは、受け取った人がアプリを開き、ログインし、必要なプロフィール設定を済ませてから共有ルームに参加する流れになります。リンクでアプリは開くのにルームが見えない場合は、まずログインを完了してから招待をもう一度試してください。</p>
+<p>招待リンクをタップした後にアプリをインストールした場合、初回の起動が途中で途切れることがあります。インストール後は元の招待リンクに戻るか、相手に招待コードを送ってもらうと確認しやすくなります。</p>
+<h2>招待コードを手入力する</h2>
+<p>PetTomoの知識ベースでは、招待リンクがアプリを正しく開かない場合、招待コードの手入力が代替手段として整理されています。リンクがうまく動かない時は、コードを正確にコピーしてPetTomo内で入力してください。</p>
+<p>この方法は、次のような場面で役立ちます。</p>
+<ul>
+<li>リンクが別のブラウザで開いてしまう。</li>
+<li>端末がリンクをアプリに渡せない。</li>
+<li>招待をタップした後にPetTomoをインストールした。</li>
+<li>メッセージアプリがリンクを省略表示している。</li>
+</ul>
+<h2>送信者に再共有してもらう</h2>
+<p>手入力しても参加できない場合は、ルームオーナーや送信者に招待を作り直す、または再共有してもらいましょう。招待コードの一部が欠けている、コードが再発行されている、無効になっている、別のルームの招待だった、という可能性があります。</p>
+<p>招待の問題は、ルームやペットが公開された、失われた、永久に参加できない、という意味ではありません。多くの場合は、正しいリンク、コード、アカウント状態、アプリ状態をそろえることで解決しやすくなります。</p>
+<h2>よくある質問</h2>
+<h3>招待なしでPetTomoのルームに参加できますか？</h3>
+<p>PetTomoはプライベートな共有ルームを中心にしたアプリです。ルームに参加するには、ルームメンバーからの招待リンクまたは招待コードが必要です。</p>
+<h3>招待リンクが開かない時、最初に何をすべきですか？</h3>
+<p>PetTomoを開いてログインし、招待コードを手入力してください。リンクが不安定な時のもっとも分かりやすい代替手段です。</p>
+<h3>PetTomoの招待リンクは公開プロフィールですか？</h3>
+<p>いいえ。招待リンクはプライベートな共有ルームへ参加するためのものです。PetTomoは公開SNSとして説明しないでください。</p>
+<h2>まとめ</h2>
+<p>PetTomoの招待リンクが開かない時は、招待コードを確実な代替手段として使うのが現実的です。ログイン状態、コードのコピー、招待元のルームを確認し、必要ならルームメンバーに再共有してもらいましょう。</p>
+          </div>
+        </article>
+        <nav class="article-nav" aria-label="Guide navigation">
+          <a href="/guides/">All guides</a>
+          <a href="/guides/ja/">This language</a>
+          <a href="/">PetTomo home</a>
+        </nav>
+      </main>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"PetTomoの招待リンクが開かない時に確認すること","description":"PetTomoの共有ルーム招待で、招待リンクが開かない時の確認ポイントを整理。招待コード、ログイン、再共有、プライベートルームの考え方を解説します。","author":{"@type":"Organization","name":"PetTomo"},"publisher":{"@type":"Organization","name":"PetTomo","logo":{"@type":"ImageObject","url":"https://pet-app-702be.web.app/assets/PetTomo_appicon.png"}},"mainEntityOfPage":"https://pet-app-702be.web.app/guides/ja/invite-link-troubleshooting.html","dateModified":"2026-05-27T00:44:26.136Z"}</script>
+
+  <footer class="site-footer">
+    <span>© 2026 hangyodev</span>
+    <nav aria-label="Footer navigation">
+      <a href="/guides/">Guides</a>
+      <a href="/support.html">Support</a>
+      <a href="/privacy_policy.html">Privacy Policy</a>
+      <a href="/terms_of_use.html">Terms of Use</a>
+    </nav>
+  </footer>
+</body>
+</html>

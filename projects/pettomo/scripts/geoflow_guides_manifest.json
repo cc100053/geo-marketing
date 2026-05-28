@@ -349,6 +349,36 @@
       "lang": "ko",
       "slug": "invite-link-troubleshooting",
       "sourcePath": "docs/articles/invite-link-troubleshooting-ko.md"
+    },
+    {
+      "group": "shared-room-stability-checklist",
+      "lang": "en",
+      "slug": "shared-room-stability-checklist",
+      "sourcePath": "docs/articles/shared-room-stability-checklist-en.md"
+    },
+    {
+      "group": "shared-room-stability-checklist",
+      "lang": "zh-hant",
+      "slug": "shared-room-stability-checklist",
+      "sourcePath": "docs/articles/shared-room-stability-checklist-zh-hant.md"
+    },
+    {
+      "group": "shared-room-stability-checklist",
+      "lang": "zh-hans",
+      "slug": "shared-room-stability-checklist",
+      "sourcePath": "docs/articles/shared-room-stability-checklist-zh-hans.md"
+    },
+    {
+      "group": "shared-room-stability-checklist",
+      "lang": "ja",
+      "slug": "shared-room-stability-checklist",
+      "sourcePath": "docs/articles/shared-room-stability-checklist-ja.md"
+    },
+    {
+      "group": "shared-room-stability-checklist",
+      "lang": "ko",
+      "slug": "shared-room-stability-checklist",
+      "sourcePath": "docs/articles/shared-room-stability-checklist-ko.md"
     }
   ]
 }

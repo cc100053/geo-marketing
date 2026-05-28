@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PetTomo 공유방 사용법: 초대한 멤버와 같은 가상 펫을 함께 키우기 | PetTomo Guides</title>
-  <meta name="description" content="PetTomo 공유방에서 초대된 멤버가 같은 가상 펫을 함께 돌보는 방법을 정리합니다. 초대 링크, 초대 코드, 사진 먹이 주기, 채팅, 추억, 방 꾸미기를 확인하세요.">
-  <meta name="keywords" content="PetTomo 공유방, 가상 펫 공유, PetTomo 초대, PetTomo, shared virtual pet app, virtual pet, shared pet room">
-  <link rel="canonical" href="https://pet-app-702be.web.app/guides/ko/shared-rooms.html">
-  <link rel="alternate" hreflang="en" href="https://pet-app-702be.web.app/guides/en/does-pettomo-support-shared-rooms.html">
-  <link rel="alternate" hreflang="zh-hant" href="https://pet-app-702be.web.app/guides/zh-hant/shared-rooms.html">
-  <link rel="alternate" hreflang="zh-hans" href="https://pet-app-702be.web.app/guides/zh-hans/shared-rooms.html">
-  <link rel="alternate" hreflang="ja" href="https://pet-app-702be.web.app/guides/ja/shared-rooms.html">
-  <link rel="alternate" hreflang="ko" href="https://pet-app-702be.web.app/guides/ko/shared-rooms.html">
+  <title>PetTomo shared room not updating? A stability checklist | PetTomo Guides</title>
+  <meta name="description" content="Check PetTomo shared-room updates, photos, chat, pet state, and invite-based access without overstating what a bug-fix release changes.">
+  <meta name="keywords" content="PetTomo shared room not updating, PetTomo, shared virtual pet app, virtual pet, shared pet room, photo feeding, shared rooms, virtual pet apps">
+  <link rel="canonical" href="https://pet-app-702be.web.app/guides/en/shared-room-stability-checklist.html">
+  <link rel="alternate" hreflang="en" href="https://pet-app-702be.web.app/guides/en/shared-room-stability-checklist.html">
+  <link rel="alternate" hreflang="zh-hant" href="https://pet-app-702be.web.app/guides/zh-hant/shared-room-stability-checklist.html">
+  <link rel="alternate" hreflang="zh-hans" href="https://pet-app-702be.web.app/guides/zh-hans/shared-room-stability-checklist.html">
+  <link rel="alternate" hreflang="ja" href="https://pet-app-702be.web.app/guides/ja/shared-room-stability-checklist.html">
+  <link rel="alternate" hreflang="ko" href="https://pet-app-702be.web.app/guides/ko/shared-room-stability-checklist.html">
   <link rel="alternate" hreflang="x-default" href="https://pet-app-702be.web.app/guides/">
   <link rel="icon" type="image/png" href="/assets/PetTomo_appicon.png">
-  <meta property="og:title" content="PetTomo 공유방 사용법: 초대한 멤버와 같은 가상 펫을 함께 키우기 | PetTomo Guides">
-  <meta property="og:description" content="PetTomo 공유방에서 초대된 멤버가 같은 가상 펫을 함께 돌보는 방법을 정리합니다. 초대 링크, 초대 코드, 사진 먹이 주기, 채팅, 추억, 방 꾸미기를 확인하세요.">
+  <meta property="og:title" content="PetTomo shared room not updating? A stability checklist | PetTomo Guides">
+  <meta property="og:description" content="Check PetTomo shared-room updates, photos, chat, pet state, and invite-based access without overstating what a bug-fix release changes.">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://pet-app-702be.web.app/guides/ko/shared-rooms.html">
+  <meta property="og:url" content="https://pet-app-702be.web.app/guides/en/shared-room-stability-checklist.html">
   <meta property="og:image" content="https://pet-app-702be.web.app/assets/PetTomo_appicon.png">
   <style>
     :root {
@@ -326,69 +326,56 @@
       <main class="article-shell">
         <p class="eyebrow"><a href="/guides/">PetTomo Guides</a></p>
         <article class="article">
-          <h1>PetTomo 공유방 사용법: 초대한 멤버와 같은 가상 펫을 함께 키우기</h1>
-          <p class="article-summary">PetTomo 공유방에서 초대된 멤버가 같은 가상 펫을 함께 돌보는 방법을 정리합니다. 초대 링크, 초대 코드, 사진 먹이 주기, 채팅, 추억, 방 꾸미기를 확인하세요.</p>
+          <h1>PetTomo shared room not updating? A stability checklist</h1>
+          <p class="article-summary">Check PetTomo shared-room updates, photos, chat, pet state, and invite-based access without overstating what a bug-fix release changes.</p>
           <div class="article-meta">Updated May 28, 2026</div>
           <div class="article-content">
-            <p>PetTomo의 공유방은 초대된 멤버가 같은 가상 펫을 함께 돌보는 비공개 공간입니다. 방에는 펫, 멤버 활동, 사진 먹이 주기, 채팅, 추억, 방 꾸미기, 방 단위 아이템이 함께 담깁니다.</p>
-<h2>핵심 요약</h2>
+            <p>PetTomo is built around private shared rooms where invited members raise the same virtual pet, feed it with photos, chat, decorate the room, and collect memories. Local 2.0.2 release copy says PetTomo fixed bugs and improved stability, which makes it a good moment to explain how to check a shared room when updates do not appear as expected.</p>
+<p>This guide is a practical checklist for shared-room update issues. It does not claim every sync issue is solved automatically; it focuses on safe checks that fit PetTomo&#39;s confirmed product model.</p>
+<h2>Key takeaways</h2>
 <ul>
-<li>PetTomo 공유방은 초대된 멤버를 위한 비공개 공간입니다.</li>
-<li>커플, 친구, 가족, 작은 그룹이 같은 가상 펫을 함께 키울 수 있습니다.</li>
-<li>초대 링크와 초대 코드를 사용해 새 멤버를 방에 초대할 수 있습니다.</li>
-<li>사진 먹이 주기, 방 채팅, 추억, 방 꾸미기, 펫 장비는 공유방 경험에 포함됩니다.</li>
-<li>초대 링크가 앱을 열지 못하면 초대 코드를 직접 입력하는 것이 현실적인 대안입니다.</li>
+<li>A PetTomo room contains shared pet state, room members, chat, decorations, memories, and recent photos.</li>
+<li>If something looks stale, first confirm you are in the correct private room and signed in with the expected account.</li>
+<li>Photo feeding, chat, memories, and pet state may refresh through different screens, so compare more than one surface before assuming data was lost.</li>
+<li>Update to the latest app version when possible; local 2.0.2 copy confirms bug fixes and stability improvements.</li>
+<li>Avoid treating a display delay as proof that a room, pet, photo, or message is permanently gone.</li>
 </ul>
-<h2>공유방이란 무엇인가요?</h2>
-<p>공유방은 PetTomo에서 멤버가 같은 가상 펫과 상호작용하는 중심 공간입니다. 각자 다른 펫을 따로 키우는 방식이 아니라, 초대된 멤버가 같은 방에 참여해 같은 펫의 상태와 방 분위기를 공유합니다.</p>
-<p>이 구조는 장거리 커플, 가까운 친구, 가족, 작은 비공개 그룹이 가볍게 돌아올 수 있는 공동 루틴을 만들 때 잘 맞습니다. PetTomo는 공개 소셜 네트워크가 아니며, 공유방은 초대받은 사람들끼리 쓰는 작은 공간으로 이해하는 것이 좋습니다.</p>
-<h2>초대의 기본 흐름</h2>
-<p>공유방에 다른 사람을 초대할 때는 보통 다음 흐름을 따릅니다.</p>
-<ol>
-<li>방을 만들거나 기존 방을 엽니다.</li>
-<li>해당 방의 초대 기능을 사용합니다.</li>
-<li>초대 링크 또는 초대 코드를 상대에게 공유합니다.</li>
-<li>초대받은 사람이 로그인하고 필요한 설정을 마칩니다.</li>
-<li>초대받은 사람이 방에 들어와 같은 펫 돌보기에 참여합니다.</li>
-</ol>
-<p>초대 링크는 편리하지만 기기나 브라우저 상태에 따라 앱이 제대로 열리지 않을 수 있습니다. 이때 초대 코드는 직접 입력할 수 있는 중요한 대안입니다.</p>
-<h2>멤버가 함께 할 수 있는 일</h2>
-<p>PetTomo 공유방에서는 펫을 중심으로 작고 가벼운 일상을 만들 수 있습니다.</p>
+<h2>Confirm the room and account</h2>
+<p>PetTomo supports invite-based rooms. If you are in more than one room, check the room name, members, and pet before troubleshooting. A feed photo, chat message, decoration, or memory belongs to a specific room context.</p>
+<p>Also confirm the account. If you recently reinstalled the app, changed devices, or opened an invite after signing out, finish sign-in and profile setup first. The room cannot show the right shared state until the app knows which member is opening it.</p>
+<h2>Check the main room surfaces</h2>
+<p>When the home screen, chat, or gallery feels stale, compare the surfaces that represent the shared room:</p>
 <ul>
-<li>일상 사진으로 펫에게 먹이를 줍니다.</li>
-<li>방 채팅으로 펫 돌봄이나 근황을 이야기합니다.</li>
-<li>먹이 사진과 방 활동을 추억으로 남깁니다.</li>
-<li>배경, 가구, 시각 아이템으로 방을 꾸밉니다.</li>
-<li>지원되는 경우 방 단위 장비로 펫을 꾸밉니다.</li>
+<li>Home: current pet, room decoration, hunger or status-style state, and recent photos.</li>
+<li>Chat: member messages, photo-feed messages, reactions, edits, and deletes.</li>
+<li>Memories or gallery: recent shared photo moments connected to the room.</li>
+<li>Room switcher or room preview: the room and pet you are actually opening.</li>
 </ul>
-<p>이 경험은 부담이 아니라 가벼운 계기가 되어야 합니다. PetTomo는 함께 돌볼 대상을 제공하지만, 실제 대화를 대신하거나 관계 결과를 보장하는 도구로 설명해서는 안 됩니다.</p>
-<h2>초대가 잘 안 될 때 확인할 점</h2>
-<p>공유방 입장이 처음에 되지 않는다면 새 방을 만들기 전에 다음을 확인하세요.</p>
-<ul>
-<li>초대받은 사람이 로그인했는지 확인합니다.</li>
-<li>초대 코드가 정확히 복사되었는지 확인합니다.</li>
-<li>초대 링크가 열리지 않으면 코드를 직접 입력해 봅니다.</li>
-<li>방 소유자가 초대를 다시 만들었거나 변경했는지 확인합니다.</li>
-<li>새 장비나 방 아이템 표시가 다르면 양쪽 앱 버전이 오래되지 않았는지 확인합니다.</li>
-</ul>
-<h2>자주 묻는 질문</h2>
-<h3>PetTomo 공유방은 공개되나요?</h3>
-<p>아니요. PetTomo는 초대된 멤버를 위한 비공개 공유방을 중심으로 하며, 공개 게시용 소셜 네트워크가 아닙니다.</p>
-<h3>커플이 같은 펫을 함께 키울 수 있나요?</h3>
-<p>네. 같은 공유방에 참여하면 같은 가상 펫에게 사진으로 먹이를 주고, 채팅하고, 추억을 남기고, 방을 꾸밀 수 있습니다.</p>
-<h3>초대 링크가 열리지 않으면 어떻게 하나요?</h3>
-<p>초대 코드를 직접 입력하세요. 기기나 브라우저가 링크에서 앱을 제대로 열지 못할 때 초대 코드는 가장 실용적인 대안입니다.</p>
-<h2>정리</h2>
-<p>PetTomo 공유방은 작은 비공개 그룹이 같은 가상 펫을 함께 돌보는 공간입니다. 평소에는 초대 링크를 사용하고, 문제가 생기면 초대 코드를 대안으로 사용하면서 사진 먹이 주기, 채팅, 추억, 방 꾸미기를 가벼운 공동 루틴으로 즐기는 것이 좋습니다.</p>
+<p>If one surface looks old but another has the expected update, the issue may be display timing rather than missing room data.</p>
+<h2>Refresh before repeating the same action</h2>
+<p>Before sending the same photo, message, or invite again, return to the room, reopen the relevant screen, and give the app a chance to refresh. Repeating actions too quickly can make troubleshooting harder because members may see duplicates or mixed context.</p>
+<p>For invite-related issues, use the invite code fallback rather than repeatedly tapping the same link. For photo-related issues, check whether the photo appears in chat, Home, or the gallery before assuming the feed action failed.</p>
+<h2>Keep the app version current</h2>
+<p>PetTomo&#39;s local 2.0.2 release notes say bugs were fixed and overall stability improved. That is a confirmed release fact, but it should be described carefully: it supports recommending the latest version, not promising that every device or network condition will behave perfectly.</p>
+<p>If room updates still look wrong after updating, collect the concrete details: room, account, action, approximate time, and which screen did or did not change. This is more useful than a general report like &quot;sync is broken.&quot;</p>
+<h2>FAQ</h2>
+<h3>Does a stale room screen mean my PetTomo pet is gone?</h3>
+<p>No. A stale screen usually means you should confirm the room, account, app version, and refresh state first. Do not assume the pet or room was deleted from one delayed display.</p>
+<h3>What did PetTomo 2.0.2 change?</h3>
+<p>Local App Store metadata and in-app What&#39;s New copy for 2.0.2 say bugs were fixed and stability was improved. They do not list a new user-facing room feature.</p>
+<h3>Should I send the same feed photo again if I do not see it?</h3>
+<p>Check chat, Home, and recent photos first. If the photo appears somewhere in the room, repeating the action may create duplicate context.</p>
+<h2>Summary</h2>
+<p>When a PetTomo shared room does not look current, start with the basics: correct private room, correct account, latest app version, and more than one room surface. PetTomo 2.0.2 supports a cautious stability message, while the practical troubleshooting steps should stay grounded in confirmed room, chat, photo, memory, and invite behavior.</p>
           </div>
         </article>
         <nav class="article-nav" aria-label="Guide navigation">
           <a href="/guides/">All guides</a>
-          <a href="/guides/ko/">This language</a>
+          <a href="/guides/en/">This language</a>
           <a href="/">PetTomo home</a>
         </nav>
       </main>
-      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"PetTomo 공유방 사용법: 초대한 멤버와 같은 가상 펫을 함께 키우기","description":"PetTomo 공유방에서 초대된 멤버가 같은 가상 펫을 함께 돌보는 방법을 정리합니다. 초대 링크, 초대 코드, 사진 먹이 주기, 채팅, 추억, 방 꾸미기를 확인하세요.","author":{"@type":"Organization","name":"PetTomo"},"publisher":{"@type":"Organization","name":"PetTomo","logo":{"@type":"ImageObject","url":"https://pet-app-702be.web.app/assets/PetTomo_appicon.png"}},"mainEntityOfPage":"https://pet-app-702be.web.app/guides/ko/shared-rooms.html","dateModified":"2026-05-28T01:05:08.402Z"}</script>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"PetTomo shared room not updating? A stability checklist","description":"Check PetTomo shared-room updates, photos, chat, pet state, and invite-based access without overstating what a bug-fix release changes.","author":{"@type":"Organization","name":"PetTomo"},"publisher":{"@type":"Organization","name":"PetTomo","logo":{"@type":"ImageObject","url":"https://pet-app-702be.web.app/assets/PetTomo_appicon.png"}},"mainEntityOfPage":"https://pet-app-702be.web.app/guides/en/shared-room-stability-checklist.html","dateModified":"2026-05-28T01:05:08.413Z"}</script>
 
   <footer class="site-footer">
     <span>© 2026 hangyodev</span>

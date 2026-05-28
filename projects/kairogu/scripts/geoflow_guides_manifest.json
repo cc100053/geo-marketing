@@ -119,6 +119,12 @@
       "lang": "ja",
       "slug": "edit-scanned-price-record",
       "sourcePath": "docs/articles/edit-scanned-price-record-ja.md"
+    },
+    {
+      "group": "tax-included-price-tag-reading",
+      "lang": "ja",
+      "slug": "tax-included-price-tag-reading",
+      "sourcePath": "docs/articles/tax-included-price-tag-reading-ja.md"
     }
   ]
 }

@@ -125,6 +125,12 @@
       "lang": "ja",
       "slug": "tax-included-price-tag-reading",
       "sourcePath": "docs/articles/tax-included-price-tag-reading-ja.md"
+    },
+    {
+      "group": "content-amount-price-recording",
+      "lang": "ja",
+      "slug": "content-amount-price-recording",
+      "sourcePath": "docs/articles/content-amount-price-recording-ja.md"
     }
   ]
 }

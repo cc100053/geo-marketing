@@ -379,6 +379,36 @@
       "lang": "ko",
       "slug": "shared-room-stability-checklist",
       "sourcePath": "docs/articles/shared-room-stability-checklist-ko.md"
+    },
+    {
+      "group": "shared-room-decoration-ideas",
+      "lang": "en",
+      "slug": "shared-room-decoration-ideas",
+      "sourcePath": "docs/articles/shared-room-decoration-ideas-en.md"
+    },
+    {
+      "group": "shared-room-decoration-ideas",
+      "lang": "zh-hant",
+      "slug": "shared-room-decoration-ideas",
+      "sourcePath": "docs/articles/shared-room-decoration-ideas-zh-hant.md"
+    },
+    {
+      "group": "shared-room-decoration-ideas",
+      "lang": "zh-hans",
+      "slug": "shared-room-decoration-ideas",
+      "sourcePath": "docs/articles/shared-room-decoration-ideas-zh-hans.md"
+    },
+    {
+      "group": "shared-room-decoration-ideas",
+      "lang": "ja",
+      "slug": "shared-room-decoration-ideas",
+      "sourcePath": "docs/articles/shared-room-decoration-ideas-ja.md"
+    },
+    {
+      "group": "shared-room-decoration-ideas",
+      "lang": "ko",
+      "slug": "shared-room-decoration-ideas",
+      "sourcePath": "docs/articles/shared-room-decoration-ideas-ko.md"
     }
   ]
 }

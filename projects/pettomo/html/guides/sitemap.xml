@@ -364,4 +364,24 @@
     <loc>https://pet-app-702be.web.app/guides/ko/shared-room-stability-checklist.html</loc>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/en/shared-room-decoration-ideas.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/zh-hant/shared-room-decoration-ideas.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/zh-hans/shared-room-decoration-ideas.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/ja/shared-room-decoration-ideas.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/ko/shared-room-decoration-ideas.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
 </urlset>

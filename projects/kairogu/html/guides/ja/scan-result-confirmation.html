@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>カイログでAI読み取り結果を保存前に確認するコツ | カイログ ガイド</title>
+  <meta name="description" content="価格タグを撮影した後、商品名、価格、内容量、税込・税抜、割引条件をカイログで保存前に確認するための実用ポイントを整理します。">
+  <meta name="keywords" content="AI 読み取り 確認 価格記録">
+  <link rel="canonical" href="https://www.kairogu.men/guides/ja/scan-result-confirmation.html">
+  <link rel="icon" type="image/png" href="/icon.png">
+  <meta property="og:title" content="カイログでAI読み取り結果を保存前に確認するコツ | カイログ ガイド">
+  <meta property="og:description" content="価格タグを撮影した後、商品名、価格、内容量、税込・税抜、割引条件をカイログで保存前に確認するための実用ポイントを整理します。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.kairogu.men/guides/ja/scan-result-confirmation.html">
+  <meta property="og:image" content="https://www.kairogu.men/icon.png">
+  <style>
+    :root {
+      --primary: #1A8D7A;
+      --accent: #F4A261;
+      --bg: #FAF9F7;
+      --panel: #FFFFFF;
+      --text: #242424;
+      --muted: #667085;
+      --line: #E5E1DA;
+      --soft: #EEF8F5;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", "Segoe UI", sans-serif;
+      line-height: 1.8;
+    }
+
+    a { color: inherit; }
+
+    .site-header,
+    .site-footer {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--primary);
+      font-size: 1.18rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .site-nav a,
+    .site-footer a,
+    .eyebrow a {
+      text-decoration: none;
+    }
+
+    .site-nav a:hover,
+    .site-footer a:hover,
+    .eyebrow a:hover {
+      color: var(--primary);
+    }
+
+    .guides-shell,
+    .article-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 72px;
+    }
+
+    .guides-hero {
+      min-height: 300px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 150px;
+      gap: 40px;
+      align-items: center;
+      padding: 52px 0 40px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .guides-hero img {
+      width: 132px;
+      height: 132px;
+      border-radius: 28px;
+      box-shadow: 0 16px 34px rgba(36, 36, 36, 0.12);
+    }
+
+    .eyebrow,
+    .guide-label {
+      margin: 0 0 12px;
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 840px;
+      margin: 0;
+      font-size: clamp(2.1rem, 6vw, 4rem);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    .guides-hero p:not(.eyebrow),
+    .article-summary {
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      padding-top: 34px;
+    }
+
+    .guide-card {
+      min-height: 220px;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(36, 36, 36, 0.06);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .guide-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(36, 36, 36, 0.1);
+    }
+
+    .guide-card h2 {
+      margin: 0;
+      font-size: 1.24rem;
+      line-height: 1.35;
+    }
+
+    .guide-card p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .article {
+      max-width: 860px;
+      margin: 26px auto 0;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .article-meta {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .article-content {
+      margin-top: 34px;
+      font-size: 1.04rem;
+    }
+
+    .article-content h2,
+    .article-content h3 {
+      margin: 34px 0 12px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    .article-content h2 { font-size: 1.58rem; }
+    .article-content h3 { font-size: 1.22rem; }
+
+    .article-content p,
+    .article-content li {
+      color: #3F3A36;
+    }
+
+    .article-content ul,
+    .article-content ol {
+      padding-left: 1.35rem;
+    }
+
+    .article-nav {
+      max-width: 860px;
+      margin: 24px auto 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .article-nav a {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--primary);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    @media (max-width: 720px) {
+      .site-header,
+      .site-footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .guides-hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .guides-hero img {
+        width: 104px;
+        height: 104px;
+      }
+    }
+  </style>
+</head>
+<body class="article-page">
+  <header class="site-header">
+    <a class="brand" href="/">
+      <img src="/icon.png" alt="カイログ">
+      <span>カイログ</span>
+    </a>
+    <nav class="site-nav" aria-label="Site navigation">
+      <a href="/guides/">ガイド</a>
+      <a href="/privacy.html">プライバシー</a>
+      <a href="/terms.html">利用規約</a>
+    </nav>
+  </header>
+<main class="article-shell">
+        <p class="eyebrow"><a href="/guides/">カイログ ガイド</a></p>
+        <article class="article">
+          <h1>カイログでAI読み取り結果を保存前に確認するコツ</h1>
+          <p class="article-summary">価格タグを撮影した後、商品名、価格、内容量、税込・税抜、割引条件をカイログで保存前に確認するための実用ポイントを整理します。</p>
+          <div class="article-meta">更新日 2026/05/30</div>
+          <div class="article-content">
+            <p>価格タグを撮影して記録する時は、AIが読み取った内容をそのまま保存するより、保存前に数点だけ確認しておくと後から価格履歴として使いやすくなります。特にスーパーやドラッグストアの値札は、税込価格、税抜価格、内容量、割引条件が一緒に書かれていることが多く、記録の基準がぶれると比較しにくくなります。</p>
+<p>カイログは、価格タグを撮影して商品名、価格、割引、容量、カテゴリを記録できる日本向けの価格管理アプリです。ローカルの1.5.2リリースノート、App Store Connectメタデータ、Google Playの日本語変更履歴では、AIの内容量判定、税込・税抜判断、読み取り後の確認を改善したことが案内されています。</p>
+<p>この記事では、カイログでAI読み取り結果を保存する前に、どこを見れば日々の価格記録に使いやすいかを整理します。</p>
+<h2>要点</h2>
+<ul>
+<li>AI読み取りは入力補助として使い、最後に自分で確認してから保存します。</li>
+<li>商品名、価格、内容量、税込・税抜、割引条件を見るだけでも履歴の使いやすさが上がります。</li>
+<li>カイログ1.5.2のローカル更新文言では、読み取り後の確認がしやすくなったことが確認できます。</li>
+<li>よく買う商品ほど、同じ記録ルールで残すと価格変化を見返しやすくなります。</li>
+<li>近くの価格情報は利用状況や記録内容に左右されるため、全店舗の価格が分かるとは表現しません。</li>
+</ul>
+<h2>まず商品名を見る</h2>
+<p>棚に似た商品が並んでいると、味違い、容量違い、シリーズ違いの商品名として読まれることがあります。保存前に、自分が後から検索しやすい商品名になっているか確認します。</p>
+<p>完璧な正式名称にそろえる必要はありません。自分が買い物前に見返した時に分かる名前で残すことが大切です。たとえば、メーカー名、商品名、容量のうち、比較に必要な情報を残すと履歴を探しやすくなります。</p>
+<h2>価格の基準をそろえる</h2>
+<p>価格タグには、税込価格、税抜価格、本体価格、会員価格、複数点購入価格が同時に表示されることがあります。毎回違う基準で保存すると、あとから値上がりや値下がりを判断しにくくなります。</p>
+<p>支払いに近い価格で見たいなら税込価格、税抜で管理したいなら税抜価格というように、自分の記録ルールを決めておくと便利です。AI読み取り後は、どの価格が入っているかを保存前に確認します。</p>
+<h2>内容量と単位を確認する</h2>
+<p>肉、米、冷凍食品、洗剤、トイレットペーパーなどは、価格だけでなく内容量や個数が比較に関わります。100g、1kg、ml、L、個、枚、ロールなどの単位が違うと、価格の意味も変わります。</p>
+<p>カイログ1.5.2のローカル更新文言では、価格タグに記載されたグラム数や内容量を読み取りやすくする改善が案内されています。それでも、店頭表示は商品ごとに違うため、保存前に単位を見ておくと安心です。</p>
+<h2>割引条件を見落とさない</h2>
+<p>見切り品、会員価格、期間限定セール、複数点購入、ポイント還元などは、通常価格とは意味が違います。割引後価格を記録したいのか、通常価格として比較したいのかを確認します。</p>
+<p>割引品をよく買う場合は、商品名やメモ的な表記で「割引」「見切り」などが分かる形にしておくと、あとで履歴を見返した時に誤解しにくくなります。</p>
+<h2>カイログで続けやすくする考え方</h2>
+<p>すべての商品を毎回細かく直そうとすると続きにくくなります。まずは、よく買う商品、価格差を見たい商品、容量違いで迷いやすい商品から丁寧に確認するのがおすすめです。</p>
+<p>カイログでは、価格タグ撮影、商品名・価格・店舗・容量・カテゴリの記録、買い物リスト、過去の価格履歴、近くの価格情報を組み合わせて使えます。ただし、価格情報は自分の記録や利用状況に左右されます。店頭の現在価格と合わせて判断するのが現実的です。</p>
+<h2>よくある質問</h2>
+<h3>AI読み取り結果は毎回修正する必要がありますか？</h3>
+<p>毎回すべてを直す必要はありません。商品名、価格、内容量、税込・税抜、割引条件のうち、買い物判断に影響する部分を確認するだけでも役立ちます。</p>
+<h3>保存前に一番見るべき項目は何ですか？</h3>
+<p>まず価格と内容量です。どちらかがずれると、過去の記録と比べる時に判断しにくくなります。税込・税抜や割引条件も、価格タグに複数表示がある時は確認します。</p>
+<h3>近くの価格情報だけで買う店を決められますか？</h3>
+<p>近くの価格情報は利用状況や記録内容に左右されます。全店舗の価格を保証するものではないため、自分の記録、現在の店頭価格、容量、条件を合わせて見るのがおすすめです。</p>
+<h2>まとめ</h2>
+<p>カイログでAI読み取り結果を保存する前に、商品名、価格、内容量、税込・税抜、割引条件を確認しておくと、価格履歴を後から見返しやすくなります。1.5.2のローカル更新文言で確認できる読み取り後確認の改善を活かしつつ、自分が続けやすい記録ルールを少しずつ決めていきましょう。</p>
+          </div>
+        </article>
+        <nav class="article-nav" aria-label="Guide navigation">
+          <a href="/guides/">すべてのガイド</a>
+          <a href="/guides/ja/">日本語ガイド</a>
+          <a href="/">カイログ ホーム</a>
+        </nav>
+      </main>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"カイログでAI読み取り結果を保存前に確認するコツ","description":"価格タグを撮影した後、商品名、価格、内容量、税込・税抜、割引条件をカイログで保存前に確認するための実用ポイントを整理します。","inLanguage":"ja","author":{"@type":"Organization","name":"カイログ編集部"},"publisher":{"@type":"Organization","name":"カイログ","logo":{"@type":"ImageObject","url":"https://www.kairogu.men/icon.png"}},"mainEntityOfPage":"https://www.kairogu.men/guides/ja/scan-result-confirmation.html","dateModified":"2026-05-30T00:05:34.251Z"}</script>
+  <footer class="site-footer">
+    <span>&copy; 2026 hangyodev</span>
+    <a href="mailto:hangyodev@gmail.com">お問い合わせ</a>
+  </footer>
+</body>
+</html>

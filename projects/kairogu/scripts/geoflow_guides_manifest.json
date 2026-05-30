@@ -131,6 +131,12 @@
       "lang": "ja",
       "slug": "content-amount-price-recording",
       "sourcePath": "docs/articles/content-amount-price-recording-ja.md"
+    },
+    {
+      "group": "scan-result-confirmation",
+      "lang": "ja",
+      "slug": "scan-result-confirmation",
+      "sourcePath": "docs/articles/scan-result-confirmation-ja.md"
     }
   ]
 }

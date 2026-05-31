@@ -539,6 +539,36 @@
       "lang": "ko",
       "slug": "main-pet-switching",
       "sourcePath": "docs/articles/main-pet-switching-ko.md"
+    },
+    {
+      "group": "shared-room-app-version-update",
+      "lang": "en",
+      "slug": "shared-room-app-version-update",
+      "sourcePath": "docs/articles/shared-room-app-version-update-en.md"
+    },
+    {
+      "group": "shared-room-app-version-update",
+      "lang": "zh-hant",
+      "slug": "shared-room-app-version-update",
+      "sourcePath": "docs/articles/shared-room-app-version-update-zh-hant.md"
+    },
+    {
+      "group": "shared-room-app-version-update",
+      "lang": "zh-hans",
+      "slug": "shared-room-app-version-update",
+      "sourcePath": "docs/articles/shared-room-app-version-update-zh-hans.md"
+    },
+    {
+      "group": "shared-room-app-version-update",
+      "lang": "ja",
+      "slug": "shared-room-app-version-update",
+      "sourcePath": "docs/articles/shared-room-app-version-update-ja.md"
+    },
+    {
+      "group": "shared-room-app-version-update",
+      "lang": "ko",
+      "slug": "shared-room-app-version-update",
+      "sourcePath": "docs/articles/shared-room-app-version-update-ko.md"
     }
   ]
 }

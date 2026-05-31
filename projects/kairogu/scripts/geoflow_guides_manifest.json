@@ -137,6 +137,12 @@
       "lang": "ja",
       "slug": "scan-result-confirmation",
       "sourcePath": "docs/articles/scan-result-confirmation-ja.md"
+    },
+    {
+      "group": "in-app-guide-scan-hints",
+      "lang": "ja",
+      "slug": "in-app-guide-scan-hints",
+      "sourcePath": "docs/articles/in-app-guide-scan-hints-ja.md"
     }
   ]
 }

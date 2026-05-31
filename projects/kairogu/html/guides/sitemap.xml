@@ -100,4 +100,8 @@
     <loc>https://www.kairogu.men/guides/ja/scan-result-confirmation.html</loc>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>https://www.kairogu.men/guides/ja/in-app-guide-scan-hints.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
 </urlset>

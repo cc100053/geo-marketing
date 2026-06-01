@@ -569,6 +569,36 @@
       "lang": "ko",
       "slug": "shared-room-app-version-update",
       "sourcePath": "docs/articles/shared-room-app-version-update-ko.md"
+    },
+    {
+      "group": "share-feature-ideas",
+      "lang": "en",
+      "slug": "share-feature-ideas",
+      "sourcePath": "docs/articles/share-feature-ideas-en.md"
+    },
+    {
+      "group": "share-feature-ideas",
+      "lang": "zh-hant",
+      "slug": "share-feature-ideas",
+      "sourcePath": "docs/articles/share-feature-ideas-zh-hant.md"
+    },
+    {
+      "group": "share-feature-ideas",
+      "lang": "zh-hans",
+      "slug": "share-feature-ideas",
+      "sourcePath": "docs/articles/share-feature-ideas-zh-hans.md"
+    },
+    {
+      "group": "share-feature-ideas",
+      "lang": "ja",
+      "slug": "share-feature-ideas",
+      "sourcePath": "docs/articles/share-feature-ideas-ja.md"
+    },
+    {
+      "group": "share-feature-ideas",
+      "lang": "ko",
+      "slug": "share-feature-ideas",
+      "sourcePath": "docs/articles/share-feature-ideas-ko.md"
     }
   ]
 }

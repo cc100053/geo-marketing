@@ -424,4 +424,24 @@
     <loc>https://pet-app-702be.web.app/guides/ko/shared-room-app-version-update.html</loc>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/en/share-feature-ideas.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/zh-hant/share-feature-ideas.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/zh-hans/share-feature-ideas.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/ja/share-feature-ideas.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/ko/share-feature-ideas.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
 </urlset>

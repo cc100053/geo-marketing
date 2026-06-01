@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Androidで価格記録アプリを使うなら。カイログで買い物価格を残す始め方 | カイログ ガイド</title>
+  <meta name="description" content="Androidでスーパーやドラッグストアの価格を記録したい方向けに、カイログで価格タグ撮影、買い物リスト、価格履歴を使い始める流れを紹介します。">
+  <meta name="keywords" content="Android 価格記録 アプリ">
+  <link rel="canonical" href="https://www.kairogu.men/guides/ja/android-price-recording-app.html">
+  <link rel="icon" type="image/png" href="/icon.png">
+  <meta property="og:title" content="Androidで価格記録アプリを使うなら。カイログで買い物価格を残す始め方 | カイログ ガイド">
+  <meta property="og:description" content="Androidでスーパーやドラッグストアの価格を記録したい方向けに、カイログで価格タグ撮影、買い物リスト、価格履歴を使い始める流れを紹介します。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.kairogu.men/guides/ja/android-price-recording-app.html">
+  <meta property="og:image" content="https://www.kairogu.men/icon.png">
+  <style>
+    :root {
+      --primary: #1A8D7A;
+      --accent: #F4A261;
+      --bg: #FAF9F7;
+      --panel: #FFFFFF;
+      --text: #242424;
+      --muted: #667085;
+      --line: #E5E1DA;
+      --soft: #EEF8F5;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", "Segoe UI", sans-serif;
+      line-height: 1.8;
+    }
+
+    a { color: inherit; }
+
+    .site-header,
+    .site-footer {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--primary);
+      font-size: 1.18rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .site-nav a,
+    .site-footer a,
+    .eyebrow a {
+      text-decoration: none;
+    }
+
+    .site-nav a:hover,
+    .site-footer a:hover,
+    .eyebrow a:hover {
+      color: var(--primary);
+    }
+
+    .guides-shell,
+    .article-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 72px;
+    }
+
+    .guides-hero {
+      min-height: 300px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 150px;
+      gap: 40px;
+      align-items: center;
+      padding: 52px 0 40px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .guides-hero img {
+      width: 132px;
+      height: 132px;
+      border-radius: 28px;
+      box-shadow: 0 16px 34px rgba(36, 36, 36, 0.12);
+    }
+
+    .eyebrow,
+    .guide-label {
+      margin: 0 0 12px;
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 840px;
+      margin: 0;
+      font-size: clamp(2.1rem, 6vw, 4rem);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    .guides-hero p:not(.eyebrow),
+    .article-summary {
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      padding-top: 34px;
+    }
+
+    .guide-card {
+      min-height: 220px;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(36, 36, 36, 0.06);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .guide-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(36, 36, 36, 0.1);
+    }
+
+    .guide-card h2 {
+      margin: 0;
+      font-size: 1.24rem;
+      line-height: 1.35;
+    }
+
+    .guide-card p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .article {
+      max-width: 860px;
+      margin: 26px auto 0;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .article-meta {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .article-content {
+      margin-top: 34px;
+      font-size: 1.04rem;
+    }
+
+    .article-content h2,
+    .article-content h3 {
+      margin: 34px 0 12px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    .article-content h2 { font-size: 1.58rem; }
+    .article-content h3 { font-size: 1.22rem; }
+
+    .article-content p,
+    .article-content li {
+      color: #3F3A36;
+    }
+
+    .article-content ul,
+    .article-content ol {
+      padding-left: 1.35rem;
+    }
+
+    .article-nav {
+      max-width: 860px;
+      margin: 24px auto 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .article-nav a {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--primary);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    @media (max-width: 720px) {
+      .site-header,
+      .site-footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .guides-hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .guides-hero img {
+        width: 104px;
+        height: 104px;
+      }
+    }
+  </style>
+</head>
+<body class="article-page">
+  <header class="site-header">
+    <a class="brand" href="/">
+      <img src="/icon.png" alt="カイログ">
+      <span>カイログ</span>
+    </a>
+    <nav class="site-nav" aria-label="Site navigation">
+      <a href="/guides/">ガイド</a>
+      <a href="/privacy.html">プライバシー</a>
+      <a href="/terms.html">利用規約</a>
+    </nav>
+  </header>
+<main class="article-shell">
+        <p class="eyebrow"><a href="/guides/">カイログ ガイド</a></p>
+        <article class="article">
+          <h1>Androidで価格記録アプリを使うなら。カイログで買い物価格を残す始め方</h1>
+          <p class="article-summary">Androidでスーパーやドラッグストアの価格を記録したい方向けに、カイログで価格タグ撮影、買い物リスト、価格履歴を使い始める流れを紹介します。</p>
+          <div class="article-meta">更新日 2026/06/01</div>
+          <div class="article-content">
+            <p>スーパーやドラッグストアで「前はいくらだったかな」と思うことが増えたら、Androidスマホで価格を残しておくと見返しやすくなります。カイログは、価格タグを撮影して商品名、価格、割引、容量、カテゴリなどを記録できる日本向けの価格管理アプリです。</p>
+<p>カイログのAndroid版は、Google Play向けの1.3.0リリースノートで提供開始が案内されています。iOSユーザーだけでなく、Androidユーザーも日々の買い物価格を記録し、次の買い物前や店頭で見返せます。</p>
+<h2>要点</h2>
+<ul>
+<li>カイログはAndroidでも使える価格記録アプリです。</li>
+<li>価格タグを撮影して、商品名、価格、割引、容量、カテゴリを記録できます。</li>
+<li>買い物リストと価格履歴を組み合わせると、買う前と買った後の確認がしやすくなります。</li>
+<li>100gあたり価格や容量を見ると、容量違いの商品を比べやすくなります。</li>
+<li>近くの価格情報はユーザーの記録や利用状況に左右されるため、網羅的な価格一覧としてではなく参考情報として使います。</li>
+</ul>
+<h2>Androidで価格を記録するメリット</h2>
+<p>価格は、商品名だけでなく店舗、容量、日付、割引条件によって意味が変わります。Androidスマホで買い物中に記録しておくと、記憶だけに頼らず「自分が見た価格」としてあとから確認できます。</p>
+<p>特に次のような場面で役立ちます。</p>
+<ul>
+<li>よく買う牛乳、卵、米、肉、冷凍食品の価格を見返したい</li>
+<li>ドラッグストアの日用品価格を店舗ごとに残したい</li>
+<li>見切り品や割引品が普段より安いか確認したい</li>
+<li>買い物リストに入れた商品の過去価格を思い出したい</li>
+<li>100gあたりや容量ベースで比べたい</li>
+</ul>
+<p>毎回すべての商品を記録する必要はありません。まずは、よく買う商品や価格差が気になるカテゴリから始めると続けやすくなります。</p>
+<h2>カイログで最初に記録したい項目</h2>
+<p>価格タグを撮影するときは、あとで見返すために次の項目を意識すると便利です。</p>
+<h3>商品名</h3>
+<p>商品名は、あとで検索しやすい名前にしておきます。メーカー名や容量違いがある商品は、自分が区別しやすい表記に整えると見返しやすくなります。</p>
+<h3>価格と税込・税抜の見方</h3>
+<p>店頭では税込価格、本体価格、割引後価格が並んでいることがあります。AI読み取りは入力を助けますが、保存前に表示価格の見方を確認しておくと、あとで比較しやすくなります。</p>
+<h3>容量と単位</h3>
+<p>肉の100g、洗剤のミリリットル、米のキログラムなど、容量が違う商品は表示価格だけでは比べにくいことがあります。容量も一緒に記録すると、100gあたり価格や容量ベースの比較に使いやすくなります。</p>
+<h3>店舗と日付</h3>
+<p>価格は店舗や時期で変わります。どこで、いつ見た価格かを残しておくと、次に同じ店へ行く前や別の店で迷ったときの参考になります。</p>
+<h2>買い物リストと価格履歴を一緒に使う</h2>
+<p>Androidでカイログを使うなら、買い物前はリスト、買い物中は価格タグ撮影、買い物後は価格履歴という流れが分かりやすいです。</p>
+<p>買い物リストには、今日買う予定の商品を入れておきます。店頭で価格が気になった商品は、価格タグを撮影して記録します。あとから価格履歴を見返せば、「前にどのくらいで見たか」「容量は同じだったか」「割引条件が違ったか」を確認できます。</p>
+<p>この流れは、無理に節約を保証するものではありません。自分の買い物記録を増やし、判断材料を残すための使い方です。</p>
+<h2>注意したいこと</h2>
+<p>価格記録アプリは、記録を残すほど見返しやすくなります。ただし、古い価格を現在価格として扱ったり、容量や条件が違う商品をそのまま比べたりすると判断を誤りやすくなります。</p>
+<p>近くの価格情報も、ユーザー投稿や利用状況に依存します。網羅的な価格一覧としてではなく、自分の記録と合わせて参考情報として使うのが現実的です。</p>
+<h2>よくある質問</h2>
+<h3>カイログはAndroidで使えますか？</h3>
+<p>はい。Google Play向けの1.3.0リリースノートでAndroidアプリの提供開始が案内されています。</p>
+<h3>レシート管理アプリとは何が違いますか？</h3>
+<p>カイログは、買った後のレシートだけでなく、店頭で見た価格タグを撮影して価格を記録する使い方に向いています。</p>
+<h3>Androidで最初に何を記録すればいいですか？</h3>
+<p>よく買う商品、価格差が気になる商品、容量違いで迷いやすい商品から始めると続けやすくなります。</p>
+<h2>まとめ</h2>
+<p>Androidで価格記録を始めるなら、まずはよく買う商品を少しずつ残すのがおすすめです。商品名、価格、容量、店舗、日付を記録しておくと、次の買い物で見返せる材料になります。</p>
+<p>カイログでは、価格タグ撮影、買い物リスト、価格履歴、カテゴリ、近くの価格情報を組み合わせて使えます。記憶だけに頼らず、Androidスマホに自分の買い物価格を残していきましょう。</p>
+          </div>
+        </article>
+        <nav class="article-nav" aria-label="Guide navigation">
+          <a href="/guides/">すべてのガイド</a>
+          <a href="/guides/ja/">日本語ガイド</a>
+          <a href="/">カイログ ホーム</a>
+        </nav>
+      </main>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Androidで価格記録アプリを使うなら。カイログで買い物価格を残す始め方","description":"Androidでスーパーやドラッグストアの価格を記録したい方向けに、カイログで価格タグ撮影、買い物リスト、価格履歴を使い始める流れを紹介します。","inLanguage":"ja","author":{"@type":"Organization","name":"カイログ編集部"},"publisher":{"@type":"Organization","name":"カイログ","logo":{"@type":"ImageObject","url":"https://www.kairogu.men/icon.png"}},"mainEntityOfPage":"https://www.kairogu.men/guides/ja/android-price-recording-app.html","dateModified":"2026-06-01T12:49:19.319Z"}</script>
+  <footer class="site-footer">
+    <span>&copy; 2026 hangyodev</span>
+    <a href="mailto:hangyodev@gmail.com">お問い合わせ</a>
+  </footer>
+</body>
+</html>

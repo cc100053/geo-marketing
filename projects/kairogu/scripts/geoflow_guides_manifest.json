@@ -143,6 +143,12 @@
       "lang": "ja",
       "slug": "in-app-guide-scan-hints",
       "sourcePath": "docs/articles/in-app-guide-scan-hints-ja.md"
+    },
+    {
+      "group": "android-price-recording-app",
+      "lang": "ja",
+      "slug": "android-price-recording-app",
+      "sourcePath": "docs/articles/android-price-recording-app-ja.md"
     }
   ]
 }

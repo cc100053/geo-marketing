@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetTomo 的宠物离开时该怎么办？ | PetTomo Guides</title>
+  <meta name="description" content="了解 PetTomo 中宠物离开、暂时无法喂食，以及用回家信叫回宠物的基本流程。">
+  <meta name="keywords" content="PetTomo 宠物离开, PetTomo, shared virtual pet app, virtual pet, shared pet room">
+  <link rel="canonical" href="https://pet-app-702be.web.app/guides/zh-hans/pet-return-letter.html">
+  <link rel="alternate" hreflang="en" href="https://pet-app-702be.web.app/guides/en/pet-return-letter.html">
+  <link rel="alternate" hreflang="zh-hant" href="https://pet-app-702be.web.app/guides/zh-hant/pet-return-letter.html">
+  <link rel="alternate" hreflang="zh-hans" href="https://pet-app-702be.web.app/guides/zh-hans/pet-return-letter.html">
+  <link rel="alternate" hreflang="ja" href="https://pet-app-702be.web.app/guides/ja/pet-return-letter.html">
+  <link rel="alternate" hreflang="ko" href="https://pet-app-702be.web.app/guides/ko/pet-return-letter.html">
+  <link rel="alternate" hreflang="x-default" href="https://pet-app-702be.web.app/guides/">
+  <link rel="icon" type="image/png" href="/assets/PetTomo_appicon.png">
+  <meta property="og:title" content="PetTomo 的宠物离开时该怎么办？ | PetTomo Guides">
+  <meta property="og:description" content="了解 PetTomo 中宠物离开、暂时无法喂食，以及用回家信叫回宠物的基本流程。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://pet-app-702be.web.app/guides/zh-hans/pet-return-letter.html">
+  <meta property="og:image" content="https://pet-app-702be.web.app/assets/PetTomo_appicon.png">
+  <style>
+    :root {
+      --primary: #5FBF9E;
+      --secondary: #FFB36B;
+      --bg: #FFFBF3;
+      --panel: #FFFFFF;
+      --text: #2F2A23;
+      --muted: #756B61;
+      --line: #E7DED2;
+      --soft: #F4FAF8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; }
+
+    .site-header,
+    .site-footer {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--primary);
+      font-size: 1.25rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .site-nav a,
+    .site-footer a,
+    .eyebrow a {
+      text-decoration: none;
+    }
+
+    .site-nav a:hover,
+    .site-footer a:hover,
+    .eyebrow a:hover {
+      color: var(--primary);
+    }
+
+    .guides-shell,
+    .article-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 72px;
+    }
+
+    .guides-hero {
+      min-height: 320px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 160px;
+      gap: 40px;
+      align-items: center;
+      padding: 54px 0 40px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .guides-hero img {
+      width: 144px;
+      height: 144px;
+      border-radius: 32px;
+      box-shadow: 0 16px 34px rgba(47, 42, 35, 0.12);
+    }
+
+    .eyebrow,
+    .guide-label {
+      margin: 0 0 12px;
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 820px;
+      margin: 0;
+      font-size: clamp(2.25rem, 6vw, 4.25rem);
+      line-height: 1.06;
+      letter-spacing: 0;
+    }
+
+    .guides-hero p:not(.eyebrow),
+    .article-summary {
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      padding-top: 34px;
+    }
+
+    .guide-card {
+      min-height: 238px;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(47, 42, 35, 0.06);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .guide-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(47, 42, 35, 0.1);
+    }
+
+    .guide-card h2 {
+      margin: 0;
+      font-size: 1.26rem;
+      line-height: 1.25;
+    }
+
+    .guide-card p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .article {
+      max-width: 860px;
+      margin: 26px auto 0;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .article-meta {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .article-content {
+      margin-top: 34px;
+      font-size: 1.04rem;
+    }
+
+    .article-content h2,
+    .article-content h3 {
+      margin: 34px 0 12px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .article-content h2 { font-size: 1.72rem; }
+    .article-content h3 { font-size: 1.28rem; }
+
+    .article-content p,
+    .article-content ul,
+    .article-content ol,
+    .article-content table {
+      margin: 0 0 18px;
+    }
+
+    .article-content ul,
+    .article-content ol {
+      padding-left: 24px;
+    }
+
+    .article-content li + li {
+      margin-top: 7px;
+    }
+
+    .article-content table {
+      width: 100%;
+      border-collapse: collapse;
+      display: block;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    .article-content th,
+    .article-content td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .article-content th {
+      background: var(--soft);
+      font-weight: 800;
+    }
+
+    .article-content blockquote {
+      margin: 24px 0;
+      padding: 18px 20px;
+      border-left: 4px solid var(--secondary);
+      background: var(--panel);
+      border-radius: 0 8px 8px 0;
+      color: var(--muted);
+    }
+
+    .article-nav {
+      max-width: 860px;
+      margin: 24px auto 0;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .article-nav a {
+      padding: 10px 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--panel);
+      color: var(--text);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+      flex-wrap: wrap;
+    }
+
+    .site-footer nav {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 720px) {
+      .site-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .site-nav {
+        flex-wrap: wrap;
+      }
+
+      .guides-hero {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding-top: 28px;
+      }
+
+      .guides-hero img {
+        width: 104px;
+        height: 104px;
+        border-radius: 24px;
+      }
+
+      h1 {
+        font-size: 2.3rem;
+      }
+    }
+  </style>
+</head>
+<body class="article-page">
+  <header class="site-header">
+    <a class="brand" href="/">
+      <img src="/assets/PetTomo_appicon.png" alt="" aria-hidden="true">
+      <span>PetTomo</span>
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="/guides/">Guides</a>
+      <a href="/support.html">Support</a>
+      <a href="/">Home</a>
+    </nav>
+  </header>
+
+      <main class="article-shell">
+        <p class="eyebrow"><a href="/guides/">PetTomo Guides</a></p>
+        <article class="article">
+          <h1>PetTomo 的宠物离开时该怎么办？</h1>
+          <p class="article-summary">了解 PetTomo 中宠物离开、暂时无法喂食，以及用回家信叫回宠物的基本流程。</p>
+          <div class="article-meta">Updated June 2, 2026</div>
+          <div class="article-content">
+            <p>PetTomo 是给情侣、朋友、家人和小型群组使用的私密共享虚拟宠物房间。日常照顾通常包括用照片喂食、在房间聊天、布置房间，以及回顾共享回忆。</p>
+<p>如果界面显示现在没有宠物可以喂食，或出现来自宠物的信，可以把它理解成房间内的照顾恢复流程。App 文案提到，宠物离开时无法喂食，也有「回家信」可用来召回离开的宠物。</p>
+<h2>重点整理</h2>
+<ul>
+<li>PetTomo 是邀请制共享房间，不是公开社交网络。</li>
+<li>App 文案说，宠物离开时目前没有可喂食的对象。</li>
+<li>商店中的回家信被描述为可召回离开的宠物。</li>
+<li>如果房间有多只宠物，App 可能会让你选择要叫回哪一只。</li>
+<li>这是产品内的照顾流程，不代表任何关系结果保证。</li>
+</ul>
+<h2>先确认房间和宠物</h2>
+<p>PetTomo 的宠物是共享房间的核心。照顾中断时，界面可能会显示宠物已离开，并提示目前不能喂食。</p>
+<p>如果你加入多个房间，先确认自己在正确的房间。若房间中有多只宠物，也要确认要处理的是哪一只。</p>
+<h2>回家信的作用</h2>
+<p>App 的本地化商店文案将回家信描述为「召回离开的宠物」。其他提示也会引导用户前往商店购买信件，把宠物叫回来。</p>
+<p>比较安全的理解方式是：</p>
+<ul>
+<li>打开宠物离开的共享房间。</li>
+<li>按照 App 指引前往商店。</li>
+<li>在可用时使用回家信流程。</li>
+<li>如果出现选择界面，选择要叫回的宠物。</li>
+</ul>
+<p>不要把回家信描述成会删除历史、转移所有权，或完全还原所有过去状态。它是叫回宠物的流程。</p>
+<h2>宠物回来后的使用习惯</h2>
+<h3>轻量喂食</h3>
+<p>照片喂食适合作为轻松的小仪式。午餐、通勤风景或日常一角都可以成为共享照顾的一部分。</p>
+<h3>用聊天协调</h3>
+<p>房间聊天可以让成员在同一个宠物空间里提醒与回应，不需要转到公开动态。</p>
+<h3>不要把它变成压力</h3>
+<p>PetTomo 是为了私密、有趣的连接而设计。它不能替代真实沟通，也不保证房间一定会持续活跃。</p>
+<h2>常见问题</h2>
+<h3>宠物离开时还能喂食吗？</h3>
+<p>App 文案表示，宠物已离开时目前没有可以喂食的对象。</p>
+<h3>叫回宠物要用什么？</h3>
+<p>本地化 App 文案描述了可召回离开宠物的回家信。</p>
+<h3>其他房间成员会看到吗？</h3>
+<p>宠物状态属于共享房间体验，房间成员可能会看到该房间中的状态。PetTomo 仍是邀请制私密房间。</p>
+<h2>总结</h2>
+<p>当 PetTomo 的宠物离开时，先按照 App 的回家信指引处理，不需要把它当成公开社交事件。这个流程让照顾恢复仍留在私密共享房间中。</p>
+          </div>
+        </article>
+        <nav class="article-nav" aria-label="Guide navigation">
+          <a href="/guides/">All guides</a>
+          <a href="/guides/zh-hans/">This language</a>
+          <a href="/">PetTomo home</a>
+        </nav>
+      </main>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"PetTomo 的宠物离开时该怎么办？","description":"了解 PetTomo 中宠物离开、暂时无法喂食，以及用回家信叫回宠物的基本流程。","author":{"@type":"Organization","name":"PetTomo"},"publisher":{"@type":"Organization","name":"PetTomo","logo":{"@type":"ImageObject","url":"https://pet-app-702be.web.app/assets/PetTomo_appicon.png"}},"mainEntityOfPage":"https://pet-app-702be.web.app/guides/zh-hans/pet-return-letter.html","dateModified":"2026-06-02T00:43:13.054Z"}</script>
+
+  <footer class="site-footer">
+    <span>© 2026 hangyodev</span>
+    <nav aria-label="Footer navigation">
+      <a href="/guides/">Guides</a>
+      <a href="/support.html">Support</a>
+      <a href="/privacy_policy.html">Privacy Policy</a>
+      <a href="/terms_of_use.html">Terms of Use</a>
+    </nav>
+  </footer>
+</body>
+</html>

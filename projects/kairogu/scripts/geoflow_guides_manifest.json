@@ -149,6 +149,12 @@
       "lang": "ja",
       "slug": "android-price-recording-app",
       "sourcePath": "docs/articles/android-price-recording-app-ja.md"
+    },
+    {
+      "group": "product-search-nearby-prices",
+      "lang": "ja",
+      "slug": "product-search-nearby-prices",
+      "sourcePath": "docs/articles/product-search-nearby-prices-ja.md"
     }
   ]
 }

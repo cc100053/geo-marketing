@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>カイログで商品検索と近くの価格情報を合わせて見るコツ | カイログ ガイド</title>
+  <meta name="description" content="商品検索、近くの価格情報、自分の価格履歴を組み合わせて、買い物前に確認しやすくする考え方を解説します。">
+  <meta name="keywords" content="商品 価格 検索 アプリ">
+  <link rel="canonical" href="https://www.kairogu.men/guides/ja/product-search-nearby-prices.html">
+  <link rel="icon" type="image/png" href="/icon.png">
+  <meta property="og:title" content="カイログで商品検索と近くの価格情報を合わせて見るコツ | カイログ ガイド">
+  <meta property="og:description" content="商品検索、近くの価格情報、自分の価格履歴を組み合わせて、買い物前に確認しやすくする考え方を解説します。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.kairogu.men/guides/ja/product-search-nearby-prices.html">
+  <meta property="og:image" content="https://www.kairogu.men/icon.png">
+  <style>
+    :root {
+      --primary: #1A8D7A;
+      --accent: #F4A261;
+      --bg: #FAF9F7;
+      --panel: #FFFFFF;
+      --text: #242424;
+      --muted: #667085;
+      --line: #E5E1DA;
+      --soft: #EEF8F5;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", "Segoe UI", sans-serif;
+      line-height: 1.8;
+    }
+
+    a { color: inherit; }
+
+    .site-header,
+    .site-footer {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--primary);
+      font-size: 1.18rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .site-nav a,
+    .site-footer a,
+    .eyebrow a {
+      text-decoration: none;
+    }
+
+    .site-nav a:hover,
+    .site-footer a:hover,
+    .eyebrow a:hover {
+      color: var(--primary);
+    }
+
+    .guides-shell,
+    .article-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 72px;
+    }
+
+    .guides-hero {
+      min-height: 300px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 150px;
+      gap: 40px;
+      align-items: center;
+      padding: 52px 0 40px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .guides-hero img {
+      width: 132px;
+      height: 132px;
+      border-radius: 28px;
+      box-shadow: 0 16px 34px rgba(36, 36, 36, 0.12);
+    }
+
+    .eyebrow,
+    .guide-label {
+      margin: 0 0 12px;
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 840px;
+      margin: 0;
+      font-size: clamp(2.1rem, 6vw, 4rem);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    .guides-hero p:not(.eyebrow),
+    .article-summary {
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      padding-top: 34px;
+    }
+
+    .guide-card {
+      min-height: 220px;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(36, 36, 36, 0.06);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .guide-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(36, 36, 36, 0.1);
+    }
+
+    .guide-card h2 {
+      margin: 0;
+      font-size: 1.24rem;
+      line-height: 1.35;
+    }
+
+    .guide-card p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .article {
+      max-width: 860px;
+      margin: 26px auto 0;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .article-meta {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .article-content {
+      margin-top: 34px;
+      font-size: 1.04rem;
+    }
+
+    .article-content h2,
+    .article-content h3 {
+      margin: 34px 0 12px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    .article-content h2 { font-size: 1.58rem; }
+    .article-content h3 { font-size: 1.22rem; }
+
+    .article-content p,
+    .article-content li {
+      color: #3F3A36;
+    }
+
+    .article-content ul,
+    .article-content ol {
+      padding-left: 1.35rem;
+    }
+
+    .article-nav {
+      max-width: 860px;
+      margin: 24px auto 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .article-nav a {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--primary);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    @media (max-width: 720px) {
+      .site-header,
+      .site-footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .guides-hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .guides-hero img {
+        width: 104px;
+        height: 104px;
+      }
+    }
+  </style>
+</head>
+<body class="article-page">
+  <header class="site-header">
+    <a class="brand" href="/">
+      <img src="/icon.png" alt="カイログ">
+      <span>カイログ</span>
+    </a>
+    <nav class="site-nav" aria-label="Site navigation">
+      <a href="/guides/">ガイド</a>
+      <a href="/privacy.html">プライバシー</a>
+      <a href="/terms.html">利用規約</a>
+    </nav>
+  </header>
+<main class="article-shell">
+        <p class="eyebrow"><a href="/guides/">カイログ ガイド</a></p>
+        <article class="article">
+          <h1>カイログで商品検索と近くの価格情報を合わせて見るコツ</h1>
+          <p class="article-summary">商品検索、近くの価格情報、自分の価格履歴を組み合わせて、買い物前に確認しやすくする考え方を解説します。</p>
+          <div class="article-meta">更新日 2026/06/02</div>
+          <div class="article-content">
+            <p>買い物前に「あの商品、前はいくらだったっけ」「近くではどのくらいの価格で記録されているのだろう」と確認したい時があります。カイログでは、価格タグを撮影して商品名、価格、割引、容量、カテゴリを記録し、自分の価格履歴や近くの価格情報を見返せます。</p>
+<p>1.5.0のGoogle Play向け更新文言では、商品検索や周辺価格の表示を整えたことが案内されています。この記事では、商品検索と近くの価格情報をどう組み合わせると判断しやすいかを整理します。</p>
+<h2>要点</h2>
+<ul>
+<li>商品検索は、買い物前に自分の過去記録を探す入口になります。</li>
+<li>近くの価格情報は、候補を考える参考情報として使います。</li>
+<li>価格は店舗、時期、容量、割引条件で変わるため、現在価格の保証として扱わないようにします。</li>
+<li>自分の価格履歴、買い物リスト、カテゴリ確認を合わせると見落としを減らしやすくなります。</li>
+<li>カイログはバーコード読み取り中心ではなく、価格タグ撮影と記録を中心にした価格管理アプリです。</li>
+</ul>
+<h2>商品検索で最初に見ること</h2>
+<p>商品名で検索する時は、まず自分が過去に記録した価格を確認します。同じ商品を何度も買っている場合、過去の記録が買い物前の基準になります。</p>
+<p>ただし、商品名だけで完全に同じ条件とは限りません。容量、個数、味、型番、税込・税抜、割引条件が違うことがあります。検索結果を見る時は、価格だけでなく記録の中身も確認しましょう。</p>
+<h2>近くの価格情報を参考にする時の考え方</h2>
+<p>近くの価格情報は、買い物前の候補を考えるための材料です。どの店を見に行くか、今日買うか、もう少し待つかを考える時に役立ちます。</p>
+<p>一方で、近くの価格情報はユーザーの記録や利用状況に左右されます。すべての店舗や商品を網羅するものではありません。店頭の現在価格、在庫、割引条件は実際に確認する必要があります。</p>
+<h2>カイログで合わせて使いたい機能</h2>
+<h3>自分の価格履歴</h3>
+<p>よく買う商品ほど、自分の記録が判断材料になります。前回価格、店舗、容量を見返すことで、今日の価格が自分の感覚より高いか安いか考えやすくなります。</p>
+<h3>買い物リスト</h3>
+<p>検索で気になる価格を見つけても、今必要な商品とは限りません。買い物リストと合わせると、必要なものから優先して確認できます。</p>
+<h3>カテゴリ別の記録</h3>
+<p>商品名が少し違う場合でも、カテゴリから近い商品を見返せることがあります。肉、米、卵、牛乳、洗剤などはカテゴリ単位でも価格感をつかみやすいです。</p>
+<h3>店舗名と地図アプリ</h3>
+<p>ストア説明では、店舗名から地図アプリを開けることも案内されています。価格だけでなく、行きやすさや買い物ルートも合わせて考えると現実的です。</p>
+<h2>注意したいこと</h2>
+<p>検索結果や近くの価格情報は、買い物判断の補助です。価格の保証や地域内の順位として扱うのではなく、店頭の表示、容量、割引条件と合わせて確認しましょう。</p>
+<p>また、安く見える商品でも、必要でなければ支出は増えます。カイログでは、記録を増やしながら、自分の買い物ペースに合う比較基準を作る使い方が向いています。</p>
+<h2>よくある質問</h2>
+<h3>商品検索だけで安い店を決められますか？</h3>
+<p>参考にはできますが、店頭の現在価格、容量、割引条件も確認するのがおすすめです。</p>
+<h3>近くの価格情報は全店舗を網羅していますか？</h3>
+<p>いいえ。ユーザーの記録や利用状況によって見える情報は変わります。すべての店舗の価格を網羅する機能ではありません。</p>
+<h3>検索で見つからない商品はどうすればいいですか？</h3>
+<p>価格タグを撮影して自分で記録しておくと、次回から検索や価格履歴の基準にしやすくなります。</p>
+<h2>まとめ</h2>
+<p>カイログの商品検索と近くの価格情報は、買い物前の確認をしやすくするための参考材料です。自分の価格履歴、買い物リスト、カテゴリ、店舗名の確認と組み合わせることで、記憶だけに頼らず価格を見返しやすくなります。</p>
+          </div>
+        </article>
+        <nav class="article-nav" aria-label="Guide navigation">
+          <a href="/guides/">すべてのガイド</a>
+          <a href="/guides/ja/">日本語ガイド</a>
+          <a href="/">カイログ ホーム</a>
+        </nav>
+      </main>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"カイログで商品検索と近くの価格情報を合わせて見るコツ","description":"商品検索、近くの価格情報、自分の価格履歴を組み合わせて、買い物前に確認しやすくする考え方を解説します。","inLanguage":"ja","author":{"@type":"Organization","name":"カイログ編集部"},"publisher":{"@type":"Organization","name":"カイログ","logo":{"@type":"ImageObject","url":"https://www.kairogu.men/icon.png"}},"mainEntityOfPage":"https://www.kairogu.men/guides/ja/product-search-nearby-prices.html","dateModified":"2026-06-02T00:43:45.191Z"}</script>
+  <footer class="site-footer">
+    <span>&copy; 2026 hangyodev</span>
+    <a href="mailto:hangyodev@gmail.com">お問い合わせ</a>
+  </footer>
+</body>
+</html>

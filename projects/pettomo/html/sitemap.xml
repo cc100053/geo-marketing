@@ -464,4 +464,24 @@
     <loc>https://pet-app-702be.web.app/guides/ko/share-feature-ideas.html</loc>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/en/pet-return-letter.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/zh-hant/pet-return-letter.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/zh-hans/pet-return-letter.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/ja/pet-return-letter.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/ko/pet-return-letter.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
 </urlset>

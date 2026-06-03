@@ -128,4 +128,8 @@
     <loc>https://www.kairogu.men/guides/ja/product-search-nearby-prices.html</loc>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>https://www.kairogu.men/guides/ja/price-tag-photo-habits.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
 </urlset>

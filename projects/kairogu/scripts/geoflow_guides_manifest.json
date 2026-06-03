@@ -155,6 +155,12 @@
       "lang": "ja",
       "slug": "product-search-nearby-prices",
       "sourcePath": "docs/articles/product-search-nearby-prices-ja.md"
+    },
+    {
+      "group": "price-tag-photo-habits",
+      "lang": "ja",
+      "slug": "price-tag-photo-habits",
+      "sourcePath": "docs/articles/price-tag-photo-habits-ja.md"
     }
   ]
 }

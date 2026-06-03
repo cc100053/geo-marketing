@@ -629,6 +629,36 @@
       "lang": "ko",
       "slug": "pet-return-letter",
       "sourcePath": "docs/articles/pet-return-letter-ko.md"
+    },
+    {
+      "group": "private-room-mentions",
+      "lang": "en",
+      "slug": "private-room-mentions",
+      "sourcePath": "docs/articles/private-room-mentions-en.md"
+    },
+    {
+      "group": "private-room-mentions",
+      "lang": "zh-hant",
+      "slug": "private-room-mentions",
+      "sourcePath": "docs/articles/private-room-mentions-zh-hant.md"
+    },
+    {
+      "group": "private-room-mentions",
+      "lang": "zh-hans",
+      "slug": "private-room-mentions",
+      "sourcePath": "docs/articles/private-room-mentions-zh-hans.md"
+    },
+    {
+      "group": "private-room-mentions",
+      "lang": "ja",
+      "slug": "private-room-mentions",
+      "sourcePath": "docs/articles/private-room-mentions-ja.md"
+    },
+    {
+      "group": "private-room-mentions",
+      "lang": "ko",
+      "slug": "private-room-mentions",
+      "sourcePath": "docs/articles/private-room-mentions-ko.md"
     }
   ]
 }

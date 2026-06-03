@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetTomo 비공개 룸에서 @멘션을 쓰는 방법 | PetTomo Guides</title>
+  <meta name="description" content="PetTomo 룸 채팅은 @멘션을 지원해 초대된 멤버에게 특정 메시지를 더 분명하게 전달할 수 있습니다.">
+  <meta name="keywords" content="PetTomo @멘션, PetTomo, shared virtual pet app, virtual pet, shared pet room">
+  <link rel="canonical" href="https://pet-app-702be.web.app/guides/ko/private-room-mentions.html">
+  <link rel="alternate" hreflang="en" href="https://pet-app-702be.web.app/guides/en/private-room-mentions.html">
+  <link rel="alternate" hreflang="zh-hant" href="https://pet-app-702be.web.app/guides/zh-hant/private-room-mentions.html">
+  <link rel="alternate" hreflang="zh-hans" href="https://pet-app-702be.web.app/guides/zh-hans/private-room-mentions.html">
+  <link rel="alternate" hreflang="ja" href="https://pet-app-702be.web.app/guides/ja/private-room-mentions.html">
+  <link rel="alternate" hreflang="ko" href="https://pet-app-702be.web.app/guides/ko/private-room-mentions.html">
+  <link rel="alternate" hreflang="x-default" href="https://pet-app-702be.web.app/guides/">
+  <link rel="icon" type="image/png" href="/assets/PetTomo_appicon.png">
+  <meta property="og:title" content="PetTomo 비공개 룸에서 @멘션을 쓰는 방법 | PetTomo Guides">
+  <meta property="og:description" content="PetTomo 룸 채팅은 @멘션을 지원해 초대된 멤버에게 특정 메시지를 더 분명하게 전달할 수 있습니다.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://pet-app-702be.web.app/guides/ko/private-room-mentions.html">
+  <meta property="og:image" content="https://pet-app-702be.web.app/assets/PetTomo_appicon.png">
+  <style>
+    :root {
+      --primary: #5FBF9E;
+      --secondary: #FFB36B;
+      --bg: #FFFBF3;
+      --panel: #FFFFFF;
+      --text: #2F2A23;
+      --muted: #756B61;
+      --line: #E7DED2;
+      --soft: #F4FAF8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; }
+
+    .site-header,
+    .site-footer {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--primary);
+      font-size: 1.25rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .site-nav a,
+    .site-footer a,
+    .eyebrow a {
+      text-decoration: none;
+    }
+
+    .site-nav a:hover,
+    .site-footer a:hover,
+    .eyebrow a:hover {
+      color: var(--primary);
+    }
+
+    .guides-shell,
+    .article-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 72px;
+    }
+
+    .guides-hero {
+      min-height: 320px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 160px;
+      gap: 40px;
+      align-items: center;
+      padding: 54px 0 40px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .guides-hero img {
+      width: 144px;
+      height: 144px;
+      border-radius: 32px;
+      box-shadow: 0 16px 34px rgba(47, 42, 35, 0.12);
+    }
+
+    .eyebrow,
+    .guide-label {
+      margin: 0 0 12px;
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 820px;
+      margin: 0;
+      font-size: clamp(2.25rem, 6vw, 4.25rem);
+      line-height: 1.06;
+      letter-spacing: 0;
+    }
+
+    .guides-hero p:not(.eyebrow),
+    .article-summary {
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      padding-top: 34px;
+    }
+
+    .guide-card {
+      min-height: 238px;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(47, 42, 35, 0.06);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .guide-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(47, 42, 35, 0.1);
+    }
+
+    .guide-card h2 {
+      margin: 0;
+      font-size: 1.26rem;
+      line-height: 1.25;
+    }
+
+    .guide-card p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .article {
+      max-width: 860px;
+      margin: 26px auto 0;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .article-meta {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .article-content {
+      margin-top: 34px;
+      font-size: 1.04rem;
+    }
+
+    .article-content h2,
+    .article-content h3 {
+      margin: 34px 0 12px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .article-content h2 { font-size: 1.72rem; }
+    .article-content h3 { font-size: 1.28rem; }
+
+    .article-content p,
+    .article-content ul,
+    .article-content ol,
+    .article-content table {
+      margin: 0 0 18px;
+    }
+
+    .article-content ul,
+    .article-content ol {
+      padding-left: 24px;
+    }
+
+    .article-content li + li {
+      margin-top: 7px;
+    }
+
+    .article-content table {
+      width: 100%;
+      border-collapse: collapse;
+      display: block;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    .article-content th,
+    .article-content td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .article-content th {
+      background: var(--soft);
+      font-weight: 800;
+    }
+
+    .article-content blockquote {
+      margin: 24px 0;
+      padding: 18px 20px;
+      border-left: 4px solid var(--secondary);
+      background: var(--panel);
+      border-radius: 0 8px 8px 0;
+      color: var(--muted);
+    }
+
+    .article-nav {
+      max-width: 860px;
+      margin: 24px auto 0;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .article-nav a {
+      padding: 10px 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--panel);
+      color: var(--text);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+      flex-wrap: wrap;
+    }
+
+    .site-footer nav {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 720px) {
+      .site-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .site-nav {
+        flex-wrap: wrap;
+      }
+
+      .guides-hero {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding-top: 28px;
+      }
+
+      .guides-hero img {
+        width: 104px;
+        height: 104px;
+        border-radius: 24px;
+      }
+
+      h1 {
+        font-size: 2.3rem;
+      }
+    }
+  </style>
+</head>
+<body class="article-page">
+  <header class="site-header">
+    <a class="brand" href="/">
+      <img src="/assets/PetTomo_appicon.png" alt="" aria-hidden="true">
+      <span>PetTomo</span>
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="/guides/">Guides</a>
+      <a href="/support.html">Support</a>
+      <a href="/">Home</a>
+    </nav>
+  </header>
+
+      <main class="article-shell">
+        <p class="eyebrow"><a href="/guides/">PetTomo Guides</a></p>
+        <article class="article">
+          <h1>PetTomo 비공개 룸에서 @멘션을 쓰는 방법</h1>
+          <p class="article-summary">PetTomo 룸 채팅은 @멘션을 지원해 초대된 멤버에게 특정 메시지를 더 분명하게 전달할 수 있습니다.</p>
+          <div class="article-meta">Updated June 3, 2026</div>
+          <div class="article-content">
+            <p>PetTomo는 초대된 멤버가 함께 쓰는 비공개 공유 가상 펫 룸입니다. 멤버들은 같은 펫을 돌보고, 사진으로 먹이를 주고, 채팅하고, 방을 꾸미며, 추억을 남길 수 있습니다. 로컬 1.1.2 릴리스 문구는 채팅에서 룸 멤버를 @멘션할 수 있음을 확인해 줍니다. 덕분에 특정 메시지를 더 분명하게 전달할 수 있지만, 룸이 공개 소셜 피드가 되는 것은 아닙니다.</p>
+<h2>핵심 정리</h2>
+<ul>
+<li>PetTomo 채팅은 초대 기반 룸 안에서 이뤄지며 공개 타임라인이 아닙니다.</li>
+<li>@멘션은 특정 룸 멤버가 메시지를 알아보기 쉽게 도와줍니다.</li>
+<li>펫 돌봄, 사진 반응, 방 꾸미기, 소규모 조율에 유용합니다.</li>
+<li>안전한 제품 설명은 &quot;룸 채팅이 @멘션을 지원한다&quot;는 점입니다. 모든 기기에서 알림 전달을 보장한다고 쓰면 안 됩니다.</li>
+<li>@멘션은 실제 대화를 대체하기보다 가벼운 공유 루틴을 돕는 방식으로 쓰는 것이 좋습니다.</li>
+</ul>
+<h2>공유 펫 룸에서 멘션이 필요한 이유</h2>
+<p>PetTomo 룸은 작은 행동으로 이어집니다. 누군가 사진으로 펫에게 먹이를 주고, 다른 멤버가 펫 상태를 확인하고, 또 다른 멤버가 채팅에서 반응할 수 있습니다. 멤버가 여러 명이면 일반 메시지만으로는 누구에게 하는 말인지 흐려질 때가 있습니다.</p>
+<p>@멘션은 메시지의 대상을 더 분명하게 만듭니다. 연인, 친구, 가족 중 누가 확인하면 좋은지 자연스럽게 알려줄 수 있습니다.</p>
+<h2>@멘션을 쓰기 좋은 상황</h2>
+<p>멘션은 구체적이고 부담이 적은 상황에 잘 맞습니다.</p>
+<ul>
+<li>보낸 먹이 사진을 확인해 달라고 할 때</li>
+<li>펫 상태나 돌봄 변화를 알려줄 때</li>
+<li>가구나 배경을 바꾸기 전에 의견을 물을 때</li>
+<li>추억이나 갤러리 사진에 대해 이야기할 때</li>
+<li>새 멤버 초대를 누가 할지 정할 때</li>
+</ul>
+<p>PetTomo는 비공개 연결을 중심으로 설계된 앱입니다. 멘션도 상대를 압박하기보다 룸 대화를 읽기 쉽게 만드는 용도로 쓰는 것이 자연스럽습니다.</p>
+<h2>룸을 비공개로 유지하기</h2>
+<p>PetTomo의 확인된 제품 모델은 초대 링크나 초대 코드로 참여하는 공유 룸입니다. 채팅, 먹이 사진, 룸 상태, 추억은 모두 룸 맥락에 속합니다. @멘션을 사용해도 룸이 공개되는 것은 아니며, 공개 태그 기능처럼 설명해서도 안 됩니다.</p>
+<p>다만 룸 채팅은 활성 룸 멤버가 볼 수 있는 공간입니다. 멘션은 일대일 비밀 메시지가 아니라 누가 확인하면 좋은지 알려주는 기능으로 이해하는 편이 안전합니다.</p>
+<h2>FAQ</h2>
+<h3>PetTomo @멘션은 공개인가요?</h3>
+<p>아니요. PetTomo는 초대 링크나 초대 코드로 참여하는 비공개 공유 룸을 중심으로 합니다.</p>
+<h3>1.1.2 버전에서 무엇이 추가됐나요?</h3>
+<p>로컬 앱 내 업데이트 문구는 채팅에서 @멘션을 사용해 특정 룸 멤버에게 메시지를 더 잘 전달할 수 있다고 안내합니다.</p>
+<h3>@멘션하면 반드시 답장이 오나요?</h3>
+<p>아니요. @멘션은 메시지를 더 분명하게 만들 수 있지만, 상대의 반응, 알림 전달, 관계 변화를 보장하지 않습니다.</p>
+<h2>정리</h2>
+<p>@멘션은 PetTomo의 커플, 친구, 가족 룸을 더 읽기 쉽게 만드는 채팅 기능입니다. 펫 돌봄, 사진, 추억, 방 꾸미기 이야기에 활용하면서 비공개이고 가벼운 공유 경험을 유지하세요.</p>
+          </div>
+        </article>
+        <nav class="article-nav" aria-label="Guide navigation">
+          <a href="/guides/">All guides</a>
+          <a href="/guides/ko/">This language</a>
+          <a href="/">PetTomo home</a>
+        </nav>
+      </main>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"PetTomo 비공개 룸에서 @멘션을 쓰는 방법","description":"PetTomo 룸 채팅은 @멘션을 지원해 초대된 멤버에게 특정 메시지를 더 분명하게 전달할 수 있습니다.","author":{"@type":"Organization","name":"PetTomo"},"publisher":{"@type":"Organization","name":"PetTomo","logo":{"@type":"ImageObject","url":"https://pet-app-702be.web.app/assets/PetTomo_appicon.png"}},"mainEntityOfPage":"https://pet-app-702be.web.app/guides/ko/private-room-mentions.html","dateModified":"2026-06-03T00:04:45.889Z"}</script>
+
+  <footer class="site-footer">
+    <span>© 2026 hangyodev</span>
+    <nav aria-label="Footer navigation">
+      <a href="/guides/">Guides</a>
+      <a href="/support.html">Support</a>
+      <a href="/privacy_policy.html">Privacy Policy</a>
+      <a href="/terms_of_use.html">Terms of Use</a>
+    </nav>
+  </footer>
+</body>
+</html>

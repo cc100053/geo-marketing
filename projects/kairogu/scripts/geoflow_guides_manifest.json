@@ -161,6 +161,12 @@
       "lang": "ja",
       "slug": "price-tag-photo-habits",
       "sourcePath": "docs/articles/price-tag-photo-habits-ja.md"
+    },
+    {
+      "group": "gram-price-tag-recording",
+      "lang": "ja",
+      "slug": "gram-price-tag-recording",
+      "sourcePath": "docs/articles/gram-price-tag-recording-ja.md"
     }
   ]
 }

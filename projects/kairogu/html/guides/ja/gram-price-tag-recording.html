@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>190gなどグラム表記の価格タグをカイログで記録するコツ | カイログ ガイド</title>
+  <meta name="description" content="190g、500g、1kgなど単位が写る価格タグをカイログで読み取り、保存前に内容量、税込価格、割引条件を確認するポイントを整理します。">
+  <meta name="keywords" content="グラム 価格タグ 記録">
+  <link rel="canonical" href="https://www.kairogu.men/guides/ja/gram-price-tag-recording.html">
+  <link rel="icon" type="image/png" href="/icon.png">
+  <meta property="og:title" content="190gなどグラム表記の価格タグをカイログで記録するコツ | カイログ ガイド">
+  <meta property="og:description" content="190g、500g、1kgなど単位が写る価格タグをカイログで読み取り、保存前に内容量、税込価格、割引条件を確認するポイントを整理します。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.kairogu.men/guides/ja/gram-price-tag-recording.html">
+  <meta property="og:image" content="https://www.kairogu.men/icon.png">
+  <style>
+    :root {
+      --primary: #1A8D7A;
+      --accent: #F4A261;
+      --bg: #FAF9F7;
+      --panel: #FFFFFF;
+      --text: #242424;
+      --muted: #667085;
+      --line: #E5E1DA;
+      --soft: #EEF8F5;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", "Segoe UI", sans-serif;
+      line-height: 1.8;
+    }
+
+    a { color: inherit; }
+
+    .site-header,
+    .site-footer {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--primary);
+      font-size: 1.18rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .site-nav a,
+    .site-footer a,
+    .eyebrow a {
+      text-decoration: none;
+    }
+
+    .site-nav a:hover,
+    .site-footer a:hover,
+    .eyebrow a:hover {
+      color: var(--primary);
+    }
+
+    .guides-shell,
+    .article-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 72px;
+    }
+
+    .guides-hero {
+      min-height: 300px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 150px;
+      gap: 40px;
+      align-items: center;
+      padding: 52px 0 40px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .guides-hero img {
+      width: 132px;
+      height: 132px;
+      border-radius: 28px;
+      box-shadow: 0 16px 34px rgba(36, 36, 36, 0.12);
+    }
+
+    .eyebrow,
+    .guide-label {
+      margin: 0 0 12px;
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 840px;
+      margin: 0;
+      font-size: clamp(2.1rem, 6vw, 4rem);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    .guides-hero p:not(.eyebrow),
+    .article-summary {
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      padding-top: 34px;
+    }
+
+    .guide-card {
+      min-height: 220px;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(36, 36, 36, 0.06);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .guide-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(36, 36, 36, 0.1);
+    }
+
+    .guide-card h2 {
+      margin: 0;
+      font-size: 1.24rem;
+      line-height: 1.35;
+    }
+
+    .guide-card p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .article {
+      max-width: 860px;
+      margin: 26px auto 0;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .article-meta {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .article-content {
+      margin-top: 34px;
+      font-size: 1.04rem;
+    }
+
+    .article-content h2,
+    .article-content h3 {
+      margin: 34px 0 12px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    .article-content h2 { font-size: 1.58rem; }
+    .article-content h3 { font-size: 1.22rem; }
+
+    .article-content p,
+    .article-content li {
+      color: #3F3A36;
+    }
+
+    .article-content ul,
+    .article-content ol {
+      padding-left: 1.35rem;
+    }
+
+    .article-nav {
+      max-width: 860px;
+      margin: 24px auto 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .article-nav a {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--primary);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    @media (max-width: 720px) {
+      .site-header,
+      .site-footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .guides-hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .guides-hero img {
+        width: 104px;
+        height: 104px;
+      }
+    }
+  </style>
+</head>
+<body class="article-page">
+  <header class="site-header">
+    <a class="brand" href="/">
+      <img src="/icon.png" alt="カイログ">
+      <span>カイログ</span>
+    </a>
+    <nav class="site-nav" aria-label="Site navigation">
+      <a href="/guides/">ガイド</a>
+      <a href="/privacy.html">プライバシー</a>
+      <a href="/terms.html">利用規約</a>
+    </nav>
+  </header>
+<main class="article-shell">
+        <p class="eyebrow"><a href="/guides/">カイログ ガイド</a></p>
+        <article class="article">
+          <h1>190gなどグラム表記の価格タグをカイログで記録するコツ</h1>
+          <p class="article-summary">190g、500g、1kgなど単位が写る価格タグをカイログで読み取り、保存前に内容量、税込価格、割引条件を確認するポイントを整理します。</p>
+          <div class="article-meta">更新日 2026/06/04</div>
+          <div class="article-content">
+            <p>スーパーやドラッグストアでは、価格タグに「190g」「500g」「1kg」などの内容量が小さく書かれていることがあります。価格だけを残すと、あとから見返した時に、安かった理由が値下げなのか容量違いなのか分かりにくくなります。</p>
+<p>カイログは、価格タグを撮影して商品名、価格、割引、容量、カテゴリを記録できる日本向けの価格管理アプリです。ローカルの1.6.0リリースノートとApp Store Connect文言では、「190g」など単位が明確に写っている価格タグをより自然に扱えるよう内容量の判定を改善し、スキャン結果を保存前に確認しやすくし、アプリ全体の安定性を高めたことが確認できます。</p>
+<p>この記事では、グラム表記のある価格タグをカイログで記録する時に、保存前に見ておきたいポイントを整理します。</p>
+<h2>要点</h2>
+<ul>
+<li>グラム表記は、価格履歴や100gあたり価格を見返す時の大事な手がかりです。</li>
+<li>190g、500g、1kgなどの単位が写る価格タグは、価格だけでなく内容量も確認します。</li>
+<li>カイログ1.6.0のローカル更新文言では、単位が明確に写る価格タグの内容量判定改善が確認できます。</li>
+<li>AI読み取りは入力補助として使い、商品名、価格、内容量、税込・税抜、割引条件は保存前に自分でも確認します。</li>
+<li>近くの価格情報は利用状況や記録内容に左右されるため、店舗ごとの価格網羅を保証するものではありません。</li>
+</ul>
+<h2>グラム表記を残す意味</h2>
+<p>同じ商品名でも、内容量が違えば価格の見え方は変わります。たとえば、冷凍食品、肉、チーズ、米、洗剤などは、内容量が変わると単純な価格比較が難しくなります。</p>
+<p>グラム数を価格と一緒に残しておくと、「前回は同じ量で安かったのか」「今回は容量が少なかっただけなのか」を見返しやすくなります。100gあたり価格や容量ベースの比較をしたい時にも、記録の精度が役立ちます。</p>
+<h2>撮影時に意識したいこと</h2>
+<p>グラム表記は価格より小さく書かれていることがあります。価格タグを撮影する時は、商品名、価格、税込・税抜表示、割引表示、内容量の単位ができるだけ同じ写真に入るようにします。</p>
+<p>特に確認したい表示です。</p>
+<ul>
+<li>190g、500g、1kg、700mlなどの内容量。</li>
+<li>税込価格、本体価格、会員価格の違い。</li>
+<li>見切り、値引き、% OFFなどの割引表示。</li>
+<li>複数点購入や期間限定などの条件。</li>
+<li>商品名が似ている別商品になっていないか。</li>
+</ul>
+<p>毎回すべてを完璧に残す必要はありません。ただし、よく買う商品や容量違いで迷いやすい商品は、保存前に丁寧に確認すると価格履歴が使いやすくなります。</p>
+<h2>カイログ1.6.0の改善をどう使うか</h2>
+<p>カイログ1.6.0のローカルリリースノートでは、「190g」など単位が明確に写っている価格タグをより自然に扱えるよう調整したことが案内されています。これは、グラム表記を含む価格タグの記録と相性がよい改善です。</p>
+<p>ただし、AI読み取りは入力補助です。店頭の価格タグは店舗や商品によって表示形式が違います。読み取り後は、保存前に内容量、単位、税込・税抜、割引条件を確認しておくと、後から見返した時の誤解を減らせます。</p>
+<h2>買い物前に見返す時の考え方</h2>
+<p>グラム表記つきで記録しておくと、次の買い物前に「前回はいくらで、どの量だったか」を思い出しやすくなります。買い物中に似た商品を見つけた時も、容量が同じかどうかを見ながら判断できます。</p>
+<p>カイログでは、商品名、価格、店舗、容量、カテゴリを記録できます。カテゴリをそろえておくと、肉、冷凍食品、米、日用品など、同じ種類の商品を後から見返しやすくなります。</p>
+<h2>注意したいこと</h2>
+<p>近くの価格情報や過去の記録は、利用状況や保存された内容に左右されます。カイログは価格判断を助ける記録アプリであり、すべての店舗の価格や常に最も安い価格を保証するものではありません。</p>
+<p>自分の記録、店頭の現在価格、内容量、税込・税抜、割引条件を組み合わせて見るのが現実的です。</p>
+<h2>よくある質問</h2>
+<h3>グラム数は毎回入力したほうがよいですか？</h3>
+<p>容量違いで迷いやすい商品や、100gあたり価格を見返したい商品では入力しておくと便利です。まずはよく買う商品から始めると続けやすくなります。</p>
+<h3>190gなどの数字が小さく写っている場合はどうすればよいですか？</h3>
+<p>保存前に読み取り結果を確認し、必要なら内容量や単位を直します。価格タグの単位が写真に入るように撮ると確認しやすくなります。</p>
+<h3>AI読み取り結果が違っていたらどうしますか？</h3>
+<p>商品名、価格、内容量、税込・税抜、割引条件を保存前に確認し、必要に応じて修正します。AI読み取りは入力補助として使うのが安全です。</p>
+<h2>まとめ</h2>
+<p>グラム表記の価格タグは、価格だけでなく内容量まで残すことで、カイログの価格履歴を後から見返しやすくなります。190g、500g、1kgなどの単位、税込・税抜、割引条件を保存前に確認しておくと、容量違いの商品を比べる時に迷いにくくなります。</p>
+<p>1.6.0のローカル更新文言で確認できる内容量判定とスキャン結果確認の改善を活かしながら、よく買う商品から記録の基準を整えていきましょう。</p>
+          </div>
+        </article>
+        <nav class="article-nav" aria-label="Guide navigation">
+          <a href="/guides/">すべてのガイド</a>
+          <a href="/guides/ja/">日本語ガイド</a>
+          <a href="/">カイログ ホーム</a>
+        </nav>
+      </main>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"190gなどグラム表記の価格タグをカイログで記録するコツ","description":"190g、500g、1kgなど単位が写る価格タグをカイログで読み取り、保存前に内容量、税込価格、割引条件を確認するポイントを整理します。","inLanguage":"ja","author":{"@type":"Organization","name":"カイログ編集部"},"publisher":{"@type":"Organization","name":"カイログ","logo":{"@type":"ImageObject","url":"https://www.kairogu.men/icon.png"}},"mainEntityOfPage":"https://www.kairogu.men/guides/ja/gram-price-tag-recording.html","dateModified":"2026-06-04T01:49:54.955Z"}</script>
+  <footer class="site-footer">
+    <span>&copy; 2026 hangyodev</span>
+    <a href="mailto:hangyodev@gmail.com">お問い合わせ</a>
+  </footer>
+</body>
+</html>

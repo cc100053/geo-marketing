@@ -544,4 +544,24 @@
     <loc>https://pet-app-702be.web.app/guides/ko/shared-room-notification-troubleshooting.html</loc>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/en/shared-room-inventory-small-screen.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/zh-hant/shared-room-inventory-small-screen.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/zh-hans/shared-room-inventory-small-screen.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/ja/shared-room-inventory-small-screen.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/ko/shared-room-inventory-small-screen.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
 </urlset>

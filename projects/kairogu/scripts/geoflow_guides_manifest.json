@@ -173,6 +173,12 @@
       "lang": "ja",
       "slug": "shopping-list-price-planning",
       "sourcePath": "docs/articles/shopping-list-price-planning-ja.md"
+    },
+    {
+      "group": "frozen-food-content-price-recording",
+      "lang": "ja",
+      "slug": "frozen-food-content-price-recording",
+      "sourcePath": "docs/articles/frozen-food-content-price-recording-ja.md"
     }
   ]
 }

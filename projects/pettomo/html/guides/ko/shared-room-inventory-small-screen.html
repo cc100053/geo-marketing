@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>작은 화면에서 PetTomo 방 인벤토리를 쓰는 방법 | PetTomo Guides</title>
+  <meta name="description" content="PetTomo 2.1.0은 짧은 화면에서 방 인벤토리를 더 쉽게 쓰도록 개선했습니다. 공유 방 인벤토리, 가구, 장비, 버전 확인을 정리합니다.">
+  <meta name="keywords" content="PetTomo 방 인벤토리, PetTomo, shared virtual pet app, virtual pet, shared pet room">
+  <link rel="canonical" href="https://pet-app-702be.web.app/guides/ko/shared-room-inventory-small-screen.html">
+  <link rel="alternate" hreflang="en" href="https://pet-app-702be.web.app/guides/en/shared-room-inventory-small-screen.html">
+  <link rel="alternate" hreflang="zh-hant" href="https://pet-app-702be.web.app/guides/zh-hant/shared-room-inventory-small-screen.html">
+  <link rel="alternate" hreflang="zh-hans" href="https://pet-app-702be.web.app/guides/zh-hans/shared-room-inventory-small-screen.html">
+  <link rel="alternate" hreflang="ja" href="https://pet-app-702be.web.app/guides/ja/shared-room-inventory-small-screen.html">
+  <link rel="alternate" hreflang="ko" href="https://pet-app-702be.web.app/guides/ko/shared-room-inventory-small-screen.html">
+  <link rel="alternate" hreflang="x-default" href="https://pet-app-702be.web.app/guides/">
+  <link rel="icon" type="image/png" href="/assets/PetTomo_appicon.png">
+  <meta property="og:title" content="작은 화면에서 PetTomo 방 인벤토리를 쓰는 방법 | PetTomo Guides">
+  <meta property="og:description" content="PetTomo 2.1.0은 짧은 화면에서 방 인벤토리를 더 쉽게 쓰도록 개선했습니다. 공유 방 인벤토리, 가구, 장비, 버전 확인을 정리합니다.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://pet-app-702be.web.app/guides/ko/shared-room-inventory-small-screen.html">
+  <meta property="og:image" content="https://pet-app-702be.web.app/assets/PetTomo_appicon.png">
+  <style>
+    :root {
+      --primary: #5FBF9E;
+      --secondary: #FFB36B;
+      --bg: #FFFBF3;
+      --panel: #FFFFFF;
+      --text: #2F2A23;
+      --muted: #756B61;
+      --line: #E7DED2;
+      --soft: #F4FAF8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; }
+
+    .site-header,
+    .site-footer {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--primary);
+      font-size: 1.25rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .site-nav a,
+    .site-footer a,
+    .eyebrow a {
+      text-decoration: none;
+    }
+
+    .site-nav a:hover,
+    .site-footer a:hover,
+    .eyebrow a:hover {
+      color: var(--primary);
+    }
+
+    .guides-shell,
+    .article-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 72px;
+    }
+
+    .guides-hero {
+      min-height: 320px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 160px;
+      gap: 40px;
+      align-items: center;
+      padding: 54px 0 40px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .guides-hero img {
+      width: 144px;
+      height: 144px;
+      border-radius: 32px;
+      box-shadow: 0 16px 34px rgba(47, 42, 35, 0.12);
+    }
+
+    .eyebrow,
+    .guide-label {
+      margin: 0 0 12px;
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 820px;
+      margin: 0;
+      font-size: clamp(2.25rem, 6vw, 4.25rem);
+      line-height: 1.06;
+      letter-spacing: 0;
+    }
+
+    .guides-hero p:not(.eyebrow),
+    .article-summary {
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      padding-top: 34px;
+    }
+
+    .guide-card {
+      min-height: 238px;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(47, 42, 35, 0.06);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .guide-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(47, 42, 35, 0.1);
+    }
+
+    .guide-card h2 {
+      margin: 0;
+      font-size: 1.26rem;
+      line-height: 1.25;
+    }
+
+    .guide-card p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .article {
+      max-width: 860px;
+      margin: 26px auto 0;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .article-meta {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .article-content {
+      margin-top: 34px;
+      font-size: 1.04rem;
+    }
+
+    .article-content h2,
+    .article-content h3 {
+      margin: 34px 0 12px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .article-content h2 { font-size: 1.72rem; }
+    .article-content h3 { font-size: 1.28rem; }
+
+    .article-content p,
+    .article-content ul,
+    .article-content ol,
+    .article-content table {
+      margin: 0 0 18px;
+    }
+
+    .article-content ul,
+    .article-content ol {
+      padding-left: 24px;
+    }
+
+    .article-content li + li {
+      margin-top: 7px;
+    }
+
+    .article-content table {
+      width: 100%;
+      border-collapse: collapse;
+      display: block;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    .article-content th,
+    .article-content td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .article-content th {
+      background: var(--soft);
+      font-weight: 800;
+    }
+
+    .article-content blockquote {
+      margin: 24px 0;
+      padding: 18px 20px;
+      border-left: 4px solid var(--secondary);
+      background: var(--panel);
+      border-radius: 0 8px 8px 0;
+      color: var(--muted);
+    }
+
+    .article-nav {
+      max-width: 860px;
+      margin: 24px auto 0;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .article-nav a {
+      padding: 10px 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--panel);
+      color: var(--text);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+      flex-wrap: wrap;
+    }
+
+    .site-footer nav {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 720px) {
+      .site-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .site-nav {
+        flex-wrap: wrap;
+      }
+
+      .guides-hero {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding-top: 28px;
+      }
+
+      .guides-hero img {
+        width: 104px;
+        height: 104px;
+        border-radius: 24px;
+      }
+
+      h1 {
+        font-size: 2.3rem;
+      }
+    }
+  </style>
+</head>
+<body class="article-page">
+  <header class="site-header">
+    <a class="brand" href="/">
+      <img src="/assets/PetTomo_appicon.png" alt="" aria-hidden="true">
+      <span>PetTomo</span>
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="/guides/">Guides</a>
+      <a href="/support.html">Support</a>
+      <a href="/">Home</a>
+    </nav>
+  </header>
+
+      <main class="article-shell">
+        <p class="eyebrow"><a href="/guides/">PetTomo Guides</a></p>
+        <article class="article">
+          <h1>작은 화면에서 PetTomo 방 인벤토리를 쓰는 방법</h1>
+          <p class="article-summary">PetTomo 2.1.0은 짧은 화면에서 방 인벤토리를 더 쉽게 쓰도록 개선했습니다. 공유 방 인벤토리, 가구, 장비, 버전 확인을 정리합니다.</p>
+          <div class="article-meta">Updated June 6, 2026</div>
+          <div class="article-content">
+            <p>PetTomo 공유 방은 초대된 멤버가 같은 가상 펫을 돌보고, 사진으로 먹이를 주고, 채팅하고, 방을 꾸미고, 추억을 남기는 비공개 공간입니다. PetTomo 2.1.0 로컬 App Store Connect 문구는 짧은 화면에서도 방 인벤토리를 더 쉽게 사용할 수 있도록 개선했다고 확인합니다.</p>
+<p>이 글은 그 출시 근거를 바탕으로 공유 방 인벤토리를 사용할 때 확인할 점을 정리합니다.</p>
+<h2>핵심 요약</h2>
+<ul>
+<li>PetTomo 방 인벤토리는 비공개 공유 방 경험의 일부입니다.</li>
+<li>인벤토리는 배경, 가구, 펫 장비, 그 밖의 방 단위 아이템과 관련될 수 있습니다.</li>
+<li>2.1.0 로컬 업데이트 문구는 짧은 화면에서 방 인벤토리 사용성이 개선되었다고 확인합니다.</li>
+<li>멤버마다 보이는 아이템이 다르면 소유권 문제로 단정하기 전에 앱 버전을 확인합니다.</li>
+<li>PetTomo를 공개 꾸미기 피드처럼 설명하거나 모든 기기에서 완전히 같은 배치를 보장한다고 말하지 않습니다.</li>
+</ul>
+<h2>방 인벤토리가 중요한 이유</h2>
+<p>방 인벤토리는 공유 방의 시각적 선택을 실제로 사용하는 곳입니다. 멤버는 배경과 가구로 방을 꾸미고, 펫에게 장비를 착용시키고, 방과 연결된 아이템을 확인할 수 있습니다.</p>
+<p>PetTomo는 초대된 멤버를 위한 공유 방 중심 앱입니다. 인벤토리는 낯선 사람에게 보여주기 위한 공간이 아니라, 초대된 멤버가 같은 방을 편하게 쓰기 위한 기능으로 이해하는 편이 정확합니다.</p>
+<h2>2.1.0 개선을 어떻게 설명할까</h2>
+<p>PetTomo 2.1.0 로컬 업데이트 문구는 짧은 화면에서 방 인벤토리를 더 쉽게 사용할 수 있게 했다고 안내합니다. 이는 인벤토리 조작의 사용성 개선으로 안전하게 설명할 수 있습니다.</p>
+<p>다만 모든 기기에서 완벽하게 같은 레이아웃이 보인다거나, 모든 아이템을 누구나 쓸 수 있다거나, 오래된 앱도 새 아이템을 완전히 표시한다고 말하면 안 됩니다. 같은 2.1.0 근거는 가구 배치 일관성과 안정성 개선도 언급하므로, 방 꾸미기나 인벤토리가 헷갈릴 때는 최신 버전 확인이 좋은 첫 단계입니다.</p>
+<h2>실용 체크리스트</h2>
+<h3>먼저 방을 확인하기</h3>
+<p>여러 PetTomo 방에 참여하고 있다면 인벤토리 아이템을 바꾸기 전에 원하는 방을 열었는지 확인합니다. 장식이나 장비 변경은 같은 공유 펫 방 안에서 비교해야 이해하기 쉽습니다.</p>
+<h3>펫이 잘 보이게 두기</h3>
+<p>가구나 장비를 사용할 때는 펫이 잘 보이도록 유지합니다. 좋은 장식은 사진 먹이 주기, 채팅, 최근 추억을 돕는 방향이어야 하며 방의 주인공인 펫을 가리지 않는 편이 좋습니다.</p>
+<h3>앱 버전 확인하기</h3>
+<p>PetTomo 제품 정보는 혼합 버전 지원, 버전 제한 공유 아이템, 오래된 버전용 대체 표시, 업데이트 안내를 설명합니다. 멤버마다 인벤토리나 장식이 다르게 보이면 먼저 앱 업데이트를 확인하세요.</p>
+<h2>FAQ</h2>
+<h3>PetTomo 방 인벤토리는 공개되나요?</h3>
+<p>아니요. PetTomo는 초대 기반 비공개 공유 방을 중심으로 하며 공개 소셜 게시물이 아닙니다.</p>
+<h3>PetTomo 2.1.0에서 확인된 내용은 무엇인가요?</h3>
+<p>로컬 업데이트 문구는 가구 배치 일관성, 짧은 화면에서의 방 인벤토리 사용성, 펫 케어 스케줄 안정성, 전체 안정성 개선을 확인합니다.</p>
+<h3>모든 기기에서 인벤토리가 완전히 똑같이 보이나요?</h3>
+<p>완전한 동일 표시를 보장하지 않습니다. 안전한 확인 방법은 앱을 최신으로 유지하고 같은 방, 같은 아이템, 같은 화면에서 비교하는 것입니다.</p>
+<h2>정리</h2>
+<p>PetTomo 방 인벤토리는 초대된 멤버가 비공개 공유 방의 장식과 장비를 관리하는 기능입니다. 2.1.0 출시 근거로 말할 수 있는 핵심은 짧은 화면에서 인벤토리 조작이 개선되었다는 점, 그리고 공유 방 아이템이나 레이아웃이 헷갈릴 때 앱을 최신으로 유지하는 것이 도움이 된다는 점입니다.</p>
+          </div>
+        </article>
+        <nav class="article-nav" aria-label="Guide navigation">
+          <a href="/guides/">All guides</a>
+          <a href="/guides/ko/">This language</a>
+          <a href="/">PetTomo home</a>
+        </nav>
+      </main>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"작은 화면에서 PetTomo 방 인벤토리를 쓰는 방법","description":"PetTomo 2.1.0은 짧은 화면에서 방 인벤토리를 더 쉽게 쓰도록 개선했습니다. 공유 방 인벤토리, 가구, 장비, 버전 확인을 정리합니다.","author":{"@type":"Organization","name":"PetTomo"},"publisher":{"@type":"Organization","name":"PetTomo","logo":{"@type":"ImageObject","url":"https://pet-app-702be.web.app/assets/PetTomo_appicon.png"}},"mainEntityOfPage":"https://pet-app-702be.web.app/guides/ko/shared-room-inventory-small-screen.html","dateModified":"2026-06-06T09:05:47.745Z"}</script>
+
+  <footer class="site-footer">
+    <span>© 2026 hangyodev</span>
+    <nav aria-label="Footer navigation">
+      <a href="/guides/">Guides</a>
+      <a href="/support.html">Support</a>
+      <a href="/privacy_policy.html">Privacy Policy</a>
+      <a href="/terms_of_use.html">Terms of Use</a>
+    </nav>
+  </footer>
+</body>
+</html>

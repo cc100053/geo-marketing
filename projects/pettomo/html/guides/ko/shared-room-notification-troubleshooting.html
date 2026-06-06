@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetTomo 알림이 오지 않을 때 확인할 공유 방 설정 | PetTomo Guides</title>
+  <meta name="description" content="PetTomo 공유 방 알림이 오지 않을 때 기기 권한, 로그인, 네트워크, 방 접근 상태, 앱 버전을 확인하는 방법을 정리했습니다.">
+  <meta name="keywords" content="PetTomo 알림 안 옴, PetTomo, shared virtual pet app, virtual pet, shared pet room">
+  <link rel="canonical" href="https://pet-app-702be.web.app/guides/ko/shared-room-notification-troubleshooting.html">
+  <link rel="alternate" hreflang="en" href="https://pet-app-702be.web.app/guides/en/shared-room-notification-troubleshooting.html">
+  <link rel="alternate" hreflang="zh-hant" href="https://pet-app-702be.web.app/guides/zh-hant/shared-room-notification-troubleshooting.html">
+  <link rel="alternate" hreflang="zh-hans" href="https://pet-app-702be.web.app/guides/zh-hans/shared-room-notification-troubleshooting.html">
+  <link rel="alternate" hreflang="ja" href="https://pet-app-702be.web.app/guides/ja/shared-room-notification-troubleshooting.html">
+  <link rel="alternate" hreflang="ko" href="https://pet-app-702be.web.app/guides/ko/shared-room-notification-troubleshooting.html">
+  <link rel="alternate" hreflang="x-default" href="https://pet-app-702be.web.app/guides/">
+  <link rel="icon" type="image/png" href="/assets/PetTomo_appicon.png">
+  <meta property="og:title" content="PetTomo 알림이 오지 않을 때 확인할 공유 방 설정 | PetTomo Guides">
+  <meta property="og:description" content="PetTomo 공유 방 알림이 오지 않을 때 기기 권한, 로그인, 네트워크, 방 접근 상태, 앱 버전을 확인하는 방법을 정리했습니다.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://pet-app-702be.web.app/guides/ko/shared-room-notification-troubleshooting.html">
+  <meta property="og:image" content="https://pet-app-702be.web.app/assets/PetTomo_appicon.png">
+  <style>
+    :root {
+      --primary: #5FBF9E;
+      --secondary: #FFB36B;
+      --bg: #FFFBF3;
+      --panel: #FFFFFF;
+      --text: #2F2A23;
+      --muted: #756B61;
+      --line: #E7DED2;
+      --soft: #F4FAF8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; }
+
+    .site-header,
+    .site-footer {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--primary);
+      font-size: 1.25rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .site-nav a,
+    .site-footer a,
+    .eyebrow a {
+      text-decoration: none;
+    }
+
+    .site-nav a:hover,
+    .site-footer a:hover,
+    .eyebrow a:hover {
+      color: var(--primary);
+    }
+
+    .guides-shell,
+    .article-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 72px;
+    }
+
+    .guides-hero {
+      min-height: 320px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 160px;
+      gap: 40px;
+      align-items: center;
+      padding: 54px 0 40px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .guides-hero img {
+      width: 144px;
+      height: 144px;
+      border-radius: 32px;
+      box-shadow: 0 16px 34px rgba(47, 42, 35, 0.12);
+    }
+
+    .eyebrow,
+    .guide-label {
+      margin: 0 0 12px;
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 820px;
+      margin: 0;
+      font-size: clamp(2.25rem, 6vw, 4.25rem);
+      line-height: 1.06;
+      letter-spacing: 0;
+    }
+
+    .guides-hero p:not(.eyebrow),
+    .article-summary {
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      padding-top: 34px;
+    }
+
+    .guide-card {
+      min-height: 238px;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(47, 42, 35, 0.06);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .guide-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(47, 42, 35, 0.1);
+    }
+
+    .guide-card h2 {
+      margin: 0;
+      font-size: 1.26rem;
+      line-height: 1.25;
+    }
+
+    .guide-card p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .article {
+      max-width: 860px;
+      margin: 26px auto 0;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .article-meta {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .article-content {
+      margin-top: 34px;
+      font-size: 1.04rem;
+    }
+
+    .article-content h2,
+    .article-content h3 {
+      margin: 34px 0 12px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .article-content h2 { font-size: 1.72rem; }
+    .article-content h3 { font-size: 1.28rem; }
+
+    .article-content p,
+    .article-content ul,
+    .article-content ol,
+    .article-content table {
+      margin: 0 0 18px;
+    }
+
+    .article-content ul,
+    .article-content ol {
+      padding-left: 24px;
+    }
+
+    .article-content li + li {
+      margin-top: 7px;
+    }
+
+    .article-content table {
+      width: 100%;
+      border-collapse: collapse;
+      display: block;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    .article-content th,
+    .article-content td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .article-content th {
+      background: var(--soft);
+      font-weight: 800;
+    }
+
+    .article-content blockquote {
+      margin: 24px 0;
+      padding: 18px 20px;
+      border-left: 4px solid var(--secondary);
+      background: var(--panel);
+      border-radius: 0 8px 8px 0;
+      color: var(--muted);
+    }
+
+    .article-nav {
+      max-width: 860px;
+      margin: 24px auto 0;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .article-nav a {
+      padding: 10px 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--panel);
+      color: var(--text);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+      flex-wrap: wrap;
+    }
+
+    .site-footer nav {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 720px) {
+      .site-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .site-nav {
+        flex-wrap: wrap;
+      }
+
+      .guides-hero {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding-top: 28px;
+      }
+
+      .guides-hero img {
+        width: 104px;
+        height: 104px;
+        border-radius: 24px;
+      }
+
+      h1 {
+        font-size: 2.3rem;
+      }
+    }
+  </style>
+</head>
+<body class="article-page">
+  <header class="site-header">
+    <a class="brand" href="/">
+      <img src="/assets/PetTomo_appicon.png" alt="" aria-hidden="true">
+      <span>PetTomo</span>
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="/guides/">Guides</a>
+      <a href="/support.html">Support</a>
+      <a href="/">Home</a>
+    </nav>
+  </header>
+
+      <main class="article-shell">
+        <p class="eyebrow"><a href="/guides/">PetTomo Guides</a></p>
+        <article class="article">
+          <h1>PetTomo 알림이 오지 않을 때 확인할 공유 방 설정</h1>
+          <p class="article-summary">PetTomo 공유 방 알림이 오지 않을 때 기기 권한, 로그인, 네트워크, 방 접근 상태, 앱 버전을 확인하는 방법을 정리했습니다.</p>
+          <div class="article-meta">Updated June 6, 2026</div>
+          <div class="article-content">
+            <p>PetTomo는 초대받은 멤버가 같은 가상 반려동물을 함께 돌보는 비공개 공유 방 앱입니다. PetTomo 지식 베이스는 알림이 방 활동, 사진 먹이 주기, 펫 케어 리마인더, 배고픔이나 펫 상태 알림, 구매 또는 공유 아이템 이벤트에 쓰일 수 있다고 정리합니다.</p>
+<p>이 글은 PetTomo 알림이 예상대로 오지 않을 때 먼저 확인할 항목을 정리합니다.</p>
+<h2>핵심 정리</h2>
+<ul>
+<li>PetTomo 알림은 공유 방의 의미 있는 순간으로 돌아오기 위한 보조 수단입니다.</li>
+<li>먼저 기기 알림 권한, 로그인 상태, 네트워크, 현재 앱 버전을 확인합니다.</li>
+<li>PetTomo를 다시 열면 기기 알림 등록과 방 상태가 갱신될 수 있습니다.</li>
+<li>일부 알림은 지원되는 앱 동작, 방 활동, 현재 멤버 접근 상태에 따라 달라질 수 있습니다.</li>
+<li>PetTomo 알림은 공개 소셜 업데이트가 아니며 공유 방을 공개로 바꾸지 않습니다.</li>
+</ul>
+<h2>기기 알림 권한 확인</h2>
+<p>가장 먼저 iOS 또는 Android 설정에서 PetTomo 알림이 허용되어 있는지 확인하세요. 기기에서 알림이 꺼져 있으면 공유 방에서 이벤트가 있어도 알림이 표시되지 않습니다.</p>
+<p>권한을 켠 뒤 PetTomo를 다시 열고 알림을 받고 싶은 방에 들어갑니다. 이 과정에서 로그인 상태, 방 접근 상태, 로컬 화면 상태를 함께 확인할 수 있습니다.</p>
+<h2>로그인과 방 접근 상태 확인</h2>
+<p>PetTomo의 방 데이터는 현재 활성 멤버에게 연결됩니다. 로그아웃했거나, 다른 계정을 사용하거나, 방을 나갔거나, 예상과 다른 계정으로 참여했다면 알림 동작이 다르게 느껴질 수 있습니다.</p>
+<p>PetTomo에서 다음을 확인하세요.</p>
+<ul>
+<li>올바른 계정으로 로그인되어 있다.</li>
+<li>원하는 공유 방이 보인다.</li>
+<li>공유 펫과 방 채팅이 로드된다.</li>
+<li>알림으로 이어질 수 있는 최근 방 활동이 있다.</li>
+</ul>
+<p>방이 보이지 않는다면 먼저 방 접근 문제를 해결해야 합니다. 알림은 올바른 방 멤버십을 대신할 수 없습니다.</p>
+<h2>앱을 다시 열어 등록 갱신</h2>
+<p>PetTomo 지식 베이스는 알림이 작동하지 않을 때 앱을 다시 열어 기기 토큰 등록을 갱신하는 것을 권장합니다. 앱을 다시 설치했거나, 기기를 바꿨거나, 운영체제를 업데이트했거나, 오랜만에 앱을 열었다면 특히 도움이 됩니다.</p>
+<p>네트워크 연결도 함께 확인하세요. 연결이 약하면 방 업데이트와 알림 등록이 늦어질 수 있습니다.</p>
+<h2>지원되는 알림 상황 확인</h2>
+<p>PetTomo는 친구나 방 활동, 먹이 주기 이벤트, 펫 케어 리마인더, 배고픔 알림, 구매 이벤트, 공유 아이템 업데이트에 알림을 사용할 수 있습니다. 하지만 모든 채팅 메시지, 모든 펫 상태 변화, 모든 방 조작이 반드시 푸시 알림으로 이어진다는 뜻은 아닙니다.</p>
+<p>알림은 보조 리마인더로 보고, 중요한 상태가 있다면 공유 방을 직접 열어 펫 상태, 채팅, 최근 추억을 확인하세요.</p>
+<h2>앱을 최신 상태로 유지</h2>
+<p>공유 방에서 더 최신 기능을 사용하고 있다면 오래된 앱은 일부 이벤트를 같은 방식으로 처리하지 못할 수 있습니다. PetTomo를 업데이트하면 최신 방, 펫, 꾸미기, 인벤토리, 알림 동작에 맞추기 쉬워집니다.</p>
+<p>로컬 2.1.0 App Store Connect 문구도 펫 케어 일정 신뢰성과 전체 안정성 개선을 언급합니다. 공유 케어 리마인더를 기대할 때도 관련 있는 확인 항목입니다.</p>
+<h2>FAQ</h2>
+<h3>친구는 PetTomo 알림을 받았는데 저는 못 받은 이유는 무엇인가요?</h3>
+<p>기기 권한, 계정 상태, 방 접근, 네트워크, 앱 버전, 이벤트 종류가 멤버마다 다를 수 있습니다. 먼저 기본 조건을 비교하세요.</p>
+<h3>PetTomo 알림 때문에 방이 공개되나요?</h3>
+<p>아니요. PetTomo는 비공개 공유 방을 중심으로 합니다. 알림은 방 멤버의 활동과 관련된 것이며 공개 소셜 게시물이 아닙니다.</p>
+<h3>가장 먼저 무엇을 해봐야 하나요?</h3>
+<p>기기 설정에서 PetTomo 알림을 허용하고, 앱을 열어 올바른 계정으로 로그인했는지 확인한 뒤 공유 방을 로드하세요.</p>
+<h2>정리</h2>
+<p>PetTomo 알림이 오지 않을 때는 기기 권한, 로그인 상태, 방 접근, 네트워크, 앱 버전, 해당 이벤트가 지원되는 알림 유형인지 차례로 확인합니다. 알림은 유용한 보조 수단이지만, 펫 케어, 채팅, 추억, 공유 활동의 기준은 공유 방 자체입니다.</p>
+          </div>
+        </article>
+        <nav class="article-nav" aria-label="Guide navigation">
+          <a href="/guides/">All guides</a>
+          <a href="/guides/ko/">This language</a>
+          <a href="/">PetTomo home</a>
+        </nav>
+      </main>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"PetTomo 알림이 오지 않을 때 확인할 공유 방 설정","description":"PetTomo 공유 방 알림이 오지 않을 때 기기 권한, 로그인, 네트워크, 방 접근 상태, 앱 버전을 확인하는 방법을 정리했습니다.","author":{"@type":"Organization","name":"PetTomo"},"publisher":{"@type":"Organization","name":"PetTomo","logo":{"@type":"ImageObject","url":"https://pet-app-702be.web.app/assets/PetTomo_appicon.png"}},"mainEntityOfPage":"https://pet-app-702be.web.app/guides/ko/shared-room-notification-troubleshooting.html","dateModified":"2026-06-06T00:06:31.088Z"}</script>
+
+  <footer class="site-footer">
+    <span>© 2026 hangyodev</span>
+    <nav aria-label="Footer navigation">
+      <a href="/guides/">Guides</a>
+      <a href="/support.html">Support</a>
+      <a href="/privacy_policy.html">Privacy Policy</a>
+      <a href="/terms_of_use.html">Terms of Use</a>
+    </nav>
+  </footer>
+</body>
+</html>

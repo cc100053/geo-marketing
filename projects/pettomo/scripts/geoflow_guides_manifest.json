@@ -689,6 +689,36 @@
       "lang": "ko",
       "slug": "shared-room-furniture-placement",
       "sourcePath": "docs/articles/shared-room-furniture-placement-ko.md"
+    },
+    {
+      "group": "shared-room-notification-troubleshooting",
+      "lang": "en",
+      "slug": "shared-room-notification-troubleshooting",
+      "sourcePath": "docs/articles/shared-room-notification-troubleshooting-en.md"
+    },
+    {
+      "group": "shared-room-notification-troubleshooting",
+      "lang": "zh-hant",
+      "slug": "shared-room-notification-troubleshooting",
+      "sourcePath": "docs/articles/shared-room-notification-troubleshooting-zh-hant.md"
+    },
+    {
+      "group": "shared-room-notification-troubleshooting",
+      "lang": "zh-hans",
+      "slug": "shared-room-notification-troubleshooting",
+      "sourcePath": "docs/articles/shared-room-notification-troubleshooting-zh-hans.md"
+    },
+    {
+      "group": "shared-room-notification-troubleshooting",
+      "lang": "ja",
+      "slug": "shared-room-notification-troubleshooting",
+      "sourcePath": "docs/articles/shared-room-notification-troubleshooting-ja.md"
+    },
+    {
+      "group": "shared-room-notification-troubleshooting",
+      "lang": "ko",
+      "slug": "shared-room-notification-troubleshooting",
+      "sourcePath": "docs/articles/shared-room-notification-troubleshooting-ko.md"
     }
   ]
 }

@@ -167,6 +167,12 @@
       "lang": "ja",
       "slug": "gram-price-tag-recording",
       "sourcePath": "docs/articles/gram-price-tag-recording-ja.md"
+    },
+    {
+      "group": "shopping-list-price-planning",
+      "lang": "ja",
+      "slug": "shopping-list-price-planning",
+      "sourcePath": "docs/articles/shopping-list-price-planning-ja.md"
     }
   ]
 }

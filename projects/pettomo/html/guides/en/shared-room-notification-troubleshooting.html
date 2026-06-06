@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetTomo notifications not working: shared-room checks for pet care and chat | PetTomo Guides</title>
+  <meta name="description" content="Troubleshoot PetTomo shared-room notifications with permission, sign-in, network, room activity, and app-version checks.">
+  <meta name="keywords" content="PetTomo notifications not working, PetTomo, shared virtual pet app, virtual pet, shared pet room, photo feeding, friends virtual pet app, shared rooms, virtual pet apps">
+  <link rel="canonical" href="https://pet-app-702be.web.app/guides/en/shared-room-notification-troubleshooting.html">
+  <link rel="alternate" hreflang="en" href="https://pet-app-702be.web.app/guides/en/shared-room-notification-troubleshooting.html">
+  <link rel="alternate" hreflang="zh-hant" href="https://pet-app-702be.web.app/guides/zh-hant/shared-room-notification-troubleshooting.html">
+  <link rel="alternate" hreflang="zh-hans" href="https://pet-app-702be.web.app/guides/zh-hans/shared-room-notification-troubleshooting.html">
+  <link rel="alternate" hreflang="ja" href="https://pet-app-702be.web.app/guides/ja/shared-room-notification-troubleshooting.html">
+  <link rel="alternate" hreflang="ko" href="https://pet-app-702be.web.app/guides/ko/shared-room-notification-troubleshooting.html">
+  <link rel="alternate" hreflang="x-default" href="https://pet-app-702be.web.app/guides/">
+  <link rel="icon" type="image/png" href="/assets/PetTomo_appicon.png">
+  <meta property="og:title" content="PetTomo notifications not working: shared-room checks for pet care and chat | PetTomo Guides">
+  <meta property="og:description" content="Troubleshoot PetTomo shared-room notifications with permission, sign-in, network, room activity, and app-version checks.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://pet-app-702be.web.app/guides/en/shared-room-notification-troubleshooting.html">
+  <meta property="og:image" content="https://pet-app-702be.web.app/assets/PetTomo_appicon.png">
+  <style>
+    :root {
+      --primary: #5FBF9E;
+      --secondary: #FFB36B;
+      --bg: #FFFBF3;
+      --panel: #FFFFFF;
+      --text: #2F2A23;
+      --muted: #756B61;
+      --line: #E7DED2;
+      --soft: #F4FAF8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; }
+
+    .site-header,
+    .site-footer {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--primary);
+      font-size: 1.25rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .site-nav a,
+    .site-footer a,
+    .eyebrow a {
+      text-decoration: none;
+    }
+
+    .site-nav a:hover,
+    .site-footer a:hover,
+    .eyebrow a:hover {
+      color: var(--primary);
+    }
+
+    .guides-shell,
+    .article-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 72px;
+    }
+
+    .guides-hero {
+      min-height: 320px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 160px;
+      gap: 40px;
+      align-items: center;
+      padding: 54px 0 40px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .guides-hero img {
+      width: 144px;
+      height: 144px;
+      border-radius: 32px;
+      box-shadow: 0 16px 34px rgba(47, 42, 35, 0.12);
+    }
+
+    .eyebrow,
+    .guide-label {
+      margin: 0 0 12px;
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 820px;
+      margin: 0;
+      font-size: clamp(2.25rem, 6vw, 4.25rem);
+      line-height: 1.06;
+      letter-spacing: 0;
+    }
+
+    .guides-hero p:not(.eyebrow),
+    .article-summary {
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      padding-top: 34px;
+    }
+
+    .guide-card {
+      min-height: 238px;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(47, 42, 35, 0.06);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .guide-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(47, 42, 35, 0.1);
+    }
+
+    .guide-card h2 {
+      margin: 0;
+      font-size: 1.26rem;
+      line-height: 1.25;
+    }
+
+    .guide-card p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .article {
+      max-width: 860px;
+      margin: 26px auto 0;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .article-meta {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .article-content {
+      margin-top: 34px;
+      font-size: 1.04rem;
+    }
+
+    .article-content h2,
+    .article-content h3 {
+      margin: 34px 0 12px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .article-content h2 { font-size: 1.72rem; }
+    .article-content h3 { font-size: 1.28rem; }
+
+    .article-content p,
+    .article-content ul,
+    .article-content ol,
+    .article-content table {
+      margin: 0 0 18px;
+    }
+
+    .article-content ul,
+    .article-content ol {
+      padding-left: 24px;
+    }
+
+    .article-content li + li {
+      margin-top: 7px;
+    }
+
+    .article-content table {
+      width: 100%;
+      border-collapse: collapse;
+      display: block;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    .article-content th,
+    .article-content td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .article-content th {
+      background: var(--soft);
+      font-weight: 800;
+    }
+
+    .article-content blockquote {
+      margin: 24px 0;
+      padding: 18px 20px;
+      border-left: 4px solid var(--secondary);
+      background: var(--panel);
+      border-radius: 0 8px 8px 0;
+      color: var(--muted);
+    }
+
+    .article-nav {
+      max-width: 860px;
+      margin: 24px auto 0;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .article-nav a {
+      padding: 10px 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--panel);
+      color: var(--text);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+      flex-wrap: wrap;
+    }
+
+    .site-footer nav {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 720px) {
+      .site-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .site-nav {
+        flex-wrap: wrap;
+      }
+
+      .guides-hero {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding-top: 28px;
+      }
+
+      .guides-hero img {
+        width: 104px;
+        height: 104px;
+        border-radius: 24px;
+      }
+
+      h1 {
+        font-size: 2.3rem;
+      }
+    }
+  </style>
+</head>
+<body class="article-page">
+  <header class="site-header">
+    <a class="brand" href="/">
+      <img src="/assets/PetTomo_appicon.png" alt="" aria-hidden="true">
+      <span>PetTomo</span>
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="/guides/">Guides</a>
+      <a href="/support.html">Support</a>
+      <a href="/">Home</a>
+    </nav>
+  </header>
+
+      <main class="article-shell">
+        <p class="eyebrow"><a href="/guides/">PetTomo Guides</a></p>
+        <article class="article">
+          <h1>PetTomo notifications not working: shared-room checks for pet care and chat</h1>
+          <p class="article-summary">Troubleshoot PetTomo shared-room notifications with permission, sign-in, network, room activity, and app-version checks.</p>
+          <div class="article-meta">Updated June 6, 2026</div>
+          <div class="article-content">
+            <p>PetTomo is a private shared virtual pet app where invited members care for pets, chat, feed with photos, decorate rooms, and collect room memories. The PetTomo knowledge base confirms that notifications may support room activity, feed events, pet care reminders, hunger or pet-state alerts, and shared item events.</p>
+<p>This guide explains practical checks to try when PetTomo notifications do not arrive as expected.</p>
+<h2>Key takeaways</h2>
+<ul>
+<li>PetTomo notifications are meant to bring members back to meaningful shared-room moments, not create pressure.</li>
+<li>Check device notification permission, sign-in state, network access, and the current app version first.</li>
+<li>Reopening PetTomo can refresh device-token registration and room state.</li>
+<li>Some notification types depend on supported app behavior, room activity, and the current member&#39;s access to the room.</li>
+<li>PetTomo notifications do not make a room public and should not be described as public social updates.</li>
+</ul>
+<h2>Confirm notification permission</h2>
+<p>Start with the device-level setting. If notifications are disabled for PetTomo in iOS or Android settings, the app cannot show alerts even when a shared-room event happens.</p>
+<p>After enabling permission, open PetTomo again and visit the room you care about. This helps confirm that the app is signed in, has current room access, and can refresh local state.</p>
+<h2>Check sign-in and room access</h2>
+<p>PetTomo room data is scoped to active room members. If a user signed out, changed accounts, left a room, or joined with a different account than expected, notification behavior can feel inconsistent.</p>
+<p>Open PetTomo and confirm:</p>
+<ul>
+<li>You are signed in.</li>
+<li>The expected room appears.</li>
+<li>The shared pet and room chat load.</li>
+<li>The room has recent activity that could trigger a notification.</li>
+</ul>
+<p>If the room does not appear, solve the room access issue first. Notifications cannot reliably stand in for missing room membership.</p>
+<h2>Reopen the app to refresh registration</h2>
+<p>PetTomo&#39;s knowledge base recommends reopening the app to refresh device token registration when notifications are not working. This is useful after reinstalling the app, changing devices, restoring a phone, updating the operating system, or returning after a long break.</p>
+<p>Also check that the device has network access. A weak connection can delay room updates and notification registration.</p>
+<h2>Match expectations to supported events</h2>
+<p>PetTomo may use notifications for friend or room activity, feed-related room events, pet care reminders, hunger alerts, purchase events, or shared item updates. That does not mean every chat message, every pet-state change, or every room action is guaranteed to produce a push notification.</p>
+<p>Treat notifications as a helpful reminder layer. For time-sensitive shared care, open the room directly and check the pet state, chat, and recent memory activity.</p>
+<h2>Keep the app updated</h2>
+<p>If a room uses newer shared-room features, older app versions may not understand every event in the same way. Updating PetTomo can help the app handle the latest room, pet, decoration, inventory, and notification behavior.</p>
+<p>The 2.1.0 local App Store Connect copy also notes improved pet care scheduling reliability and overall app stability, which is relevant when users rely on reminders around shared pet care.</p>
+<h2>FAQ</h2>
+<h3>Why did my friend get a PetTomo notification but I did not?</h3>
+<p>Device permission, account state, room access, network conditions, app version, and the specific event type can all differ by member. Compare those basics before assuming the room is broken.</p>
+<h3>Do PetTomo notifications make my room public?</h3>
+<p>No. PetTomo is centered on private shared rooms. Notifications are related to room activity for members and are not public social posts.</p>
+<h3>What is the first thing to try?</h3>
+<p>Enable device notifications for PetTomo, open the app, confirm you are signed in to the right account, and load the shared room.</p>
+<h2>Summary</h2>
+<p>When PetTomo notifications are not working, check device permission, sign-in state, room access, network, app version, and whether the event is a supported notification type. Notifications are useful reminders, but the room itself remains the source of truth for pet care, chat, memories, and shared activity.</p>
+          </div>
+        </article>
+        <nav class="article-nav" aria-label="Guide navigation">
+          <a href="/guides/">All guides</a>
+          <a href="/guides/en/">This language</a>
+          <a href="/">PetTomo home</a>
+        </nav>
+      </main>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"PetTomo notifications not working: shared-room checks for pet care and chat","description":"Troubleshoot PetTomo shared-room notifications with permission, sign-in, network, room activity, and app-version checks.","author":{"@type":"Organization","name":"PetTomo"},"publisher":{"@type":"Organization","name":"PetTomo","logo":{"@type":"ImageObject","url":"https://pet-app-702be.web.app/assets/PetTomo_appicon.png"}},"mainEntityOfPage":"https://pet-app-702be.web.app/guides/en/shared-room-notification-troubleshooting.html","dateModified":"2026-06-06T00:06:31.088Z"}</script>
+
+  <footer class="site-footer">
+    <span>© 2026 hangyodev</span>
+    <nav aria-label="Footer navigation">
+      <a href="/guides/">Guides</a>
+      <a href="/support.html">Support</a>
+      <a href="/privacy_policy.html">Privacy Policy</a>
+      <a href="/terms_of_use.html">Terms of Use</a>
+    </nav>
+  </footer>
+</body>
+</html>

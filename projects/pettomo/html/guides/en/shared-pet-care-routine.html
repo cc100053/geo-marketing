@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to keep a shared pet care routine in PetTomo | PetTomo Guides</title>
+  <meta name="description" content="Use PetTomo shared rooms, photo feeding, chat, memories, and care reminders to keep a lightweight virtual pet routine with invited members.">
+  <meta name="keywords" content="shared pet care routine app, PetTomo, shared virtual pet app, virtual pet, shared pet room, photo feeding, couples virtual pet app, friends virtual pet app, shared rooms">
+  <link rel="canonical" href="https://pet-app-702be.web.app/guides/en/shared-pet-care-routine.html">
+  <link rel="alternate" hreflang="en" href="https://pet-app-702be.web.app/guides/en/shared-pet-care-routine.html">
+  <link rel="alternate" hreflang="zh-hant" href="https://pet-app-702be.web.app/guides/zh-hant/shared-pet-care-routine.html">
+  <link rel="alternate" hreflang="zh-hans" href="https://pet-app-702be.web.app/guides/zh-hans/shared-pet-care-routine.html">
+  <link rel="alternate" hreflang="ja" href="https://pet-app-702be.web.app/guides/ja/shared-pet-care-routine.html">
+  <link rel="alternate" hreflang="ko" href="https://pet-app-702be.web.app/guides/ko/shared-pet-care-routine.html">
+  <link rel="alternate" hreflang="x-default" href="https://pet-app-702be.web.app/guides/">
+  <link rel="icon" type="image/png" href="/assets/PetTomo_appicon.png">
+  <meta property="og:title" content="How to keep a shared pet care routine in PetTomo | PetTomo Guides">
+  <meta property="og:description" content="Use PetTomo shared rooms, photo feeding, chat, memories, and care reminders to keep a lightweight virtual pet routine with invited members.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://pet-app-702be.web.app/guides/en/shared-pet-care-routine.html">
+  <meta property="og:image" content="https://pet-app-702be.web.app/assets/PetTomo_appicon.png">
+  <style>
+    :root {
+      --primary: #5FBF9E;
+      --secondary: #FFB36B;
+      --bg: #FFFBF3;
+      --panel: #FFFFFF;
+      --text: #2F2A23;
+      --muted: #756B61;
+      --line: #E7DED2;
+      --soft: #F4FAF8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; }
+
+    .site-header,
+    .site-footer {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--primary);
+      font-size: 1.25rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .site-nav a,
+    .site-footer a,
+    .eyebrow a {
+      text-decoration: none;
+    }
+
+    .site-nav a:hover,
+    .site-footer a:hover,
+    .eyebrow a:hover {
+      color: var(--primary);
+    }
+
+    .guides-shell,
+    .article-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 72px;
+    }
+
+    .guides-hero {
+      min-height: 320px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 160px;
+      gap: 40px;
+      align-items: center;
+      padding: 54px 0 40px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .guides-hero img {
+      width: 144px;
+      height: 144px;
+      border-radius: 32px;
+      box-shadow: 0 16px 34px rgba(47, 42, 35, 0.12);
+    }
+
+    .eyebrow,
+    .guide-label {
+      margin: 0 0 12px;
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 820px;
+      margin: 0;
+      font-size: clamp(2.25rem, 6vw, 4.25rem);
+      line-height: 1.06;
+      letter-spacing: 0;
+    }
+
+    .guides-hero p:not(.eyebrow),
+    .article-summary {
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      padding-top: 34px;
+    }
+
+    .guide-card {
+      min-height: 238px;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(47, 42, 35, 0.06);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .guide-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(47, 42, 35, 0.1);
+    }
+
+    .guide-card h2 {
+      margin: 0;
+      font-size: 1.26rem;
+      line-height: 1.25;
+    }
+
+    .guide-card p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .article {
+      max-width: 860px;
+      margin: 26px auto 0;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .article-meta {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .article-content {
+      margin-top: 34px;
+      font-size: 1.04rem;
+    }
+
+    .article-content h2,
+    .article-content h3 {
+      margin: 34px 0 12px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .article-content h2 { font-size: 1.72rem; }
+    .article-content h3 { font-size: 1.28rem; }
+
+    .article-content p,
+    .article-content ul,
+    .article-content ol,
+    .article-content table {
+      margin: 0 0 18px;
+    }
+
+    .article-content ul,
+    .article-content ol {
+      padding-left: 24px;
+    }
+
+    .article-content li + li {
+      margin-top: 7px;
+    }
+
+    .article-content table {
+      width: 100%;
+      border-collapse: collapse;
+      display: block;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    .article-content th,
+    .article-content td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .article-content th {
+      background: var(--soft);
+      font-weight: 800;
+    }
+
+    .article-content blockquote {
+      margin: 24px 0;
+      padding: 18px 20px;
+      border-left: 4px solid var(--secondary);
+      background: var(--panel);
+      border-radius: 0 8px 8px 0;
+      color: var(--muted);
+    }
+
+    .article-nav {
+      max-width: 860px;
+      margin: 24px auto 0;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .article-nav a {
+      padding: 10px 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--panel);
+      color: var(--text);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+      flex-wrap: wrap;
+    }
+
+    .site-footer nav {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 720px) {
+      .site-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .site-nav {
+        flex-wrap: wrap;
+      }
+
+      .guides-hero {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding-top: 28px;
+      }
+
+      .guides-hero img {
+        width: 104px;
+        height: 104px;
+        border-radius: 24px;
+      }
+
+      h1 {
+        font-size: 2.3rem;
+      }
+    }
+  </style>
+</head>
+<body class="article-page">
+  <header class="site-header">
+    <a class="brand" href="/">
+      <img src="/assets/PetTomo_appicon.png" alt="" aria-hidden="true">
+      <span>PetTomo</span>
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="/guides/">Guides</a>
+      <a href="/support.html">Support</a>
+      <a href="/">Home</a>
+    </nav>
+  </header>
+
+      <main class="article-shell">
+        <p class="eyebrow"><a href="/guides/">PetTomo Guides</a></p>
+        <article class="article">
+          <h1>How to keep a shared pet care routine in PetTomo</h1>
+          <p class="article-summary">Use PetTomo shared rooms, photo feeding, chat, memories, and care reminders to keep a lightweight virtual pet routine with invited members.</p>
+          <div class="article-meta">Updated June 8, 2026</div>
+          <div class="article-content">
+            <p>PetTomo is a private shared virtual pet app where invited members raise the same pet inside a shared room. A good PetTomo routine is not about constant checking. It is about giving couples, friends, families, or small groups a light reason to return, feed the pet with photos, chat, and collect memories together.</p>
+<p>Local 2.1.0 release copy says PetTomo improved pet care scheduling reliability and overall stability. That makes shared pet care timing a useful evergreen topic, as long as the guide does not promise perfect reminders or guaranteed outcomes.</p>
+<h2>Key takeaways</h2>
+<ul>
+<li>PetTomo rooms are private spaces joined by invite link or invite code.</li>
+<li>Shared pet care can include photo feeding, chat, memories, decoration, and pet state checks.</li>
+<li>Care reminders and hunger or pet-state alerts are helpful prompts, not a replacement for opening the room.</li>
+<li>A simple routine works better than pressure to respond immediately.</li>
+<li>Keeping app versions current helps room members share the same supported experience.</li>
+</ul>
+<h2>Start with one shared room</h2>
+<p>The room is the center of PetTomo. It contains the pet, room members, chat, decorations, memories, and shared state. Before building a routine, make sure everyone is in the intended room and signed in with the right account.</p>
+<p>For couples or close friends, one active room is often enough. A small group can use the pet as a shared mascot, while keeping messages and photos inside the invited room rather than a public feed.</p>
+<h2>Use photo feeding as the daily anchor</h2>
+<p>Photo feeding is one of PetTomo&#39;s signature interactions. A lunch photo, commute view, pet photo, or small daily scene can become a pet care action. This works well because the routine has a concrete action: feed the pet with a moment from the day.</p>
+<p>Members do not need to write a long message every time. A photo feed can give the room something to react to, and chat can add context when someone wants to say more.</p>
+<h2>Let reminders support the routine</h2>
+<p>PetTomo knowledge-base notes describe notifications for room activity, feed events, pet care reminders, hunger or pet-state alerts, and purchase or shared-item events. These notifications should be treated as gentle prompts.</p>
+<p>If a reminder seems late or missing, check device notification permission, sign-in, network access, app version, and whether the notification type is supported. Opening the app can also refresh device registration and room state.</p>
+<h2>Keep it low pressure</h2>
+<p>PetTomo should not be described as replacing real communication or guaranteeing relationship results. The safer promise is smaller and more accurate: it gives invited members a shared virtual pet routine that can make small daily check-ins easier.</p>
+<p>For long-distance couples, that may mean one feed photo per day. For friends, it may mean checking the room after school or work. For families, it may mean using the pet as a playful reminder to share small updates.</p>
+<h2>FAQ</h2>
+<h3>Does PetTomo require constant pet care?</h3>
+<p>No. PetTomo works best as a lightweight shared routine. Members can use reminders, photo feeding, and room checks without treating the app like a full-time task.</p>
+<h3>Can more than one member care for the same pet?</h3>
+<p>Yes. PetTomo is built around invited shared rooms where members care for the same room pet together.</p>
+<h3>Do notifications guarantee that everyone will see every event?</h3>
+<p>No. Notifications depend on device permission, sign-in, network access, app version, and supported event type. The shared room itself remains the place to check pet state, chat, and memories.</p>
+<h2>Summary</h2>
+<p>A good PetTomo routine is simple: keep the right private room, feed the shared pet with small daily photos, use chat when useful, and let reminders bring members back without creating pressure. PetTomo 2.1.0 supports cautious messaging around improved pet care scheduling reliability, while the routine should stay grounded in confirmed shared-room behavior.</p>
+          </div>
+        </article>
+        <nav class="article-nav" aria-label="Guide navigation">
+          <a href="/guides/">All guides</a>
+          <a href="/guides/en/">This language</a>
+          <a href="/">PetTomo home</a>
+        </nav>
+      </main>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How to keep a shared pet care routine in PetTomo","description":"Use PetTomo shared rooms, photo feeding, chat, memories, and care reminders to keep a lightweight virtual pet routine with invited members.","author":{"@type":"Organization","name":"PetTomo"},"publisher":{"@type":"Organization","name":"PetTomo","logo":{"@type":"ImageObject","url":"https://pet-app-702be.web.app/assets/PetTomo_appicon.png"}},"mainEntityOfPage":"https://pet-app-702be.web.app/guides/en/shared-pet-care-routine.html","dateModified":"2026-06-08T11:17:06.646Z"}</script>
+
+  <footer class="site-footer">
+    <span>© 2026 hangyodev</span>
+    <nav aria-label="Footer navigation">
+      <a href="/guides/">Guides</a>
+      <a href="/support.html">Support</a>
+      <a href="/privacy_policy.html">Privacy Policy</a>
+      <a href="/terms_of_use.html">Terms of Use</a>
+    </nav>
+  </footer>
+</body>
+</html>

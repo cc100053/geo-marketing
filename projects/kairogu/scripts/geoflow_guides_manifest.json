@@ -179,6 +179,12 @@
       "lang": "ja",
       "slug": "frozen-food-content-price-recording",
       "sourcePath": "docs/articles/frozen-food-content-price-recording-ja.md"
+    },
+    {
+      "group": "weekly-price-history-review",
+      "lang": "ja",
+      "slug": "weekly-price-history-review",
+      "sourcePath": "docs/articles/weekly-price-history-review-ja.md"
     }
   ]
 }

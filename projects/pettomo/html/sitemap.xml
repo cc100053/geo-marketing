@@ -564,4 +564,24 @@
     <loc>https://pet-app-702be.web.app/guides/ko/shared-room-inventory-small-screen.html</loc>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/en/shared-pet-care-routine.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/zh-hant/shared-pet-care-routine.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/zh-hans/shared-pet-care-routine.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/ja/shared-pet-care-routine.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/ko/shared-pet-care-routine.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
 </urlset>

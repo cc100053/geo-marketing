@@ -749,6 +749,36 @@
       "lang": "ko",
       "slug": "shared-room-inventory-small-screen",
       "sourcePath": "docs/articles/shared-room-inventory-small-screen-ko.md"
+    },
+    {
+      "group": "shared-pet-care-routine",
+      "lang": "en",
+      "slug": "shared-pet-care-routine",
+      "sourcePath": "docs/articles/shared-pet-care-routine-en.md"
+    },
+    {
+      "group": "shared-pet-care-routine",
+      "lang": "zh-hant",
+      "slug": "shared-pet-care-routine",
+      "sourcePath": "docs/articles/shared-pet-care-routine-zh-hant.md"
+    },
+    {
+      "group": "shared-pet-care-routine",
+      "lang": "zh-hans",
+      "slug": "shared-pet-care-routine",
+      "sourcePath": "docs/articles/shared-pet-care-routine-zh-hans.md"
+    },
+    {
+      "group": "shared-pet-care-routine",
+      "lang": "ja",
+      "slug": "shared-pet-care-routine",
+      "sourcePath": "docs/articles/shared-pet-care-routine-ja.md"
+    },
+    {
+      "group": "shared-pet-care-routine",
+      "lang": "ko",
+      "slug": "shared-pet-care-routine",
+      "sourcePath": "docs/articles/shared-pet-care-routine-ko.md"
     }
   ]
 }

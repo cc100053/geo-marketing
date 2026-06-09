@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>レシートを撮影して価格記録をまとめて見直す時のポイント | カイログ ガイド</title>
+  <meta name="description" content="カイログでレシート撮影から複数商品の価格記録を確認する時に、商品名、価格、数量、値引き、税込・税抜をどう見直すかを整理します。">
+  <meta name="keywords" content="レシート 撮影 価格記録">
+  <link rel="canonical" href="https://www.kairogu.men/guides/ja/receipt-scan-price-recording.html">
+  <link rel="icon" type="image/png" href="/icon.png">
+  <meta property="og:title" content="レシートを撮影して価格記録をまとめて見直す時のポイント | カイログ ガイド">
+  <meta property="og:description" content="カイログでレシート撮影から複数商品の価格記録を確認する時に、商品名、価格、数量、値引き、税込・税抜をどう見直すかを整理します。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.kairogu.men/guides/ja/receipt-scan-price-recording.html">
+  <meta property="og:image" content="https://www.kairogu.men/icon.png">
+  <style>
+    :root {
+      --primary: #1A8D7A;
+      --accent: #F4A261;
+      --bg: #FAF9F7;
+      --panel: #FFFFFF;
+      --text: #242424;
+      --muted: #667085;
+      --line: #E5E1DA;
+      --soft: #EEF8F5;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", "Segoe UI", sans-serif;
+      line-height: 1.8;
+    }
+
+    a { color: inherit; }
+
+    .site-header,
+    .site-footer {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--primary);
+      font-size: 1.18rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .site-nav a,
+    .site-footer a,
+    .eyebrow a {
+      text-decoration: none;
+    }
+
+    .site-nav a:hover,
+    .site-footer a:hover,
+    .eyebrow a:hover {
+      color: var(--primary);
+    }
+
+    .guides-shell,
+    .article-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 72px;
+    }
+
+    .guides-hero {
+      min-height: 300px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 150px;
+      gap: 40px;
+      align-items: center;
+      padding: 52px 0 40px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .guides-hero img {
+      width: 132px;
+      height: 132px;
+      border-radius: 28px;
+      box-shadow: 0 16px 34px rgba(36, 36, 36, 0.12);
+    }
+
+    .eyebrow,
+    .guide-label {
+      margin: 0 0 12px;
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 840px;
+      margin: 0;
+      font-size: clamp(2.1rem, 6vw, 4rem);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    .guides-hero p:not(.eyebrow),
+    .article-summary {
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      padding-top: 34px;
+    }
+
+    .guide-card {
+      min-height: 220px;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(36, 36, 36, 0.06);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .guide-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(36, 36, 36, 0.1);
+    }
+
+    .guide-card h2 {
+      margin: 0;
+      font-size: 1.24rem;
+      line-height: 1.35;
+    }
+
+    .guide-card p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .article {
+      max-width: 860px;
+      margin: 26px auto 0;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .article-meta {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .article-content {
+      margin-top: 34px;
+      font-size: 1.04rem;
+    }
+
+    .article-content h2,
+    .article-content h3 {
+      margin: 34px 0 12px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    .article-content h2 { font-size: 1.58rem; }
+    .article-content h3 { font-size: 1.22rem; }
+
+    .article-content p,
+    .article-content li {
+      color: #3F3A36;
+    }
+
+    .article-content ul,
+    .article-content ol {
+      padding-left: 1.35rem;
+    }
+
+    .article-nav {
+      max-width: 860px;
+      margin: 24px auto 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .article-nav a {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--primary);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    @media (max-width: 720px) {
+      .site-header,
+      .site-footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .guides-hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .guides-hero img {
+        width: 104px;
+        height: 104px;
+      }
+    }
+  </style>
+</head>
+<body class="article-page">
+  <header class="site-header">
+    <a class="brand" href="/">
+      <img src="/icon.png" alt="カイログ">
+      <span>カイログ</span>
+    </a>
+    <nav class="site-nav" aria-label="Site navigation">
+      <a href="/guides/">ガイド</a>
+      <a href="/privacy.html">プライバシー</a>
+      <a href="/terms.html">利用規約</a>
+    </nav>
+  </header>
+<main class="article-shell">
+        <p class="eyebrow"><a href="/guides/">カイログ ガイド</a></p>
+        <article class="article">
+          <h1>レシートを撮影して価格記録をまとめて見直す時のポイント</h1>
+          <p class="article-summary">カイログでレシート撮影から複数商品の価格記録を確認する時に、商品名、価格、数量、値引き、税込・税抜をどう見直すかを整理します。</p>
+          <div class="article-meta">更新日 2026/06/09</div>
+          <div class="article-content">
+            <p>スーパーやドラッグストアで複数の商品を買った後、レシートを見ながら一つずつ価格を残すのは手間がかかります。レシート撮影を使う場合でも、読み取った内容をそのまま保存するのではなく、保存前に商品名、価格、数量、値引き、税込・税抜を確認すると、後から価格履歴として使いやすくなります。</p>
+<p>カイログは、価格タグ撮影、商品名・価格・割引・容量・カテゴリ・店舗の記録、買い物リスト、過去の価格履歴、近くの価格情報を組み合わせて使える日本向け価格管理アプリです。アプリのローカル製品メモでは、レシート撮影から複数行を確認し、行ごとに編集・除外し、税抜・税込の基準を確認してから通常の価格記録として保存する流れが説明されています。</p>
+<p>この記事では、レシート撮影でまとめて価格記録を作る時に、どこを見直すと日々の買い物に使いやすい履歴になるかを整理します。</p>
+<h2>要点</h2>
+<ul>
+<li>レシート撮影は複数商品の入力補助として使い、保存前に人が確認します。</li>
+<li>商品名、価格、数量、値引き、税込・税抜の基準をそろえると、後から比較しやすくなります。</li>
+<li>カイログのローカル製品メモでは、レシート行の編集、除外、税抜・税込切り替え、共有画像付きの記録確認が説明されています。</li>
+<li>レシートの購入日は表示用の扱いで、保存時刻や記録ルールと混同しないようにします。</li>
+<li>近くの価格情報や価格比較は、記録内容と利用状況に左右されるため、価格網羅や安さを断定しません。</li>
+</ul>
+<h2>レシート撮影が向いている場面</h2>
+<p>レシート撮影は、買い物後に複数商品をまとめて振り返りたい時に向いています。たとえば、肉、野菜、冷凍食品、日用品を一度に買った日や、家計を見直したい週のまとめ入力に使いやすい方法です。</p>
+<p>一方で、店頭で今まさに価格を比べたい時は、価格タグ撮影や過去の価格履歴の確認が向いています。レシート撮影は「買った後に履歴を整える」使い方として考えると自然です。</p>
+<h2>保存前に見るべき項目</h2>
+<h3>商品名</h3>
+<p>レシートの商品名は短縮されていることがあります。後から検索しやすいように、必要なら商品名を少し整えます。正式名称を完璧に入れるより、自分が次の買い物で見返して分かる名前にすることが大切です。</p>
+<h3>価格と数量</h3>
+<p>複数個購入、まとめ売り、単品価格が混ざると、価格の意味が分かりにくくなります。行ごとの価格が、1個あたりなのか、複数個まとめた金額なのかを確認します。</p>
+<h3>値引き</h3>
+<p>見切り品、クーポン、まとめ値引き、会員価格などは、通常価格とは意味が違います。値引き後の価格として残すのか、通常時の比較から分けて考えるのかを決めておくと、後から履歴を見た時に誤解しにくくなります。</p>
+<h3>税込・税抜</h3>
+<p>レシートには税抜小計、税込合計、税率別の金額が一緒に出ることがあります。カイログのローカル製品メモでは、確認画面で税抜・税込の基準を切り替えて確認できる流れが説明されています。自分の記録ルールに合わせて保存前に確認します。</p>
+<h2>カイログで整理しやすい使い方</h2>
+<p>レシートから読み取った行は、全部を保存する必要はありません。価格履歴として見返したい商品だけ残し、不要な行は除外する考え方が実用的です。</p>
+<p>よく買う商品、価格差が大きい商品、内容量や個数で迷いやすい商品から記録すると、価格履歴を見返す意味が出やすくなります。カイログでは、保存した記録を過去の価格履歴やカテゴリ別の見返しに使えるため、買い物後の整理と次回の買い物前チェックをつなげやすくなります。</p>
+<h2>注意したいこと</h2>
+<p>レシート撮影は入力を助ける機能であり、すべてを自動で正しく判断すると断定しない方が安全です。印字が薄い、商品名が省略されている、税率や値引きが複雑、まとめ買い条件が特殊といった場合は、保存前の確認が特に大切です。</p>
+<p>また、近くの価格情報は利用状況や記録内容に左右されます。地域の価格を網羅したり、常に安い店を示したりする使い方ではなく、自分の記録と店頭価格を合わせて判断するための補助として見るのが現実的です。</p>
+<h2>よくある質問</h2>
+<h3>レシート撮影だけで価格履歴は作れますか？</h3>
+<p>複数商品の入力補助として使えますが、保存前の確認は必要です。商品名、価格、数量、値引き、税込・税抜の基準を見ると、後から比較しやすい履歴になります。</p>
+<h3>すべての商品を保存するべきですか？</h3>
+<p>必ずすべて保存する必要はありません。よく買う商品、価格を追いたい商品、容量違いで迷いやすい商品を中心に残すと続けやすくなります。</p>
+<h3>価格タグ撮影とレシート撮影はどう使い分けますか？</h3>
+<p>店頭で今の価格を記録したい時は価格タグ撮影、買い物後に複数商品をまとめて整理したい時はレシート撮影が向いています。どちらも保存前に内容を確認して使います。</p>
+<h2>まとめ</h2>
+<p>レシート撮影で価格記録をまとめて作る時は、商品名、価格、数量、値引き、税込・税抜を保存前に確認することが大切です。カイログでは、買い物後の整理を価格履歴として残し、次回の買い物前に見返す流れを作りやすくなります。</p>
+          </div>
+        </article>
+        <nav class="article-nav" aria-label="Guide navigation">
+          <a href="/guides/">すべてのガイド</a>
+          <a href="/guides/ja/">日本語ガイド</a>
+          <a href="/">カイログ ホーム</a>
+        </nav>
+      </main>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"レシートを撮影して価格記録をまとめて見直す時のポイント","description":"カイログでレシート撮影から複数商品の価格記録を確認する時に、商品名、価格、数量、値引き、税込・税抜をどう見直すかを整理します。","inLanguage":"ja","author":{"@type":"Organization","name":"カイログ編集部"},"publisher":{"@type":"Organization","name":"カイログ","logo":{"@type":"ImageObject","url":"https://www.kairogu.men/icon.png"}},"mainEntityOfPage":"https://www.kairogu.men/guides/ja/receipt-scan-price-recording.html","dateModified":"2026-06-09T11:09:45.574Z"}</script>
+  <footer class="site-footer">
+    <span>&copy; 2026 hangyodev</span>
+    <a href="mailto:hangyodev@gmail.com">お問い合わせ</a>
+  </footer>
+</body>
+</html>

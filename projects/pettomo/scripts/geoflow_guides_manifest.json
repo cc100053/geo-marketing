@@ -779,6 +779,36 @@
       "lang": "ko",
       "slug": "shared-pet-care-routine",
       "sourcePath": "docs/articles/shared-pet-care-routine-ko.md"
+    },
+    {
+      "group": "shared-room-shop-rewards",
+      "lang": "en",
+      "slug": "shared-room-shop-rewards",
+      "sourcePath": "docs/articles/shared-room-shop-rewards-en.md"
+    },
+    {
+      "group": "shared-room-shop-rewards",
+      "lang": "zh-hant",
+      "slug": "shared-room-shop-rewards",
+      "sourcePath": "docs/articles/shared-room-shop-rewards-zh-hant.md"
+    },
+    {
+      "group": "shared-room-shop-rewards",
+      "lang": "zh-hans",
+      "slug": "shared-room-shop-rewards",
+      "sourcePath": "docs/articles/shared-room-shop-rewards-zh-hans.md"
+    },
+    {
+      "group": "shared-room-shop-rewards",
+      "lang": "ja",
+      "slug": "shared-room-shop-rewards",
+      "sourcePath": "docs/articles/shared-room-shop-rewards-ja.md"
+    },
+    {
+      "group": "shared-room-shop-rewards",
+      "lang": "ko",
+      "slug": "shared-room-shop-rewards",
+      "sourcePath": "docs/articles/shared-room-shop-rewards-ko.md"
     }
   ]
 }

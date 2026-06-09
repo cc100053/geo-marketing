@@ -185,6 +185,12 @@
       "lang": "ja",
       "slug": "weekly-price-history-review",
       "sourcePath": "docs/articles/weekly-price-history-review-ja.md"
+    },
+    {
+      "group": "receipt-scan-price-recording",
+      "lang": "ja",
+      "slug": "receipt-scan-price-recording",
+      "sourcePath": "docs/articles/receipt-scan-price-recording-ja.md"
     }
   ]
 }

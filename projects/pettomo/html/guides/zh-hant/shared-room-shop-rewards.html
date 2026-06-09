@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetTomo 共享房間裡的商店道具與獎勵怎麼理解 | PetTomo Guides</title>
+  <meta name="description" content="了解 PetTomo 共享房間中的 Candy、Diamonds、裝飾、寵物裝備、房間庫存與購買訊息，避免把私人房間誤解成公開社群。">
+  <meta name="keywords" content="PetTomo 商店獎勵, PetTomo, shared virtual pet app, virtual pet, shared pet room">
+  <link rel="canonical" href="https://pet-app-702be.web.app/guides/zh-hant/shared-room-shop-rewards.html">
+  <link rel="alternate" hreflang="en" href="https://pet-app-702be.web.app/guides/en/shared-room-shop-rewards.html">
+  <link rel="alternate" hreflang="zh-hant" href="https://pet-app-702be.web.app/guides/zh-hant/shared-room-shop-rewards.html">
+  <link rel="alternate" hreflang="zh-hans" href="https://pet-app-702be.web.app/guides/zh-hans/shared-room-shop-rewards.html">
+  <link rel="alternate" hreflang="ja" href="https://pet-app-702be.web.app/guides/ja/shared-room-shop-rewards.html">
+  <link rel="alternate" hreflang="ko" href="https://pet-app-702be.web.app/guides/ko/shared-room-shop-rewards.html">
+  <link rel="alternate" hreflang="x-default" href="https://pet-app-702be.web.app/guides/">
+  <link rel="icon" type="image/png" href="/assets/PetTomo_appicon.png">
+  <meta property="og:title" content="PetTomo 共享房間裡的商店道具與獎勵怎麼理解 | PetTomo Guides">
+  <meta property="og:description" content="了解 PetTomo 共享房間中的 Candy、Diamonds、裝飾、寵物裝備、房間庫存與購買訊息，避免把私人房間誤解成公開社群。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://pet-app-702be.web.app/guides/zh-hant/shared-room-shop-rewards.html">
+  <meta property="og:image" content="https://pet-app-702be.web.app/assets/PetTomo_appicon.png">
+  <style>
+    :root {
+      --primary: #5FBF9E;
+      --secondary: #FFB36B;
+      --bg: #FFFBF3;
+      --panel: #FFFFFF;
+      --text: #2F2A23;
+      --muted: #756B61;
+      --line: #E7DED2;
+      --soft: #F4FAF8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; }
+
+    .site-header,
+    .site-footer {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--primary);
+      font-size: 1.25rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .site-nav a,
+    .site-footer a,
+    .eyebrow a {
+      text-decoration: none;
+    }
+
+    .site-nav a:hover,
+    .site-footer a:hover,
+    .eyebrow a:hover {
+      color: var(--primary);
+    }
+
+    .guides-shell,
+    .article-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 72px;
+    }
+
+    .guides-hero {
+      min-height: 320px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 160px;
+      gap: 40px;
+      align-items: center;
+      padding: 54px 0 40px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .guides-hero img {
+      width: 144px;
+      height: 144px;
+      border-radius: 32px;
+      box-shadow: 0 16px 34px rgba(47, 42, 35, 0.12);
+    }
+
+    .eyebrow,
+    .guide-label {
+      margin: 0 0 12px;
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 820px;
+      margin: 0;
+      font-size: clamp(2.25rem, 6vw, 4.25rem);
+      line-height: 1.06;
+      letter-spacing: 0;
+    }
+
+    .guides-hero p:not(.eyebrow),
+    .article-summary {
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      padding-top: 34px;
+    }
+
+    .guide-card {
+      min-height: 238px;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(47, 42, 35, 0.06);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .guide-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(47, 42, 35, 0.1);
+    }
+
+    .guide-card h2 {
+      margin: 0;
+      font-size: 1.26rem;
+      line-height: 1.25;
+    }
+
+    .guide-card p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .article {
+      max-width: 860px;
+      margin: 26px auto 0;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .article-meta {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .article-content {
+      margin-top: 34px;
+      font-size: 1.04rem;
+    }
+
+    .article-content h2,
+    .article-content h3 {
+      margin: 34px 0 12px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .article-content h2 { font-size: 1.72rem; }
+    .article-content h3 { font-size: 1.28rem; }
+
+    .article-content p,
+    .article-content ul,
+    .article-content ol,
+    .article-content table {
+      margin: 0 0 18px;
+    }
+
+    .article-content ul,
+    .article-content ol {
+      padding-left: 24px;
+    }
+
+    .article-content li + li {
+      margin-top: 7px;
+    }
+
+    .article-content table {
+      width: 100%;
+      border-collapse: collapse;
+      display: block;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    .article-content th,
+    .article-content td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .article-content th {
+      background: var(--soft);
+      font-weight: 800;
+    }
+
+    .article-content blockquote {
+      margin: 24px 0;
+      padding: 18px 20px;
+      border-left: 4px solid var(--secondary);
+      background: var(--panel);
+      border-radius: 0 8px 8px 0;
+      color: var(--muted);
+    }
+
+    .article-nav {
+      max-width: 860px;
+      margin: 24px auto 0;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .article-nav a {
+      padding: 10px 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--panel);
+      color: var(--text);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+      flex-wrap: wrap;
+    }
+
+    .site-footer nav {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 720px) {
+      .site-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .site-nav {
+        flex-wrap: wrap;
+      }
+
+      .guides-hero {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding-top: 28px;
+      }
+
+      .guides-hero img {
+        width: 104px;
+        height: 104px;
+        border-radius: 24px;
+      }
+
+      h1 {
+        font-size: 2.3rem;
+      }
+    }
+  </style>
+</head>
+<body class="article-page">
+  <header class="site-header">
+    <a class="brand" href="/">
+      <img src="/assets/PetTomo_appicon.png" alt="" aria-hidden="true">
+      <span>PetTomo</span>
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="/guides/">Guides</a>
+      <a href="/support.html">Support</a>
+      <a href="/">Home</a>
+    </nav>
+  </header>
+
+      <main class="article-shell">
+        <p class="eyebrow"><a href="/guides/">PetTomo Guides</a></p>
+        <article class="article">
+          <h1>PetTomo 共享房間裡的商店道具與獎勵怎麼理解</h1>
+          <p class="article-summary">了解 PetTomo 共享房間中的 Candy、Diamonds、裝飾、寵物裝備、房間庫存與購買訊息，避免把私人房間誤解成公開社群。</p>
+          <div class="article-meta">Updated June 9, 2026</div>
+          <div class="article-content">
+            <p>PetTomo 是給受邀成員一起使用的私人共享虛擬寵物 App。共享房間可以包含共同照顧的寵物、照片餵食、聊天、回憶、房間裝飾、房間庫存與寵物裝備。因為這些操作都發生在同一個房間裡，商店道具與獎勵也應該放在共享房間的脈絡下理解。</p>
+<p>這篇文章整理 Candy、Diamonds、商店購買、房間範圍道具與購買訊息的基本觀念。</p>
+<h2>重點整理</h2>
+<ul>
+<li>PetTomo 房間是邀請制私人空間，不是公開社群。</li>
+<li>PetTomo 產品資料提到 Candy、Diamonds、裝飾、消耗品、寵物裝備與訂閱相關權益等商店或貨幣概念。</li>
+<li>部分道具與裝備是房間範圍，因此購買或裝備前要確認目前所在房間。</li>
+<li>商店操作可能產生房間訊息，讓成員知道房間裡發生了什麼變化。</li>
+<li>購買與獎勵完成後，相關畫面應更新；但平台購買流程與 App 版本相容性可能影響顯示。</li>
+</ul>
+<h2>為什麼商店道具會影響共享房間</h2>
+<p>在 PetTomo 中，房間裝飾與寵物穿搭不只是個人設定。房間由受邀成員共同使用，因此背景、家具或寵物裝備可能成為所有成員都會看到的房間狀態。</p>
+<p>這讓 PetTomo 的商店不同於單人遊戲商店。在使用 Candy、Diamonds 或平台購買流程前，先確認目前房間與道具用途，能降低成員之間的誤會。</p>
+<h2>購買或裝備前可以檢查什麼</h2>
+<p>建議先確認：</p>
+<ul>
+<li>是否開啟了正確的共享房間。</li>
+<li>道具類型是裝飾、消耗品、裝備，還是訂閱相關權益。</li>
+<li>該道具是否屬於房間範圍。</li>
+<li>使用較新的房間內容時，App 版本是否為目前版本。</li>
+<li>操作完成後，回到房間、庫存或商店畫面確認變化。</li>
+</ul>
+<p>PetTomo 的知識庫也提到版本控管的共享道具與備用顯示。如果另一位成員看到的道具不同，更新 App 可能有助於讓房間顯示更一致。</p>
+<h2>房間訊息的作用</h2>
+<p>PetTomo 知識庫指出，商店操作可能建立房間訊息，讓成員理解剛剛改變了什麼。這在私人房間中特別有用，因為其他成員可能先看到新道具、獎勵或視覺變化。</p>
+<p>這些訊息應該被理解為房間內的脈絡，而不是公開發文。</p>
+<h2>常見使用情境</h2>
+<h3>裝飾共享房間</h3>
+<p>背景與家具可以讓房間更有辨識度。如果多位成員都會調整房間，購買或放置較明顯的視覺道具前，可以先討論房間風格。</p>
+<h3>替寵物穿搭</h3>
+<p>寵物裝備能讓共享寵物更有個性。PetTomo 知識庫提到房間範圍裝備，以及頭部、身體、背部等可能的欄位；但內容不應保證每個道具或欄位都一定可用。</p>
+<h3>理解獎勵回饋</h3>
+<p>照片餵食與其他操作可能依情況提供獎勵。完成獎勵或購買後，App 應提供清楚回饋並更新相關畫面。</p>
+<h2>常見問題</h2>
+<h3>PetTomo 的商店操作是公開的嗎？</h3>
+<p>不是。PetTomo 以受邀成員的私人房間為中心，商店與獎勵脈絡屬於房間體驗，不是公開動態。</p>
+<h3>為什麼購買前要確認房間？</h3>
+<p>因為部分道具與裝備是房間範圍。先確認目前房間，可以避免不知道道具出現在哪裡。</p>
+<h3>另一位成員看不到同一道具怎麼辦？</h3>
+<p>請對方重新開啟房間並確認 App 版本。較新的房間內容通常在成員都使用目前版本時更容易一致顯示。</p>
+<h2>總結</h2>
+<p>PetTomo 的商店道具與獎勵，最適合放在私人共享房間的脈絡下使用。確認目前房間、了解道具是否為房間範圍，並把房間訊息視為變更說明，就能更清楚地一起照顧共享寵物。</p>
+          </div>
+        </article>
+        <nav class="article-nav" aria-label="Guide navigation">
+          <a href="/guides/">All guides</a>
+          <a href="/guides/zh-hant/">This language</a>
+          <a href="/">PetTomo home</a>
+        </nav>
+      </main>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"PetTomo 共享房間裡的商店道具與獎勵怎麼理解","description":"了解 PetTomo 共享房間中的 Candy、Diamonds、裝飾、寵物裝備、房間庫存與購買訊息，避免把私人房間誤解成公開社群。","author":{"@type":"Organization","name":"PetTomo"},"publisher":{"@type":"Organization","name":"PetTomo","logo":{"@type":"ImageObject","url":"https://pet-app-702be.web.app/assets/PetTomo_appicon.png"}},"mainEntityOfPage":"https://pet-app-702be.web.app/guides/zh-hant/shared-room-shop-rewards.html","dateModified":"2026-06-09T11:09:18.245Z"}</script>
+
+  <footer class="site-footer">
+    <span>© 2026 hangyodev</span>
+    <nav aria-label="Footer navigation">
+      <a href="/guides/">Guides</a>
+      <a href="/support.html">Support</a>
+      <a href="/privacy_policy.html">Privacy Policy</a>
+      <a href="/terms_of_use.html">Terms of Use</a>
+    </nav>
+  </footer>
+</body>
+</html>

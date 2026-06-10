@@ -584,4 +584,24 @@
     <loc>https://pet-app-702be.web.app/guides/ko/shared-room-shop-rewards.html</loc>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/en/profile-nickname-shared-room.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/zh-hant/profile-nickname-shared-room.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/zh-hans/profile-nickname-shared-room.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/ja/profile-nickname-shared-room.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/ko/profile-nickname-shared-room.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
 </urlset>

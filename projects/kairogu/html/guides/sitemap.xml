@@ -136,4 +136,8 @@
     <loc>https://www.kairogu.men/guides/ja/receipt-scan-price-recording.html</loc>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>https://www.kairogu.men/guides/ja/receipt-scan-retry.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
 </urlset>

@@ -809,6 +809,36 @@
       "lang": "ko",
       "slug": "shared-room-shop-rewards",
       "sourcePath": "docs/articles/shared-room-shop-rewards-ko.md"
+    },
+    {
+      "group": "profile-nickname-shared-room",
+      "lang": "en",
+      "slug": "profile-nickname-shared-room",
+      "sourcePath": "docs/articles/profile-nickname-shared-room-en.md"
+    },
+    {
+      "group": "profile-nickname-shared-room",
+      "lang": "zh-hant",
+      "slug": "profile-nickname-shared-room",
+      "sourcePath": "docs/articles/profile-nickname-shared-room-zh-hant.md"
+    },
+    {
+      "group": "profile-nickname-shared-room",
+      "lang": "zh-hans",
+      "slug": "profile-nickname-shared-room",
+      "sourcePath": "docs/articles/profile-nickname-shared-room-zh-hans.md"
+    },
+    {
+      "group": "profile-nickname-shared-room",
+      "lang": "ja",
+      "slug": "profile-nickname-shared-room",
+      "sourcePath": "docs/articles/profile-nickname-shared-room-ja.md"
+    },
+    {
+      "group": "profile-nickname-shared-room",
+      "lang": "ko",
+      "slug": "profile-nickname-shared-room",
+      "sourcePath": "docs/articles/profile-nickname-shared-room-ko.md"
     }
   ]
 }

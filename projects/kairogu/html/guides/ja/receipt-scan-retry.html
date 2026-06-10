@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>レシート読み取りに失敗した時、カイログで再試行する前に見るポイント | カイログ ガイド</title>
+  <meta name="description" content="カイログのレシート読み取りでうまく読めなかった時に、同じ写真で再試行するか、撮り直すかを判断するポイントを整理します。">
+  <meta name="keywords" content="レシート 読み取り 失敗 再試行">
+  <link rel="canonical" href="https://www.kairogu.men/guides/ja/receipt-scan-retry.html">
+  <link rel="icon" type="image/png" href="/icon.png">
+  <meta property="og:title" content="レシート読み取りに失敗した時、カイログで再試行する前に見るポイント | カイログ ガイド">
+  <meta property="og:description" content="カイログのレシート読み取りでうまく読めなかった時に、同じ写真で再試行するか、撮り直すかを判断するポイントを整理します。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.kairogu.men/guides/ja/receipt-scan-retry.html">
+  <meta property="og:image" content="https://www.kairogu.men/icon.png">
+  <style>
+    :root {
+      --primary: #1A8D7A;
+      --accent: #F4A261;
+      --bg: #FAF9F7;
+      --panel: #FFFFFF;
+      --text: #242424;
+      --muted: #667085;
+      --line: #E5E1DA;
+      --soft: #EEF8F5;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", "Segoe UI", sans-serif;
+      line-height: 1.8;
+    }
+
+    a { color: inherit; }
+
+    .site-header,
+    .site-footer {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--primary);
+      font-size: 1.18rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .site-nav a,
+    .site-footer a,
+    .eyebrow a {
+      text-decoration: none;
+    }
+
+    .site-nav a:hover,
+    .site-footer a:hover,
+    .eyebrow a:hover {
+      color: var(--primary);
+    }
+
+    .guides-shell,
+    .article-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 72px;
+    }
+
+    .guides-hero {
+      min-height: 300px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 150px;
+      gap: 40px;
+      align-items: center;
+      padding: 52px 0 40px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .guides-hero img {
+      width: 132px;
+      height: 132px;
+      border-radius: 28px;
+      box-shadow: 0 16px 34px rgba(36, 36, 36, 0.12);
+    }
+
+    .eyebrow,
+    .guide-label {
+      margin: 0 0 12px;
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 840px;
+      margin: 0;
+      font-size: clamp(2.1rem, 6vw, 4rem);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    .guides-hero p:not(.eyebrow),
+    .article-summary {
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      padding-top: 34px;
+    }
+
+    .guide-card {
+      min-height: 220px;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(36, 36, 36, 0.06);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .guide-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(36, 36, 36, 0.1);
+    }
+
+    .guide-card h2 {
+      margin: 0;
+      font-size: 1.24rem;
+      line-height: 1.35;
+    }
+
+    .guide-card p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .article {
+      max-width: 860px;
+      margin: 26px auto 0;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .article-meta {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .article-content {
+      margin-top: 34px;
+      font-size: 1.04rem;
+    }
+
+    .article-content h2,
+    .article-content h3 {
+      margin: 34px 0 12px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    .article-content h2 { font-size: 1.58rem; }
+    .article-content h3 { font-size: 1.22rem; }
+
+    .article-content p,
+    .article-content li {
+      color: #3F3A36;
+    }
+
+    .article-content ul,
+    .article-content ol {
+      padding-left: 1.35rem;
+    }
+
+    .article-nav {
+      max-width: 860px;
+      margin: 24px auto 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .article-nav a {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--primary);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    @media (max-width: 720px) {
+      .site-header,
+      .site-footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .guides-hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .guides-hero img {
+        width: 104px;
+        height: 104px;
+      }
+    }
+  </style>
+</head>
+<body class="article-page">
+  <header class="site-header">
+    <a class="brand" href="/">
+      <img src="/icon.png" alt="カイログ">
+      <span>カイログ</span>
+    </a>
+    <nav class="site-nav" aria-label="Site navigation">
+      <a href="/guides/">ガイド</a>
+      <a href="/privacy.html">プライバシー</a>
+      <a href="/terms.html">利用規約</a>
+    </nav>
+  </header>
+<main class="article-shell">
+        <p class="eyebrow"><a href="/guides/">カイログ ガイド</a></p>
+        <article class="article">
+          <h1>レシート読み取りに失敗した時、カイログで再試行する前に見るポイント</h1>
+          <p class="article-summary">カイログのレシート読み取りでうまく読めなかった時に、同じ写真で再試行するか、撮り直すかを判断するポイントを整理します。</p>
+          <div class="article-meta">更新日 2026/06/10</div>
+          <div class="article-content">
+            <p>レシートを撮影して複数商品の価格をまとめて記録できると、買い物後の整理はかなり楽になります。ただし、レシートは印字が薄い、折り目がある、商品名が省略されている、値引きや税率が複雑といった理由で、AIがうまく読み取れないことがあります。</p>
+<p>カイログの2.0.0向けローカル更新文言、App Store Connect文言、Google Play変更履歴では、レシート読み取りに対応し、読み取りに失敗した場合でも同じ写真で再試行できることが案内されています。この記事では、再試行する前に確認したい点を整理します。</p>
+<h2>要点</h2>
+<ul>
+<li>レシート読み取りは複数商品の入力補助として使います。</li>
+<li>2.0.0の更新文言では、読み取り失敗時に同じ写真で再試行できることが確認できます。</li>
+<li>印字が読める写真なら、まず同じ写真で再試行する選択肢があります。</li>
+<li>写真が暗い、ぶれている、端が切れている場合は撮り直した方が確認しやすいです。</li>
+<li>保存前に商品名、価格、カテゴリ、数量、値引き、税込・税抜を確認します。</li>
+</ul>
+<h2>同じ写真で再試行してよい場面</h2>
+<p>レシート全体が写っていて、文字が読める状態なら、同じ写真で再試行してみる価値があります。通信状態や一時的な処理失敗で止まった場合、撮り直しよりも再試行の方が早いことがあります。</p>
+<p>特に、商品名、価格、小計、税率の欄が見えているなら、まず同じ写真を使ってもう一度読み取りを試すと、買い物後の作業を続けやすくなります。</p>
+<h2>撮り直した方がよい場面</h2>
+<p>次のような写真は、同じ画像で何度も再試行しても結果が安定しにくいことがあります。</p>
+<ul>
+<li>レシートの端が切れている。</li>
+<li>印字が暗い、薄い、反射している。</li>
+<li>折り目や影で商品行が読めない。</li>
+<li>レシートが斜めで、行の区切りが分かりにくい。</li>
+<li>合計だけ写っていて、商品ごとの行が足りない。</li>
+</ul>
+<p>この場合は、明るい場所でレシートを平らにし、商品行と金額が入るように撮り直す方が実用的です。</p>
+<h2>再試行後に確認する項目</h2>
+<p>読み取りが成功しても、そのまま保存するのではなく、価格履歴として使いやすいかを確認します。</p>
+<h3>商品名</h3>
+<p>レシートの商品名は短縮されていることがあります。次回の買い物で検索しやすい名前に整えます。</p>
+<h3>価格と数量</h3>
+<p>複数点購入、まとめ買い、個数違いがある場合は、1行の価格が何を表しているか確認します。</p>
+<h3>値引き</h3>
+<p>クーポン、見切り品、まとめ値引き、会員価格は通常価格と意味が違います。後から見返して分かるように確認します。</p>
+<h3>税込・税抜</h3>
+<p>レシートには税込、税抜、税率別小計が混ざることがあります。自分が比較に使う基準と合っているか見ます。</p>
+<h2>レシート読み取りと価格タグ撮影の使い分け</h2>
+<p>レシート読み取りは、買い物後に複数商品をまとめて整理する時に向いています。店頭で今の価格を比べたい時は、価格タグ撮影や過去の価格履歴の確認が向いています。</p>
+<p>どちらの場合も、AI読み取りは入力補助です。保存前に内容を確認することで、次回の買い物前に見返しやすい記録になります。</p>
+<h2>FAQ</h2>
+<h3>読み取りに失敗したら毎回撮り直す必要がありますか？</h3>
+<p>いいえ。2.0.0の更新文言では、同じ写真でもう一度読み取りを試せることが案内されています。ただし、写真自体が読みにくい場合は撮り直した方がよいです。</p>
+<h3>レシートのすべての行を保存する必要がありますか？</h3>
+<p>必ずしも全部を保存する必要はありません。価格履歴として見返したい商品を中心に、保存前に内容を確認します。</p>
+<h3>レシート読み取りだけで底値管理できますか？</h3>
+<p>レシート読み取りは買い物後の入力補助に向いています。店頭価格の比較には、価格タグ撮影、自分の価格履歴、容量、店舗、時期なども合わせて見るのが現実的です。</p>
+<h2>まとめ</h2>
+<p>カイログでレシート読み取りに失敗した時は、まず写真の状態を見ます。文字が読めるなら同じ写真で再試行し、暗い・ぶれている・端が切れている場合は撮り直す。最後に商品名、価格、数量、値引き、税込・税抜を確認すると、買い物後の記録を次回の価格チェックに活かしやすくなります。</p>
+          </div>
+        </article>
+        <nav class="article-nav" aria-label="Guide navigation">
+          <a href="/guides/">すべてのガイド</a>
+          <a href="/guides/ja/">日本語ガイド</a>
+          <a href="/">カイログ ホーム</a>
+        </nav>
+      </main>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"レシート読み取りに失敗した時、カイログで再試行する前に見るポイント","description":"カイログのレシート読み取りでうまく読めなかった時に、同じ写真で再試行するか、撮り直すかを判断するポイントを整理します。","inLanguage":"ja","author":{"@type":"Organization","name":"カイログ編集部"},"publisher":{"@type":"Organization","name":"カイログ","logo":{"@type":"ImageObject","url":"https://www.kairogu.men/icon.png"}},"mainEntityOfPage":"https://www.kairogu.men/guides/ja/receipt-scan-retry.html","dateModified":"2026-06-10T12:09:12.733Z"}</script>
+  <footer class="site-footer">
+    <span>&copy; 2026 hangyodev</span>
+    <a href="mailto:hangyodev@gmail.com">お問い合わせ</a>
+  </footer>
+</body>
+</html>

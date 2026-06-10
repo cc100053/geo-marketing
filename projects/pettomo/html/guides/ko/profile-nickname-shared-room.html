@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetTomo 공유 방에서 쓸 닉네임을 정하는 방법 | PetTomo Guides</title>
+  <meta name="description" content="PetTomo 닉네임과 프로필이 초대 기반 공유 방, 참여 흐름, 채팅, 펫 돌봄에서 어떻게 도움이 되는지 정리합니다.">
+  <meta name="keywords" content="PetTomo 닉네임 공유 방, PetTomo, shared virtual pet app, virtual pet, shared pet room">
+  <link rel="canonical" href="https://pet-app-702be.web.app/guides/ko/profile-nickname-shared-room.html">
+  <link rel="alternate" hreflang="en" href="https://pet-app-702be.web.app/guides/en/profile-nickname-shared-room.html">
+  <link rel="alternate" hreflang="zh-hant" href="https://pet-app-702be.web.app/guides/zh-hant/profile-nickname-shared-room.html">
+  <link rel="alternate" hreflang="zh-hans" href="https://pet-app-702be.web.app/guides/zh-hans/profile-nickname-shared-room.html">
+  <link rel="alternate" hreflang="ja" href="https://pet-app-702be.web.app/guides/ja/profile-nickname-shared-room.html">
+  <link rel="alternate" hreflang="ko" href="https://pet-app-702be.web.app/guides/ko/profile-nickname-shared-room.html">
+  <link rel="alternate" hreflang="x-default" href="https://pet-app-702be.web.app/guides/">
+  <link rel="icon" type="image/png" href="/assets/PetTomo_appicon.png">
+  <meta property="og:title" content="PetTomo 공유 방에서 쓸 닉네임을 정하는 방법 | PetTomo Guides">
+  <meta property="og:description" content="PetTomo 닉네임과 프로필이 초대 기반 공유 방, 참여 흐름, 채팅, 펫 돌봄에서 어떻게 도움이 되는지 정리합니다.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://pet-app-702be.web.app/guides/ko/profile-nickname-shared-room.html">
+  <meta property="og:image" content="https://pet-app-702be.web.app/assets/PetTomo_appicon.png">
+  <style>
+    :root {
+      --primary: #5FBF9E;
+      --secondary: #FFB36B;
+      --bg: #FFFBF3;
+      --panel: #FFFFFF;
+      --text: #2F2A23;
+      --muted: #756B61;
+      --line: #E7DED2;
+      --soft: #F4FAF8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; }
+
+    .site-header,
+    .site-footer {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--primary);
+      font-size: 1.25rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .site-nav a,
+    .site-footer a,
+    .eyebrow a {
+      text-decoration: none;
+    }
+
+    .site-nav a:hover,
+    .site-footer a:hover,
+    .eyebrow a:hover {
+      color: var(--primary);
+    }
+
+    .guides-shell,
+    .article-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 72px;
+    }
+
+    .guides-hero {
+      min-height: 320px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 160px;
+      gap: 40px;
+      align-items: center;
+      padding: 54px 0 40px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .guides-hero img {
+      width: 144px;
+      height: 144px;
+      border-radius: 32px;
+      box-shadow: 0 16px 34px rgba(47, 42, 35, 0.12);
+    }
+
+    .eyebrow,
+    .guide-label {
+      margin: 0 0 12px;
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 820px;
+      margin: 0;
+      font-size: clamp(2.25rem, 6vw, 4.25rem);
+      line-height: 1.06;
+      letter-spacing: 0;
+    }
+
+    .guides-hero p:not(.eyebrow),
+    .article-summary {
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      padding-top: 34px;
+    }
+
+    .guide-card {
+      min-height: 238px;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(47, 42, 35, 0.06);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .guide-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(47, 42, 35, 0.1);
+    }
+
+    .guide-card h2 {
+      margin: 0;
+      font-size: 1.26rem;
+      line-height: 1.25;
+    }
+
+    .guide-card p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .article {
+      max-width: 860px;
+      margin: 26px auto 0;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .article-meta {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .article-content {
+      margin-top: 34px;
+      font-size: 1.04rem;
+    }
+
+    .article-content h2,
+    .article-content h3 {
+      margin: 34px 0 12px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .article-content h2 { font-size: 1.72rem; }
+    .article-content h3 { font-size: 1.28rem; }
+
+    .article-content p,
+    .article-content ul,
+    .article-content ol,
+    .article-content table {
+      margin: 0 0 18px;
+    }
+
+    .article-content ul,
+    .article-content ol {
+      padding-left: 24px;
+    }
+
+    .article-content li + li {
+      margin-top: 7px;
+    }
+
+    .article-content table {
+      width: 100%;
+      border-collapse: collapse;
+      display: block;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    .article-content th,
+    .article-content td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .article-content th {
+      background: var(--soft);
+      font-weight: 800;
+    }
+
+    .article-content blockquote {
+      margin: 24px 0;
+      padding: 18px 20px;
+      border-left: 4px solid var(--secondary);
+      background: var(--panel);
+      border-radius: 0 8px 8px 0;
+      color: var(--muted);
+    }
+
+    .article-nav {
+      max-width: 860px;
+      margin: 24px auto 0;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .article-nav a {
+      padding: 10px 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--panel);
+      color: var(--text);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+      flex-wrap: wrap;
+    }
+
+    .site-footer nav {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 720px) {
+      .site-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .site-nav {
+        flex-wrap: wrap;
+      }
+
+      .guides-hero {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding-top: 28px;
+      }
+
+      .guides-hero img {
+        width: 104px;
+        height: 104px;
+        border-radius: 24px;
+      }
+
+      h1 {
+        font-size: 2.3rem;
+      }
+    }
+  </style>
+</head>
+<body class="article-page">
+  <header class="site-header">
+    <a class="brand" href="/">
+      <img src="/assets/PetTomo_appicon.png" alt="" aria-hidden="true">
+      <span>PetTomo</span>
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="/guides/">Guides</a>
+      <a href="/support.html">Support</a>
+      <a href="/">Home</a>
+    </nav>
+  </header>
+
+      <main class="article-shell">
+        <p class="eyebrow"><a href="/guides/">PetTomo Guides</a></p>
+        <article class="article">
+          <h1>PetTomo 공유 방에서 쓸 닉네임을 정하는 방법</h1>
+          <p class="article-summary">PetTomo 닉네임과 프로필이 초대 기반 공유 방, 참여 흐름, 채팅, 펫 돌봄에서 어떻게 도움이 되는지 정리합니다.</p>
+          <div class="article-meta">Updated June 10, 2026</div>
+          <div class="article-content">
+            <p>PetTomo는 초대받은 멤버가 같은 가상 펫을 함께 키우는 비공개 공유 방 중심의 앱입니다. 멤버는 채팅하고, 사진으로 먹이를 주고, 방을 꾸미고, 추억을 남깁니다. 알아보기 쉬운 닉네임이 있으면 누가 참여했는지, 누가 메시지를 보냈는지, 누가 펫을 돌봤는지 이해하기 쉽습니다.</p>
+<p>이 글은 PetTomo를 공개 소셜 네트워크가 아니라 초대 기반 공유 방으로 사용하는 전제에서 프로필 설정을 정리합니다.</p>
+<h2>핵심 요약</h2>
+<ul>
+<li>PetTomo 프로필은 초대된 방 멤버가 서로를 알아보기 쉽게 돕습니다.</li>
+<li>지식 베이스는 사용자가 닉네임을 수정할 수 있다고 설명합니다.</li>
+<li>사용자는 기본 아바타를 고르거나 아바타 사진을 업로드할 수 있습니다.</li>
+<li>초대로 참여할 때는 로그인과 필요한 프로필 설정이 먼저 필요할 수 있습니다.</li>
+<li>닉네임은 공개 검색용이 아니라 방 멤버가 알아볼 수 있는 이름이 좋습니다.</li>
+</ul>
+<h2>공유 펫 방에서 닉네임이 중요한 이유</h2>
+<p>PetTomo 방은 작은 공유 공간입니다. 누군가 펫에게 먹이를 주고, 채팅에 답하고, 사진에 반응하고, 방 분위기를 바꾸고, 나중에 펫 상태를 확인하러 돌아옵니다. 닉네임이 명확하면 이런 행동을 사람과 연결해서 보기 쉽습니다.</p>
+<p>커플이라면 평소 부르는 이름, 친구나 가족이라면 바로 알아볼 수 있는 짧은 이름이 쓰기 좋습니다.</p>
+<h2>초대를 쓰기 전에 프로필 확인하기</h2>
+<p>PetTomo 초대 링크와 초대 코드는 비공개 공유 방에 참여하기 위한 것입니다. 일반적으로 앱을 열고, 로그인하고, 필요한 프로필 설정을 마친 뒤 방에 참여합니다.</p>
+<p>링크로 앱은 열리지만 방이 보이지 않는다면 먼저 계정과 프로필 설정을 확인하세요. 어떤 멤버로 참여하는지 알아야 올바른 공유 상태를 표시할 수 있습니다.</p>
+<h2>방에 맞는 이름 고르기</h2>
+<p>닉네임은 초대된 멤버가 알아보기 쉬운 이름으로 정합니다. 반드시 실명일 필요는 없고, 공개 SNS 아이디처럼 쓸 필요도 없습니다.</p>
+<p>좋은 닉네임 습관:</p>
+<ul>
+<li>채팅에서 읽기 쉬운 길이로 정합니다.</li>
+<li>방 멤버가 이미 알고 있는 이름을 씁니다.</li>
+<li>보여 주고 싶지 않은 개인정보는 넣지 않습니다.</li>
+<li>방의 용도가 바뀌면 다시 조정합니다.</li>
+</ul>
+<h2>아바타와 함께 생각하기</h2>
+<p>PetTomo에서는 기본 아바타나 업로드한 이미지를 프로필에 사용할 수 있습니다. 닉네임과 아바타가 알아보기 쉬우면 먹이 사진, 채팅, 추억, 방 변화 흐름을 더 쉽게 따라갈 수 있습니다.</p>
+<p>다만 프로필은 공개 페이지가 아닙니다. 순위나 공개 노출을 위한 정보가 아니라, 초대된 멤버가 서로 알아보기 쉽게 쓰는 정보라고 설명하는 것이 정확합니다.</p>
+<h2>FAQ</h2>
+<h3>PetTomo 닉네임은 공개 프로필인가요?</h3>
+<p>아니요. PetTomo는 초대 링크나 초대 코드로 참여하는 비공개 공유 방을 중심으로 합니다. 공개 소셜 프로필처럼 설명하지 않아야 합니다.</p>
+<h3>닉네임을 변경할 수 있나요?</h3>
+<p>PetTomo 지식 베이스는 사용자가 닉네임을 수정할 수 있다고 설명합니다.</p>
+<h3>방 참여 전에 프로필 설정이 필요한가요?</h3>
+<p>초대로 참여할 때는 로그인과 필요한 프로필 설정을 마친 뒤 올바르게 방에 참여하는 흐름입니다.</p>
+<h2>결론</h2>
+<p>PetTomo 닉네임은 공유 방에서 누가 펫을 돌봤고 누가 이야기하고 있는지 알기 쉽게 만드는 정보입니다. 알아보기 쉬운 이름을 고르고 필요하면 아바타도 함께 정리하면, 비공개 공유 펫 방을 더 편하게 사용할 수 있습니다.</p>
+          </div>
+        </article>
+        <nav class="article-nav" aria-label="Guide navigation">
+          <a href="/guides/">All guides</a>
+          <a href="/guides/ko/">This language</a>
+          <a href="/">PetTomo home</a>
+        </nav>
+      </main>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"PetTomo 공유 방에서 쓸 닉네임을 정하는 방법","description":"PetTomo 닉네임과 프로필이 초대 기반 공유 방, 참여 흐름, 채팅, 펫 돌봄에서 어떻게 도움이 되는지 정리합니다.","author":{"@type":"Organization","name":"PetTomo"},"publisher":{"@type":"Organization","name":"PetTomo","logo":{"@type":"ImageObject","url":"https://pet-app-702be.web.app/assets/PetTomo_appicon.png"}},"mainEntityOfPage":"https://pet-app-702be.web.app/guides/ko/profile-nickname-shared-room.html","dateModified":"2026-06-10T12:09:12.750Z"}</script>
+
+  <footer class="site-footer">
+    <span>© 2026 hangyodev</span>
+    <nav aria-label="Footer navigation">
+      <a href="/guides/">Guides</a>
+      <a href="/support.html">Support</a>
+      <a href="/privacy_policy.html">Privacy Policy</a>
+      <a href="/terms_of_use.html">Terms of Use</a>
+    </nav>
+  </footer>
+</body>
+</html>

@@ -191,6 +191,12 @@
       "lang": "ja",
       "slug": "receipt-scan-price-recording",
       "sourcePath": "docs/articles/receipt-scan-price-recording-ja.md"
+    },
+    {
+      "group": "receipt-scan-retry",
+      "lang": "ja",
+      "slug": "receipt-scan-retry",
+      "sourcePath": "docs/articles/receipt-scan-retry-ja.md"
     }
   ]
 }

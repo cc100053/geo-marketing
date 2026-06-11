@@ -197,6 +197,12 @@
       "lang": "ja",
       "slug": "receipt-scan-retry",
       "sourcePath": "docs/articles/receipt-scan-retry-ja.md"
+    },
+    {
+      "group": "receipt-discount-bulk-buy-review",
+      "lang": "ja",
+      "slug": "receipt-discount-bulk-buy-review",
+      "sourcePath": "docs/articles/receipt-discount-bulk-buy-review-ja.md"
     }
   ]
 }

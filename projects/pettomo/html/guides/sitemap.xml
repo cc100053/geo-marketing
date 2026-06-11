@@ -604,4 +604,24 @@
     <loc>https://pet-app-702be.web.app/guides/ko/profile-nickname-shared-room.html</loc>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/en/photo-feeding-upload-shared-room.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/zh-hant/photo-feeding-upload-shared-room.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/zh-hans/photo-feeding-upload-shared-room.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/ja/photo-feeding-upload-shared-room.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://pet-app-702be.web.app/guides/ko/photo-feeding-upload-shared-room.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
 </urlset>

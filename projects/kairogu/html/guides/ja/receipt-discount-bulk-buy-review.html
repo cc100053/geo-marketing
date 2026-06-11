@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>まとめ買い・値引きレシートを価格記録に残す前の確認ポイント | カイログ ガイド</title>
+  <meta name="description" content="カイログでレシート読み取りを使う時に、まとめ買い、値引き、税抜・税込、不要な行を保存前にどう確認すると価格履歴として使いやすいかを整理します。">
+  <meta name="keywords" content="レシート 値引き 価格記録">
+  <link rel="canonical" href="https://www.kairogu.men/guides/ja/receipt-discount-bulk-buy-review.html">
+  <link rel="icon" type="image/png" href="/icon.png">
+  <meta property="og:title" content="まとめ買い・値引きレシートを価格記録に残す前の確認ポイント | カイログ ガイド">
+  <meta property="og:description" content="カイログでレシート読み取りを使う時に、まとめ買い、値引き、税抜・税込、不要な行を保存前にどう確認すると価格履歴として使いやすいかを整理します。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.kairogu.men/guides/ja/receipt-discount-bulk-buy-review.html">
+  <meta property="og:image" content="https://www.kairogu.men/icon.png">
+  <style>
+    :root {
+      --primary: #1A8D7A;
+      --accent: #F4A261;
+      --bg: #FAF9F7;
+      --panel: #FFFFFF;
+      --text: #242424;
+      --muted: #667085;
+      --line: #E5E1DA;
+      --soft: #EEF8F5;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", "Segoe UI", sans-serif;
+      line-height: 1.8;
+    }
+
+    a { color: inherit; }
+
+    .site-header,
+    .site-footer {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--primary);
+      font-size: 1.18rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .site-nav a,
+    .site-footer a,
+    .eyebrow a {
+      text-decoration: none;
+    }
+
+    .site-nav a:hover,
+    .site-footer a:hover,
+    .eyebrow a:hover {
+      color: var(--primary);
+    }
+
+    .guides-shell,
+    .article-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 72px;
+    }
+
+    .guides-hero {
+      min-height: 300px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 150px;
+      gap: 40px;
+      align-items: center;
+      padding: 52px 0 40px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .guides-hero img {
+      width: 132px;
+      height: 132px;
+      border-radius: 28px;
+      box-shadow: 0 16px 34px rgba(36, 36, 36, 0.12);
+    }
+
+    .eyebrow,
+    .guide-label {
+      margin: 0 0 12px;
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 840px;
+      margin: 0;
+      font-size: clamp(2.1rem, 6vw, 4rem);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    .guides-hero p:not(.eyebrow),
+    .article-summary {
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      padding-top: 34px;
+    }
+
+    .guide-card {
+      min-height: 220px;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(36, 36, 36, 0.06);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .guide-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(36, 36, 36, 0.1);
+    }
+
+    .guide-card h2 {
+      margin: 0;
+      font-size: 1.24rem;
+      line-height: 1.35;
+    }
+
+    .guide-card p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .article {
+      max-width: 860px;
+      margin: 26px auto 0;
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .article-meta {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .article-content {
+      margin-top: 34px;
+      font-size: 1.04rem;
+    }
+
+    .article-content h2,
+    .article-content h3 {
+      margin: 34px 0 12px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    .article-content h2 { font-size: 1.58rem; }
+    .article-content h3 { font-size: 1.22rem; }
+
+    .article-content p,
+    .article-content li {
+      color: #3F3A36;
+    }
+
+    .article-content ul,
+    .article-content ol {
+      padding-left: 1.35rem;
+    }
+
+    .article-nav {
+      max-width: 860px;
+      margin: 24px auto 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .article-nav a {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--primary);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    @media (max-width: 720px) {
+      .site-header,
+      .site-footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .guides-hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .guides-hero img {
+        width: 104px;
+        height: 104px;
+      }
+    }
+  </style>
+</head>
+<body class="article-page">
+  <header class="site-header">
+    <a class="brand" href="/">
+      <img src="/icon.png" alt="カイログ">
+      <span>カイログ</span>
+    </a>
+    <nav class="site-nav" aria-label="Site navigation">
+      <a href="/guides/">ガイド</a>
+      <a href="/privacy.html">プライバシー</a>
+      <a href="/terms.html">利用規約</a>
+    </nav>
+  </header>
+<main class="article-shell">
+        <p class="eyebrow"><a href="/guides/">カイログ ガイド</a></p>
+        <article class="article">
+          <h1>まとめ買い・値引きレシートを価格記録に残す前の確認ポイント</h1>
+          <p class="article-summary">カイログでレシート読み取りを使う時に、まとめ買い、値引き、税抜・税込、不要な行を保存前にどう確認すると価格履歴として使いやすいかを整理します。</p>
+          <div class="article-meta">更新日 2026/06/11</div>
+          <div class="article-content">
+            <p>スーパーやドラッグストアのレシートには、まとめ買い、値引き、税抜価格、税込価格、ポイント対象外の商品などが一緒に並ぶことがあります。価格記録として後から見返すなら、レシートを撮影した後に保存前の確認をすることが大切です。</p>
+<p>カイログは、価格タグ撮影、レシート読み取り、商品名・価格・カテゴリ・店舗・容量・割引の記録、買い物リスト、過去の価格履歴、近くの価格情報を組み合わせて使える日本向け価格管理アプリです。2.0.0のローカル App Store Connect metadata と Google Play changelog では、レシート写真から複数商品を読み取り、商品名・価格・カテゴリを保存前に確認・編集できること、まとめ買い・値引き・税抜／税込の確認がしやすいこと、不要な行を保存前に外せることが説明されています。</p>
+<p>この記事では、レシート読み取りで特に迷いやすい「まとめ買い」と「値引き」を、価格履歴として残す前にどう確認するかを整理します。</p>
+<h2>要点</h2>
+<ul>
+<li>まとめ買いの行は、1個あたりの価格なのか合計金額なのかを確認します。</li>
+<li>値引き後の価格を残す場合は、通常価格とは違う条件だったことを意識します。</li>
+<li>税抜・税込の基準を混ぜると、あとで比較しにくくなります。</li>
+<li>不要な行は無理に保存せず、見返したい商品だけ残す方が続けやすくなります。</li>
+<li>AI読み取りは入力補助なので、保存前の確認を前提に使います。</li>
+</ul>
+<h2>まとめ買いレシートで見たいこと</h2>
+<p>まとめ買いは、価格記録の意味がぶれやすい買い方です。たとえば「2個で○円」「3点よりどり」「2点目半額」のような表示は、1個あたりの価格とレシート上の合計が一致しない場合があります。</p>
+<p>カイログで価格履歴として残すなら、自分が次回見返した時に比較しやすい形に整えることが大切です。1個あたりの価格として見たいのか、まとめ買い条件込みの価格として見たいのかを保存前に確認します。</p>
+<h2>値引き行で確認したいこと</h2>
+<p>値引きには、見切り品、クーポン、会員価格、まとめ値引き、期間限定セールなどがあります。値引き後の価格は実際に払った金額に近い一方で、いつでも再現できる価格とは限りません。</p>
+<p>そのため、価格履歴を見る時は「通常時の目安」と「値引き条件込みの記録」を分けて考えると誤解しにくくなります。カイログでは割引情報も記録対象にできるため、安かった理由を後から思い出しやすくなります。</p>
+<h2>税抜・税込をそろえる</h2>
+<p>レシートには税抜小計、税込合計、税率別の金額が混在することがあります。税抜と税込が混ざったまま履歴に残ると、次回の買い物で比較しにくくなります。</p>
+<p>2.0.0のリリース文言では、税抜・税込の確認がしやすくなったことが説明されています。どちらの基準で自分の価格履歴を見たいのかを決め、保存前に見直すのが実用的です。</p>
+<h2>不要な行は保存前に外す</h2>
+<p>レシートには、価格履歴として残さなくてもよい行も含まれます。袋、ポイント調整、値引きだけの行、家計管理上追わなくてよい商品などです。</p>
+<p>すべてを保存しようとすると、後から見返す履歴が読みにくくなります。よく買う商品、価格差が大きい商品、容量違いで迷いやすい商品を中心に残す方が、価格記録を続けやすくなります。</p>
+<h2>カイログで確認しやすい流れ</h2>
+<p>カイログのレシート読み取りは、1枚の写真から複数商品の記録候補を作るための入力補助です。保存前に商品名、価格、カテゴリ、値引き、税抜・税込を見直し、不要な行を外してから記録する流れに向いています。</p>
+<p>保存した記録は、自分の価格履歴やカテゴリ別の見返し、次回の買い物前チェックに使えます。ただし、近くの価格情報は利用状況や記録内容に左右されるため、地域の価格を網羅するものとしては扱わない方が安全です。</p>
+<h2>よくある質問</h2>
+<h3>まとめ買い価格はどう残すべきですか？</h3>
+<p>次回見返した時に比較しやすい形を選びます。1個あたりで見たいのか、まとめ買い条件込みで見たいのかを保存前に確認しましょう。</p>
+<h3>値引き後の価格だけ残してもいいですか？</h3>
+<p>実際に買った価格としては残せます。ただし、見切り品やクーポンなど条件付きの価格だった場合は、通常時の価格と同じ意味で比べないように注意します。</p>
+<h3>レシート読み取りは自動で正しく判断できますか？</h3>
+<p>AI読み取りは入力を助ける機能です。印字、税率、値引き条件、商品名の省略によって確認が必要になるため、保存前に人が見直す前提で使うのが安全です。</p>
+<h2>まとめ</h2>
+<p>まとめ買い・値引きレシートを価格記録に残す時は、1個あたりか合計か、値引き条件、税抜・税込、保存する行を確認することが重要です。カイログでは、レシート読み取りを入力補助として使いながら、見返しやすい価格履歴を作れます。</p>
+          </div>
+        </article>
+        <nav class="article-nav" aria-label="Guide navigation">
+          <a href="/guides/">すべてのガイド</a>
+          <a href="/guides/ja/">日本語ガイド</a>
+          <a href="/">カイログ ホーム</a>
+        </nav>
+      </main>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"まとめ買い・値引きレシートを価格記録に残す前の確認ポイント","description":"カイログでレシート読み取りを使う時に、まとめ買い、値引き、税抜・税込、不要な行を保存前にどう確認すると価格履歴として使いやすいかを整理します。","inLanguage":"ja","author":{"@type":"Organization","name":"カイログ編集部"},"publisher":{"@type":"Organization","name":"カイログ","logo":{"@type":"ImageObject","url":"https://www.kairogu.men/icon.png"}},"mainEntityOfPage":"https://www.kairogu.men/guides/ja/receipt-discount-bulk-buy-review.html","dateModified":"2026-06-11T01:15:52.603Z"}</script>
+  <footer class="site-footer">
+    <span>&copy; 2026 hangyodev</span>
+    <a href="mailto:hangyodev@gmail.com">お問い合わせ</a>
+  </footer>
+</body>
+</html>

@@ -839,6 +839,36 @@
       "lang": "ko",
       "slug": "profile-nickname-shared-room",
       "sourcePath": "docs/articles/profile-nickname-shared-room-ko.md"
+    },
+    {
+      "group": "photo-feeding-upload-shared-room",
+      "lang": "en",
+      "slug": "photo-feeding-upload-shared-room",
+      "sourcePath": "docs/articles/photo-feeding-upload-shared-room-en.md"
+    },
+    {
+      "group": "photo-feeding-upload-shared-room",
+      "lang": "zh-hant",
+      "slug": "photo-feeding-upload-shared-room",
+      "sourcePath": "docs/articles/photo-feeding-upload-shared-room-zh-hant.md"
+    },
+    {
+      "group": "photo-feeding-upload-shared-room",
+      "lang": "zh-hans",
+      "slug": "photo-feeding-upload-shared-room",
+      "sourcePath": "docs/articles/photo-feeding-upload-shared-room-zh-hans.md"
+    },
+    {
+      "group": "photo-feeding-upload-shared-room",
+      "lang": "ja",
+      "slug": "photo-feeding-upload-shared-room",
+      "sourcePath": "docs/articles/photo-feeding-upload-shared-room-ja.md"
+    },
+    {
+      "group": "photo-feeding-upload-shared-room",
+      "lang": "ko",
+      "slug": "photo-feeding-upload-shared-room",
+      "sourcePath": "docs/articles/photo-feeding-upload-shared-room-ko.md"
     }
   ]
 }

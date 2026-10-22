@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>プライバシーポリシー - カイログ</title>
+    <meta name="description" content="カイログが扱うアカウント、写真、位置情報、購入・広告・診断情報、外部サービスと保存期間、削除依頼について説明します。">
+    <link rel="canonical" href="https://www.kairogu.men/privacy.html">
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -53,9 +55,10 @@
 </head>
 
 <body>
-    <div class="container">
+    <main class="container">
+        <nav aria-label="サイトナビゲーション"><a href="/">カイログ ホーム</a> · <a href="/guides/">公式ガイド</a></nav>
         <div class="header">
-            <img src="icon.png" alt="App Icon" class="logo">
+            <img src="icon.png" alt="カイログのアイコン" width="120" height="120" class="logo">
             <h1>プライバシーポリシー</h1>
         </div>
         <pre>
@@ -68,7 +71,7 @@ hangyodev（以下「運営者」）は、「カイログ」（以下「本サ�
 本サービスでは、以下の情報を取得します。
 ・アカウント情報: メールアドレス、認証ID、ログイン状態、プロフィール情報。
 ・位置情報: 近隣店舗の候補表示や価格情報の関連付けに利用します。
-・ユーザーが入力またはアップロードする情報: 商品名、価格、店舗名、買い物リスト、価格タグ画像等。
+・ユーザーが入力またはアップロードする情報: 商品名、価格、店舗名、買い物リスト、値札・レシートの写真、お問い合わせ内容等。
 ・購入情報: サブスクリプションの購入状態、復元状態、管理に必要な識別子。
 ・広告および端末関連情報: 広告ID、端末情報、広告表示や同意管理に必要な情報。
 ・利用状況、診断情報: アプリ操作、エラー、クラッシュログ、パフォーマンス情報。
@@ -86,12 +89,14 @@ hangyodev（以下「運営者」）は、「カイログ」（以下「本サ�
 本サービスは、機能提供のために外部サービスを利用する場合があります。
 これらのサービスに必要な範囲で情報が送信されることがあります。
 ・Supabase（認証、データベース、画像保管）
-・Google Gemini（画像の文字認識）
+・Cloudflare R2（値札・レシートの写真保管）
+・Google Gemini（値札・レシートのAI読み取り）
 ・Google Places API（店舗候補の取得）
 ・RevenueCat（サブスクリプション管理）
 ・Google Play Billing（Androidでの購入処理）
 ・Google AdMob / Google User Messaging Platform（広告表示、広告ID、同意管理）
 ・Sentry（クラッシュログ、診断情報、エラー解析）
+・Resend（お問い合わせ通知メールの送信）
 外部サービスの取扱いは各社のプライバシーポリシーに従います。
 
 4. 安全管理
@@ -119,9 +124,9 @@ hangyodev（以下「運営者」）は、「カイログ」（以下「本サ�
 連絡先: hangyodev@gmail.com
 
 施行日: 2026年1月1日
-最終更新日: 2026年4月16日
+最終更新日: 2026年10月23日
     </pre>
-    </div>
+    </main>
 </body>
 
 </html>

@@ -8,7 +8,9 @@ content only unless the product strategy changes.
 
 - App facts: `/Users/fatboy/kurabe/README.md`, `memory-bank/*.md`, and current
   store listing metadata.
-- GEOFlow CMS: `deployments/GEOFlow` symlinked to `../../../shared/GEOFlow`.
+- Current content: `docs/articles/` Markdown, selected by manifest `sourcePath`.
+- Product fact entrypoint: `/Users/fatboy/kurabe/seo/GEO/knowledge/product.md` (local only).
+- Legacy optional CMS: `deployments/GEOFlow`; Docker is needed only for entries with an `id`.
 - Publishing manifest: `scripts/geoflow_guides_manifest.json`.
 - Static output: `html/guides/`. Do not hand-edit generated guide pages.
 
@@ -29,8 +31,9 @@ Default language:
 3. Confirm the article uses only live カイログ features.
 4. Draft in Japanese.
 5. Review for unsupported claims.
-6. Create or update the GEOFlow article record.
-7. Add the approved article id to `scripts/geoflow_guides_manifest.json`.
+6. Update the Markdown source and its explicit `updated` editorial date.
+7. Confirm its `sourcePath` in `scripts/geoflow_guides_manifest.json`.
+   Bind independent source review to the final draft SHA-256; obtain human approval before publishing.
 8. Export static pages.
 9. Deploy after checking generated HTML and sitemap.
 
@@ -99,6 +102,7 @@ Expected generated files:
 
 ```sh
 node --check scripts/export_geoflow_guides.mjs
+node --test scripts/export_geoflow_guides.test.mjs
 git diff --check
 rg -n "canonical|application/ld\\+json" html/guides/ja/<slug>.html
 rg -n "guides/ja/" html/sitemap.xml
@@ -115,8 +119,8 @@ flutter test
 ## Deploy
 
 Live hosting is Vercel. `vercel.json` sets `buildCommand: null` — Vercel serves
-the committed `html/` folder directly. The export script requires local
-Docker/GEOFlow and cannot run on Vercel CI.
+the committed `html/` folder directly. The export is run locally and its output committed before deployment. Current
+sourcePath entries do not require Docker/GEOFlow.
 
 `html/` is the only deployable static-site source for カイログ in this workspace.
 The old `web-landing/` migration copy has been removed. Do not recreate it, sync

@@ -50,10 +50,10 @@ Primary message:
 日々の買い物を、記憶だけに頼らず、記録でかしこく。
 ```
 
-Store listing summary:
+Site summary based on current behavior:
 
 ```text
-AIで価格タグを読み取り、買い物リストと近くの底値チェックをまとめて管理。
+値札・レシートから価格を記録。自分の履歴・買い物リスト・単価比較は無料、他ユーザーの価格閲覧はPro。
 ```
 
 ## Target Audience
@@ -68,19 +68,19 @@ AIで価格タグを読み取り、買い物リストと近くの底値チェッ
 ## Live Product Capabilities
 
 - 価格タグを撮影して商品価格を記録
-- Gemini 1.5 Flash による商品名、価格、割引、容量、カテゴリの読み取り
+- 値札とレシートのAI読み取り（保存前に確認・修正）
 - OCR 失敗時の同じ画像での再読み取り
 - 商品名、価格、店舗、容量、カテゴリ、税率、割引情報の管理
 - 100g あたり価格や容量ベースの比較
 - 自分の価格履歴のタイムライン表示
 - カテゴリ別の自分の記録と近くの価格情報
-- 近くの価格情報は 3km / 20日以内の範囲を基本に扱う
+- 5.0系の商品詳細の同一商品比較は現在地から3km・30日以内。カタログの他ユーザー検索は座標がある場合20km（座標不明の記録が含まれる場合あり）
 - 買い物リスト
-- お気に入り商品/店舗
+- お気に入り商品
 - 店舗名から地図アプリを開く
 - ゲスト、Google、Apple、メールでの利用開始
 - ゲストデータのアカウント移行
-- カイログ Pro による近くの価格情報と比較機能の活用
+- 無料：自分の記録・履歴・買い物リスト・手入力の価格比較。Pro：他ユーザーの価格の詳しい閲覧と広告非表示
 
 ## Claims To Avoid
 
@@ -132,8 +132,8 @@ and contains:
 - `icon.png`
 
 `vercel.json` sets `buildCommand: null` so Vercel serves the pre-built `html/`
-directory directly. The export script cannot run on Vercel because it requires a
-local Docker/GEOFlow instance. Always run the export locally and commit the
+directory directly. The export script runs locally before publishing. All current entries use
+local Markdown sourcePath files; Docker is only needed for legacy GEOFlow IDs. Always run the export locally and commit the
 updated `html/` before deploying.
 
 `html/` is the only deployable static-site source for カイログ. Do not copy or
@@ -155,7 +155,8 @@ push, then verify the `kurabe` production deployment.
 
 ## GEOFlow Usage
 
-Use `../../../shared/GEOFlow` as the local CMS. For カイログ, keep the content
+Current articles use local Markdown in `docs/articles/` via manifest `sourcePath`.
+GEOFlow is a legacy optional source, not a publishing prerequisite. For カイログ, keep the content
 operation Japanese-only:
 
 - `lang`: `ja`
@@ -216,14 +217,14 @@ The first Japanese marketing article is staged at:
 docs/articles/price-recording-app-ja.md
 ```
 
-After creating the matching approved GEOFlow article record, update:
+Maintain the local Markdown sourcePath and its reviewed editorial updated date in:
 
 ```text
 scripts/geoflow_guides_manifest.json
 ```
 
-Replace the temporary local source entry with the real GEOFlow `id` if the
-content is promoted into GEOFlow as the canonical CMS record.
+Current local sourcePath entries are the canonical article sources. Do not
+require a GEOFlow record or replace them with CMS IDs for routine edits.
 
 ## Commands
 

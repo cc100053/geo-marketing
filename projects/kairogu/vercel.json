@@ -16,5 +16,17 @@
       "source": "/account-deletion",
       "destination": "/account-deletion.html"
     }
+  ],
+  "redirects": [
+    {
+      "source": "/guides/ja",
+      "destination": "/guides/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/ja/",
+      "destination": "/guides/",
+      "permanent": true
+    }
   ]
 }

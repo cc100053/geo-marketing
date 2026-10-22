@@ -142,11 +142,14 @@ function loadLocalArticle(entry, index) {
     slug: entry.slug || parsed.data.slug,
     group: entry.group || parsed.data.group,
     lang: entry.lang || parsed.data.lang || 'ja',
-    updatedAt: new Date().toISOString(),
+    updatedAt: parsed.data.updated,
   });
 }
 
 function normalizeArticle(article) {
+  if (!article.updatedAt || Number.isNaN(Date.parse(article.updatedAt))) {
+    fail(`Article ${article.slug} needs a valid editorial updated date.`);
+  }
   const lang = article.lang || 'ja';
   const slug = article.slug || slugify(article.title);
   const outputPath = `${lang}/${slug}.html`;
@@ -162,7 +165,7 @@ function normalizeArticle(article) {
     description: truncateSentence(String(description).replace(/\s+/g, ' ').trim(), 155),
     keyword,
     canonicalUrl: `${baseUrl}/guides/${outputPath}`,
-    updatedAt: article.updatedAt || new Date().toISOString(),
+    updatedAt: article.updatedAt,
   };
 }
 
@@ -211,10 +214,12 @@ function renderArticlePage(article) {
     author: {
       '@type': 'Organization',
       name: 'カイログ編集部',
+      url: `${baseUrl}/guides/`,
     },
     publisher: {
       '@type': 'Organization',
       name: 'カイログ',
+      url: `${baseUrl}/`,
       logo: {
         '@type': 'ImageObject',
         url: `${baseUrl}/icon.png`,
@@ -236,14 +241,13 @@ function renderArticlePage(article) {
         <article class="article">
           <h1>${escapeHtml(article.title)}</h1>
           <p class="article-summary">${escapeHtml(article.description)}</p>
-          <div class="article-meta">更新日 ${formatDate(article.updatedAt)}</div>
+          <div class="article-meta">カイログ編集部 · 更新日 <time datetime="${escapeHtml(article.updatedAt)}">${formatDate(article.updatedAt)}</time></div>
           <div class="article-content">
             ${articleHtml}
           </div>
         </article>
-        <nav class="article-nav" aria-label="Guide navigation">
+        <nav class="article-nav" aria-label="ガイドナビゲーション">
           <a href="/guides/">すべてのガイド</a>
-          <a href="/guides/ja/">日本語ガイド</a>
           <a href="/">カイログ ホーム</a>
         </nav>
       </main>
@@ -267,25 +271,25 @@ function renderGuidesIndex(articles, language = null) {
     .join('\n');
   const title = language ? 'カイログ 日本語ガイド' : 'カイログ ガイド';
   const description =
-    'スーパーやドラッグストアの価格記録、底値チェック、買い物リスト活用をまとめたカイログ公式ガイド。';
+    'カイログ公式ガイド。値札・レシートの読み取り、自分の価格履歴、無料の単価比較と買い物リスト、Proの近くの価格情報の使い方を説明します。';
 
   return pageShell({
     title: `${title} | 価格記録と買い物リスト`,
     description,
     keywords: 'カイログ, 価格記録 アプリ, 底値 管理 アプリ, 買い物リスト アプリ, 価格タグ 読み取り',
-    canonicalUrl: language ? `${baseUrl}/guides/${language}/` : `${baseUrl}/guides/`,
+    canonicalUrl: `${baseUrl}/guides/`,
     bodyClass: 'guides-page',
     main: `
       <main class="guides-shell">
         <section class="guides-hero">
           <div>
             <p class="eyebrow">カイログ ガイド</p>
-            <h1>毎日の買い物を、記録で比べやすく。</h1>
+            <h1>カイログの価格記録・買い物リストガイド</h1>
             <p>${escapeHtml(description)}</p>
           </div>
-          <img src="/icon.png" alt="カイログ app icon">
+          <img src="/icon.png" alt="カイログのアイコン" width="132" height="132">
         </section>
-        <section class="guide-grid" aria-label="カイログ guide articles">
+        <section class="guide-grid" aria-label="カイログの記事一覧">
 ${cards}
         </section>
       </main>
@@ -300,7 +304,6 @@ function renderSitemap(articles) {
     ['terms.html', 'yearly'],
     ['account-deletion.html', 'yearly'],
     ['guides/', 'weekly'],
-    ['guides/ja/', 'weekly'],
     ...articles.map((article) => [`guides/${article.outputPath}`, 'weekly']),
   ];
 
@@ -324,7 +327,6 @@ ${urls}
 function renderGuidesSitemap(articles) {
   const guidePages = [
     ['guides/', 'weekly'],
-    ['guides/ja/', 'weekly'],
     ...articles.map((article) => [`guides/${article.outputPath}`, 'weekly']),
   ];
 
@@ -370,7 +372,9 @@ function pageShell({ title, description, keywords, canonicalUrl, bodyClass, main
   <link rel="icon" type="image/png" href="/icon.png">
   <meta property="og:title" content="${escapeHtml(title)}">
   <meta property="og:description" content="${escapeHtml(description)}">
-  <meta property="og:type" content="article">
+  <meta property="og:type" content="${bodyClass === 'article-page' ? 'article' : 'website'}">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="カイログ">
   <meta property="og:url" content="${escapeHtml(canonicalUrl)}">
   <meta property="og:image" content="${baseUrl}/icon.png">
   <style>
@@ -606,10 +610,10 @@ function pageShell({ title, description, keywords, canonicalUrl, bodyClass, main
 <body class="${escapeHtml(bodyClass)}">
   <header class="site-header">
     <a class="brand" href="/">
-      <img src="/icon.png" alt="カイログ">
+      <img src="/icon.png" alt="カイログ" width="42" height="42">
       <span>カイログ</span>
     </a>
-    <nav class="site-nav" aria-label="Site navigation">
+    <nav class="site-nav" aria-label="サイトナビゲーション">
       <a href="/guides/">ガイド</a>
       <a href="/privacy.html">プライバシー</a>
       <a href="/terms.html">利用規約</a>
@@ -634,7 +638,7 @@ function renderMarkdown(markdown) {
 
   function flushParagraph() {
     if (paragraph.length > 0) {
-      html.push(`<p>${escapeHtml(paragraph.join(' '))}</p>`);
+      html.push(`<p>${renderInline(paragraph.join(' '))}</p>`);
       paragraph = [];
     }
   }
@@ -678,7 +682,7 @@ function renderMarkdown(markdown) {
         html.push('<ul>');
         listType = 'ul';
       }
-      html.push(`<li>${escapeHtml(unordered[1])}</li>`);
+      html.push(`<li>${renderInline(unordered[1])}</li>`);
       continue;
     }
 
@@ -690,7 +694,7 @@ function renderMarkdown(markdown) {
         html.push('<ol>');
         listType = 'ol';
       }
-      html.push(`<li>${escapeHtml(ordered[1])}</li>`);
+      html.push(`<li>${renderInline(ordered[1])}</li>`);
       continue;
     }
 
@@ -701,6 +705,14 @@ function renderMarkdown(markdown) {
   flushParagraph();
   closeList();
   return html.join('\n');
+}
+
+function renderInline(value) {
+  // Only local guide links are supported; escape source HTML before adding anchors.
+  return escapeHtml(value).replace(
+    /\[([^\]]+)\]\((\/guides\/(?:ja\/[a-z0-9-]+\.html)?)\)/g,
+    '<a href="$2">$1</a>',
+  );
 }
 
 function markdownToPlainText(markdown) {
@@ -741,6 +753,7 @@ function formatDate(value) {
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return '';
   return new Intl.DateTimeFormat('ja-JP', {
+    timeZone: 'Asia/Tokyo',
     year: 'numeric',
     month: '2-digit',
     day: '2-digit',

@@ -36,6 +36,7 @@ test('every published page has consistent metadata, crawlable links and factual 
     }
     const text = html.replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/g, '').replace(/<[^>]+>/g, '');
     assert.doesNotMatch(text, /入力ゼロ|入力不要|ローカル|1\.5\.[012]|Gemini 1\.5 Flash|20日以内/, file);
+    assert.doesNotMatch(text, /内容量と単位を確認・修正できます|内容量や単位を直します|数量を増やす|どちらの基準で自分の価格履歴を見たい/, `unsupported controls: ${file}`);
     assert.doesNotMatch(html, /<meta[^>]+content="[^"]*(?:noindex|nosnippet)/, file);
     for (const [, link] of html.matchAll(/<(?:a|img)\b[^>]*(?:href|src)="([^"]+)"/g)) {
       if (/^(https?:|mailto:|#)/.test(link)) continue;

@@ -27,6 +27,96 @@
       "source": "/guides/ja/",
       "destination": "/guides/",
       "permanent": true
+    },
+    {
+      "source": "/guides/ja/category-price-history.html",
+      "destination": "/guides/ja/long-price-history-review.html",
+      "permanent": true
+    },
+    {
+      "source": "/guides/ja/content-amount-price-recording.html",
+      "destination": "/guides/ja/first-price-record-guide.html",
+      "permanent": true
+    },
+    {
+      "source": "/guides/ja/edit-scanned-price-record.html",
+      "destination": "/guides/ja/first-price-record-guide.html",
+      "permanent": true
+    },
+    {
+      "source": "/guides/ja/favorite-product-price-tracking.html",
+      "destination": "/guides/ja/long-price-history-review.html",
+      "permanent": true
+    },
+    {
+      "source": "/guides/ja/frozen-food-content-price-recording.html",
+      "destination": "/guides/ja/unit-price-comparison.html",
+      "permanent": true
+    },
+    {
+      "source": "/guides/ja/gram-price-tag-recording.html",
+      "destination": "/guides/ja/first-price-record-guide.html",
+      "permanent": true
+    },
+    {
+      "source": "/guides/ja/in-app-guide-scan-hints.html",
+      "destination": "/guides/ja/first-price-record-guide.html",
+      "permanent": true
+    },
+    {
+      "source": "/guides/ja/nearby-price-info-checkpoints.html",
+      "destination": "/guides/ja/product-search-nearby-prices.html",
+      "permanent": true
+    },
+    {
+      "source": "/guides/ja/pre-shopping-price-check.html",
+      "destination": "/guides/ja/shopping-list-price-memo.html",
+      "permanent": true
+    },
+    {
+      "source": "/guides/ja/price-compare-tab.html",
+      "destination": "/guides/ja/unit-price-comparison.html",
+      "permanent": true
+    },
+    {
+      "source": "/guides/ja/price-tag-photo-habits.html",
+      "destination": "/guides/ja/first-price-record-guide.html",
+      "permanent": true
+    },
+    {
+      "source": "/guides/ja/price-tag-reading.html",
+      "destination": "/guides/ja/first-price-record-guide.html",
+      "permanent": true
+    },
+    {
+      "source": "/guides/ja/receipt-scan-retry.html",
+      "destination": "/guides/ja/receipt-scan-price-recording.html",
+      "permanent": true
+    },
+    {
+      "source": "/guides/ja/scan-result-confirmation.html",
+      "destination": "/guides/ja/first-price-record-guide.html",
+      "permanent": true
+    },
+    {
+      "source": "/guides/ja/shop-map-revisit.html",
+      "destination": "/guides/ja/product-search-nearby-prices.html",
+      "permanent": true
+    },
+    {
+      "source": "/guides/ja/shopping-list-price-planning.html",
+      "destination": "/guides/ja/shopping-list-price-memo.html",
+      "permanent": true
+    },
+    {
+      "source": "/guides/ja/staple-food-price-recording.html",
+      "destination": "/guides/ja/long-price-history-review.html",
+      "permanent": true
+    },
+    {
+      "source": "/guides/ja/weekly-price-history-review.html",
+      "destination": "/guides/ja/long-price-history-review.html",
+      "permanent": true
     }
   ]
 }

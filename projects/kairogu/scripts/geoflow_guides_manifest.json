@@ -7,34 +7,16 @@
       "sourcePath": "docs/articles/price-recording-app-ja.md"
     },
     {
-      "group": "price-tag-reading",
-      "lang": "ja",
-      "slug": "price-tag-reading",
-      "sourcePath": "docs/articles/price-tag-reading-ja.md"
-    },
-    {
       "group": "receipt-vs-price-recording",
       "lang": "ja",
       "slug": "receipt-vs-price-recording",
       "sourcePath": "docs/articles/receipt-vs-price-recording-ja.md"
     },
     {
-      "group": "category-price-history",
-      "lang": "ja",
-      "slug": "category-price-history",
-      "sourcePath": "docs/articles/category-price-history-ja.md"
-    },
-    {
       "group": "unit-price-comparison",
       "lang": "ja",
       "slug": "unit-price-comparison",
       "sourcePath": "docs/articles/unit-price-comparison-ja.md"
-    },
-    {
-      "group": "shop-map-revisit",
-      "lang": "ja",
-      "slug": "shop-map-revisit",
-      "sourcePath": "docs/articles/shop-map-revisit-ja.md"
     },
     {
       "group": "shopping-list-price-memo",
@@ -61,18 +43,6 @@
       "sourcePath": "docs/articles/clearance-sale-price-recording-ja.md"
     },
     {
-      "group": "favorite-product-price-tracking",
-      "lang": "ja",
-      "slug": "favorite-product-price-tracking",
-      "sourcePath": "docs/articles/favorite-product-price-tracking-ja.md"
-    },
-    {
-      "group": "price-compare-tab",
-      "lang": "ja",
-      "slug": "price-compare-tab",
-      "sourcePath": "docs/articles/price-compare-tab-ja.md"
-    },
-    {
       "group": "drugstore-daily-goods-price-management",
       "lang": "ja",
       "slug": "drugstore-daily-goods-price-management",
@@ -85,28 +55,10 @@
       "sourcePath": "docs/articles/meat-100g-price-comparison-ja.md"
     },
     {
-      "group": "staple-food-price-recording",
-      "lang": "ja",
-      "slug": "staple-food-price-recording",
-      "sourcePath": "docs/articles/staple-food-price-recording-ja.md"
-    },
-    {
       "group": "long-price-history-review",
       "lang": "ja",
       "slug": "long-price-history-review",
       "sourcePath": "docs/articles/long-price-history-review-ja.md"
-    },
-    {
-      "group": "nearby-price-info-checkpoints",
-      "lang": "ja",
-      "slug": "nearby-price-info-checkpoints",
-      "sourcePath": "docs/articles/nearby-price-info-checkpoints-ja.md"
-    },
-    {
-      "group": "pre-shopping-price-check",
-      "lang": "ja",
-      "slug": "pre-shopping-price-check",
-      "sourcePath": "docs/articles/pre-shopping-price-check-ja.md"
     },
     {
       "group": "price-record-display-troubleshooting",
@@ -115,34 +67,10 @@
       "sourcePath": "docs/articles/price-record-display-troubleshooting-ja.md"
     },
     {
-      "group": "edit-scanned-price-record",
-      "lang": "ja",
-      "slug": "edit-scanned-price-record",
-      "sourcePath": "docs/articles/edit-scanned-price-record-ja.md"
-    },
-    {
       "group": "tax-included-price-tag-reading",
       "lang": "ja",
       "slug": "tax-included-price-tag-reading",
       "sourcePath": "docs/articles/tax-included-price-tag-reading-ja.md"
-    },
-    {
-      "group": "content-amount-price-recording",
-      "lang": "ja",
-      "slug": "content-amount-price-recording",
-      "sourcePath": "docs/articles/content-amount-price-recording-ja.md"
-    },
-    {
-      "group": "scan-result-confirmation",
-      "lang": "ja",
-      "slug": "scan-result-confirmation",
-      "sourcePath": "docs/articles/scan-result-confirmation-ja.md"
-    },
-    {
-      "group": "in-app-guide-scan-hints",
-      "lang": "ja",
-      "slug": "in-app-guide-scan-hints",
-      "sourcePath": "docs/articles/in-app-guide-scan-hints-ja.md"
     },
     {
       "group": "android-price-recording-app",
@@ -157,46 +85,10 @@
       "sourcePath": "docs/articles/product-search-nearby-prices-ja.md"
     },
     {
-      "group": "price-tag-photo-habits",
-      "lang": "ja",
-      "slug": "price-tag-photo-habits",
-      "sourcePath": "docs/articles/price-tag-photo-habits-ja.md"
-    },
-    {
-      "group": "gram-price-tag-recording",
-      "lang": "ja",
-      "slug": "gram-price-tag-recording",
-      "sourcePath": "docs/articles/gram-price-tag-recording-ja.md"
-    },
-    {
-      "group": "shopping-list-price-planning",
-      "lang": "ja",
-      "slug": "shopping-list-price-planning",
-      "sourcePath": "docs/articles/shopping-list-price-planning-ja.md"
-    },
-    {
-      "group": "frozen-food-content-price-recording",
-      "lang": "ja",
-      "slug": "frozen-food-content-price-recording",
-      "sourcePath": "docs/articles/frozen-food-content-price-recording-ja.md"
-    },
-    {
-      "group": "weekly-price-history-review",
-      "lang": "ja",
-      "slug": "weekly-price-history-review",
-      "sourcePath": "docs/articles/weekly-price-history-review-ja.md"
-    },
-    {
       "group": "receipt-scan-price-recording",
       "lang": "ja",
       "slug": "receipt-scan-price-recording",
       "sourcePath": "docs/articles/receipt-scan-price-recording-ja.md"
-    },
-    {
-      "group": "receipt-scan-retry",
-      "lang": "ja",
-      "slug": "receipt-scan-retry",
-      "sourcePath": "docs/articles/receipt-scan-retry-ja.md"
     },
     {
       "group": "receipt-discount-bulk-buy-review",

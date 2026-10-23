@@ -59,7 +59,7 @@ test('every published page has consistent metadata, crawlable links and factual 
     assert.ok((html.match(/<a href="\/guides\/ja\//g) || []).length >= 2, entry.slug);
     if (html.includes('近くの価格')) assert.match(html, /カイログ Pro|カイログ\s*Pro/);
   }
-  const compare = read(path.join(htmlRoot, 'guides/ja/price-compare-tab.html'));
+  const compare = read(path.join(htmlRoot, 'guides/ja/unit-price-comparison.html'));
   assert.match(compare, /無料の計算機/);
   assert.doesNotMatch(compare, /既存の記録から選択|数量・価格・割引を入力|節約額も表示/);
   assert.match(read(path.join(htmlRoot, 'robots.txt')), /User-agent: \*\nAllow: \/\n/);
@@ -71,9 +71,15 @@ test('export dates are stable, local links render safely and invalid dates fail'
   mkdirSync(path.join(dir, 'scripts'), { recursive: true });
   mkdirSync(path.join(dir, 'html'));
   cpSync(path.join(root, 'docs/articles'), path.join(dir, 'docs/articles'), { recursive: true });
+  cpSync(path.join(root, 'vercel.json'), path.join(dir, 'vercel.json'));
   for (const file of ['export_geoflow_guides.mjs', 'geoflow_guides_manifest.json']) cpSync(path.join(root, 'scripts', file), path.join(dir, 'scripts', file));
+  const config = JSON.parse(read(path.join(dir, 'vercel.json')));
+  const retired = config.redirects.filter((rule) => rule.source.endsWith('.html'));
+  mkdirSync(path.join(dir, 'html/guides/ja'), { recursive: true });
+  for (const rule of retired) writeFileSync(path.join(dir, 'html', rule.source.slice(1)), 'stale article');
   const first = run(dir);
   assert.equal(first.status, 0, first.stderr);
+  for (const rule of retired) assert.ok(!existsSync(path.join(dir, 'html', rule.source.slice(1))), rule.source);
   for (const file of readdirSync(path.join(dir, 'html'), { recursive: true }).filter((file) => /\.(html|xml|txt)$/.test(file))) {
     assert.equal(read(path.join(dir, 'html', file)), read(path.join(root, 'html', file)), `committed output matches source: ${file}`);
   }
@@ -91,4 +97,65 @@ test('export dates are stable, local links render safely and invalid dates fail'
   const invalid = run(dir);
   assert.notEqual(invalid.status, 0);
   assert.match(invalid.stderr, /valid editorial updated date/);
+});
+
+
+test('consolidated routes are permanent, direct, absent from output and cannot be resurrected', (t) => {
+  const config = JSON.parse(read(path.join(root, 'vercel.json')));
+  const redirects = config.redirects;
+  const retired = redirects.filter((rule) => rule.source.endsWith('.html'));
+  const activePaths = manifest.articles.map((entry) => `/guides/${entry.lang}/${entry.slug}.html`);
+  const guideRoot = path.join(root, 'html/guides/ja');
+  assert.equal(new Set(redirects.map((rule) => rule.source)).size, redirects.length, 'unique redirect sources');
+  assert.deepEqual(readdirSync(guideRoot).filter((file) => file !== 'index.html').sort(), activePaths.map((url) => path.basename(url)).sort());
+  for (const protectedPath of ['/', '/guides/ja/price-recording-app.html', '/guides/ja/ocr-price-recording-checkpoints.html']) {
+    assert.ok(!redirects.some((rule) => rule.source === protectedPath), protectedPath);
+  }
+  const rootSitemap = read(path.join(root, 'html/sitemap.xml'));
+  const guideSitemap = read(path.join(root, 'html/guides/sitemap.xml'));
+  const index = read(path.join(root, 'html/guides/index.html'));
+  const jaIndex = read(path.join(root, 'html/guides/ja/index.html'));
+  const expectedGuides = ['/guides/', ...activePaths];
+  const locs = (xml) => [...xml.matchAll(/<loc>https:\/\/www\.kairogu\.men([^<]*)<\/loc>/g)].map((m) => m[1]);
+  assert.deepEqual(locs(guideSitemap).sort(), expectedGuides.sort());
+  assert.equal(locs(rootSitemap).length, new Set(locs(rootSitemap)).size);
+  for (const url of activePaths) {
+    assert.ok(rootSitemap.includes(`<loc>https://www.kairogu.men${url}</loc>`), url);
+    assert.ok(index.includes(`href="${url}"`), url);
+    assert.ok(jaIndex.includes(`href="${url}"`), url);
+  }
+  for (const rule of retired) {
+    assert.equal(rule.permanent, true, rule.source);
+    assert.ok(activePaths.includes(rule.destination), rule.destination);
+    assert.ok(!redirects.some((next) => next.source === rule.destination), 'no chains');
+    assert.ok(!activePaths.includes(rule.source), rule.source);
+    assert.ok(!existsSync(path.join(root, 'docs/articles', `${path.basename(rule.source, '.html')}-ja.md`)), rule.source);
+    for (const sitemap of [rootSitemap, guideSitemap]) assert.ok(!sitemap.includes(rule.source), rule.source);
+  }
+  for (const file of readdirSync(path.join(root, 'html'), { recursive: true }).filter((file) => file.endsWith('.html'))) {
+    const html = read(path.join(root, 'html', file));
+    for (const [, href] of html.matchAll(/href="([^"]+)"/g)) {
+      const url = new URL(href, 'https://www.kairogu.men/');
+      if (url.origin === 'https://www.kairogu.men') assert.ok(!retired.some((rule) => rule.source === url.pathname), `${file}: ${href}`);
+    }
+  }
+  const dir = mkdtempSync(path.join(os.tmpdir(), 'kairogu-redirect-'));
+  t.after(() => rmSync(dir, { recursive: true, force: true }));
+  cpSync(path.join(root, 'scripts'), path.join(dir, 'scripts'), { recursive: true });
+  cpSync(path.join(root, 'docs/articles'), path.join(dir, 'docs/articles'), { recursive: true });
+  const badRule = config.redirects.find((rule) => rule.source.endsWith('.html'));
+  const originalDestination = badRule.destination;
+  badRule.destination = '/guides/ja/missing.html';
+  writeFileSync(path.join(dir, 'vercel.json'), JSON.stringify(config));
+  const missing = run(dir);
+  assert.notEqual(missing.status, 0);
+  assert.match(missing.stderr, /permanent redirect to an active guide/);
+  badRule.destination = originalDestination;
+  writeFileSync(path.join(dir, 'vercel.json'), JSON.stringify(config));
+  const resurrected = structuredClone(manifest);
+  resurrected.articles.push({ ...manifest.articles[0], slug: path.basename(badRule.source, '.html') });
+  writeFileSync(path.join(dir, 'scripts/geoflow_guides_manifest.json'), JSON.stringify(resurrected));
+  const conflict = run(dir);
+  assert.notEqual(conflict.status, 0);
+  assert.match(conflict.stderr, /permanent redirect to an active guide/);
 });

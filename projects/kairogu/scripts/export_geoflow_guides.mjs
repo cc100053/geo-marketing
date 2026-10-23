@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { readFileSync } from 'node:fs';
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, rm, writeFile } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -35,11 +35,25 @@ if (guideEntries.length === 0) {
 }
 
 const articles = await loadArticles(guideEntries);
+const config = JSON.parse(readFileSync(path.join(projectRoot, 'vercel.json'), 'utf8'));
+const retiredGuides = (config.redirects || []).filter((rule) => /^\/guides\/ja\/[a-z0-9-]+\.html$/.test(rule.source));
+const articlePaths = new Set(articles.map((article) => `/guides/${article.outputPath}`));
+for (const rule of retiredGuides) {
+  if (!rule.permanent || articlePaths.has(rule.source) || !articlePaths.has(rule.destination)) {
+    fail(`Retired guide ${rule.source} needs a permanent redirect to an active guide.`);
+  }
+}
+
 
 await mkdir(outputDir, { recursive: true });
 
 for (const article of articles) {
   await writeGuideFile(article.outputPath, renderArticlePage(article));
+}
+
+// Remove only explicit retired routes, including leftovers from an earlier export.
+for (const rule of retiredGuides) {
+  await rm(path.join(projectRoot, 'html', rule.source.slice(1)), { force: true });
 }
 
 await writeFile(path.join(outputDir, 'index.html'), renderGuidesIndex(articles));

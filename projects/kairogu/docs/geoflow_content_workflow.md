@@ -98,6 +98,24 @@ Expected generated files:
 - `html/sitemap.xml`
 - `html/robots.txt`
 
+## Consolidating Existing Guides
+
+Keep distinct support questions separate. Before retiring an article, move its useful
+answers into the matching current guide and review the available per-URL evidence.
+Missing traffic or link-report rows do not prove zero demand or backlinks.
+
+For an approved local consolidation, remove the retired Markdown source and manifest
+entry, update every internal link (including the homepage), and add an exact permanent
+redirect in `vercel.json` directly to an active article. The exporter validates these
+article redirects and removes their old generated HTML, including stale output from a
+previous export. It rebuilds both guide lists and sitemaps from the active manifest.
+Do not replace a server redirect with only sitemap removal or a redirect HTML page.
+
+Run the exporter and tests, inspect desktop/mobile output, and bind independent review
+to the final source hashes. Local preparation and commits do not authorize publication:
+obtain human approval of the final articles and redirect table before push/deploy.
+After approval, verify the deployed HTTP status and destination for every retired URL.
+
 ## Verify
 
 ```sh

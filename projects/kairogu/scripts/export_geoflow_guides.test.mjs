@@ -93,7 +93,7 @@ test('export dates are stable, local links render safely and invalid dates fail'
   const html = read(output);
   assert.ok(html.includes('<a href="/guides/ja/unit-price-comparison.html">&lt;script&gt;bad&lt;/script&gt;</a>'));
   assert.ok(!html.includes('href="javascript:'));
-  writeFileSync(source, read(source).replace('updated: 2026-10-23', 'updated: invalid'));
+  writeFileSync(source, read(source).replace(/^updated: .*/m, 'updated: invalid'));
   const invalid = run(dir);
   assert.notEqual(invalid.status, 0);
   assert.match(invalid.stderr, /valid editorial updated date/);

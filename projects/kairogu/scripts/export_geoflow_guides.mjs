@@ -360,7 +360,7 @@ function renderGuidesIndex(articles, language = null) {
     .join('\n');
   const title = language ? 'カイログ 日本語ガイド' : 'カイログ ガイド';
   const description =
-    'カイログ公式ガイド。値札・レシートの読み取り、自分の価格履歴、無料の単価比較と買い物リスト、Proの近くの価格情報の使い方を説明します。';
+    'カイログ公式ガイド。値札・レシートの読み取り、自分の価格履歴、無料の単価比較と買い物リスト、Proの近くの価格情報の使い方を、スーパーやドラッグストアでの買い物の場面別に、日本語で分かりやすく説明します。';
 
   return pageShell({
     title: `${title} | 価格記録と買い物リスト`,

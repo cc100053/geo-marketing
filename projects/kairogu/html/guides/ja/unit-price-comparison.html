@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>100gあたり価格の計算方法。容量違いをカイログで比べる | カイログ ガイド</title>
-  <meta name="description" content="100gあたり価格は税込価格÷重量g×100で計算します。300g・300円と500g・400円の例、gとmlの違い、カイログの無料計算機と保存記録の比較を説明します。">
+  <meta name="description" content="100gあたり価格は税込価格÷重量g×100で計算します。このページの計算機で2商品を比べられます。300g・300円と500g・400円の例、gとmlの違い、カイログの価格比較も説明します。">
   <meta name="keywords" content="100g 価格 計算 アプリ">
   <link rel="canonical" href="https://www.kairogu.men/guides/ja/unit-price-comparison.html">
   <link rel="icon" type="image/png" href="/icon.png">
   <meta property="og:title" content="100gあたり価格の計算方法。容量違いをカイログで比べる | カイログ ガイド">
-  <meta property="og:description" content="100gあたり価格は税込価格÷重量g×100で計算します。300g・300円と500g・400円の例、gとmlの違い、カイログの無料計算機と保存記録の比較を説明します。">
+  <meta property="og:description" content="100gあたり価格は税込価格÷重量g×100で計算します。このページの計算機で2商品を比べられます。300g・300円と500g・400円の例、gとmlの違い、カイログの価格比較も説明します。">
   <meta property="og:type" content="article">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:site_name" content="カイログ">
@@ -261,10 +261,82 @@
         <p class="eyebrow"><a href="/guides/">カイログ ガイド</a></p>
         <article class="article">
           <h1>100gあたり価格の計算方法。容量違いをカイログで比べる</h1>
-          <p class="article-summary">100gあたり価格は税込価格÷重量g×100で計算します。300g・300円と500g・400円の例、gとmlの違い、カイログの無料計算機と保存記録の比較を説明します。</p>
-          <div class="article-meta">カイログ編集部 · 更新日 <time datetime="2026-10-23">2026/10/23</time></div>
+          <p class="article-summary">100gあたり価格は税込価格÷重量g×100で計算します。このページの計算機で2商品を比べられます。300g・300円と500g・400円の例、gとmlの違い、カイログの価格比較も説明します。</p>
+          <div class="article-meta">カイログ編集部 · 更新日 <time datetime="2026-11-12">2026/11/12</time></div>
           <div class="article-content">
-            <p>100gあたり価格は「税込価格 ÷ 重量g × 100」で計算します。容量違いは同じ単位と税込条件にそろえて比べます。カイログの「価格比較」タブは、A・Bの価格と容量を手入力して単価を比べる無料の計算機です。</p>
+            <section class="unit-calc" aria-labelledby="unit-calc-title">
+      <style>
+        .unit-calc { margin: 0 0 34px; padding: 20px; border: 1px solid var(--line); border-radius: 8px; background: var(--soft); }
+        .article-content .unit-calc h2 { margin-top: 0; }
+        .unit-calc-rows { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+        .unit-calc fieldset { min-width: 0; margin: 0; padding: 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+        .unit-calc legend { padding: 0 6px; font-weight: 700; }
+        .unit-calc label { display: block; margin-top: 8px; font-size: 0.9rem; color: var(--muted); }
+        .unit-calc input { width: 100%; box-sizing: border-box; margin-top: 4px; padding: 10px; border: 1px solid var(--line); border-radius: 8px; font: inherit; font-size: 16px; }
+        .unit-calc-out { margin: 12px 0 0; }
+        .unit-calc output { font-size: 1.3rem; font-weight: 700; color: var(--primary); }
+        .unit-calc-result { min-height: 1.6em; font-weight: 700; }
+        .unit-calc-note { margin-bottom: 0; font-size: 0.9rem; }
+        @media (max-width: 560px) { .unit-calc-rows { grid-template-columns: 1fr; } }
+      </style>
+      <h2 id="unit-calc-title">100gあたりの価格を計算する</h2>
+      <p>税込価格と内容量を入力すると、100gあたりの価格を計算します。mlで入力すると100mlあたりになります。2商品を比べるときは、同じ単位と税込条件にそろえてください。</p>
+      <div class="unit-calc-rows">
+        <fieldset>
+          <legend>商品A</legend>
+          <label for="unit-calc-a-price">税込価格（円）</label>
+          <input id="unit-calc-a-price" type="number" inputmode="decimal" min="0" step="any" placeholder="例：300">
+          <label for="unit-calc-a-amount">内容量（g または ml）</label>
+          <input id="unit-calc-a-amount" type="number" inputmode="decimal" min="0" step="any" placeholder="例：300">
+          <p class="unit-calc-out">100あたり <output id="unit-calc-a-out" for="unit-calc-a-price unit-calc-a-amount">—</output></p>
+        </fieldset>
+        <fieldset>
+          <legend>商品B（比べるとき）</legend>
+          <label for="unit-calc-b-price">税込価格（円）</label>
+          <input id="unit-calc-b-price" type="number" inputmode="decimal" min="0" step="any" placeholder="例：400">
+          <label for="unit-calc-b-amount">内容量（g または ml）</label>
+          <input id="unit-calc-b-amount" type="number" inputmode="decimal" min="0" step="any" placeholder="例：500">
+          <p class="unit-calc-out">100あたり <output id="unit-calc-b-out" for="unit-calc-b-price unit-calc-b-amount">—</output></p>
+        </fieldset>
+      </div>
+      <p class="unit-calc-result" role="status"></p>
+      <p class="unit-calc-note">入力した数値はこのページ内で計算するだけで、送信・保存されません。計算機が動かない場合は「税込価格 ÷ 内容量 × 100」で計算できます。</p>
+      <noscript><p class="unit-calc-note">この計算機はJavaScriptが有効なときに動きます。</p></noscript>
+      <script>
+        (function () {
+          function per100(price, amount) {
+            var unit = price >= 0 && amount > 0 ? price / amount * 100 : NaN;
+            // The cap keeps one-decimal rounding exact and rules out NaN and Infinity in one test.
+            return unit <= 1e12 ? unit : null;
+          }
+          function round1(value) { return Math.round(value * 10) / 10; }
+          function fmt(value) { return round1(value).toLocaleString('ja-JP'); }
+          var root = document.currentScript.parentNode;
+          function read(id) {
+            var value = root.querySelector('#unit-calc-' + id).value.trim();
+            return value === '' ? NaN : Number(value);
+          }
+          function show(id) {
+            var unit = per100(read(id + '-price'), read(id + '-amount'));
+            root.querySelector('#unit-calc-' + id + '-out').textContent = unit === null ? '—' : fmt(unit) + '円';
+            return unit;
+          }
+          // Works from the displayed (one-decimal) unit prices, so the sentence never contradicts the numbers above it.
+          function compareText(a, b) {
+            if (a === null || b === null) return '';
+            var low = Math.min(round1(a), round1(b));
+            var high = Math.max(round1(a), round1(b));
+            if (low === high) return 'AとBはほぼ同じ単価です。';
+            var percent = round1((high - low) / high * 100);
+            return (a < b ? 'A' : 'B') + 'のほうが100あたり' + fmt(high - low) + '円' + (percent > 0 ? '（' + fmt(percent) + '%）' : '') + '低い計算です。';
+          }
+          root.addEventListener('input', function () {
+            root.querySelector('.unit-calc-result').textContent = compareText(show('a'), show('b'));
+          });
+        })();
+      </script>
+    </section>
+            <p>100gあたり価格は「税込価格 ÷ 重量g × 100」で計算します。容量違いは同じ単位と税込条件にそろえて比べます。このページの計算機に価格と内容量を入れると、その場で計算できます。カイログの「比較」タブ（画面タイトルは「価格比較」）も、A・Bの価格と容量を手入力して単価を比べる無料の計算機です。</p>
 <h2>計算例：300g・300円と500g・400円</h2>
 <p>以下は計算用の例で、実際の販売価格ではありません。</p>
 <ul>
@@ -284,7 +356,7 @@
 <p>この例では300gが単価で最も低い一方、支払額は最も多くなります。袋の入り数や食分、味、割引条件も確かめ、使い切れる量を選んでください。記録編集の内容量欄には袋全体のg数を入れ、「100g当たり」の価格表示と取り違えないようにします。</p>
 <h2>カイログでその場の2商品を比べる</h2>
 <ol>
-<li>画面下の「価格比較」タブを開きます。</li>
+<li>画面下の「比較」タブを開きます。画面タイトルは「価格比較」です。</li>
 <li>Aの価格に300、容量に300を入力します。</li>
 <li>Bの価格に400、容量に500を入力します。</li>
 <li>単価が低い側と、単価の差の割合を確認します。</li>
@@ -292,7 +364,7 @@
 <p>この例は容量を両方gにそろえています。価格は0以上、容量は正の数を入力します。記録を保存したり、スキャンしたりしなくても比較できます。入力欄は価格と容量で、税率や割引率は自動で調整されません。税込・割引後の支払価格を自分でそろえて入力してください。</p>
 <h2>単位をそろえるときの注意</h2>
 <p>1kgと500gなら1000gと500gに、1Lと500mlなら1000mlと500mlにそろえます。gは重量、mlは体積なので、そのまま混ぜて比較しません。液体を比べるなら100mlあたりの価格が目安になります。</p>
-<p>洗剤の濃縮倍率、肉の部位、味や品質、消費期限が違えば、同じ単価でも買い物の条件は違います。価格比較タブは、その違いまで判定するものではありません。</p>
+<p>洗剤の濃縮倍率、肉の部位、味や品質、消費期限が違えば、同じ単価でも買い物の条件は違います。比較タブの計算は、その違いまで判定するものではありません。</p>
 <h2>保存した記録の「ほかのサイズ」との違い</h2>
 <p>手入力の価格比較は、店頭の2商品をその場で計算したいときに使います。保存した記録を選択して入力する機能ではありません。</p>
 <p>5.0系の商品詳細では、同じ商品系列で比較できる別容量の記録があり、100g・100mlあたりで安いときに「ほかのサイズ」の候補を表示します。同じg系またはml系の単位で比べられることが条件です。すべての容量違いが候補になるわけではありません。</p>
@@ -315,7 +387,7 @@
           <a href="/">カイログ ホーム</a>
         </nav>
       </main>
-      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"100gあたり価格の計算方法。容量違いをカイログで比べる","description":"100gあたり価格は税込価格÷重量g×100で計算します。300g・300円と500g・400円の例、gとmlの違い、カイログの無料計算機と保存記録の比較を説明します。","inLanguage":"ja","author":{"@type":"Organization","name":"カイログ編集部","url":"https://www.kairogu.men/guides/"},"publisher":{"@type":"Organization","name":"カイログ","url":"https://www.kairogu.men/","logo":{"@type":"ImageObject","url":"https://www.kairogu.men/icon.png"}},"mainEntityOfPage":"https://www.kairogu.men/guides/ja/unit-price-comparison.html","dateModified":"2026-10-23"}</script>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"100gあたり価格の計算方法。容量違いをカイログで比べる","description":"100gあたり価格は税込価格÷重量g×100で計算します。このページの計算機で2商品を比べられます。300g・300円と500g・400円の例、gとmlの違い、カイログの価格比較も説明します。","inLanguage":"ja","author":{"@type":"Organization","name":"カイログ編集部","url":"https://www.kairogu.men/guides/"},"publisher":{"@type":"Organization","name":"カイログ","url":"https://www.kairogu.men/","logo":{"@type":"ImageObject","url":"https://www.kairogu.men/icon.png"}},"mainEntityOfPage":"https://www.kairogu.men/guides/ja/unit-price-comparison.html","dateModified":"2026-11-12"}</script>
   <footer class="site-footer">
     <span>&copy; 2026 hangyodev</span>
     <a href="mailto:hangyodev@gmail.com">お問い合わせ</a>

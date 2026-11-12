@@ -157,6 +157,7 @@ function loadLocalArticle(entry, index) {
     group: entry.group || parsed.data.group,
     lang: entry.lang || parsed.data.lang || 'ja',
     updatedAt: parsed.data.updated,
+    widget: parsed.data.widget,
   });
 }
 
@@ -257,7 +258,7 @@ function renderArticlePage(article) {
           <p class="article-summary">${escapeHtml(article.description)}</p>
           <div class="article-meta">カイログ編集部 · 更新日 <time datetime="${escapeHtml(article.updatedAt)}">${formatDate(article.updatedAt)}</time></div>
           <div class="article-content">
-            ${articleHtml}
+            ${renderWidget(article)}${articleHtml}
           </div>
         </article>
         <nav class="article-nav" aria-label="ガイドナビゲーション">
@@ -268,6 +269,80 @@ function renderArticlePage(article) {
       <script type="application/ld+json">${escapeScriptJson(jsonLd)}</script>
     `,
   });
+}
+
+// Markdown is escaped, so interactive blocks come from the template, opted in by front matter `widget`.
+function renderWidget(article) {
+  if (!article.widget) return '';
+  if (article.widget !== 'unit-price-calculator') {
+    fail(`Article ${article.slug} names an unknown widget: ${article.widget}`);
+  }
+  const row = (id, name, hint) => `
+        <fieldset>
+          <legend>${name}</legend>
+          <label for="unit-calc-${id}-price">税込価格（円）</label>
+          <input id="unit-calc-${id}-price" type="number" inputmode="decimal" min="0" step="any" placeholder="${hint[0]}">
+          <label for="unit-calc-${id}-amount">内容量（g または ml）</label>
+          <input id="unit-calc-${id}-amount" type="number" inputmode="decimal" min="0" step="any" placeholder="${hint[1]}">
+          <p class="unit-calc-out">100あたり <output id="unit-calc-${id}-out" for="unit-calc-${id}-price unit-calc-${id}-amount">—</output></p>
+        </fieldset>`;
+  return `<section class="unit-calc" aria-labelledby="unit-calc-title">
+      <style>
+        .unit-calc { margin: 0 0 34px; padding: 20px; border: 1px solid var(--line); border-radius: 8px; background: var(--soft); }
+        .article-content .unit-calc h2 { margin-top: 0; }
+        .unit-calc-rows { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+        .unit-calc fieldset { min-width: 0; margin: 0; padding: 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+        .unit-calc legend { padding: 0 6px; font-weight: 700; }
+        .unit-calc label { display: block; margin-top: 8px; font-size: 0.9rem; color: var(--muted); }
+        .unit-calc input { width: 100%; box-sizing: border-box; margin-top: 4px; padding: 10px; border: 1px solid var(--line); border-radius: 8px; font: inherit; font-size: 16px; }
+        .unit-calc-out { margin: 12px 0 0; }
+        .unit-calc output { font-size: 1.3rem; font-weight: 700; color: var(--primary); }
+        .unit-calc-result { min-height: 1.6em; font-weight: 700; }
+        .unit-calc-note { margin-bottom: 0; font-size: 0.9rem; }
+        @media (max-width: 560px) { .unit-calc-rows { grid-template-columns: 1fr; } }
+      </style>
+      <h2 id="unit-calc-title">100gあたりの価格を計算する</h2>
+      <p>税込価格と内容量を入力すると、100gあたりの価格を計算します。mlで入力すると100mlあたりになります。2商品を比べるときは、同じ単位と税込条件にそろえてください。</p>
+      <div class="unit-calc-rows">${row('a', '商品A', ['例：300', '例：300'])}${row('b', '商品B（比べるとき）', ['例：400', '例：500'])}
+      </div>
+      <p class="unit-calc-result" role="status"></p>
+      <p class="unit-calc-note">入力した数値はこのページ内で計算するだけで、送信・保存されません。計算機が動かない場合は「税込価格 ÷ 内容量 × 100」で計算できます。</p>
+      <noscript><p class="unit-calc-note">この計算機はJavaScriptが有効なときに動きます。</p></noscript>
+      <script>
+        (function () {
+          function per100(price, amount) {
+            var unit = price >= 0 && amount > 0 ? price / amount * 100 : NaN;
+            // The cap keeps one-decimal rounding exact and rules out NaN and Infinity in one test.
+            return unit <= 1e12 ? unit : null;
+          }
+          function round1(value) { return Math.round(value * 10) / 10; }
+          function fmt(value) { return round1(value).toLocaleString('ja-JP'); }
+          var root = document.currentScript.parentNode;
+          function read(id) {
+            var value = root.querySelector('#unit-calc-' + id).value.trim();
+            return value === '' ? NaN : Number(value);
+          }
+          function show(id) {
+            var unit = per100(read(id + '-price'), read(id + '-amount'));
+            root.querySelector('#unit-calc-' + id + '-out').textContent = unit === null ? '—' : fmt(unit) + '円';
+            return unit;
+          }
+          // Works from the displayed (one-decimal) unit prices, so the sentence never contradicts the numbers above it.
+          function compareText(a, b) {
+            if (a === null || b === null) return '';
+            var low = Math.min(round1(a), round1(b));
+            var high = Math.max(round1(a), round1(b));
+            if (low === high) return 'AとBはほぼ同じ単価です。';
+            var percent = round1((high - low) / high * 100);
+            return (a < b ? 'A' : 'B') + 'のほうが100あたり' + fmt(high - low) + '円' + (percent > 0 ? '（' + fmt(percent) + '%）' : '') + '低い計算です。';
+          }
+          root.addEventListener('input', function () {
+            root.querySelector('.unit-calc-result').textContent = compareText(show('a'), show('b'));
+          });
+        })();
+      </script>
+    </section>
+            `;
 }
 
 function renderGuidesIndex(articles, language = null) {

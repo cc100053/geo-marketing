@@ -159,3 +159,30 @@ test('consolidated routes are permanent, direct, absent from output and cannot b
   assert.notEqual(conflict.status, 0);
   assert.match(conflict.stderr, /permanent redirect to an active guide/);
 });
+
+test('the unit-price calculator is only on its guide and computes price per 100', () => {
+  const guides = path.join(root, 'html/guides/ja');
+  const withWidget = readdirSync(guides).filter((file) => read(path.join(guides, file)).includes('class="unit-calc"'));
+  assert.deepEqual(withWidget, ['unit-price-comparison.html']);
+  const html = read(path.join(guides, 'unit-price-comparison.html'));
+  for (const id of ['a-price', 'a-amount', 'b-price', 'b-amount']) assert.ok(html.includes(`<label for="unit-calc-${id}">`), id);
+  const fn = (name) => new RegExp(`function ${name}\\b[\\s\\S]*?(?:\\n {10}\\}|\\}(?=\\n))`).exec(html)[0];
+  const { per100, compareText } = new Function(`${['per100', 'round1', 'fmt', 'compareText'].map(fn).join('\n')}; return { per100, compareText };`)();
+  assert.equal(per100(300, 300), 100);
+  assert.equal(per100(400, 500), 80);
+  assert.equal(per100(0, 500), 0);
+  for (const huge of [[1e308, 0.001], [1e306, 1], [1e11, 1]]) assert.equal(per100(...huge), null);
+  assert.equal(per100(1e10, 1), 1e12);
+  assert.equal(compareText(1e12, 5e11), 'Bのほうが100あたり500,000,000,000円（50%）低い計算です。');
+  assert.equal(compareText(100, 80), 'Bのほうが100あたり20円（20%）低い計算です。');
+  assert.equal(compareText(80, 100), 'Aのほうが100あたり20円（20%）低い計算です。');
+  assert.equal(compareText(100, null), '');
+  for (const pair of [[100, 100], [100, 100.04], [100.04, 100.06 - 0.02]]) assert.equal(compareText(...pair), 'AとBはほぼ同じ単価です。');
+  assert.equal(compareText(100.04, 100.06), 'Aのほうが100あたり0.1円（0.1%）低い計算です。');
+  assert.equal(compareText(10000, 10000.1), 'Aのほうが100あたり0.1円低い計算です。');
+  for (let i = 0; i < 2000; i += 1) {
+    const text = compareText(Math.random() * 500, Math.random() * 500);
+    assert.doesNotMatch(text, /あたり0円|（0%）|NaN|Infinity/, text);
+  }
+  for (const bad of [[300, 0], [300, -1], [-1, 300], [NaN, 300], [300, NaN]]) assert.equal(per100(...bad), null);
+});

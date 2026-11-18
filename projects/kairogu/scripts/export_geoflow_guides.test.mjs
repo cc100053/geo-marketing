@@ -40,7 +40,7 @@ test('every published page has consistent metadata, crawlable links and factual 
     assert.doesNotMatch(html, /<meta[^>]+content="[^"]*(?:noindex|nosnippet)/, file);
     for (const [, link] of html.matchAll(/<(?:a|img)\b[^>]*(?:href|src)="([^"]+)"/g)) {
       if (/^(https?:|mailto:|#)/.test(link)) continue;
-      const target = path.resolve(path.dirname(path.join(htmlRoot, file)), link.startsWith('/') ? `${htmlRoot}${link}` : link.split('#')[0]);
+      const target = path.resolve(path.dirname(path.join(htmlRoot, file)), link.split('#')[0].startsWith('/') ? `${htmlRoot}${link.split('#')[0]}` : link.split('#')[0]);
       assert.ok(existsSync(target.endsWith('/') ? `${target}index.html` : target), `${file}: ${link}`);
     }
     for (const [, json] of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {

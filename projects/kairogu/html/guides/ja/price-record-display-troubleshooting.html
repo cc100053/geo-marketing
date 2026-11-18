@@ -8,6 +8,7 @@
   <meta name="keywords" content="価格記録 表示 遅い">
   <link rel="canonical" href="https://www.kairogu.men/guides/ja/price-record-display-troubleshooting.html">
   <link rel="icon" type="image/png" href="/icon.png">
+  <meta name="theme-color" content="#fff8ee">
   <meta property="og:title" content="価格記録が見つからない・表示が遅い時に確認したいこと | カイログ ガイド">
   <meta property="og:description" content="カイログで価格記録を探す時は、商品名、カテゴリ、店舗、日付、読み込み状態を順に確認すると原因を分けやすくなります。表示や読み込みが気になる時の見方を整理します。">
   <meta property="og:type" content="article">
@@ -16,255 +17,310 @@
   <meta property="og:url" content="https://www.kairogu.men/guides/ja/price-record-display-troubleshooting.html">
   <meta property="og:image" content="https://www.kairogu.men/icon.png">
   <style>
+    /* Tokens shared with html/index.html; --primary, --soft, --panel, --line and --muted are also used by widgets. */
     :root {
-      --primary: #1A8D7A;
-      --accent: #F4A261;
-      --bg: #FAF9F7;
-      --panel: #FFFFFF;
-      --text: #242424;
-      --muted: #667085;
-      --line: #E5E1DA;
-      --soft: #EEF8F5;
+      --cream: #fff8ee;
+      --cream-2: #fdf0dc;
+      --panel: #ffffff;
+      --ink: #1d2b28;
+      --text: #1d2b28;
+      --body: #34413d;
+      --muted: #5f6b67;
+      --line: #ecdfcb;
+      --primary: #0d8a73;
+      --teal-dark: #08594b;
+      --soft: #e3f3ee;
+      --coral: #ff5b4a;
+      --sun: #ffd23f;
     }
 
     * { box-sizing: border-box; }
 
+    html { scroll-padding-top: 84px; }
+
     body {
       margin: 0;
-      background: var(--bg);
+      background: var(--cream);
       color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", "Segoe UI", sans-serif;
-      line-height: 1.8;
+      font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", "YuGothic", Meiryo, sans-serif;
+      line-height: 1.85;
+      font-feature-settings: "palt";
+      -webkit-font-smoothing: antialiased;
     }
 
     a { color: inherit; }
+    img { max-width: 100%; }
 
-    .site-header,
-    .site-footer {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 20px;
-      display: flex;
+    .wrap { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+    .wrap.narrow { width: min(800px, calc(100% - 40px)); }
+    .mark { background: linear-gradient(transparent 62%, var(--sun) 62%, var(--sun) 92%, transparent 92%); }
+
+    .pill,
+    .chip {
+      display: inline-flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 20px;
+      font-weight: 800;
+      line-height: 1.4;
     }
+
+    .pill { padding: 6px 16px; border-radius: 999px; background: var(--coral); color: #fff; font-size: 14px; }
+    .chip { align-self: flex-start; padding: 2px 10px; border-radius: 6px; background: var(--soft); color: var(--teal-dark); font-size: 12px; }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 248, 238, 0.88);
+      backdrop-filter: saturate(160%) blur(12px);
+      -webkit-backdrop-filter: saturate(160%) blur(12px);
+      border-bottom: 1px solid rgba(236, 223, 203, 0.7);
+    }
+
+    .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 68px; }
 
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      color: var(--primary);
-      font-size: 1.18rem;
-      font-weight: 800;
-      text-decoration: none;
-    }
-
-    .brand img {
-      width: 42px;
-      height: 42px;
-      border-radius: 10px;
-    }
-
-    .site-nav {
-      display: flex;
-      gap: 18px;
-      color: var(--muted);
-      font-weight: 700;
-      font-size: 0.95rem;
-    }
-
-    .site-nav a,
-    .site-footer a,
-    .eyebrow a {
-      text-decoration: none;
-    }
-
-    .site-nav a:hover,
-    .site-footer a:hover,
-    .eyebrow a:hover {
-      color: var(--primary);
-    }
-
-    .guides-shell,
-    .article-shell {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 28px 20px 72px;
-    }
-
-    .guides-hero {
-      min-height: 300px;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 150px;
-      gap: 40px;
-      align-items: center;
-      padding: 52px 0 40px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .guides-hero img {
-      width: 132px;
-      height: 132px;
-      border-radius: 28px;
-      box-shadow: 0 16px 34px rgba(36, 36, 36, 0.12);
-    }
-
-    .eyebrow,
-    .guide-label {
-      margin: 0 0 12px;
-      color: var(--primary);
-      font-size: 0.82rem;
+      gap: 10px;
+      color: var(--teal-dark);
+      font-size: 20px;
       font-weight: 900;
-      letter-spacing: 0;
+      text-decoration: none;
     }
 
-    h1 {
-      max-width: 840px;
-      margin: 0;
-      font-size: clamp(2.1rem, 6vw, 4rem);
-      line-height: 1.12;
-      letter-spacing: 0;
+    .brand img { width: 36px; height: 36px; border-radius: 10px; }
+
+    .site-nav { display: flex; align-items: center; gap: 4px; }
+    .site-nav a { padding: 8px 12px; border-radius: 999px; font-size: 14px; font-weight: 700; text-decoration: none; }
+    .site-nav a:hover { background: var(--cream-2); }
+    .site-nav a[aria-current] { color: var(--primary); }
+    .site-nav .cta { margin-left: 8px; padding: 9px 18px; background: var(--primary); color: #fff; }
+    .site-nav .cta:hover { background: var(--teal-dark); }
+
+    .crumbs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; color: var(--muted); font-size: 13px; font-weight: 700; }
+    .crumbs a { text-decoration: none; }
+    .crumbs a:hover { color: var(--primary); }
+
+    /* Store buttons and app CTA */
+    .stores { display: flex; flex-wrap: wrap; gap: 10px; }
+
+    .store {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 18px;
+      border-radius: 14px;
+      background: #fff;
+      color: var(--ink);
+      text-decoration: none;
+      line-height: 1.2;
     }
 
-    .guides-hero p:not(.eyebrow),
-    .article-summary {
-      max-width: 760px;
-      margin: 22px 0 0;
-      color: var(--muted);
-      font-size: 1.08rem;
-    }
+    .store small { display: block; font-size: 10px; opacity: 0.7; }
+    .store b { display: block; font-size: 15px; }
+    .store svg { flex-shrink: 0; }
 
-    .guide-grid {
+    .app-cta {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 18px;
-      padding-top: 34px;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 22px;
+      margin: 48px 0 0;
+      padding: 32px;
+      border-radius: 28px;
+      background: var(--primary);
+      color: #fff;
     }
+
+    .app-cta img { width: 64px; height: 64px; border-radius: 16px; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18); }
+    .app-cta p { margin: 0; color: rgba(255, 255, 255, 0.82); font-size: 14px; line-height: 1.6; }
+    .app-cta .app-cta-title { margin-bottom: 4px; color: #fff; font-size: 20px; font-weight: 900; }
+
+    /* Guides index */
+    .guides-hero { position: relative; overflow: hidden; padding: 56px 0 64px; }
+
+    .guides-hero::before {
+      content: "";
+      position: absolute;
+      right: -140px;
+      top: -160px;
+      width: 560px;
+      height: 560px;
+      border-radius: 50%;
+      background: var(--cream-2);
+      z-index: -1;
+    }
+
+    .guides-hero .wrap { display: grid; grid-template-columns: minmax(0, 1fr) 160px; gap: 40px; align-items: center; }
+
+    .guides-hero img { width: 132px; height: 132px; border-radius: 30px; box-shadow: 0 20px 44px rgba(29, 43, 40, 0.16); transform: rotate(6deg); }
+
+    h1 { margin: 0; font-weight: 900; letter-spacing: -0.01em; }
+
+    .guides-hero h1 { margin: 20px 0 18px; font-size: clamp(32px, 5vw, 56px); line-height: 1.25; }
+    .guides-hero p { max-width: 720px; margin: 0; color: var(--muted); font-size: 16px; }
+
+    .guide-section { padding: 28px 0 24px; }
+
+    .section-head { margin-bottom: 22px; }
+    .section-head .en { display: block; color: var(--primary); font-size: 12px; font-weight: 900; letter-spacing: 0.24em; }
+    .section-head h2 { margin: 2px 0 0; font-size: clamp(24px, 3vw, 32px); font-weight: 900; line-height: 1.35; }
+
+    .guide-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
 
     .guide-card {
-      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
       padding: 24px;
+      border-radius: 22px;
       background: var(--panel);
       border: 1px solid var(--line);
-      border-radius: 8px;
       text-decoration: none;
-      box-shadow: 0 10px 24px rgba(36, 36, 36, 0.06);
-      transition: transform 160ms ease, box-shadow 160ms ease;
+      transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
     }
 
-    .guide-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 16px 32px rgba(36, 36, 36, 0.1);
+    .guide-card:hover { transform: translateY(-3px); border-color: var(--primary); box-shadow: 0 16px 36px rgba(29, 43, 40, 0.09); }
+    .guide-card h3 { margin: 0; font-size: 17px; font-weight: 800; line-height: 1.5; }
+    .guide-card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
+    .guide-card .more { margin-top: auto; padding-top: 6px; color: var(--primary); font-size: 13px; font-weight: 800; }
+    .guide-card.featured { border: 2px solid var(--primary); box-shadow: 0 10px 0 var(--soft); }
+    .guide-card.featured h3 { font-size: 19px; }
+
+    /* Article */
+    .article-hero { padding: 48px 0 40px; }
+    .article-hero .chip { margin-bottom: 14px; }
+    .article-hero h1 { font-size: clamp(28px, 4.2vw, 42px); line-height: 1.35; }
+    .article-summary { margin: 18px 0 0; color: var(--muted); font-size: 16px; }
+
+    .article-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin-top: 20px; color: var(--muted); font-size: 13px; font-weight: 700; }
+    .article-meta img { width: 28px; height: 28px; border-radius: 8px; }
+
+    .article { padding: 44px 48px; border-radius: 32px; background: var(--panel); }
+
+    .article-content { color: var(--body); font-size: 16.5px; }
+    .article-content > :first-child { margin-top: 0; }
+    .article-content p { margin: 0 0 1.2em; }
+
+    .article-content h2 {
+      position: relative;
+      margin: 2.4em 0 0.9em;
+      padding: 0 0 0 18px;
+      color: var(--ink);
+      font-size: 24px;
+      font-weight: 900;
+      line-height: 1.4;
     }
 
-    .guide-card h2 {
-      margin: 0;
-      font-size: 1.24rem;
-      line-height: 1.35;
+    .article-content h2::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.15em;
+      bottom: 0.15em;
+      width: 6px;
+      border-radius: 3px;
+      background: var(--primary);
     }
 
-    .guide-card p {
-      margin: 14px 0 0;
-      color: var(--muted);
-      font-size: 0.98rem;
-    }
-
-    .article {
-      max-width: 860px;
-      margin: 26px auto 0;
-      padding-bottom: 36px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .article-meta {
-      margin-top: 14px;
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .article-content {
-      margin-top: 34px;
-      font-size: 1.04rem;
-    }
-
-    .article-content h2,
-    .article-content h3 {
-      margin: 34px 0 12px;
-      line-height: 1.35;
-      letter-spacing: 0;
-    }
-
-    .article-content h2 { font-size: 1.58rem; }
-    .article-content h3 { font-size: 1.22rem; }
-
-    .article-content p,
-    .article-content li {
-      color: #3F3A36;
-    }
+    .article-content h3 { margin: 1.8em 0 0.6em; color: var(--ink); font-size: 18.5px; font-weight: 800; line-height: 1.5; }
 
     .article-content ul,
-    .article-content ol {
-      padding-left: 1.35rem;
-    }
+    .article-content ol { margin: 0 0 1.4em; padding: 18px 22px 18px 44px; border-radius: 18px; background: var(--cream); }
+    .article-content li { margin: 0.3em 0; }
+    .article-content ul li::marker { color: var(--primary); }
+    .article-content ol li::marker { color: var(--primary); font-weight: 900; }
 
-    .article-nav {
-      max-width: 860px;
-      margin: 24px auto 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
+    .article-content a { color: var(--teal-dark); font-weight: 700; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+
+    .article-nav { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0 0; }
 
     .article-nav a {
-      padding: 10px 14px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: var(--panel);
-      color: var(--primary);
+      padding: 12px 22px;
+      border-radius: 999px;
+      border: 2px solid var(--ink);
+      background: #fff;
+      font-size: 14px;
       font-weight: 800;
       text-decoration: none;
     }
 
-    @media (max-width: 720px) {
-      .site-header,
-      .site-footer {
-        align-items: flex-start;
-        flex-direction: column;
-      }
+    .article-nav a:hover { background: var(--ink); color: #fff; }
 
-      .guides-hero {
-        grid-template-columns: 1fr;
-        min-height: auto;
-      }
+    main { padding-bottom: 88px; }
 
-      .guides-hero img {
-        width: 104px;
-        height: 104px;
-      }
+    /* Footer */
+    .site-footer { padding: 56px 0 36px; background: var(--ink); color: rgba(255, 255, 255, 0.7); font-size: 14px; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr repeat(3, minmax(0, 1fr)); gap: 36px; }
+    .site-footer .brand { margin-bottom: 12px; color: #fff; }
+    .site-footer p { margin: 0; }
+    .site-footer strong { display: block; margin-bottom: 10px; color: #fff; font-size: 13px; letter-spacing: 0.08em; }
+    .site-footer a:not(.brand) { display: block; margin-bottom: 6px; text-decoration: none; }
+    .site-footer a:hover { color: #fff; }
+    .site-footer .copy { margin-top: 40px; padding-top: 22px; border-top: 1px solid rgba(255, 255, 255, 0.12); font-size: 12px; }
+
+    @media (max-width: 960px) {
+      .site-nav a:not(.cta):not([aria-current]) { display: none; }
+      .guide-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .app-cta { grid-template-columns: auto 1fr; }
+      .app-cta .stores { grid-column: 1 / -1; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid > div:first-child { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 640px) {
+      .wrap, .wrap.narrow { width: calc(100% - 28px); }
+      .guides-hero { padding: 36px 0 40px; }
+      .guides-hero .wrap { grid-template-columns: 1fr; }
+      .guides-hero img { display: none; }
+      .guide-grid { grid-template-columns: 1fr; }
+      .article-hero { padding: 32px 0 28px; }
+      .article { margin: 0 -14px; padding: 30px 20px; border-radius: 24px; }
+      .article-content { font-size: 16px; }
+      .article-content h2 { font-size: 21px; }
+      .article-content ul,
+      .article-content ol { padding: 14px 16px 14px 36px; }
+      .app-cta { grid-template-columns: 1fr; padding: 28px 22px; text-align: center; justify-items: center; }
+      .app-cta .stores { justify-content: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .guide-card { transition: none; }
     }
   </style>
 </head>
 <body class="article-page">
   <header class="site-header">
-    <a class="brand" href="/">
-      <img src="/icon.png" alt="カイログ" width="42" height="42">
-      <span>カイログ</span>
-    </a>
-    <nav class="site-nav" aria-label="サイトナビゲーション">
-      <a href="/guides/">ガイド</a>
-      <a href="/privacy.html">プライバシー</a>
-      <a href="/terms.html">利用規約</a>
-    </nav>
+    <div class="wrap">
+      <a class="brand" href="/">
+        <img src="/icon.png" alt="" width="36" height="36">
+        <span>カイログ</span>
+      </a>
+      <nav class="site-nav" aria-label="サイトナビゲーション">
+        <a href="/#features">できること</a>
+        <a href="/#plans">無料とPro</a>
+        <a href="/guides/" aria-current="true">ガイド</a>
+        <a href="/#faq">よくある質問</a>
+        <a class="cta" href="/#download">ダウンロード</a>
+      </nav>
+    </div>
   </header>
 <main class="article-shell">
-        <p class="eyebrow"><a href="/guides/">カイログ ガイド</a></p>
-        <article class="article">
-          <h1>価格記録が見つからない・表示が遅い時に確認したいこと</h1>
-          <p class="article-summary">カイログで価格記録を探す時は、商品名、カテゴリ、店舗、日付、読み込み状態を順に確認すると原因を分けやすくなります。表示や読み込みが気になる時の見方を整理します。</p>
-          <div class="article-meta">カイログ編集部 · 更新日 <time datetime="2026-10-23">2026/10/23</time></div>
-          <div class="article-content">
-            <p>価格記録アプリを使っていると、買い物前や店頭で「前に記録したはずの商品が見つからない」「一覧の表示を少し待つ必要がある」と感じることがあります。原因はひとつとは限りません。商品名、カテゴリ、店舗、日付、読み込み状態を順に確認すると、探し方を整理しやすくなります。</p>
+        <header class="article-hero">
+          <div class="wrap narrow">
+            <nav class="crumbs" aria-label="パンくずリスト"><a href="/">ホーム</a><span aria-hidden="true">›</span><a href="/guides/">ガイド</a></nav>
+            <span class="chip">見返す</span>
+            <h1>価格記録が見つからない・表示が遅い時に確認したいこと</h1>
+            <p class="article-summary">カイログで価格記録を探す時は、商品名、カテゴリ、店舗、日付、読み込み状態を順に確認すると原因を分けやすくなります。表示や読み込みが気になる時の見方を整理します。</p>
+            <div class="article-meta"><img src="/icon.png" alt="" width="28" height="28"><span>カイログ編集部</span><span>更新日 <time datetime="2026-10-23">2026/10/23</time></span></div>
+          </div>
+        </header>
+        <div class="wrap narrow">
+          <article class="article">
+            <div class="article-content">
+              <p>価格記録アプリを使っていると、買い物前や店頭で「前に記録したはずの商品が見つからない」「一覧の表示を少し待つ必要がある」と感じることがあります。原因はひとつとは限りません。商品名、カテゴリ、店舗、日付、読み込み状態を順に確認すると、探し方を整理しやすくなります。</p>
 <p>ホームで読み込みに失敗した場合は、画面を下に引いて再試行できます。通信状態、ログイン中のアカウント、検索語やカテゴリを確認してください。近くの価格は位置情報や取得失敗でも表示されないことがあります。</p>
 <h2>要点</h2>
 <ul>
@@ -302,17 +358,56 @@
 <li><a href="/guides/ja/receipt-scan-price-recording.html">レシートから記録する方法</a></li>
 <li><a href="/guides/ja/unit-price-comparison.html">単価で比較する方法</a></li>
 </ul>
-          </div>
-        </article>
-        <nav class="article-nav" aria-label="ガイドナビゲーション">
-          <a href="/guides/">すべてのガイド</a>
-          <a href="/">カイログ ホーム</a>
-        </nav>
+            </div>
+          </article>
+          <aside class="app-cta" aria-label="カイログをダウンロード">
+            <img src="/icon.png" alt="" width="64" height="64">
+            <div class="app-cta-text">
+              <p class="app-cta-title">カイログで価格を記録してみる</p>
+              <p>値札・レシートを撮って、確認・修正して保存。ダウンロード無料（広告・アプリ内購入あり）。</p>
+            </div>
+            <div class="stores">
+              <a class="store" href="https://apps.apple.com/jp/app/id6757463771" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg><span><small>App Storeで</small><b>ダウンロード</b></span></a>
+              <a class="store" href="https://play.google.com/store/apps/details?id=com.cc100053.kurabe" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.18 23.76c.3.17.64.22.99.14l12.45-7.19-2.76-2.76-10.68 9.81zM.46 1.07C.17 1.4 0 1.89 0 2.53v18.94c0 .64.17 1.13.47 1.46l.08.07 10.61-10.61v-.25L.54 1zM20.12 10.3l-2.98-1.72-3.07 3.07 3.07 3.07 3-1.73c.86-.5.86-1.3-.02-2.69zM3.18.24L15.63 7.43l-2.76 2.76L2.19.38A1.16 1.16 0 0 1 3.18.24z"/></svg><span><small>Google Playで</small><b>手に入れよう</b></span></a>
+            </div>
+          </aside>
+          <nav class="article-nav" aria-label="ガイドナビゲーション">
+            <a href="/guides/">← すべてのガイド</a>
+            <a href="/">カイログ ホーム</a>
+          </nav>
+        </div>
       </main>
       <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"価格記録が見つからない・表示が遅い時に確認したいこと","description":"カイログで価格記録を探す時は、商品名、カテゴリ、店舗、日付、読み込み状態を順に確認すると原因を分けやすくなります。表示や読み込みが気になる時の見方を整理します。","inLanguage":"ja","author":{"@type":"Organization","name":"カイログ編集部","url":"https://www.kairogu.men/guides/"},"publisher":{"@type":"Organization","name":"カイログ","url":"https://www.kairogu.men/","logo":{"@type":"ImageObject","url":"https://www.kairogu.men/icon.png"}},"mainEntityOfPage":"https://www.kairogu.men/guides/ja/price-record-display-troubleshooting.html","dateModified":"2026-10-23"}</script>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://www.kairogu.men/"},{"@type":"ListItem","position":2,"name":"ガイド","item":"https://www.kairogu.men/guides/"},{"@type":"ListItem","position":3,"name":"価格記録が見つからない・表示が遅い時に確認したいこと","item":"https://www.kairogu.men/guides/ja/price-record-display-troubleshooting.html"}]}</script>
   <footer class="site-footer">
-    <span>&copy; 2026 hangyodev</span>
-    <a href="mailto:hangyodev@gmail.com">お問い合わせ</a>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="/"><img src="/icon.png" alt="" width="36" height="36"><span>カイログ</span></a>
+          <p>値札・レシートの写真から、商品の価格を確認・修正して保存する価格記録アプリ。</p>
+        </div>
+        <div>
+          <strong>サイト</strong>
+          <a href="/">ホーム</a>
+          <a href="/#features">できること</a>
+          <a href="/#plans">無料とPro</a>
+        </div>
+        <div>
+          <strong>ガイド</strong>
+          <a href="/guides/">ガイド一覧</a>
+          <a href="/guides/ja/first-price-record-guide.html">初めての記録</a>
+          <a href="/guides/ja/unit-price-comparison.html">100gあたり価格</a>
+        </div>
+        <div>
+          <strong>サポート</strong>
+          <a href="mailto:hangyodev@gmail.com">お問い合わせ</a>
+          <a href="/privacy.html">プライバシーポリシー</a>
+          <a href="/terms.html">利用規約</a>
+          <a href="/account-deletion.html">アカウント削除</a>
+        </div>
+      </div>
+      <p class="copy">&copy; 2026 hangyodev. All rights reserved.</p>
+    </div>
   </footer>
 </body>
 </html>
